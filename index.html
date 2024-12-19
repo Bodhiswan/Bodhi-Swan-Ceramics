@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop - Bodhi Swan Ceramics</title>
     
     <!-- Favicon and App Icons -->
     <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96" />
@@ -13,6 +12,28 @@
     <meta name="apple-mobile-web-app-title" content="Bodhi Swan" />
     <link rel="manifest" href="assets/site.webmanifest" />
     
+    <!-- Primary Meta Tags -->
+    <title>Bodhi Swan Ceramics | Handcrafted Pottery in Brisbane</title>
+    <meta name="title" content="Bodhi Swan Ceramics | Handcrafted Pottery in Brisbane">
+    <meta name="description" content="Discover handcrafted ceramic pieces that blend traditional throwing techniques with contemporary design. Brisbane-based artisan creating functional pottery since 2020.">
+    <meta name="keywords" content="ceramics, pottery, Brisbane pottery, handmade ceramics, ceramic art, Bodhi Swan, artisan pottery, functional ceramics, handcrafted pottery, Australian ceramics">
+    <meta name="author" content="Bodhi Swan Ceramics">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bodhiswan.github.io/">
+    <meta property="og:title" content="Bodhi Swan Ceramics | Handcrafted Pottery in Brisbane">
+    <meta property="og:description" content="Discover handcrafted ceramic pieces that blend traditional throwing techniques with contemporary design. Brisbane-based artisan creating functional pottery since 2020.">
+    <meta property="og:image" content="bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bodhiswan.github.io/">
+    <meta property="twitter:title" content="Bodhi Swan Ceramics | Handcrafted Pottery in Brisbane">
+    <meta property="twitter:description" content="Discover handcrafted ceramic pieces that blend traditional throwing techniques with contemporary design. Brisbane-based artisan creating functional pottery since 2020.">
+    <meta property="twitter:image" content="bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
+
     <style>
         * {
             margin: 0;
@@ -26,101 +47,146 @@
             color: #333;
             background-color: #fafafa;
             background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            padding: 2rem;
             min-height: 100vh;
         }
 
         .container {
-            max-width: 1200px;
+            text-align: center;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 2rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .site-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
             margin-bottom: 2rem;
-            text-align: center;
+            position: relative;
         }
 
-        .nav-link {
-            color: #333;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #333, transparent);
+            animation: lineGrow 1s ease-out forwards;
+            animation-delay: 0.5s;
         }
 
-        .nav-link:hover {
-            color: #666;
+        @keyframes lineGrow {
+            to { width: 80%; }
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: rotate(5deg);
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 300;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
+            letter-spacing: 3px;
+            color: #2c2c2c;
+            text-align: left;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
         }
 
-        .shop-grid {
+        .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            max-width: 600px;
         }
 
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .product-image {
+        .gallery img {
             width: 100%;
-            height: 300px;
+            height: 250px;
             object-fit: cover;
-            background-color: #f8f8f8;
+            border-radius: 4px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background-color: #eee;
         }
 
-        .product-info {
+        .gallery img:hover {
+            transform: scale(1.02) translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .bio {
+            max-width: 600px;
+            margin: 1rem auto;
             padding: 1.5rem;
+            font-weight: 300;
+            color: #444;
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
         }
 
-        .product-title {
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
+        .bio:hover {
+            transform: translateY(-2px);
         }
 
-        .product-description {
-            font-size: 0.9rem;
+        .contact-section {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
             color: #666;
-            margin-bottom: 1rem;
-            line-height: 1.6;
         }
 
-        .product-metadata {
-            font-size: 0.85rem;
-            color: #888;
-            margin-bottom: 1rem;
+        .contact-link {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
 
-        .product-price {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
+        .contact-link:hover {
+            color: #333;
         }
 
-        .buy-button {
+        .button {
             display: inline-block;
             padding: 0.8rem 2rem;
             background: transparent;
@@ -132,58 +198,99 @@
             font-size: 0.9rem;
             font-weight: 500;
             letter-spacing: 0.5px;
-            cursor: pointer;
-            width: 100%;
-            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
 
-        .buy-button:hover {
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
             background: #333;
-            color: white;
-            transform: translateY(-2px);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .button:hover {
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .button:hover::before {
+            width: 100%;
+        }
+
+        .button:active {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
         }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-
-            .shop-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+            .header {
+                flex-direction: column;
+                gap: 1rem;
             }
 
             h1 {
                 font-size: 2rem;
+                text-align: center;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .gallery img {
+                height: 200px;
+            }
+
+            .button {
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <nav class="site-nav">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="shop.html" class="nav-link">Shop</a>
-        </nav>
+        <div class="header">
+            <img src="348982356_573566748281355_5155277251296915931_n.jpg" alt="Bodhi Swan Ceramics Logo" class="logo">
+            <h1>Bodhi Swan Ceramics</h1>
+        </div>
+        
+        <div class="gallery">
+            <img src="bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg" alt="Handcrafted ceramic bowl with unique glaze pattern" loading="lazy">
+            <img src="bodhiswan_348471159_3630382333858035_296460734488849167_n.jpg" alt="Contemporary ceramic vase with minimalist design" loading="lazy">
+            <img src="bodhiswan_348863468_1167309003909433_5762684848837982962_n.jpg" alt="Artisanal pottery piece showcasing traditional techniques" loading="lazy">
+            <img src="bodhiswan_349131030_7008228542527475_7205180136632410620_n.jpg" alt="Modern ceramic creation with distinctive finish" loading="lazy">
+        </div>
 
-        <header class="header">
-            <h1>Available Works</h1>
-        </header>
+        <div class="bio">
+            As a wheel-thrown ceramics artist, I create my pieces between my home studio and Indooroopilly Ceramics Studio, where I also share my passion for pottery as a teacher. My practice focuses on the art of throwing on the wheel, crafting functional pieces that blend traditional techniques with contemporary design.
+            <p class="lesson-info">Private lessons are available upon request - please email or text using the contact information below.</p>
+        </div>
+        
+        <style>
+            .lesson-info {
+                margin-top: 1rem;
+                font-style: italic;
+                color: #555;
+            }
+        </style>
 
-        <div class="shop-grid">
-            <div class="product-card">
-                <img src="bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg" alt="Hand-thrown espresso cup with smooth glaze finish" class="product-image" loading="lazy">
-                <div class="product-info">
-                    <h2 class="product-title">Handcrafted Espresso Cup</h2>
-                    <p class="product-description">A meticulously wheel-thrown espresso cup, perfect for your morning ritual. Features a smooth interior glaze and natural exterior finish.</p>
-                    <div class="product-metadata">
-                        <p>Dimensions: 6cm x 6cm x 7cm</p>
-                        <p>Materials: Stoneware clay, Clear glaze interior</p>
-                        <p>Care: Dishwasher and microwave safe</p>
-                    </div>
-                    <div class="product-price">$35.00</div>
-                    <button class="buy-button" onclick="alert('Stripe integration coming soon!')">Purchase</button>
-                </div>
+        <div class="contact-section">
+            <div class="links">
+                <a href="https://etsy.com/shop/YourShop" target="_blank" rel="noopener" class="button">Shop on Etsy</a>
+                <a href="https://instagram.com/bodhiswan" target="_blank" rel="noopener" class="button">Instagram</a>
+            </div>
+            <div class="contact-info">
+                <a href="mailto:swan1995@gmail.com" class="contact-link">swan1995@gmail.com</a>
+                <a href="tel:0478756284" class="contact-link">0478 756 284</a>
             </div>
         </div>
     </div>
