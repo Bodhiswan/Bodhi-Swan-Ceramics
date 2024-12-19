@@ -12,119 +12,206 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
-            line-height: 1.8;
-            color: #4A4A4A;
-            background-color: #F3ECE0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
             padding: 2rem;
+            min-height: 100vh;
         }
 
         .container {
             text-align: center;
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #333, transparent);
+            animation: lineGrow 1s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes lineGrow {
+            to { width: 80%; }
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: rotate(5deg);
         }
 
         h1 {
             font-size: 3rem;
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin-bottom: 1.5rem;
-            color: #6A5D4D;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: #2c2c2c;
+            text-align: left;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
         }
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            max-width: 600px;
         }
 
         .gallery img {
             width: 100%;
-            height: auto;
+            height: 250px;
             object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 4px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .gallery img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            transform: scale(1.02) translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
 
         .bio {
-            background: #E2D8C3;
+            max-width: 600px;
+            margin: 1rem auto;
             padding: 1.5rem;
+            font-weight: 300;
+            color: #444;
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(10px);
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
         }
 
-        .bio p {
-            font-size: 1.1rem;
-            color: #5C5342;
+        .bio:hover {
+            transform: translateY(-2px);
         }
 
         .links {
             margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
         }
 
         .button {
             display: inline-block;
             padding: 0.7rem 1.5rem;
-            margin: 0.3rem;
-            background: #8E7F70;
+            background: #333;
             color: white;
             text-decoration: none;
-            border-radius: 25px;
+            border-radius: 4px;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
             font-size: 0.9rem;
-            font-family: 'Arial', sans-serif;
-            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255,255,255,0.1);
+            transform: rotate(45deg);
+            transition: transform 0.3s ease;
         }
 
         .button:hover {
-            background: #A49382;
-            transform: translateY(-3px);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            background: #444;
+        }
+
+        .button:hover::after {
+            transform: rotate(45deg) translate(50%, 50%);
         }
 
         @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
             h1 {
-                font-size: 2.5rem;
-                margin-bottom: 1.2rem;
+                font-size: 2rem;
+                text-align: center;
             }
 
             .gallery {
                 grid-template-columns: 1fr;
+                gap: 1rem;
             }
 
-            .bio p {
-                font-size: 1rem;
+            .gallery img {
+                height: 200px;
+            }
+
+            .links {
+                flex-direction: column;
+                align-items: center;
             }
 
             .button {
-                display: block;
-                margin: 0.5rem auto;
-                width: 70%;
-                max-width: 250px;
+                width: 60%;
+                max-width: 200px;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Bodhi Swan Ceramics</h1>
+        <div class="header">
+            <img src="/api/placeholder/100/100" alt="Bodhi Swan Ceramics Logo" class="logo">
+            <h1>Bodhi Swan Ceramics</h1>
+        </div>
         
         <div class="gallery">
-            <img src="https://via.placeholder.com/300" alt="Ceramic piece 1">
-            <img src="https://via.placeholder.com/300" alt="Ceramic piece 2">
-            <img src="https://via.placeholder.com/300" alt="Ceramic piece 3">
-            <img src="https://via.placeholder.com/300" alt="Ceramic piece 4">
+            <img src="/api/placeholder/300/300" alt="Ceramic piece 1">
+            <img src="/api/placeholder/300/300" alt="Ceramic piece 2">
+            <img src="/api/placeholder/300/300" alt="Ceramic piece 3">
+            <img src="/api/placeholder/300/300" alt="Ceramic piece 4">
         </div>
 
         <div class="bio">
-            <p>Since beginning my pottery journey in 2020 at the Logan Artists Association, I have developed a deep passion for ceramics. Working from my Brisbane home studio, I merge traditional throwing techniques with avant-garde design to craft functional yet artistic pieces that enrich everyday life.</p>
+            Beginning my pottery journey in 2020 at the Logan Artists Association, I've developed a deep passion for ceramics while working from my home studio in Brisbane. My practice combines traditional throwing techniques with contemporary design, creating functional pieces that bring artistry to everyday life.
         </div>
 
         <div class="links">
