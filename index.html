@@ -12,55 +12,59 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fafafa;
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #4A4A4A;
+            background-color: #F3ECE0;
             padding: 2rem;
         }
 
         .container {
             text-align: center;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         h1 {
             font-size: 3rem;
-            font-weight: 300;
-            letter-spacing: 3px;
-            margin-bottom: 2rem;
-            color: #2c2c2c;
-            padding-top: 1rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            color: #6A5D4D;
         }
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin: 2rem auto;
-            padding: 0 1rem;
-            max-width: 600px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
 
         .gallery img {
             width: 100%;
-            height: 250px;
+            height: auto;
             object-fit: cover;
-            border-radius: 4px;
-            transition: transform 0.3s ease;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .gallery img:hover {
-            transform: scale(1.02);
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
         }
 
         .bio {
-            max-width: 600px;
-            margin: 1rem auto;
-            padding: 0 1rem;
-            font-weight: 300;
-            color: #444;
+            background: #E2D8C3;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 1.5rem 0;
+        }
+
+        .bio p {
+            font-size: 1.1rem;
+            color: #5C5342;
         }
 
         .links {
@@ -71,39 +75,39 @@
             display: inline-block;
             padding: 0.7rem 1.5rem;
             margin: 0.3rem;
-            background: #333;
+            background: #8E7F70;
             color: white;
             text-decoration: none;
-            border-radius: 4px;
-            transition: all 0.3s ease;
+            border-radius: 25px;
             font-size: 0.9rem;
+            font-family: 'Arial', sans-serif;
+            transition: all 0.3s ease;
         }
 
         .button:hover {
-            background: #555;
-            transform: translateY(-2px);
+            background: #A49382;
+            transform: translateY(-3px);
         }
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 2rem;
-                margin-bottom: 1.5rem;
+                font-size: 2.5rem;
+                margin-bottom: 1.2rem;
             }
 
             .gallery {
                 grid-template-columns: 1fr;
-                gap: 1rem;
             }
 
-            .gallery img {
-                height: 200px;
+            .bio p {
+                font-size: 1rem;
             }
 
             .button {
                 display: block;
                 margin: 0.5rem auto;
-                width: 60%;
-                max-width: 200px;
+                width: 70%;
+                max-width: 250px;
             }
         }
     </style>
@@ -113,14 +117,14 @@
         <h1>Bodhi Swan Ceramics</h1>
         
         <div class="gallery">
-            <img src="/api/placeholder/300/300" alt="Ceramic piece 1">
-            <img src="/api/placeholder/300/300" alt="Ceramic piece 2">
-            <img src="/api/placeholder/300/300" alt="Ceramic piece 3">
-            <img src="/api/placeholder/300/300" alt="Ceramic piece 4">
+            <img src="https://via.placeholder.com/300" alt="Ceramic piece 1">
+            <img src="https://via.placeholder.com/300" alt="Ceramic piece 2">
+            <img src="https://via.placeholder.com/300" alt="Ceramic piece 3">
+            <img src="https://via.placeholder.com/300" alt="Ceramic piece 4">
         </div>
 
         <div class="bio">
-            Beginning my pottery journey in 2020 at the Logan Artists Association, I've developed a deep passion for ceramics while working from my home studio in Brisbane. My practice combines traditional throwing techniques with contemporary design, creating functional pieces that bring artistry to everyday life.
+            <p>Since beginning my pottery journey in 2020 at the Logan Artists Association, I have developed a deep passion for ceramics. Working from my Brisbane home studio, I merge traditional throwing techniques with avant-garde design to craft functional yet artistic pieces that enrich everyday life.</p>
         </div>
 
         <div class="links">
