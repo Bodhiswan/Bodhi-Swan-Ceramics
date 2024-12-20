@@ -242,7 +242,7 @@
         // Initialize Stripe
         const stripe = Stripe('pk_test_51QXtAPAw2iyVnuCTMK1jALjOxfkmxfmG3poiqB3R61Q49Okacmeaiof8yIyHQ6yEXpRVMCAfezjmQrEL7LoM339C00WqaGmwJM');
 
-        async function checkInventory() {
+        async function checkProductStatus() {
             try {
                 const response = await fetch('https://api.stripe.com/v1/products/prod_RQnDem9qTVNwXW', {
                     headers: {
@@ -250,10 +250,14 @@
                     }
                 });
                 const product = await response.json();
-                return parseInt(product.metadata.inventory || '0');
+                return {
+                    active: product.active,
+                    // If the product is not active (archived), it means it's out of stock
+                    inStock: product.active
+                };
             } catch (error) {
-                console.error('Error checking inventory:', error);
-                return 0;
+                console.error('Error checking product status:', error);
+                return { active: false, inStock: false };
             }
         }
 
@@ -263,14 +267,12 @@
             const stockStatus = document.querySelector('.stock-status');
             const productCard = document.querySelector('.product-card');
             
-            // Check inventory
-            const inventory = await checkInventory();
+            // Check product status
+            const status = await checkProductStatus();
             
-            // Update UI based on inventory
-            if (inventory > 5) {
+            // Update UI based on stock status
+            if (status.inStock) {
                 stockStatus.innerHTML = `<span class="stock-label in-stock">In Stock</span>`;
-            } else if (inventory > 0) {
-                stockStatus.innerHTML = `<span class="stock-label low-stock">Only ${inventory} left</span>`;
             } else {
                 stockStatus.innerHTML = `<span class="stock-label out-of-stock">Out of Stock</span>`;
                 productCard.classList.add('out-of-stock');
