@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Bodhi Swan Ceramics</title>
+    
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="shortcut icon" href="assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Bodhi Swan" />
+    <link rel="manifest" href="assets/site.webmanifest" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .site-nav {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #666;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background-color: #f8f8f8;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .product-metadata {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .buy-button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: transparent;
+            color: #333;
+            text-decoration: none;
+            border: 2px solid #333;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+
+        .buy-button:hover {
+            background: #333;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .shop-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="site-nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="shop.html" class="nav-link">Shop</a>
+        </nav>
+
+        <header class="header">
+            <h1>Available Works</h1>
+        </header>
+
+        <div class="shop-grid">
+            <div class="product-card">
+                <img src="bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg" alt="Hand-thrown espresso cup with smooth glaze finish" class="product-image" loading="lazy">
+                <div class="product-info">
+                    <h2 class="product-title">Handcrafted Espresso Cup</h2>
+                    <p class="product-description">A meticulously wheel-thrown espresso cup, perfect for your morning ritual. Features a smooth interior glaze and natural exterior finish.</p>
+                    <div class="product-metadata">
+                        <p>Dimensions: 6cm x 6cm x 7cm</p>
+                        <p>Materials: Stoneware clay, Clear glaze interior</p>
+                        <p>Care: Dishwasher and microwave safe</p>
+                    </div>
+                    <div class="product-price">$35.00</div>
+                    <button class="buy-button" onclick="alert('Stripe integration coming soon!')">Purchase</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
