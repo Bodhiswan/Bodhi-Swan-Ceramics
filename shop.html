@@ -77,6 +77,8 @@
             overflow: hidden;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0.6;
+            position: relative;
         }
 
         .product-card:hover {
@@ -89,6 +91,7 @@
             height: 300px;
             object-fit: cover;
             background-color: #f8f8f8;
+            filter: grayscale(100%);
         }
 
         .product-info {
@@ -120,27 +123,20 @@
             margin-bottom: 1.5rem;
         }
 
-        .buy-button {
+        .coming-soon-button {
             display: inline-block;
             padding: 0.8rem 2rem;
-            background: transparent;
-            color: #333;
+            background: #eee;
+            color: #666;
             text-decoration: none;
-            border: 2px solid #333;
+            border: none;
             border-radius: 25px;
-            transition: all 0.3s ease;
             font-size: 0.9rem;
             font-weight: 500;
             letter-spacing: 0.5px;
-            cursor: pointer;
             width: 100%;
             text-align: center;
-        }
-
-        .buy-button:hover {
-            background: #333;
-            color: white;
-            transform: translateY(-2px);
+            cursor: default;
         }
 
         @media (max-width: 768px) {
@@ -182,7 +178,7 @@
                         <p>Care: Dishwasher and microwave safe</p>
                     </div>
                     <div class="product-price">$35.00</div>
-                    <button class="buy-button" onclick="alert('Stripe integration coming soon!')">Purchase</button>
+                    <div class="coming-soon-button">Coming Soon</div>
                 </div>
             </div>
         </div>
