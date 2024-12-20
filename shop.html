@@ -8,7 +8,7 @@
     <!-- Add Stripe.js -->
     <script src="https://js.stripe.com/v3/"></script>
     
-    <!-- Previous head content remains the same -->
+    <!-- Your existing head content -->
     <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
     <link rel="shortcut icon" href="assets/favicon.ico" />
@@ -17,16 +17,69 @@
     <link rel="manifest" href="assets/site.webmanifest" />
     
     <style>
-        /* Previous styles remain the same */
-        /* Add new styles for out of stock */
-        .out-of-stock-label {
-            background-color: #dc3545;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
             text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .site-nav {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #666;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
             margin-bottom: 1rem;
-            font-weight: 500;
+        }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .product-card.out-of-stock {
@@ -37,13 +90,57 @@
             filter: grayscale(1);
         }
 
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background-color: #f8f8f8;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .product-metadata {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .stock-status {
+            margin-bottom: 1rem;
+        }
+
         .stock-label {
             display: inline-block;
             padding: 0.25rem 0.75rem;
             border-radius: 12px;
             font-size: 0.85rem;
             font-weight: 500;
-            margin-bottom: 1rem;
         }
 
         .in-stock {
@@ -61,134 +158,160 @@
             color: white;
         }
 
-        /* Previous styles remain the same */
+        .buy-button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: transparent;
+            color: #333;
+            text-decoration: none;
+            border: 2px solid #333;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+
+        .buy-button:hover {
+            background: #333;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .buy-button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            border-color: #999;
+            color: #999;
+        }
+
+        .buy-button:disabled:hover {
+            background: transparent;
+            color: #999;
+            transform: none;
+        }
+
+        .error-message {
+            color: #dc3545;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #dc3545;
+            border-radius: 4px;
+            display: none;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Previous navigation and header remain the same -->
-        <div class="shop-grid" id="productGrid">
-            <!-- Products will be loaded dynamically -->
-            <div class="loading">Checking inventory...</div>
-        </div>
-    </div>
+        <nav class="site-nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="shop.html" class="nav-link">Shop</a>
+        </nav>
 
-    <template id="product-template">
-        <div class="product-card">
-            <img src="bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg" 
-                 alt="Hand-thrown espresso cup with smooth glaze finish" 
-                 class="product-image" 
-                 loading="lazy">
-            <div class="product-info">
-                <h2 class="product-title">Handcrafted Espresso Cup</h2>
-                <p class="product-description">A meticulously wheel-thrown espresso cup, perfect for your morning ritual. Features a smooth interior glaze and natural exterior finish.</p>
-                <div class="product-metadata">
-                    <p>Dimensions: 6cm x 6cm x 7cm</p>
-                    <p>Materials: Stoneware clay, Clear glaze interior</p>
-                    <p>Care: Dishwasher and microwave safe</p>
+        <header class="header">
+            <h1>Available Works</h1>
+        </header>
+
+        <div class="shop-grid">
+            <div class="product-card">
+                <img src="bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg" 
+                     alt="Hand-thrown espresso cup with smooth glaze finish" 
+                     class="product-image" 
+                     loading="lazy">
+                <div class="product-info">
+                    <h2 class="product-title">Handcrafted Espresso Cup</h2>
+                    <p class="product-description">A meticulously wheel-thrown espresso cup, perfect for your morning ritual. Features a smooth interior glaze and natural exterior finish.</p>
+                    <div class="product-metadata">
+                        <p>Dimensions: 6cm x 6cm x 7cm</p>
+                        <p>Materials: Stoneware clay, Clear glaze interior</p>
+                        <p>Care: Dishwasher and microwave safe</p>
+                    </div>
+                    <div class="stock-status"></div>
+                    <div class="product-price">$100.00</div>
+                    <button id="buy-button" class="buy-button">Purchase</button>
+                    <div id="error-message" class="error-message"></div>
                 </div>
-                <div class="stock-status"></div>
-                <div class="product-price">$100.00</div>
-                <button class="buy-button">Purchase</button>
-                <div class="error-message"></div>
             </div>
         </div>
-    </template>
+    </div>
 
     <script>
         // Initialize Stripe
         const stripe = Stripe('pk_test_51QXtAPAw2iyVnuCTMK1jALjOxfkmxfmG3poiqB3R61Q49Okacmeaiof8yIyHQ6yEXpRVMCAfezjmQrEL7LoM339C00WqaGmwJM');
 
-        async function checkInventory(priceId) {
+        async function checkInventory() {
             try {
-                const response = await fetch(`https://api.stripe.com/v1/products/prod_RQnDem9qTVNwXW`, {
+                const response = await fetch('https://api.stripe.com/v1/products/prod_RQnDem9qTVNwXW', {
                     headers: {
                         'Authorization': `Bearer ${stripe._apiKey}`
                     }
                 });
                 const product = await response.json();
-                
-                // Get inventory from metadata
-                const inventory = parseInt(product.metadata.inventory || '0');
-                return inventory;
+                return parseInt(product.metadata.inventory || '0');
             } catch (error) {
                 console.error('Error checking inventory:', error);
                 return 0;
             }
         }
 
-        async function initializeProduct() {
-            const productGrid = document.getElementById('productGrid');
-            const template = document.getElementById('product-template');
+        document.addEventListener('DOMContentLoaded', async function() {
+            const buyButton = document.getElementById('buy-button');
+            const errorMessage = document.getElementById('error-message');
+            const stockStatus = document.querySelector('.stock-status');
+            const productCard = document.querySelector('.product-card');
             
-            // Clear loading message
-            productGrid.innerHTML = '';
-            
-            // Clone template
-            const productCard = template.content.cloneNode(true);
+            // Check inventory
             const inventory = await checkInventory();
             
-            // Update stock status
-            const stockStatus = productCard.querySelector('.stock-status');
-            const buyButton = productCard.querySelector('.buy-button');
-            
+            // Update UI based on inventory
             if (inventory > 5) {
                 stockStatus.innerHTML = `<span class="stock-label in-stock">In Stock</span>`;
             } else if (inventory > 0) {
                 stockStatus.innerHTML = `<span class="stock-label low-stock">Only ${inventory} left</span>`;
             } else {
                 stockStatus.innerHTML = `<span class="stock-label out-of-stock">Out of Stock</span>`;
-                productCard.querySelector('.product-card').classList.add('out-of-stock');
+                productCard.classList.add('out-of-stock');
                 buyButton.disabled = true;
                 buyButton.textContent = 'Out of Stock';
-            }
-
-            // Add click handler if in stock
-            if (inventory > 0) {
-                buyButton.addEventListener('click', handlePurchase);
+                return; // Don't add click handler if out of stock
             }
             
-            productGrid.appendChild(productCard);
-        }
+            buyButton.addEventListener('click', async function() {
+                errorMessage.style.display = 'none';
+                errorMessage.textContent = '';
+                
+                buyButton.disabled = true;
+                buyButton.textContent = 'Processing...';
 
-        async function handlePurchase() {
-            const buyButton = this;
-            const errorMessage = buyButton.parentElement.querySelector('.error-message');
-            
-            errorMessage.style.display = 'none';
-            errorMessage.textContent = '';
-            
-            buyButton.disabled = true;
-            buyButton.textContent = 'Processing...';
+                try {
+                    const result = await stripe.redirectToCheckout({
+                        lineItems: [{
+                            price: 'price_1QXvdTAw2iyVnuCTJFYeuJwM',
+                            quantity: 1
+                        }],
+                        mode: 'payment',
+                        successUrl: `${window.location.origin}/success.html`,
+                        cancelUrl: `${window.location.origin}/shop.html`,
+                        shippingAddressCollection: {
+                            allowedCountries: ['AU'],
+                        }
+                    });
 
-            try {
-                const result = await stripe.redirectToCheckout({
-                    lineItems: [{
-                        price: 'price_1QXvdTAw2iyVnuCTJFYeuJwM',
-                        quantity: 1
-                    }],
-                    mode: 'payment',
-                    successUrl: `${window.location.origin}/success.html`,
-                    cancelUrl: `${window.location.origin}/shop.html`,
-                    shippingAddressCollection: {
-                        allowedCountries: ['AU'],
+                    if (result.error) {
+                        throw new Error(result.error.message);
                     }
-                });
-
-                if (result.error) {
-                    throw new Error(result.error.message);
+                } catch (error) {
+                    console.error('Detailed error:', error);
+                    errorMessage.textContent = `Error: ${error.message}`;
+                    errorMessage.style.display = 'block';
+                    buyButton.disabled = false;
+                    buyButton.textContent = 'Purchase';
                 }
-            } catch (error) {
-                console.error('Detailed error:', error);
-                errorMessage.textContent = `Error: ${error.message}`;
-                errorMessage.style.display = 'block';
-                buyButton.disabled = false;
-                buyButton.textContent = 'Purchase';
-            }
-        }
-
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', initializeProduct);
+            });
+        });
     </script>
 </body>
 </html>
