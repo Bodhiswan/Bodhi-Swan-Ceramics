@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop - Bodhi Swan Ceramics</title>
     
-    <!-- Favicon and App Icons -->
+    <!-- Add Stripe.js -->
+    <script src="https://js.stripe.com/v3/"></script>
+    
+    <!-- Your existing head content -->
     <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
     <link rel="shortcut icon" href="assets/favicon.ico" />
@@ -77,8 +80,6 @@
             overflow: hidden;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0.6;
-            position: relative;
         }
 
         .product-card:hover {
@@ -91,7 +92,6 @@
             height: 300px;
             object-fit: cover;
             background-color: #f8f8f8;
-            filter: grayscale(100%);
         }
 
         .product-info {
@@ -123,35 +123,32 @@
             margin-bottom: 1.5rem;
         }
 
-        .coming-soon-button {
+        .buy-button {
             display: inline-block;
             padding: 0.8rem 2rem;
-            background: #eee;
-            color: #666;
+            background: transparent;
+            color: #333;
             text-decoration: none;
-            border: none;
+            border: 2px solid #333;
             border-radius: 25px;
+            transition: all 0.3s ease;
             font-size: 0.9rem;
             font-weight: 500;
             letter-spacing: 0.5px;
+            cursor: pointer;
             width: 100%;
             text-align: center;
-            cursor: default;
         }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
+        .buy-button:hover {
+            background: #333;
+            color: white;
+            transform: translateY(-2px);
+        }
 
-            .shop-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
+        .buy-button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
         }
     </style>
 </head>
@@ -168,7 +165,10 @@
 
         <div class="shop-grid">
             <div class="product-card">
-                <img src="bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg" alt="Hand-thrown espresso cup with smooth glaze finish" class="product-image" loading="lazy">
+                <img src="bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg" 
+                     alt="Hand-thrown espresso cup with smooth glaze finish" 
+                     class="product-image" 
+                     loading="lazy">
                 <div class="product-info">
                     <h2 class="product-title">Handcrafted Espresso Cup</h2>
                     <p class="product-description">A meticulously wheel-thrown espresso cup, perfect for your morning ritual. Features a smooth interior glaze and natural exterior finish.</p>
@@ -178,10 +178,49 @@
                         <p>Care: Dishwasher and microwave safe</p>
                     </div>
                     <div class="product-price">$35.00</div>
-                    <div class="coming-soon-button">Coming Soon</div>
+                    <button id="buy-button" class="buy-button">Purchase</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        // Initialize Stripe with your publishable key
+        const stripe = Stripe('pk_test_51QXtAPAw2iyVnuCTMK1jALjOxfkmxfmG3poiqB3R61Q49Okacmeaiof8yIyHQ6yEXpRVMCAfezjmQrEL7LoM339C00WqaGmwJM');
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const buyButton = document.getElementById('buy-button');
+            
+            buyButton.addEventListener('click', async function() {
+                buyButton.disabled = true;
+                buyButton.textContent = 'Processing...';
+
+                try {
+                    // Create Stripe Checkout Session
+                    const result = await stripe.redirectToCheckout({
+                        lineItems: [{
+                            price: 'price_1QXvdTAw2iyVnuCTJFYeuJwM',
+                            quantity: 1
+                        }],
+                        mode: 'payment',
+                        successUrl: 'https://bodhiswan.github.io/success.html',
+                        cancelUrl: 'https://bodhiswan.github.io/shop.html',
+                        shippingAddressCollection: {
+                            allowedCountries: ['AU'],
+                        }
+                    });
+
+                    if (result.error) {
+                        throw new Error(result.error.message);
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    buyButton.disabled = false;
+                    buyButton.textContent = 'Purchase';
+                    alert('Sorry, there was a problem processing your request. Please try again.');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
