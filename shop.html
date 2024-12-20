@@ -17,6 +17,7 @@
     <link rel="manifest" href="assets/site.webmanifest" />
     
     <style>
+        /* Previous styles remain the same */
         * {
             margin: 0;
             padding: 0;
@@ -150,6 +151,15 @@
             opacity: 0.7;
             cursor: not-allowed;
         }
+
+        .error-message {
+            color: #dc3545;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #dc3545;
+            border-radius: 4px;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -177,34 +187,38 @@
                         <p>Materials: Stoneware clay, Clear glaze interior</p>
                         <p>Care: Dishwasher and microwave safe</p>
                     </div>
-                    <div class="product-price">$35.00</div>
+                    <div class="product-price">$100.00</div>
                     <button id="buy-button" class="buy-button">Purchase</button>
+                    <div id="error-message" class="error-message"></div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Initialize Stripe with your publishable key
+        // Initialize Stripe
         const stripe = Stripe('pk_test_51QXtAPAw2iyVnuCTMK1jALjOxfkmxfmG3poiqB3R61Q49Okacmeaiof8yIyHQ6yEXpRVMCAfezjmQrEL7LoM339C00WqaGmwJM');
 
         document.addEventListener('DOMContentLoaded', function() {
             const buyButton = document.getElementById('buy-button');
+            const errorMessage = document.getElementById('error-message');
             
             buyButton.addEventListener('click', async function() {
+                errorMessage.style.display = 'none';
+                errorMessage.textContent = '';
+                
                 buyButton.disabled = true;
                 buyButton.textContent = 'Processing...';
 
                 try {
-                    // Create Stripe Checkout Session
                     const result = await stripe.redirectToCheckout({
                         lineItems: [{
                             price: 'price_1QXvdTAw2iyVnuCTJFYeuJwM',
                             quantity: 1
                         }],
                         mode: 'payment',
-                        successUrl: 'https://bodhiswan.github.io/success.html',
-                        cancelUrl: 'https://bodhiswan.github.io/shop.html',
+                        successUrl: `${window.location.origin}/success.html`,
+                        cancelUrl: `${window.location.origin}/shop.html`,
                         shippingAddressCollection: {
                             allowedCountries: ['AU'],
                         }
@@ -214,10 +228,11 @@
                         throw new Error(result.error.message);
                     }
                 } catch (error) {
-                    console.error('Error:', error);
+                    console.error('Detailed error:', error);
+                    errorMessage.textContent = `Error: ${error.message}`;
+                    errorMessage.style.display = 'block';
                     buyButton.disabled = false;
                     buyButton.textContent = 'Purchase';
-                    alert('Sorry, there was a problem processing your request. Please try again.');
                 }
             });
         });
