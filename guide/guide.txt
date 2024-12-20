@@ -1,0 +1,145 @@
+# Bodhi Swan Ceramics - Website Documentation
+
+## Overview
+Bodhi Swan Ceramics is a Brisbane-based ceramics business focusing on handcrafted pottery pieces. The website serves as both a portfolio and e-commerce platform.
+
+## Brand Style Guide
+
+### Colors
+- Primary Text: #333333
+- Background: #fafafa with gradient (135deg, #fafafa 0%, #f5f5f5 100%)
+- Accent Color: White (#ffffff) for cards
+- Button Borders: #333333
+- Error Messages: #dc3545
+
+### Typography
+- Font Stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif
+- Heading Weights: 300 (light)
+- Body Text Weight: Regular (400)
+- Metadata Text: #888888
+
+### Design Elements
+- Card Border Radius: 12px
+- Button Border Radius: 25px
+- Box Shadows: 0 2px 10px rgba(0,0,0,0.05)
+- Hover Effects: Transform translateY(-5px) with shadow increase
+
+## Page Structure
+
+### Home Page (index.html)
+- Navigation
+- Header with logo
+- Gallery section with 4 images
+- Bio section
+- Contact information
+- Instagram integration
+
+### Shop Page (shop.html)
+- Navigation
+- Product cards with:
+  - Product image
+  - Title
+  - Description
+  - Metadata (dimensions, materials, care)
+  - Price
+  - Purchase button
+- Custom order card with minimum price display
+
+### Success Page (success.html)
+- Thank you message
+- Order confirmation details
+- Next steps information
+- Return to home button
+
+### Custom Order Form (custom-order.html)
+- Contact form
+- Email template generation
+- Minimum commission price display
+
+## E-commerce Integration
+
+### Stripe Setup
+- Product ID: prod_RQnDem9qTVNwXW
+- Price ID: price_1QXvdTAw2iyVnuCTJFYeuJwM
+- Test Mode Public Key: pk_test_51QXtAPAw2iyVnuCTMK1jALjOxfkmxfmG3poiqB3R61Q49Okacmeaiof8yIyHQ6yEXpRVMCAfezjmQrEL7LoM339C00WqaGmwJM
+- Inventory Management: Using Stockify addon
+- Out of Stock Behavior: Product archives automatically
+
+### Product Configuration
+- Single product listings
+- Custom commissions (minimum $100)
+- Shipping: Australia only
+- Currency: AUD
+
+## Key Features
+
+### Shopping Cart
+- Direct checkout through Stripe
+- Shipping address collection
+- Australia-only shipping
+
+### Inventory Management
+- Stockify integration
+- Automatic product archiving when out of stock
+- User-friendly out-of-stock messages
+
+### Custom Orders
+- Dedicated inquiry form
+- Email template generation
+- Minimum commission amount display
+
+## Development Notes
+
+### CSS Structure
+- Mobile-first approach
+- Breakpoint at 768px for responsive design
+- Consistent spacing units (rem-based)
+- Animation transitions: 0.3s ease
+
+### JavaScript Features
+- Stripe integration
+- Form handling
+- Error message display
+- Stock status checking
+
+### SEO Elements
+- Meta descriptions
+- Open Graph tags
+- Proper heading hierarchy
+- Alt text for images
+
+## Future Considerations
+
+### Potential Additions
+- Product categories as inventory grows
+- Gallery page for past works
+- Workshop/class booking system
+- Newsletter signup
+- Blog/news section
+
+### Maintenance Requirements
+- Regular Stripe product status checks
+- Image optimization for new products
+- Inventory updates through Stockify
+- Regular testing of checkout flow
+
+## File Organization
+```
+root/
+├── index.html
+├── shop.html
+├── success.html
+├── custom-order.html
+├── assets/
+│   ├── favicon-96x96.png
+│   ├── favicon.svg
+│   ├── favicon.ico
+│   ├── apple-touch-icon.png
+│   └── site.webmanifest
+└── images/
+    ├── 348982356_573566748281355_5155277251296915931_n.jpg
+    ├── bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg
+    ├── bodhiswan_348471159_3630382333858035_296460734488849167_n.jpg
+    ├── bodhiswan_348863468_1167309003909433_5762684848837982962_n.jpg
+    └── bodhiswan_349131030_7008228542527475_7205180136632410620_n.jpg
+```
