@@ -154,6 +154,7 @@
       try {
         const res = await fetch('https://bodhiswan.com/.netlify/functions/getStock?priceId=' + priceId);
         const data = await res.json();
+        console.log('Stock data:', data);
 
         if (data.stock !== undefined) {
           stockDisplay.textContent = `In stock: ${data.stock}`;
