@@ -141,38 +141,72 @@
     </div>
   </div>
 
-  <script>
-    const stripe = Stripe('pk_test_51QXtAPAw2iyVnuCTMK1jALjOxfkmxfmG3poiqB3R61Q49Okacmeaiof8yIyHQ6yEXpRVMCAfezjmQrEL7LoM339C00WqaGmwJM');
+ <script>
+  const stripe = Stripe('pk_test_51QXtAPAw2iyVnuCTMK1jALjOxfkmxfmG3poiqB3R61Q49Okacmeaiof8yIyHQ6yEXpRVMCAfezjmQrEL7LoM339C00WqaGmwJM');
 
-    document.addEventListener('DOMContentLoaded', async function() {
-      const stockDisplay = document.getElementById('stock-count');
-      const quantityInput = document.getElementById('quantity');
-      const buyButton = document.getElementById('buy-button');
-      const errorMessage = document.getElementById('error-message');
-      const priceId = 'price_1QXvdTAw2iyVnuCTJFYeuJwM';
+  document.addEventListener('DOMContentLoaded', async function () {
+    const stockDisplay = document.getElementById('stock-count');
+    const quantityInput = document.getElementById('quantity');
+    const buyButton = document.getElementById('buy-button');
+    const errorMessage = document.getElementById('error-message');
+    const priceId = 'price_1QXvdTAw2iyVnuCTJFYeuJwM';
 
-      try {
-        const res = await fetch('https://bodhiswan.com/.netlify/functions/getStock?priceId=' + priceId);
-        const data = await res.json();
-        console.log('Stock data:', data);
+    try {
+      const res = await fetch('https://bodhiswan.com/.netlify/functions/getStock?priceId=' + priceId);
+      const data = await res.json();
+      console.log('Stock data:', data);
 
-        if (data.stock !== undefined) {
-          stockDisplay.textContent = `In stock: ${data.stock}`;
-          quantityInput.max = data.stock;
-          if (data.stock <= 0) {
-            buyButton.disabled = true;
-            buyButton.textContent = 'Sold Out';
-          }
-        } else {
-          stockDisplay.textContent = 'Stock info unavailable';
+      if (data.stock !== undefined) {
+        stockDisplay.textContent = data.stock > 0
+          ? `In stock: ${data.stock}`
+          : 'Sold out';
+        quantityInput.max = data.stock;
+        if (data.stock <= 0) {
+          buyButton.disabled = true;
+          buyButton.textContent = 'Sold Out';
         }
-      } catch (err) {
-        console.error('Fetch failed:', err);
+      } else {
         stockDisplay.textContent = 'Stock info unavailable';
       }
+    } catch (err) {
+      console.error('Fetch failed:', err);
+      stockDisplay.textContent = 'Stock info unavailable';
+    }
 
-      buyButton.addEventListener('click', async function() {
-        errorMessage.style.display = 'none';
-        errorMessage.textContent = '';
+    buyButton.addEventListener('click', async function () {
+      errorMessage.style.display = 'none';
+      errorMessage.textContent = '';
 
-        const quantity = pa
+      const quantity = parseInt(quantityInput.value, 10);
+      if (!quantity || quantity <= 0) return;
+
+      buyButton.disabled = true;
+      buyButton.textContent = 'Processing...';
+
+      try {
+        const result = await stripe.redirectToCheckout({
+          lineItems: [{
+            price: priceId,
+            quantity: quantity
+          }],
+          mode: 'payment',
+          successUrl: `${window.location.origin}/success.html`,
+          cancelUrl: `${window.location.origin}/shop.html`,
+          shippingAddressCollection: {
+            allowedCountries: ['AU'],
+          }
+        });
+
+        if (result.error) {
+          throw new Error(result.error.message);
+        }
+      } catch (error) {
+        console.error('Checkout error:', error);
+        errorMessage.textContent = 'Sorry, there was an error processing your request. Please try again.';
+        errorMessage.style.display = 'block';
+        buyButton.disabled = false;
+        buyButton.textContent = 'Purchase';
+      }
+    });
+  });
+</script>
