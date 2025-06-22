@@ -1,64 +1,54 @@
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-const { google } = require('googleapis');
+const { GoogleSpreadsheet } = require('google-spreadsheet');
+const Stripe = require('stripe');
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
-exports.handler = async (event, context) => {
-  const sig = event.headers['stripe-signature'];
-  const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
-
-  let eventData;
-  try {
-    eventData = stripe.webhooks.constructEvent(event.body, sig, endpointSecret);
-  } catch (err) {
-    console.error('Webhook signature failed:', err.message);
-    return { statusCode: 400, body: 'Invalid signature' };
+exports.handler = async (event) => {
+  if (event.httpMethod !== 'POST') {
+    return { statusCode: 405, body: 'Method Not Allowed' };
   }
 
-  if (eventData.type === 'checkout.session.completed') {
-    const session = eventData.data.object;
-    const lineItems = await stripe.checkout.sessions.listLineItems(session.id, { limit: 10 });
+  const sig = event.headers['stripe-signature'];
+  let session;
 
-    const auth = new google.auth.GoogleAuth({
-      credentials: {
-        client_email: process.env.GOOGLE_CLIENT_EMAIL,
-        private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
-      },
-      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+  try {
+    session = stripe.webhooks.constructEvent(
+      event.body,
+      sig,
+      process.env.STRIPE_WEBHOOK_SECRET
+    );
+  } catch (err) {
+    console.error('Webhook Error:', err.message);
+    return { statusCode: 400, body: `Webhook Error: ${err.message}` };
+  }
+
+  if (session.type !== 'checkout.session.completed') {
+    return { statusCode: 200, body: 'Event ignored' };
+  }
+
+  try {
+    const lineItems = await stripe.checkout.sessions.listLineItems(session.data.object.id, { limit: 10 });
+    console.log('Line items:', lineItems.data);
+
+    const doc = new GoogleSpreadsheet('YOUR_SPREADSHEET_ID');
+    await doc.useServiceAccountAuth({
+      client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+      private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
     });
-
-    const sheets = google.sheets({ version: 'v4', auth });
-    const spreadsheetId = process.env.SHEET_ID;
-
-    const readRes = await sheets.spreadsheets.values.get({
-      spreadsheetId,
-      range: 'Sheet1!A2:C',
-    });
-
-    const rows = readRes.data.values;
+    await doc.loadInfo();
+    const sheet = doc.sheetsByIndex[0];
+    const rows = await sheet.getRows();
 
     for (const item of lineItems.data) {
-      const priceId = item.price.id;
-      const qty = item.quantity;
-
-      const rowIndex = rows.findIndex(r => r[0] === priceId);
-      if (rowIndex >= 0) {
-        const currentStock = parseInt(rows[rowIndex][2], 10);
-        const newStock = Math.max(0, currentStock - qty);
-
-        await sheets.spreadsheets.values.update({
-          spreadsheetId,
-          range: `Sheet1!C${rowIndex + 2}`, // +2 to account for header row
-          valueInputOption: 'RAW',
-          requestBody: { values: [[newStock]] },
-        });
-
-        console.log(`✅ Updated ${priceId}: ${currentStock} -> ${newStock}`);
-      } else {
-        console.warn(`⚠️ Price ID ${priceId} not found in Google Sheet`);
+      const row = rows.find(r => r.PriceID === item.price.id);
+      if (row) {
+        row.Stock = Math.max(0, row.Stock - item.quantity);
+        await row.save();
       }
     }
 
     return { statusCode: 200, body: 'Stock updated' };
+  } catch (err) {
+    console.error('Update stock failed:', err);
+    return { statusCode: 500, body: 'Internal Server Error' };
   }
-
-  return { statusCode: 200, body: 'No action taken' };
 };
