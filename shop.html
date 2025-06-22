@@ -4,50 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop - Bodhi Swan Ceramics</title>
-    
-    <!-- Add Stripe.js -->
     <script src="https://js.stripe.com/v3/"></script>
-    
-    <!-- Your existing head content -->
     <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
     <link rel="shortcut icon" href="assets/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Bodhi Swan" />
     <link rel="manifest" href="assets/site.webmanifest" />
-    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #fafafa;
             background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
             min-height: 100vh;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .site-nav {
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .header { text-align: center; margin-bottom: 3rem; }
+        .site-nav { margin-bottom: 2rem; text-align: center; }
         .nav-link {
             color: #333;
             text-decoration: none;
@@ -55,25 +30,19 @@
             font-size: 0.9rem;
             transition: color 0.3s ease;
         }
-
-        .nav-link:hover {
-            color: #666;
-        }
-
+        .nav-link:hover { color: #666; }
         h1 {
             font-size: 2.5rem;
             font-weight: 300;
             letter-spacing: 2px;
             margin-bottom: 1rem;
         }
-
         .shop-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
-
         .product-card {
             background: white;
             border-radius: 12px;
@@ -81,48 +50,26 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
         .product-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
-
         .product-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            background-color: #f8f8f8;
+            width: 100%; height: 300px; object-fit: cover; background-color: #f8f8f8;
         }
-
-        .product-info {
-            padding: 1.5rem;
-        }
-
+        .product-info { padding: 1.5rem; }
         .product-title {
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
+            font-size: 1.2rem; font-weight: 500; margin-bottom: 0.5rem;
         }
-
         .product-description {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 1rem;
-            line-height: 1.6;
+            font-size: 0.9rem; color: #666; margin-bottom: 1rem; line-height: 1.6;
         }
-
         .product-metadata {
-            font-size: 0.85rem;
-            color: #888;
-            margin-bottom: 1rem;
+            font-size: 0.85rem; color: #888; margin-bottom: 1rem;
         }
-
         .product-price {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
+            font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem;
         }
-
         .buy-button {
             display: inline-block;
             padding: 0.8rem 2rem;
@@ -139,26 +86,15 @@
             width: 100%;
             text-align: center;
         }
-
         .buy-button:hover {
-            background: #333;
-            color: white;
-            transform: translateY(-2px);
+            background: #333; color: white; transform: translateY(-2px);
         }
-
         .buy-button:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            border-color: #999;
-            color: #999;
+            opacity: 0.7; cursor: not-allowed; border-color: #999; color: #999;
         }
-
         .buy-button:disabled:hover {
-            background: transparent;
-            color: #999;
-            transform: none;
+            background: transparent; color: #999; transform: none;
         }
-
         .error-message {
             color: #dc3545;
             padding: 10px;
@@ -169,21 +105,6 @@
             text-align: center;
             font-size: 0.9rem;
         }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-
-            .shop-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-        }
     </style>
 </head>
 <body>
@@ -192,17 +113,14 @@
             <a href="index.html" class="nav-link">Home</a>
             <a href="shop.html" class="nav-link">Shop</a>
         </nav>
-
         <header class="header">
             <h1>Available Works</h1>
         </header>
-
         <div class="shop-grid">
             <div class="product-card">
                 <img src="bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg" 
                      alt="Hand-thrown espresso cup with smooth glaze finish" 
-                     class="product-image" 
-                     loading="lazy">
+                     class="product-image" loading="lazy">
                 <div class="product-info">
                     <h2 class="product-title">Handcrafted Espresso Cup</h2>
                     <p class="product-description">A meticulously wheel-thrown espresso cup, perfect for your morning ritual. Features a smooth interior glaze and natural exterior finish.</p>
@@ -212,60 +130,59 @@
                         <p>Care: Dishwasher and microwave safe</p>
                     </div>
                     <div class="product-price">$100.00</div>
+                    <div id="stock-count" style="margin-bottom: 1rem;">Loading stock...</div>
                     <label for="quantity">Quantity:</label>
                     <input type="number" id="quantity" name="quantity" min="1" value="1" style="width: 60px; margin-bottom: 1rem;">
                     <button id="buy-button" class="buy-button">Purchase</button>
                     <div id="error-message" class="error-message"></div>
                 </div>
             </div>
-
-            <div class="product-card custom-order">
-                <img src="bodhiswan_348471159_3630382333858035_296460734488849167_n.jpg" 
-                     alt="Custom ceramics by Bodhi Swan" 
-                     class="product-image" 
-                     loading="lazy">
-                <div class="product-info">
-                    <h2 class="product-title">Custom Commissions</h2>
-                    <p class="product-description">Looking for something special? I create custom pieces tailored to your preferences. From personalized cups to unique sets, let's bring your vision to life.</p>
-                    <div class="product-metadata">
-                        <p>• Personalized designs</p>
-                        <p>• Custom sizes available</p>
-                        <p>• Made to order</p>
-                    </div>
-                    <div class="product-price">Minimum $100</div>
-                    <a href="custom-order.html" class="buy-button" style="text-decoration: none;">Request Commission</a>
-                </div>
-            </div>
         </div>
     </div>
-
     <script>
-        // Initialize Stripe
         const stripe = Stripe('pk_test_51QXtAPAw2iyVnuCTMK1jALjOxfkmxfmG3poiqB3R61Q49Okacmeaiof8yIyHQ6yEXpRVMCAfezjmQrEL7LoM339C00WqaGmwJM');
 
         document.addEventListener('DOMContentLoaded', function() {
             const buyButton = document.getElementById('buy-button');
             const errorMessage = document.getElementById('error-message');
-            
+            const stockDisplay = document.getElementById('stock-count');
+            const quantityInput = document.getElementById('quantity');
+
+            // Fetch live stock
+            (async () => {
+                try {
+                    const res = await fetch('https://bodhiswanceramics.netlify.app/.netlify/functions/getStock?priceId=price_1QXvdTAw2iyVnuCTJFYeuJwM');
+                    const data = await res.json();
+
+                    if (data.stock === 0) {
+                        stockDisplay.textContent = 'Out of stock';
+                        quantityInput.disabled = true;
+                        buyButton.disabled = true;
+                    } else {
+                        stockDisplay.textContent = `In stock: ${data.stock}`;
+                        quantityInput.max = data.stock;
+                    }
+                } catch (err) {
+                    stockDisplay.textContent = 'Stock info unavailable';
+                    console.error('Failed to fetch stock:', err);
+                }
+            })();
+
             buyButton.addEventListener('click', async function() {
                 errorMessage.style.display = 'none';
                 errorMessage.textContent = '';
-                
                 buyButton.disabled = true;
                 buyButton.textContent = 'Processing...';
 
+                const quantity = parseInt(document.getElementById('quantity').value) || 1;
+
                 try {
                     const result = await stripe.redirectToCheckout({
-                        lineItems: [{
-                            price: 'price_1QXvdTAw2iyVnuCTJFYeuJwM',
-                            quantity: 1
-                        }],
+                        lineItems: [{ price: 'price_1QXvdTAw2iyVnuCTJFYeuJwM', quantity }],
                         mode: 'payment',
                         successUrl: `${window.location.origin}/success.html`,
                         cancelUrl: `${window.location.origin}/shop.html`,
-                        shippingAddressCollection: {
-                            allowedCountries: ['AU'],
-                        }
+                        shippingAddressCollection: { allowedCountries: ['AU'] }
                     });
 
                     if (result.error) {
@@ -273,9 +190,7 @@
                     }
                 } catch (error) {
                     console.error('Detailed error:', error);
-                    // Check if error is related to inactive product or out of stock
-                    if (error.message.includes('not available to be purchased') || 
-                        error.message.includes('not active')) {
+                    if (error.message.includes('not available to be purchased') || error.message.includes('not active')) {
                         errorMessage.textContent = 'Sorry, this item is currently out of stock.';
                     } else {
                         errorMessage.textContent = 'Sorry, there was an error processing your request. Please try again.';
