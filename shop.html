@@ -156,7 +156,7 @@
     card.insertBefore(stockDisplay, quantityInput);
 
     try {
-      const res = await fetch('/.netlify/functions/getStock?priceId=' + priceId);
+      const res = await fetch('https://bodhiswanceramics.netlify.app/.netlify/functions/getStock?priceId=' + priceId);
       const data = await res.json();
 
       if (data.stock !== undefined) {
