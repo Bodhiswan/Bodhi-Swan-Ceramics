@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bodhi Swan Ceramics | Gallery</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .gallery-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .gallery-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #2c2c2c;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 1/1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="/"><img src="images/348982356_573566748281355_5155277251296915931_n.jpg" alt="Bodhi Swan Ceramics Logo" class="logo"></a>
+            <h1>Bodhi Swan Ceramics</h1>
+        </div>
+        
+        <div class="gallery-container">
+            <h2 class="gallery-title">Ceramic Gallery</h2>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg" alt="Handcrafted ceramic bowl">
+                    <div class="gallery-caption">Thrown Bowl with Glaze</div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/bodhiswan_348471159_3630382333858035_296460734488849167_n.jpg" alt="Ceramic vase">
+                    <div class="gallery-caption">Tall Vase Collection</div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/bodhiswan_348863468_1167309003909433_5762684848837982962_n.jpg" alt="Pottery pieces">
+                    <div class="gallery-caption">Functional Stoneware</div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/bodhiswan_349131030_7008228542527475_7205180136632410620_n.jpg" alt="Ceramic artwork">
+                    <div class="gallery-caption">Decorative Pieces</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
