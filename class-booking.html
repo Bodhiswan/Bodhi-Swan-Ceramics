@@ -1,104 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Book a Pottery Class – Bodhi Swan Ceramics</title>
-<style>
-:root {
-  --bg: #fffaf5;
-  --text: #222;
-  --muted: #666;
-  --brand: #ff8c42;
-  --edge: #eee;
-  --shadow: 0 8px 30px rgba(0,0,0,.08);
-  --radius: 14px;
-}
-body {
-  margin: 0;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-}
-header {
-  background: #fff;
-  border-bottom: 1px solid var(--edge);
-  padding: 16px;
-  text-align: center;
-}
-h1 { margin: 0; font-size: 1.6rem; }
-main { max-width: 960px; margin: 0 auto; padding: 20px; }
-section.hero { text-align: center; }
-section.hero h2 { margin: .3rem 0 .5rem; }
-section.hero p { color: var(--muted); }
-.list { display: grid; gap: 16px; margin-top: 20px; }
-.card { background: #fff; border: 1px solid var(--edge); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-.card .info { display: flex; flex-direction: column; }
-.card .info .date { font-weight: bold; margin-bottom: 4px; }
-.card .info .time { font-size: .95rem; color: var(--muted); }
-.card .btn { background: var(--brand); color: #fff; border: none; border-radius: 10px; padding: 10px 14px; font-weight: 700; text-decoration: none; cursor: pointer; }
-.card .btn:disabled { opacity: .5; cursor: default; }
-footer { color: var(--muted); text-align: center; padding: 28px 0; }
-section.section { background: #fff; border: 1px solid var(--edge); border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px; margin-top: 20px; }
-section.section h3 { margin: 6px 0 10px; }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bodhi Swan Ceramics — Book a Class</title>
+  <style>
+    :root{ --ink:#222; --muted:#666; --edge:#eee; --brand:#ff8c42; --bg:#fffaf5; --radius:14px; --shadow:0 8px 30px rgba(0,0,0,.08) }
+    *{box-sizing:border-box}
+    body{font-family: 'Helvetica Neue', Arial, sans-serif; margin:0; color:var(--ink); background:var(--bg)}
+    header{background:#fff;border-bottom:1px solid var(--edge); padding:12px 16px; display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap}
+    header img{height:40px; width:auto; border-radius:6px}
+    header a{text-decoration:none; color:inherit; font-weight:700; font-size:1.2rem}
+    h1{margin:0;font-size:1.4rem}
+    .wrap{max-width:960px;margin:0 auto;padding:20px}
+    .hero{ text-align:center }
+    .hero h2{margin:.2rem 0 .4rem}
+    .hero p{color:var(--muted)}
+
+    .week-card{background:#fff; border:1px solid var(--edge); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px}
+    .row{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+    label{font-weight:700}
+    select{appearance:none; padding:10px 12px; border:1px solid var(--edge); border-radius:10px; background:#fff; min-width:200px; flex:1}
+    .btn{appearance:none; border:1px solid var(--edge); background:#111; color:#fff; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:700; flex-shrink:0}
+    .btn.primary{background:var(--brand); border:none}
+
+    .hint{margin-top:8px; color:var(--muted); font-size:.92rem}
+
+    dialog{border:none; border-radius:16px; padding:0; width:min(560px,92vw); box-shadow: var(--shadow);}    
+    .modal{background:#fff}
+    .modal-head{display:flex; justify-content:space-between; align-items:center; padding:16px 18px; border-bottom:1px solid var(--edge)}
+    .modal-body{padding:14px 18px; display:flex; flex-direction:column; gap:10px}
+    .slot{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; border:1px solid var(--edge); border-radius:12px; padding:12px}
+    .slot time{font-variant-numeric:tabular-nums}
+
+    footer{color:var(--muted); text-align:center; padding:28px}
+
+    .section{background:#fff; border:1px solid var(--edge); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px; margin-top:18px}
+    .section h3{margin:6px 0 10px}
+
+    @media (max-width:640px){
+      header{flex-direction:column; text-align:center}
+      .row{flex-direction:column; align-items:stretch}
+      select, .btn{width:100%}
+      .slot{flex-direction:column; align-items:stretch}
+      .slot .btn{width:100%}
+    }
+  </style>
 </head>
 <body>
-<header>
-  <h1>Bodhi Swan Ceramics – Class Booking</h1>
-</header>
-<main>
-  <section class="hero">
-    <h2>September classes – Mondays, 6–9 pm</h2>
-    <p>Choose a Monday class below and book your wheel throwing session. Each class includes a guided first hour, then two hours of open studio time. Price is $60 per class or $50 per week via subscription. Clay, firing and glazing are purchased separately.</p>
-  </section>
-  <div class="list">
-    <div class="card">
-      <div class="info">
-        <div class="date">Monday, 1 September 2025</div>
-        <div class="time">6 – 9 pm</div>
+  <header>
+    <a href="/"><img src="348982356_573566748281355_5155277251296915931_n.jpg" alt="Bodhi Swan Ceramics Logo"></a>
+    <a href="/">Bodhi Swan Ceramics — Class Bookings</a>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h2>Weekly classes — Mondays, 6–9pm (September)</h2>
+      <p>Select a week in September and book the Monday session via Stripe.</p>
+    </section>
+
+    <section class="week-card" aria-label="Weekly booking selector">
+      <div class="row">
+        <label for="weekSelect">Select week:</label>
+        <select id="weekSelect" aria-label="Select a week"></select>
+        <button id="viewWeek" class="btn primary">View classes</button>
       </div>
-      <a class="btn" href="https://buy.stripe.com/8x214m5RS4k63mJ0logIo03" target="_blank" rel="noopener">Book via Stripe</a>
-    </div>
-    <div class="card">
-      <div class="info">
-        <div class="date">Monday, 8 September 2025</div>
-        <div class="time">6 – 9 pm</div>
+      <div class="hint">Only the September Monday-night classes are available.</div>
+    </section>
+
+    <section class="section">
+      <h3>About the classes</h3>
+      <p>These are weekly-run classes designed for multi-week attendance. You’ll learn to throw on the wheel, trim, and glaze your work. Price excludes clay, firing and glazing — these can be purchased and done at the Indooroopilly Ceramic Studio or elsewhere.</p>
+      <p>Join casually at <strong>$60 per class</strong>, or save with an ongoing <strong>$50/week subscription</strong>.</p>
+      <p>The first hour is guided instruction. The remaining two hours are open studio time to throw and trim as you like.</p>
+    </section>
+
+    <section class="section">
+      <h3>Location & parking — Indooroopilly Ceramic Studio</h3>
+      <p><strong>Address:</strong> Shop 4 &amp; 6, 8 Station Road, Indooroopilly QLD 4068.</p>
+      <p><strong>Parking:</strong> Free parking behind the studio off Coonan Street (near Eldorado/Cold Rock). Close to Indooroopilly Train Station and Indooroopilly Shopping Centre.</p>
+    </section>
+
+    <footer>Need private groups or different dates? Email <a href="mailto:swan1995@gmail.com">swan1995@gmail.com</a></footer>
+  </main>
+
+  <dialog id="modal">
+    <div class="modal">
+      <div class="modal-head">
+        <strong id="m-title">Classes this week</strong>
+        <button class="btn" onclick="modal.close()">Close</button>
       </div>
-      <a class="btn" href="https://buy.stripe.com/8x29ASfssg2O1eB4BEgIo02" target="_blank" rel="noopener">Book via Stripe</a>
+      <div id="m-body" class="modal-body"></div>
     </div>
-    <div class="card">
-      <div class="info">
-        <div class="date">Monday, 15 September 2025</div>
-        <div class="time">6 – 9 pm</div>
-      </div>
-      <a class="btn" href="https://buy.stripe.com/cNi5kCbcceYK3mJgkmgIo04" target="_blank" rel="noopener">Book via Stripe</a>
-    </div>
-    <div class="card">
-      <div class="info">
-        <div class="date">Monday, 22 September 2025</div>
-        <div class="time">6 – 9 pm</div>
-      </div>
-      <a class="btn" href="https://buy.stripe.com/14A5kCeoog2O8H3b02gIo05" target="_blank" rel="noopener">Book via Stripe</a>
-    </div>
-    <div class="card">
-      <div class="info">
-        <div class="date">Monday, 29 September 2025</div>
-        <div class="time">6 – 9 pm</div>
-      </div>
-      <a class="btn" href="https://buy.stripe.com/bJe5kCa883g20ax2twgIo07" target="_blank" rel="noopener">Book via Stripe</a>
-    </div>
-  </div>
-  <section class="section">
-    <h3>About the classes</h3>
-    <p>These classes are designed for multi-week attendance. You will learn to throw items on the wheel, trim and glaze your works. Each class begins with an hour of guided instruction, followed by two hours where you can work independently to throw and trim. Materials such as clay, firing and glazing are purchased separately, either at the Indooroopilly Ceramic Studio or elsewhere.</p>
-  </section>
-  <section class="section">
-    <h3>Location & parking – Indooroopilly Ceramic Studio</h3>
-    <p><strong>Address:</strong> Shop 4 &amp; 6, 8 Station Road, Indooroopilly QLD 4068.</p>
-    <p><strong>Parking:</strong> Free parking behind the studio off Coonan Street (near Eldorado/Cold Rock). Close to Indooroopilly Train Station and Indooroopilly Shopping Centre.</p>
-  </section>
-  <footer>Need private groups or different dates? Email <a href="mailto:swan1995@gmail.com">swan1995@gmail.com</a></footer>
-</main>
+  </dialog>
+
+  <script>
+    const STRIPE_LINKS = {
+      '2025-09-01': 'https://buy.stripe.com/8x214m5RS4k63mJ0logIo03',
+      '2025-09-08': 'https://buy.stripe.com/8x29ASfssg2O1eB4BEgIo02',
+      '2025-09-15': 'https://buy.stripe.com/cNi5kCbcceYK3mJgkmgIo04',
+      '2025-09-22': 'https://buy.stripe.com/14A5kCeoog2O8H3b02gIo05',
+      '2025-09-29': 'https://buy.stripe.com/bJe5kCa883g20ax2twgIo07'
+    };
+    const CLASS_START = {h:18,m:0};
+    const CLASS_END   = {h:21,m:0};
+    const pad=n=>String(n).padStart(2,'0');
+    const startOfISOWeek = d=>{const x=new Date(d); const day=(x.getDay()||7); if(day!==1) x.setDate(x.getDate()-(day-1)); x.setHours(0,0,0,0); return x};
+    const addDays=(d,n)=>{const x=new Date(d); x.setDate(x.getDate()+n); return x};
+    const toISODate=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+    const fmtLong=(d)=>d.toLocaleDateString(undefined,{weekday:'short', day:'numeric', month:'short'});
+    const fmtMonthDay=(d)=>d.toLocaleDateString(undefined,{day:'numeric', month:'long'});
+    const classDates = Object.keys(STRIPE_LINKS).map(s=> new Date(s + 'T00:00:00'));
+    const weekStarts = Array.from(new Set(classDates.map(d=> startOfISOWeek(d).getTime()))).sort((a,b)=>a-b).map(ts=>new Date(ts));
+    const weekSelect = document.getElementById('weekSelect');
+    const viewWeek = document.getElementById('viewWeek');
+    const modal = document.getElementById('modal');
+    const mBody = document.getElementById('m-body');
+    function populateWeekSelect(){
+      weekSelect.innerHTML = '';
+      weekStarts.forEach(w=>{
+        const end = addDays(w,6);
+        const opt = document.createElement('option');
+        opt.value = w.toISOString();
+        opt.textContent = `${fmtMonthDay(w)} to ${fmtMonthDay(end)}`;
+        weekSelect.appendChild(opt);
+      });
+    }
+    function openWeek(){
+      const selected = new Date(weekSelect.value);
+      const end = addDays(selected,6);
+      const today = new Date(); today.setHours(0,0,0,0);
+      const slots = classDates
+        .filter(d => d >= today)
+        .filter(d => d >= selected && d <= end)
+        .map(start => {
+          const s = new Date(start); s.setHours(CLASS_START.h, CLASS_START.m, 0, 0);
+          const e = new Date(start); e.setHours(CLASS_END.h, CLASS_END.m, 0, 0);
+          return { start: s, end: e, key: toISODate(s) };
+        });
+      mBody.innerHTML = '';
+      if(!slots.length){
+        mBody.innerHTML = '<p>No sessions available for the selected week.</p>';
+      } else {
+        slots.forEach(({start,end,key})=>{
+          const row = document.createElement('div');
+          row.className = 'slot';
+          const link = STRIPE_LINKS[key];
+          row.innerHTML = `
+            <div>
+              <div><strong>${fmtLong(start)}</strong></div>
+              <div><time>${pad(start.getHours())}:${pad(start.getMinutes())}</time>–<time>${pad(end.getHours())}:${pad(end.getMinutes())}</time></div>
+            </div>
+          `;
+          const btn = document.createElement('button');
+          btn.className = 'btn primary';
+          btn.textContent = 'Book via Stripe';
+          btn.onclick = ()=>{ window.open(link, '_blank', 'noopener'); modal.close(); };
+          row.appendChild(btn);
+          mBody.appendChild(row);
+        });
+      }
+      modal.showModal();
+    }
+    populateWeekSelect();
+    viewWeek.addEventListener('click', openWeek);
+  </script>
 </body>
 </html>
