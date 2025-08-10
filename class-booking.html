@@ -1,100 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bodhi Swan Ceramics — Book a Class</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Link your main site CSS -->
-  <style>
-    :root{ --ink:#222; --muted:#666; --edge:#eee; --brand:#ff8c42; --bg:#fffaf5; --radius:14px; --shadow:0 8px 30px rgba(0,0,0,.08); --font: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{font-family: var(--font); margin:0; color:var(--ink); background:var(--bg)}
-
-    /* Header matches index vibe + logo wobble */
-    header{background:#fff;border-bottom:1px solid var(--edge); padding:12px 16px; display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap}
-    header .brand{display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:inherit}
-    header img.logo{height:40px; width:auto; border-radius:6px; will-change:transform}
-    header a{text-decoration:none; color:inherit; font-weight:700; font-size:1.2rem}
-    @keyframes logo-wobble{0%{transform:rotate(0deg)} 20%{transform:rotate(1.6deg)} 40%{transform:rotate(-1.6deg)} 60%{transform:rotate(1deg)} 80%{transform:rotate(-1deg)} 100%{transform:rotate(0deg)}}
-    .logo~.wordmark{letter-spacing:.2px}
-    .logo{animation:logo-wobble 8s ease-in-out infinite}
-    .brand:hover .logo{animation:logo-wobble 2.5s ease-in-out infinite}
-    @media (prefers-reduced-motion: reduce){ .logo, .brand:hover .logo{animation:none} }
-
-    h1{margin:0;font-size:1.4rem}
-    .wrap{max-width:960px;margin:0 auto;padding:20px}
-    .hero{ text-align:center }
-    .hero h2{margin:.2rem 0 .4rem}
-    .hero p{color:var(--muted)}
-
-    .week-card{background:#fff; border:1px solid var(--edge); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px}
-    .row{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
-    label{font-weight:700}
-    select{appearance:none; padding:10px 12px; border:1px solid var(--edge); border-radius:10px; background:#fff; min-width:200px; flex:1}
-    .btn{appearance:none; border:1px solid var(--edge); background:#111; color:#fff; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:700; flex-shrink:0}
-    .btn.primary{background:var(--brand); border:none}
-
-    .hint{margin-top:8px; color:var(--muted); font-size:.92rem}
-
-    dialog{border:none; border-radius:16px; padding:0; width:min(560px,92vw); box-shadow: var(--shadow);}    
-    .modal{background:#fff}
-    .modal-head{display:flex; justify-content:space-between; align-items:center; padding:16px 18px; border-bottom:1px solid var(--edge)}
-    .modal-body{padding:14px 18px; display:flex; flex-direction:column; gap:10px}
-    .slot{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; border:1px solid var(--edge); border-radius:12px; padding:12px}
-    .slot time{font-variant-numeric:tabular-nums}
-
-    footer{color:var(--muted); text-align:center; padding:28px}
-
-    .section{background:#fff; border:1px solid var(--edge); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px; margin-top:18px}
-    .section h3{margin:6px 0 10px}
-
-    @media (max-width:640px){
-      header{flex-direction:column; text-align:center}
-      .row{flex-direction:column; align-items:stretch}
-      select, .btn{width:100%}
-      .slot{flex-direction:column; align-items:stretch}
-      .slot .btn{width:100%}
-      .wrap{padding:16px}
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bodhi Swan Ceramics — Class Bookings</title>
+  <!-- Copy exact CSS and font includes from index page -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Copy header markup directly from index page -->
   <header>
-    <a class="brand" href="/" aria-label="Bodhi Swan Ceramics — Home">
-      <img class="logo" src="348982356_573566748281355_5155277251296915931_n.jpg" alt="Bodhi Swan Ceramics logo">
-      <span class="wordmark">Bodhi Swan Ceramics — Class Bookings</span>
-    </a>
+    <div class="nav-container">
+      <a href="/" class="logo-link">
+        <img src="348982356_573566748281355_5155277251296915931_n.jpg" alt="Bodhi Swan Ceramics logo" class="logo" />
+      </a>
+      <nav>
+        <a href="shop.html">Shop</a>
+        <a href="class-booking.html" class="active">Classes</a>
+        <a href="https://instagram.com/bodhiswan" target="_blank">Instagram</a>
+      </nav>
+    </div>
   </header>
-  <main class="wrap">
+
+  <main>
     <section class="hero">
-      <h2>Weekly classes — Mondays, 6–9pm (September)</h2>
+      <h1>Weekly classes — Mondays, 6–9pm (September)</h1>
       <p>Select a week in September and book the Monday session via Stripe.</p>
     </section>
-    <section class="week-card">
-      <div class="row">
-        <label for="weekSelect">Select week:</label>
-        <select id="weekSelect"></select>
-        <button id="viewWeek" class="btn">View classes</button>
-      </div>
+
+    <section class="booking-selector">
+      <label for="weekSelect">Select week:</label>
+      <select id="weekSelect"></select>
+      <button id="viewWeek">View classes</button>
     </section>
-    <section class="section">
-      <h3>About the classes</h3>
+
+    <section class="about">
+      <h2>About the classes</h2>
       <p>These are weekly-run classes designed for multi-week attendance. You’ll learn to throw on the wheel, trim, and glaze your work. Price excludes clay, firing and glazing — these can be purchased and done at the Indooroopilly Ceramic Studio or elsewhere.</p>
       <p>Join casually at <strong>$60 per class</strong>, or save with an ongoing <strong>$50/week subscription</strong>.</p>
       <p>The first hour is guided instruction. The remaining two hours are open studio time to throw and trim as you like.</p>
     </section>
-    <section class="section">
-      <h3>Location & parking — Indooroopilly Ceramic Studio</h3>
+
+    <section class="location">
+      <h2>Location & parking — Indooroopilly Ceramic Studio</h2>
       <p><strong>Address:</strong> Shop 4 &amp; 6, 8 Station Road, Indooroopilly QLD 4068.</p>
       <p><strong>Parking:</strong> Free parking behind the studio off Coonan Street (near Eldorado/Cold Rock). Close to Indooroopilly Train Station and Indooroopilly Shopping Centre.</p>
     </section>
   </main>
+
   <dialog id="modal">
-    <div class="modal">
-      <div class="modal-body" id="m-body"></div>
-    </div>
+    <div class="modal-body" id="m-body"></div>
   </dialog>
+
   <script>
     const STRIPE_LINKS = {
       '2025-09-01': 'https://buy.stripe.com/8x214m5RS4k63mJ0logIo03',
@@ -103,21 +60,23 @@
       '2025-09-22': 'https://buy.stripe.com/14A5kCeoog2O8H3b02gIo05',
       '2025-09-29': 'https://buy.stripe.com/bJe5kCa883g20ax2twgIo07'
     };
-    const pad=n=>String(n).padStart(2,'0');
-    const addDays=(d,n)=>{const x=new Date(d); x.setDate(x.getDate()+n); return x};
-    const toISODate=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
-    const fmtMonthDay=(d)=>d.toLocaleDateString(undefined,{day:'numeric', month:'long'});
-    const classDates = Object.keys(STRIPE_LINKS).map(s=> new Date(s + 'T00:00:00'));
-    const weekStarts = Array.from(new Set(classDates.map(d=> {const x=new Date(d);const day=(x.getDay()||7);if(day!==1)x.setDate(x.getDate()-(day-1));x.setHours(0,0,0,0);return x.getTime();}))).sort((a,b)=>a-b).map(ts=>new Date(ts));
+    const pad = n => String(n).padStart(2,'0');
+    const addDays = (d,n) => { const x = new Date(d); x.setDate(x.getDate()+n); return x; };
+    const toISODate = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+    const fmtMonthDay = d => d.toLocaleDateString(undefined,{day:'numeric', month:'long'});
+    const classDates = Object.keys(STRIPE_LINKS).map(s => new Date(s + 'T00:00:00'));
+    const weekStarts = Array.from(new Set(classDates.map(d => { const x = new Date(d); const day = (x.getDay()||7); if(day !== 1) x.setDate(x.getDate()-(day-1)); x.setHours(0,0,0,0); return x.getTime(); }))).sort((a,b) => a-b).map(ts => new Date(ts));
+
     const weekSelect = document.getElementById('weekSelect');
-    weekStarts.forEach(w=>{
+    weekStarts.forEach(w => {
       const end = addDays(w,6);
       const opt = document.createElement('option');
       opt.value = w.toISOString();
       opt.textContent = `${fmtMonthDay(w)} to ${fmtMonthDay(end)}`;
       weekSelect.appendChild(opt);
     });
-    document.getElementById('viewWeek').addEventListener('click', ()=>{
+
+    document.getElementById('viewWeek').addEventListener('click', () => {
       const selected = new Date(weekSelect.value);
       const end = addDays(selected,6);
       const today = new Date(); today.setHours(0,0,0,0);
@@ -129,9 +88,8 @@
         slot.className = 'slot';
         slot.innerHTML = `<strong>${start.toDateString()}</strong>`;
         const btn = document.createElement('button');
-        btn.className = 'btn';
         btn.textContent = 'Book via Stripe';
-        btn.onclick = ()=> window.open(STRIPE_LINKS[key], '_blank');
+        btn.onclick = () => window.open(STRIPE_LINKS[key], '_blank');
         slot.appendChild(btn);
         mBody.appendChild(slot);
       });
