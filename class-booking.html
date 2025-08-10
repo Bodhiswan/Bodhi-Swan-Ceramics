@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bodhi Swan Ceramics | Workshops</title>
-  
-  <!-- Keep your existing icons/OG tags as in your file if needed -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bodhi Swan Ceramics — Workshops</title>
   <style>
-    /* ====== Base (keep your header exactly as-is) ====== */
+    /* ====== Base (keep your header font & feel) ====== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -21,78 +19,90 @@
     .logo { width: 100px; height: 100px; object-fit: cover; border-radius: 50%; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
     h1 { font-size: 3rem; font-weight: 300; letter-spacing: 3px; color: #2c2c2c; text-align: left; }
 
-    /* ====== FIX: Classes layout & buttons ====== */
-    .calendar { 
-      display: grid; 
-      grid-template-columns: repeat(5, minmax(180px, 1fr));
-      gap: 1rem; 
-      margin: 2rem auto 0; 
-      padding: 0 0.5rem; 
-      max-width: 900px;
+    /* ====== Prices + CTA row (side-by-side buttons) ====== */
+    .prices { text-align: center; margin-top: 1rem; font-size: 1.1rem; }
+    .prices strong { font-weight: 700; }
+    .actions { 
+      margin-top: .8rem; display: flex; justify-content: center; gap: .75rem; 
+      flex-wrap: wrap;
     }
-    @media (max-width: 1100px) { .calendar { grid-template-columns: repeat(3, minmax(200px, 1fr)); } }
-    @media (max-width: 720px)  { .calendar { grid-template-columns: 1fr; } }
 
-    .card {
-      background: #fff; border: 1px solid rgba(0,0,0,0.12); border-radius: 10px;
-      padding: 1rem; text-align: left; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      display: grid; gap: 0.5rem;
+    /* Shared button style (flat, pill, subtle shadow, crisp hover) */
+    .btn { 
+      display: inline-flex; align-items: center; justify-content: center; 
+      gap: .5rem; cursor: pointer; text-decoration: none; 
+      padding: .7rem 1.1rem; border-radius: 999px; font-weight: 600; 
+      border: 2px solid #111; color: #111; background: #fff; 
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+      transition: transform .15s ease, background .15s ease, color .15s ease, box-shadow .15s ease;
     }
+    .btn:hover { background: #111; color: #fff; transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,.12); }
+    .btn:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(17,17,17,.15); }
+
+    /* Optional visual distinction */
+    .btn.secondary { background: transparent; }
+
+    /* ====== Info block above booking ====== */
+    .info-section { margin-top: 1.6rem; background: #fff; padding: 1.5rem; border-radius: 10px; text-align: left; border: 1px solid rgba(0,0,0,.08); }
+    .info-section h2 { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; }
+    .info-section ul { padding-left: 1.2rem; }
+    .info-section li { margin-bottom: 0.5rem; }
+
+    /* ====== Booking grid ====== */
+    .calendar { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 2rem auto 0; padding: 0 .5rem; max-width: 900px; }
+    .card { background: #fff; border: 1px solid rgba(0,0,0,0.12); border-radius: 10px; padding: 1rem; text-align: left; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: grid; gap: 0.5rem; }
     .date { font-size: 1.25rem; font-weight: 600; letter-spacing: .2px; }
     .meta { color: #555; font-size: 0.95rem; margin-bottom: 0.25rem; }
-
-    .btn { 
-      display: inline-block; width: 100%; text-align: center; cursor: pointer;
-      padding: 0.7rem 1rem; border-radius: 999px; text-decoration: none;
-      border: 2px solid #111; background: transparent; color: #111; font-weight: 600;
-      transition: transform .15s ease, background .15s ease, color .15s ease;
-    }
-    .btn:hover { background: #111; color: #fff; transform: translateY(-1px); }
 
     .note { color: #666; font-size: 0.95rem; margin: 1.25rem 0 0; }
     .note a { color: inherit; }
 
-    /* Contact block (unchanged look) */
+    /* Contact block */
     .contact-info { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.4rem; color: #666; }
     .contact-link { color: #666; text-decoration: none; }
     .contact-link:hover { color: #333; }
+    
+    @media (max-width: 520px){
+      .btn { width: 100%; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- ====== Keep this top section the same ====== -->
+    <!-- Header kept the same -->
     <div class="header">
-      <img src="348982356_573566748281355_5155277251296915931_n.jpg" alt="Bodhi Swan Ceramics Logo" class="logo" />
+      <a href="/"><img src="348982356_573566748281355_5155277251296915931_n.jpg" alt="Bodhi Swan Ceramics Logo" class="logo" /></a>
       <h1>Bodhi Swan Ceramics</h1>
     </div>
 
-    <!-- ====== Classes (fixed) ====== -->
-    <div class="calendar" role="list" aria-label="September Monday workshops (5:30–7:30 pm)">
-      <article class="card" role="listitem">
-        <div class="date">Mon 1 Sep</div>
-        <div class="meta">5:30–7:30 pm · Taringa Studio</div>
-        <a class="btn" href="https://buy.stripe.com/8x214m5RS4k63mJ0logIo03">Book 1 Sep</a>
-      </article>
-      <article class="card" role="listitem">
-        <div class="date">Mon 8 Sep</div>
-        <div class="meta">5:30–7:30 pm · Taringa Studio</div>
-        <a class="btn" href="https://buy.stripe.com/8x29ASfssg2O1eB4BEgIo02">Book 8 Sep</a>
-      </article>
-      <article class="card" role="listitem">
-        <div class="date">Mon 15 Sep</div>
-        <div class="meta">5:30–7:30 pm · Taringa Studio</div>
-        <a class="btn" href="https://buy.stripe.com/cNi5kCbcceYK3mJgkmgIo04">Book 15 Sep</a>
-      </article>
-      <article class="card" role="listitem">
-        <div class="date">Mon 22 Sep</div>
-        <div class="meta">5:30–7:30 pm · Taringa Studio</div>
-        <a class="btn" href="https://buy.stripe.com/14A5kCeoog2O8H3b02gIo05">Book 22 Sep</a>
-      </article>
-      <article class="card" role="listitem">
-        <div class="date">Mon 29 Sep</div>
-        <div class="meta">5:30–7:30 pm · Taringa Studio</div>
-        <a class="btn" href="https://buy.stripe.com/bJe5kCa883g20ax2twgIo07">Book 29 Sep</a>
-      </article>
+    <!-- Pricing + side-by-side CTAs -->
+    <div class="prices">
+      <p><strong>$60</strong> per class or <strong>$50/week</strong> with a subscription</p>
+      <div class="actions">
+        <a class="btn" href="https://buy.stripe.com/00w5kC8006se4qN4BEgIo08">Subscribe Now</a>
+        <a class="btn secondary" href="#booking">See September Dates</a>
+      </div>
+    </div>
+
+    <!-- Info above booking -->
+    <section class="info-section">
+      <h2>What You'll Learn</h2>
+      <ul>
+        <li>Basics of wheel throwing and hand-building techniques</li>
+        <li>How to prepare clay and use pottery tools</li>
+        <li>Shaping, trimming, and decorating your pieces</li>
+        <li>Understanding the firing and glazing process</li>
+        <li>Tips for developing your own creative style</li>
+      </ul>
+    </section>
+
+    <!-- Booking grid -->
+    <div id="booking" class="calendar">
+      <div class="card"><div class="date">Mon 1 Sep</div><div class="meta">5:30–7:30 pm · Taringa Studio</div><a class="btn" href="https://buy.stripe.com/8x214m5RS4k63mJ0logIo03">Book 1 Sep</a></div>
+      <div class="card"><div class="date">Mon 8 Sep</div><div class="meta">5:30–7:30 pm · Taringa Studio</div><a class="btn" href="https://buy.stripe.com/8x29ASfssg2O1eB4BEgIo02">Book 8 Sep</a></div>
+      <div class="card"><div class="date">Mon 15 Sep</div><div class="meta">5:30–7:30 pm · Taringa Studio</div><a class="btn" href="https://buy.stripe.com/cNi5kCbcceYK3mJgkmgIo04">Book 15 Sep</a></div>
+      <div class="card"><div class="date">Mon 22 Sep</div><div class="meta">5:30–7:30 pm · Taringa Studio</div><a class="btn" href="https://buy.stripe.com/14A5kCeoog2O8H3b02gIo05">Book 22 Sep</a></div>
+      <div class="card"><div class="date">Mon 29 Sep</div><div class="meta">5:30–7:30 pm · Taringa Studio</div><a class="btn" href="https://buy.stripe.com/bJe5kCa883g20ax2twgIo07">Book 29 Sep</a></div>
     </div>
 
     <p class="note">Need a different date or private session? Email <a href="mailto:hello@bodhiswan.com">hello@bodhiswan.com</a></p>
