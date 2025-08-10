@@ -353,80 +353,41 @@
         }
     </style>
 </head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="348982356_573566748281355_5155277251296915931_n.jpg" alt="Bodhi Swan Ceramics Logo" class="logo">
+            <h1>Bodhi Swan Ceramics</h1>
+        </div>
+        
+    <div class="calendar">
+      <div class="card"><div class="date">Mon 1 Sep</div><div class="meta">5:30–7:30 pm · Taringa Studio</div><a class="btn" href="https://buy.stripe.com/8x214m5RS4k63mJ0logIo03">Book 1 Sep</a></div>
+      <div class="card"><div class="date">Mon 8 Sep</div><div class="meta">5:30–7:30 pm · Taringa Studio</div><a class="btn" href="https://buy.stripe.com/8x29ASfssg2O1eB4BEgIo02">Book 8 Sep</a></div>
+      <div class="card"><div class="date">Mon 15 Sep</div><div class="meta">5:30–7:30 pm · Taringa Studio</div><a class="btn" href="https://buy.stripe.com/cNi5kCbcceYK3mJgkmgIo04">Book 15 Sep</a></div>
+      <div class="card"><div class="date">Mon 22 Sep</div><div class="meta">5:30–7:30 pm · Taringa Studio</div><a class="btn" href="https://buy.stripe.com/14A5kCeoog2O8H3b02gIo05">Book 22 Sep</a></div>
+      <div class="card"><div class="date">Mon 29 Sep</div><div class="meta">5:30–7:30 pm · Taringa Studio</div><a class="btn" href="https://buy.stripe.com/bJe5kCa883g20ax2twgIo07">Book 29 Sep</a></div>
+    </div>
+    <p class="note">Need a different date or private session? Email <a href="mailto:hello@bodhiswan.com">hello@bodhiswan.com</a></p>
 
-  <main>
-    <section class="hero">
-      <h1>Weekly classes — Mondays, 6–9pm (September)</h1>
-      <p>Select a week in September and book the Monday session via Stripe.</p>
-    </section>
+        
+            <div class="contact-info">
+                <span class="contact-link">Taringa, Queensland</span>
+                <a href="mailto:swan1995@gmail.com" class="contact-link">swan1995@gmail.com</a>
+                <a href="tel:0478756284" class="contact-link">0478 756 284</a>
+                <span class="social-handle">@bodhiswan</span>
+            </div>
+        </div>
 
-    <section class="booking-selector">
-      <label for="weekSelect">Select week:</label>
-      <select id="weekSelect"></select>
-      <button id="viewWeek">View classes</button>
-    </section>
-
-    <section class="about">
-      <h2>About the classes</h2>
-      <p>These are weekly-run classes designed for multi-week attendance. You’ll learn to throw on the wheel, trim, and glaze your work. Price excludes clay, firing and glazing — these can be purchased and done at the Indooroopilly Ceramic Studio or elsewhere.</p>
-      <p>Join casually at <strong>$60 per class</strong>, or save with an ongoing <strong>$50/week subscription</strong>.</p>
-      <p>The first hour is guided instruction. The remaining two hours are open studio time to throw and trim as you like.</p>
-    </section>
-
-    <section class="location">
-      <h2>Location & parking — Indooroopilly Ceramic Studio</h2>
-      <p><strong>Address:</strong> Shop 4 &amp; 6, 8 Station Road, Indooroopilly QLD 4068.</p>
-      <p><strong>Parking:</strong> Free parking behind the studio off Coonan Street (near Eldorado/Cold Rock). Close to Indooroopilly Train Station and Indooroopilly Shopping Centre.</p>
-    </section>
-  </main>
-
-  <dialog id="modal">
-    <div class="modal-body" id="m-body"></div>
-  </dialog>
-
-  <script>
-    const STRIPE_LINKS = {
-      '2025-09-01': 'https://buy.stripe.com/8x214m5RS4k63mJ0logIo03',
-      '2025-09-08': 'https://buy.stripe.com/8x29ASfssg2O1eB4BEgIo02',
-      '2025-09-15': 'https://buy.stripe.com/cNi5kCbcceYK3mJgkmgIo04',
-      '2025-09-22': 'https://buy.stripe.com/14A5kCeoog2O8H3b02gIo05',
-      '2025-09-29': 'https://buy.stripe.com/bJe5kCa883g20ax2twgIo07'
-    };
-    const pad = n => String(n).padStart(2,'0');
-    const addDays = (d,n) => { const x = new Date(d); x.setDate(x.getDate()+n); return x; };
-    const toISODate = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
-    const fmtMonthDay = d => d.toLocaleDateString(undefined,{day:'numeric', month:'long'});
-    const classDates = Object.keys(STRIPE_LINKS).map(s => new Date(s + 'T00:00:00'));
-    const weekStarts = Array.from(new Set(classDates.map(d => { const x = new Date(d); const day = (x.getDay()||7); if(day !== 1) x.setDate(x.getDate()-(day-1)); x.setHours(0,0,0,0); return x.getTime(); }))).sort((a,b) => a-b).map(ts => new Date(ts));
-
-    const weekSelect = document.getElementById('weekSelect');
-    weekStarts.forEach(w => {
-      const end = addDays(w,6);
-      const opt = document.createElement('option');
-      opt.value = w.toISOString();
-      opt.textContent = `${fmtMonthDay(w)} to ${fmtMonthDay(end)}`;
-      weekSelect.appendChild(opt);
-    });
-
-    document.getElementById('viewWeek').addEventListener('click', () => {
-      const selected = new Date(weekSelect.value);
-      const end = addDays(selected,6);
-      const today = new Date(); today.setHours(0,0,0,0);
-      const mBody = document.getElementById('m-body');
-      mBody.innerHTML = '';
-      classDates.filter(d => d >= today && d >= selected && d <= end).forEach(start => {
-        const key = toISODate(start);
-        const slot = document.createElement('div');
-        slot.className = 'slot';
-        slot.innerHTML = `<strong>${start.toDateString()}</strong>`;
-        const btn = document.createElement('button');
-        btn.textContent = 'Book via Stripe';
-        btn.onclick = () => window.open(STRIPE_LINKS[key], '_blank');
-        slot.appendChild(btn);
-        mBody.appendChild(slot);
-      });
-      document.getElementById('modal').showModal();
-    });
-  </script>
-</body>
-</html>
+        <!-- Shop Section -->
+        <section class="shop-section" id="shopSection">
+            <h2 style="text-align: center; font-size: 2rem; font-weight: 300; margin-bottom: 2rem;">Available Works</h2>
+            <div class="shop-grid">
+                <div class="product-card">
+                    <img src="bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg" alt="Hand-thrown espresso cup with smooth glaze finish" class="product-image" loading="lazy">
+                    <div class="product-info">
+                        <h3 class="product-title">Handcrafted Espresso Cup</h3>
+                        <p class="product-description">A meticulously wheel-thrown espresso cup, perfect for your morning ritual. Features a smooth interior glaze and natural exterior finish.</p>
+                        <div class="product-metadata">
+                            <p>Dimensions: 6cm x 6cm x 7cm</p>
+                            <p>Materials: Stoneware clay, Clear glaze interior</p>
+                            <p>Care: Dishwasher and microwave safe</p
