@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bodhi Swan Ceramics — Workshops</title>
   <style>
-    /* ====== Base (keep your header font & feel) ====== */
+    /* ====== Base (keep header font & feel) ====== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       line-height: 1.6; color: #333;
@@ -19,37 +20,32 @@
     .logo { width: 100px; height: 100px; object-fit: cover; border-radius: 50%; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
     h1 { font-size: 3rem; font-weight: 300; letter-spacing: 3px; color: #2c2c2c; text-align: left; }
 
-    /* ====== Prices + CTA row (side-by-side buttons) ====== */
+    /* ====== Prices + CTA row ====== */
     .prices { text-align: center; margin-top: 1rem; font-size: 1.1rem; }
     .prices strong { font-weight: 700; }
-    .actions { 
-      margin-top: .8rem; display: flex; justify-content: center; gap: .75rem; 
-      flex-wrap: wrap;
-    }
+    .disclaimer { color: #777; font-size: .95rem; margin-top: .35rem; }
+    .disclaimer a { color: inherit; text-decoration: underline; }
 
-    /* Shared button style (flat, pill, subtle shadow, crisp hover) */
-    .btn { 
-      display: inline-flex; align-items: center; justify-content: center; 
-      gap: .5rem; cursor: pointer; text-decoration: none; 
-      padding: .7rem 1.1rem; border-radius: 999px; font-weight: 600; 
-      border: 2px solid #111; color: #111; background: #fff; 
-      box-shadow: 0 2px 8px rgba(0,0,0,.06);
-      transition: transform .15s ease, background .15s ease, color .15s ease, box-shadow .15s ease;
-    }
+    .actions { margin-top: .8rem; display: flex; justify-content: center; gap: .75rem; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; cursor: pointer; text-decoration: none; padding: .7rem 1.1rem; border-radius: 999px; font-weight: 600; border: 2px solid #111; color: #111; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.06); transition: transform .15s ease, background .15s ease, color .15s ease, box-shadow .15s ease; }
     .btn:hover { background: #111; color: #fff; transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,.12); }
     .btn:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(17,17,17,.15); }
+    .btn.secondary { background: #f7f7f7; border-color: #222; color: #111; }
+    .btn.secondary:hover { background: #111; color: #fff; }
 
-    /* Optional visual distinction */
-    .btn.secondary { background: transparent; }
-
-    /* ====== Info block above booking ====== */
+    /* ====== Info blocks ====== */
     .info-section { margin-top: 1.6rem; background: #fff; padding: 1.5rem; border-radius: 10px; text-align: left; border: 1px solid rgba(0,0,0,.08); }
-    .info-section h2 { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; }
+    .info-section h2 { font-size: 1.5rem; margin-bottom: .8rem; font-weight: 600; }
+    .info-section p { margin: .5rem 0; }
     .info-section ul { padding-left: 1.2rem; }
-    .info-section li { margin-bottom: 0.5rem; }
+    .info-section li { margin-bottom: .5rem; }
+
+    .where { margin-top: 1rem; background: #fff; padding: 1.2rem 1.5rem; border: 1px solid rgba(0,0,0,.08); border-radius: 10px; text-align: left; }
+    .where h3 { font-size: 1.2rem; margin-bottom: .5rem; font-weight: 600; }
+    .where p { margin: .25rem 0; color: #555; }
 
     /* ====== Booking grid ====== */
-    .calendar { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 2rem auto 0; padding: 0 .5rem; max-width: 900px; }
+    .calendar { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 1.8rem auto 0; padding: 0 .5rem; max-width: 900px; }
     .card { background: #fff; border: 1px solid rgba(0,0,0,0.12); border-radius: 10px; padding: 1rem; text-align: left; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: grid; gap: 0.5rem; }
     .date { font-size: 1.25rem; font-weight: 600; letter-spacing: .2px; }
     .meta { color: #555; font-size: 0.95rem; margin-bottom: 0.25rem; }
@@ -57,57 +53,78 @@
     .note { color: #666; font-size: 0.95rem; margin: 1.25rem 0 0; }
     .note a { color: inherit; }
 
-    /* Contact block */
+    /* Contact */
     .contact-info { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.4rem; color: #666; }
     .contact-link { color: #666; text-decoration: none; }
     .contact-link:hover { color: #333; }
-    
-    @media (max-width: 520px){
-      .btn { width: 100%; }
-    }
+
+    @media (max-width: 520px){ .btn { width: 100%; } }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Header kept the same -->
     <div class="header">
       <a href="/"><img src="348982356_573566748281355_5155277251296915931_n.jpg" alt="Bodhi Swan Ceramics Logo" class="logo" /></a>
       <h1>Bodhi Swan Ceramics</h1>
     </div>
 
-    <!-- Pricing + side-by-side CTAs -->
     <div class="prices">
       <p><strong>$60</strong> per class or <strong>$50/week</strong> with a subscription</p>
       <div class="actions">
         <a class="btn" href="https://buy.stripe.com/00w5kC8006se4qN4BEgIo08">Subscribe Now</a>
         <a class="btn secondary" href="#booking">See September Dates</a>
       </div>
+      <div class="disclaimer">Cost does not include clay, firings or glazing — <a href="/faq">check the FAQ for more details</a>.</div>
     </div>
 
-    <!-- Info above booking -->
-    <section class="info-section">
-      <h2>What You'll Learn</h2>
+    <section class="info-section" aria-labelledby="structure">
+      <h2 id="structure">Class structure</h2>
+      <p>Classes run <strong>6:00–9:00 pm</strong>. You can book a single session, but they’re designed to build skills over <strong>two or more weeks</strong>.</p>
       <ul>
-        <li>Basics of wheel throwing and hand-building techniques</li>
-        <li>How to prepare clay and use pottery tools</li>
-        <li>Shaping, trimming, and decorating your pieces</li>
-        <li>Understanding the firing and glazing process</li>
-        <li>Tips for developing your own creative style</li>
+        <li><strong>Arrival & setup (10–15 min)</strong> — Brief studio intro, tools and wheel setup.</li>
+        <li><strong>Guided lesson (up to 60 min)</strong> — Optional, focused on wheel basics: centering, opening, pulling and forming a simple cup or bowl.</li>
+        <li><strong>Independent practice (≈120 min)</strong> — Supervised throwing and trimming at your own pace with help as needed.</li>
+        <li><strong>Wrap‑up</strong> — Label your pieces for drying/firing. Glazing is scheduled at a later session.</li>
       </ul>
+      <p>Beginners and returners welcome. We keep class sizes small so you get hands‑on help when you want it.</p>
     </section>
 
-    <!-- Booking grid -->
-    <div id="booking" class="calendar">
-      <div class="card"><div class="date">Mon 1 Sep</div><div class="meta">5:30–7:30 pm · Taringa Studio</div><a class="btn" href="https://buy.stripe.com/8x214m5RS4k63mJ0logIo03">Book 1 Sep</a></div>
-      <div class="card"><div class="date">Mon 8 Sep</div><div class="meta">5:30–7:30 pm · Taringa Studio</div><a class="btn" href="https://buy.stripe.com/8x29ASfssg2O1eB4BEgIo02">Book 8 Sep</a></div>
-      <div class="card"><div class="date">Mon 15 Sep</div><div class="meta">5:30–7:30 pm · Taringa Studio</div><a class="btn" href="https://buy.stripe.com/cNi5kCbcceYK3mJgkmgIo04">Book 15 Sep</a></div>
-      <div class="card"><div class="date">Mon 22 Sep</div><div class="meta">5:30–7:30 pm · Taringa Studio</div><a class="btn" href="https://buy.stripe.com/14A5kCeoog2O8H3b02gIo05">Book 22 Sep</a></div>
-      <div class="card"><div class="date">Mon 29 Sep</div><div class="meta">5:30–7:30 pm · Taringa Studio</div><a class="btn" href="https://buy.stripe.com/bJe5kCa883g20ax2twgIo07">Book 29 Sep</a></div>
+    <section class="where" aria-labelledby="where">
+      <h3 id="where">Where</h3>
+      <p><strong>The Ceramic Studio</strong> — Shop 4 & 6, 8 Station Road, Indooroopilly.</p>
+      <p>Free parking behind the studio off Coonan Street (access just after Eldorado). Short walk from Indooroopilly train station and the shopping centre.</p>
+    </section>
+
+    <div id="booking" class="calendar" role="list" aria-label="September Monday workshops (6:00–9:00 pm)">
+      <article class="card" role="listitem">
+        <div class="date">Mon 1 Sep</div>
+        <div class="meta">6:00–9:00 pm</div>
+        <a class="btn" href="https://buy.stripe.com/8x214m5RS4k63mJ0logIo03">Book 1 Sep</a>
+      </article>
+      <article class="card" role="listitem">
+        <div class="date">Mon 8 Sep</div>
+        <div class="meta">6:00–9:00 pm</div>
+        <a class="btn" href="https://buy.stripe.com/8x29ASfssg2O1eB4BEgIo02">Book 8 Sep</a>
+      </article>
+      <article class="card" role="listitem">
+        <div class="date">Mon 15 Sep</div>
+        <div class="meta">6:00–9:00 pm</div>
+        <a class="btn" href="https://buy.stripe.com/cNi5kCbcceYK3mJgkmgIo04">Book 15 Sep</a>
+      </article>
+      <article class="card" role="listitem">
+        <div class="date">Mon 22 Sep</div>
+        <div class="meta">6:00–9:00 pm</div>
+        <a class="btn" href="https://buy.stripe.com/14A5kCeoog2O8H3b02gIo05">Book 22 Sep</a>
+      </article>
+      <article class="card" role="listitem">
+        <div class="date">Mon 29 Sep</div>
+        <div class="meta">6:00–9:00 pm</div>
+        <a class="btn" href="https://buy.stripe.com/bJe5kCa883g20ax2twgIo07">Book 29 Sep</a>
+      </article>
     </div>
 
     <p class="note">Need a different date or private session? Email <a href="mailto:hello@bodhiswan.com">hello@bodhiswan.com</a></p>
 
-    <!-- Contact -->
     <div class="contact-info">
       <span class="contact-link">Taringa, Queensland</span>
       <a href="mailto:swan1995@gmail.com" class="contact-link">swan1995@gmail.com</a>
