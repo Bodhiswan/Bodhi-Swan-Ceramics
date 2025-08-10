@@ -1,1 +1,184 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bodhi Swan Ceramics — Coming Soon</title>
+  <meta name="description" content="Bodhi Swan Ceramics — new site coming soon." />
+  <style>
+    :root{
+      --bg:#0f0f12;
+      --fg:#e7e7ea;
+      --muted:#9a9aa3;
+      --accent:#8fffcc;
+      --accent2:#a0c4ff;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 800px at 20% -10%, #1a1a22 0%, #0f0f12 60%),
+                  radial-gradient(800px 600px at 120% 120%, #14141a 0%, #0f0f12 60%);
+      color:var(--fg);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+    }
+
+    .noise{position:fixed;inset:0;pointer-events:none;opacity:.06;mix-blend-mode:overlay;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><filter id="n"><feTurbulence baseFrequency="0.9" numOctaves="4"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.6"/></svg>');background-size:160px 160px}
+
+    .wrap{max-width:1100px;width:100%;padding:48px 20px;position:relative}
+    header{display:flex;align-items:center;gap:16px;opacity:.95}
+    header img{width:64px;height:64px;border-radius:50%;object-fit:cover;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+    header h1{font-size:clamp(1.2rem, 2.6vw, 1.6rem);font-weight:600;color:var(--fg);letter-spacing:.6px;margin:0}
+
+    .terminal{margin-top:28px;background:#0b0b0f;border:1px solid rgba(255,255,255,.08);border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.03)}
+    .term-head{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.06);background:linear-gradient(180deg,#121219,#0b0b0f)}
+    .dot{width:10px;height:10px;border-radius:50%}
+    .dot.red{background:#ff5f57}.dot.yellow{background:#febc2e}.dot.green{background:#28c840}
+    .screen{padding:22px 18px 26px 18px;font-size:clamp(12px,2.2vw,16px);line-height:1.7;min-height:300px;white-space:pre;overflow:hidden}
+    .prompt{color:var(--accent)}
+    .caret{display:inline-block;width:.6ch;border-right:2px solid var(--fg);animation:blink 1s steps(2,end) infinite}
+    @keyframes blink{50%{border-color:transparent}}
+
+    .grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:18px}
+
+    .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1rem;border-radius:999px;border:2px solid #222;background:#121218;color:var(--fg);text-decoration:none;font-weight:700;transition:transform .15s ease, background .15s ease, color .15s ease, box-shadow .15s ease}
+    .btn:hover{transform:translateY(-1px);background:#1a1a22;box-shadow:0 10px 24px rgba(0,0,0,.35)}
+
+    footer{position:fixed;left:0;bottom:0;width:100%;padding:10px 14px;font-size:12px;color:var(--muted);display:flex;justify-content:center;gap:8px;background:linear-gradient(180deg, transparent, rgba(0,0,0,.25))}
+
+    /* ASCII gallery */
+    .ascii{display:grid;grid-template-columns:repeat(auto-fit, minmax(240px,1fr));gap:16px;margin-top:18px}
+    .card{background:#0b0b0f;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px}
+    .card pre{margin:0;color:#cfd0f7;opacity:.95}
+    .card h3{margin:0 0 6px 0;font-size:.95rem;color:#d7fbe8;font-weight:700}
+    .hint{color:var(--muted);font-size:.9rem}
+
+    @media (min-width:900px){
+      .grid{grid-template-columns:1.1fr .9fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="wrap">
+    <header aria-label="Bodhi Swan Ceramics">
+      <img src="348982356_573566748281355_5155277251296915931_n.jpg" alt="Bodhi Swan Ceramics logo" />
+      <h1>Bodhi Swan Ceramics</h1>
+    </header>
+
+    <section class="grid" aria-label="coming soon">
+      <div class="terminal" role="region" aria-live="polite">
+        <div class="term-head" aria-hidden="true">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+        </div>
+        <div class="screen" id="screen"></div>
+      </div>
+
+      <div>
+        <p class="hint">We’re throwing something special on the wheel. In the meantime:</p>
+        <div class="links">
+          <a class="btn" href="mailto:hello@bodhiswan.com">Email</a>
+          <a class="btn" href="/class-booking.html">Workshops</a>
+          <a class="btn" href="/">Home</a>
+        </div>
+
+        <div class="ascii" aria-label="ASCII gallery">
+          <div class="card">
+            <h3>Vase</h3>
+            <pre>
+      .-""-.
+     / .--. \
+    / /    \ \
+    | |    | |
+    | |    | |
+    | |    | |
+    \ \    / /
+     '._`"'_. '
+        `""`
+            </pre>
+          </div>
+          <div class="card">
+            <h3>Potter's Wheel</h3>
+            <pre>
+        _________
+       / ======= \
+      /  /~~~\   \
+  ___(  ( 0  )   )___
+ (____\  \_/   /____)
+       \_______/
+        _/   \_
+       /_/   \_\
+            </pre>
+          </div>
+          <div class="card">
+            <h3>Kiln</h3>
+            <pre>
+        .--------.
+       / .====.  \
+      / /====/\  \
+     /_/____/  \__\
+     |  _  _  _   |
+     | | || || |  |
+     | | || || |  |
+     | | || || |  |
+     | | || || |  |
+     | | || || |  |
+     '------------'
+            </pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>© <span id="year"></span> Bodhi Swan Ceramics</span>
+    </footer>
+  </div>
+
+  <script>
+    // Typewriter "coming soon" terminal
+    const screen = document.getElementById('screen');
+    const lines = [
+      '<span class="prompt">bodhi@studio</span>:~$ echo "coming soon"',
+      'coming soon',
+      '',
+      '<span class="prompt">bodhi@studio</span>:~$ ./wheel --spin',
+      'throwing clay…',
+      'centering…',
+      'pulling walls…',
+      'trimming foot…',
+      '',
+      '<span class="prompt">bodhi@studio</span>:~$ echo "see you in September"',
+      'see you in September',
+      '',
+      '<span class="prompt">bodhi@studio</span>:~$ █'
+    ];
+
+    let idx = 0;
+    function addLine(){
+      if(idx >= lines.length) return;
+      const line = document.createElement('div');
+      // Convert block char to caret animation
+      if(lines[idx].includes('█')){
+        line.innerHTML = lines[idx].replace('█', '<span class="caret"></span>');
+      } else {
+        line.innerHTML = lines[idx];
+      }
+      screen.appendChild(line);
+      screen.scrollTop = screen.scrollHeight;
+      idx++;
+      const delay = 350 + Math.random()*300;
+      setTimeout(addLine, delay);
+    }
+    setTimeout(addLine, 600);
+
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
