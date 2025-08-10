@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bodhi Swan Ceramics — Workshops</title>
   <style>
-    /* ====== Base (keep header font & feel) ====== */
+    /* ====== Base (keep your header font & feel) ====== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
@@ -15,37 +15,32 @@
       padding: 2rem; min-height: 100vh;
     }
     .container { text-align: center; max-width: 900px; margin: 0 auto; }
-    .header { display: flex; align-items: center; justify-content: center; gap: 2rem; margin-bottom: 2rem; position: relative; }
+    .header { display: flex; align-items: center; justify-content: center; gap: 2rem; margin-bottom: 2rem; position: relative; flex-wrap: wrap; }
     .header::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80%; height: 1px; background: linear-gradient(90deg, transparent, #333, transparent); }
     .logo { width: 100px; height: 100px; object-fit: cover; border-radius: 50%; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
-    h1 { font-size: 3rem; font-weight: 300; letter-spacing: 3px; color: #2c2c2c; text-align: left; }
+    /* Make heading responsive using clamp so it scales down on mobile */
+    h1 { font-size: clamp(1.6rem, 6vw, 3rem); font-weight: 300; letter-spacing: 3px; color: #2c2c2c; text-align: left; }
 
-    /* ====== Prices + CTA row ====== */
+    /* ====== Prices + CTA row (side-by-side buttons) ====== */
     .prices { text-align: center; margin-top: 1rem; font-size: 1.1rem; }
     .prices strong { font-weight: 700; }
-    .disclaimer { color: #777; font-size: .95rem; margin-top: .35rem; }
-    .disclaimer a { color: inherit; text-decoration: underline; }
-
     .actions { margin-top: .8rem; display: flex; justify-content: center; gap: .75rem; flex-wrap: wrap; }
+
+    /* Shared button style (flat, pill, subtle shadow, crisp hover) */
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; cursor: pointer; text-decoration: none; padding: .7rem 1.1rem; border-radius: 999px; font-weight: 600; border: 2px solid #111; color: #111; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.06); transition: transform .15s ease, background .15s ease, color .15s ease, box-shadow .15s ease; }
     .btn:hover { background: #111; color: #fff; transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,.12); }
     .btn:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(17,17,17,.15); }
     .btn.secondary { background: #f7f7f7; border-color: #222; color: #111; }
     .btn.secondary:hover { background: #111; color: #fff; }
 
-    /* ====== Info blocks ====== */
+    /* ====== Info block above booking ====== */
     .info-section { margin-top: 1.6rem; background: #fff; padding: 1.5rem; border-radius: 10px; text-align: left; border: 1px solid rgba(0,0,0,.08); }
-    .info-section h2 { font-size: 1.5rem; margin-bottom: .8rem; font-weight: 600; }
-    .info-section p { margin: .5rem 0; }
+    .info-section h2 { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; }
     .info-section ul { padding-left: 1.2rem; }
-    .info-section li { margin-bottom: .5rem; }
-
-    .where { margin-top: 1rem; background: #fff; padding: 1.2rem 1.5rem; border: 1px solid rgba(0,0,0,.08); border-radius: 10px; text-align: left; }
-    .where h3 { font-size: 1.2rem; margin-bottom: .5rem; font-weight: 600; }
-    .where p { margin: .25rem 0; color: #555; }
+    .info-section li { margin-bottom: 0.5rem; }
 
     /* ====== Booking grid ====== */
-    .calendar { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 1.8rem auto 0; padding: 0 .5rem; max-width: 900px; }
+    .calendar { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 2rem auto 0; padding: 0 .5rem; max-width: 900px; }
     .card { background: #fff; border: 1px solid rgba(0,0,0,0.12); border-radius: 10px; padding: 1rem; text-align: left; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: grid; gap: 0.5rem; }
     .date { font-size: 1.25rem; font-weight: 600; letter-spacing: .2px; }
     .meta { color: #555; font-size: 0.95rem; margin-bottom: 0.25rem; }
@@ -53,16 +48,25 @@
     .note { color: #666; font-size: 0.95rem; margin: 1.25rem 0 0; }
     .note a { color: inherit; }
 
-    /* Contact */
+    /* Contact block */
     .contact-info { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.4rem; color: #666; }
     .contact-link { color: #666; text-decoration: none; }
     .contact-link:hover { color: #333; }
 
-    @media (max-width: 520px){ .btn { width: 100%; } }
+    /* ====== Mobile tweaks ====== */
+    @media (max-width: 720px){
+      .header { flex-direction: column; gap: .75rem; }
+      .logo { width: 80px; height: 80px; }
+      h1 { text-align: center; letter-spacing: 1.5px; }
+    }
+    @media (max-width: 520px){
+      .btn { width: 100%; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
+    <!-- Header kept the same -->
     <div class="header">
       <a href="/"><img src="348982356_573566748281355_5155277251296915931_n.jpg" alt="Bodhi Swan Ceramics Logo" class="logo" /></a>
       <h1>Bodhi Swan Ceramics</h1>
