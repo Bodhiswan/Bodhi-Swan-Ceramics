@@ -439,6 +439,101 @@ a:hover {
 .mt-8 { margin-top: var(--space-8); }
 .mt-12 { margin-top: var(--space-12); }
 
+/* ===== BOOKING SYSTEM STYLES ===== */
+
+/* Loading Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Form Styles */
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+    font-family: var(--font-family);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.form-input:disabled {
+    background: var(--color-surface-secondary);
+    color: var(--color-text-secondary);
+    cursor: not-allowed;
+}
+
+.checkbox-container input[type="checkbox"] {
+    accent-color: var(--color-accent);
+}
+
+/* Calendar Styles */
+.calendar-day {
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.calendar-day:hover {
+    transform: scale(1.05);
+}
+
+.calendar-grid {
+    margin-bottom: 1rem;
+}
+
+.calendar-day-header {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+}
+
+/* Time Slot Styles */
+.time-slot-btn {
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.time-slot-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Badge Styles */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--color-accent);
+    color: white;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Additional Typography */
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+.text-4xl { font-size: 2.25rem; }
+
 /* ===== RESPONSIVE DESIGN ===== */
 @media (min-width: 768px) {
   .nav-menu {
