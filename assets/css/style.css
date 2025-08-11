@@ -778,3 +778,79 @@ h1 {
     width: 100%;
   }
 }
+
+/* Navigation active state */
+.navigation .button.active {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--accent);
+    box-shadow: 0 0 15px 3px var(--glow);
+}
+
+/* Prices section styling */
+.prices {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.prices p {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.prices .disclaimer {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Improved info sections */
+.info-section, .where {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.info-section:hover, .where:hover {
+    transform: translateY(-2px);
+}
+
+/* Enhanced calendar cards */
+.calendar .card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.calendar .card:hover {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+/* Note styling improvements */
+.note {
+    background: rgba(240, 248, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(224, 232, 240, 0.5);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+/* Social handle styling */
+.social-handle {
+    font-style: italic;
+    color: #888;
+}

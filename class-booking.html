@@ -3,12 +3,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/png" href="assets/icons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="shortcut icon" href="assets/icons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Bodhi Swan" />
+  <link rel="manifest" href="assets/icons/site.webmanifest" />
+  
+  <!-- Primary Meta Tags -->
   <title>Pottery Workshops Brisbane | Wheel Throwing Classes - Bodhi Swan Ceramics</title>
   <meta name="description" content="Join pottery workshops in Brisbane. Learn wheel throwing in small groups at Indooroopilly. Monday evenings 6-9pm. $60 per class or $50 with subscription.">
+  <meta name="keywords" content="pottery workshops, Brisbane classes, wheel throwing, ceramics classes, pottery lessons, Indooroopilly, Brisbane pottery">
+  <meta name="author" content="Bodhi Swan Ceramics">
+  <meta name="robots" content="index, follow">
   
   <!-- TODO: Replace with actual GA4 Measurement ID -->
   <meta name="google-site-verification" content="PLACEHOLDER_GSC_TOKEN" />
-  
+  <!-- TODO: Replace PLACEHOLDER_GSC_TOKEN with actual Google Search Console verification token -->
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Bodhi Swan Ceramics">
@@ -24,18 +38,33 @@
   <meta name="twitter:description" content="Join pottery workshops in Brisbane. Learn wheel throwing in small groups at Indooroopilly. Monday evenings 6-9pm. $60 per class or $50 with subscription.">
   <meta name="twitter:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
   
-  <link rel="sitemap" href="/sitemap.xml">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="sitemap" href="/sitemap.xml">
   <script defer src="assets/js/site.js"></script>
+  <script defer src="assets/js/navigation.js"></script>
 </head>
 <body>
   <div class="container">
-    <!-- Header kept the same -->
     <div class="header">
-      <a href="/"><img src="images/348982356_573566748281355_5155277251296915931_n.jpg" alt="Bodhi Swan Ceramics Logo" class="logo" /></a>
+      <a href="/"><img src="images/348982356_573566748281355_5155277251296915931_n.jpg" alt="Bodhi Swan Ceramics Logo" class="logo" width="100" height="100" /></a>
       <h1>Bodhi Swan Ceramics</h1>
     </div>
+
+    <div class="mobile-menu-container">
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+
+    <nav class="navigation">
+      <div class="links">
+        <a href="index.html" class="button">Home</a>
+        <a href="class-booking.html" class="button active" data-cta="book-class">Classes</a>
+        <a href="https://www.etsy.com/au/shop/BodhiSwanCeramics?utm_source=bodhiswan.com&utm_medium=site&utm_campaign=shop_cta" class="button" target="_blank" rel="noopener">Shop</a>
+        <a href="https://instagram.com/bodhiswan" target="_blank" rel="noopener" class="button">Instagram</a>
+      </div>
+    </nav>
 
     <div class="prices">
       <p><strong>$60</strong> per class or <strong>$50/week</strong> with a subscription</p>
@@ -96,15 +125,15 @@
 
     <p class="note">Need a different date or private session? Email <a href="mailto:hello@bodhiswan.com">hello@bodhiswan.com</a></p>
 
-    <div class="contact-info">
-      <span class="contact-link">Taringa, Queensland</span>
-      <a href="mailto:swan1995@gmail.com" class="contact-link">swan1995@gmail.com</a>
-      <a href="tel:0478756284" class="contact-link">0478 756 284</a>
-      <span class="social-handle">@bodhiswan</span>
+    <div class="contact-section">
+      <div class="contact-info">
+        <span class="contact-link">Taringa, Queensland</span>
+        <a href="mailto:swan1995@gmail.com" class="contact-link">swan1995@gmail.com</a>
+        <a href="tel:0478756284" class="contact-link">0478 756 284</a>
+        <span class="social-handle">@bodhiswan</span>
+      </div>
     </div>
   </div>
-</body>
-</html>
 
 
     <!-- LocalBusiness JSON-LD Schema -->
