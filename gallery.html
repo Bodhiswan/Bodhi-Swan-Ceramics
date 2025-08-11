@@ -3,11 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/png" href="assets/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+    <link rel="shortcut icon" href="assets/icons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Bodhi Swan" />
+    <link rel="manifest" href="assets/icons/site.webmanifest" />
+    
+    <!-- Primary Meta Tags -->
     <title>Ceramic Gallery Brisbane | Handcrafted Pottery Collection - Bodhi Swan</title>
     <meta name="description" content="Browse our ceramic gallery featuring handcrafted pottery from Brisbane. Unique wheel-thrown bowls, vases, and functional stoneware by Bodhi Swan Ceramics.">
+    <meta name="keywords" content="ceramic gallery, pottery collection, Brisbane ceramics, handmade pottery, wheel thrown ceramics, stoneware, functional pottery">
+    <meta name="author" content="Bodhi Swan Ceramics">
+    <meta name="robots" content="index, follow">
     
     <!-- TODO: Replace with actual GA4 Measurement ID -->
     <meta name="google-site-verification" content="PLACEHOLDER_GSC_TOKEN" />
+    <!-- TODO: Replace PLACEHOLDER_GSC_TOKEN with actual Google Search Console verification token -->
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -24,86 +38,26 @@
     <meta name="twitter:description" content="Browse our ceramic gallery featuring handcrafted pottery from Brisbane. Unique wheel-thrown bowls, vases, and functional stoneware by Bodhi Swan Ceramics.">
     <meta name="twitter:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
     
+    <link rel="stylesheet" href="assets/css/main.css">
     <link rel="sitemap" href="/sitemap.xml">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/components.css">
-    <script defer src="assets/js/site.js"></script>
-    <style>
-        .gallery-container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        
-        .gallery-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 300;
-            color: #2c2c2c;
-            margin-bottom: 2rem;
-            letter-spacing: 2px;
-        }
-        
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            padding: 1rem;
-        }
-        
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            aspect-ratio: 1/1;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-        
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 1rem;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .gallery-item:hover .gallery-caption {
-            transform: translateY(0);
-        }
-    </style>
+    <script defer src="assets/js/main.js"></script>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <!-- Header -->
+        <header class="header">
             <a href="/"><img src="images/348982356_573566748281355_5155277251296915931_n.jpg" alt="Bodhi Swan Ceramics Logo" class="logo" width="100" height="100"></a>
             <h1>Bodhi Swan Ceramics</h1>
-        </div>
+        </header>
 
+        <!-- Mobile Menu Toggle -->
         <div class="mobile-menu-container">
             <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
                 <span class="hamburger"></span>
             </button>
         </div>
 
+        <!-- Navigation -->
         <nav class="navigation">
             <div class="links">
                 <a href="index.html" class="button">Home</a>
@@ -116,39 +70,46 @@
             </div>
         </nav>
         
-        <div class="gallery-container">
-            <h2 class="gallery-title">Ceramic Gallery</h2>
-            <p style="text-align: center; margin-bottom: 2rem; color: #666;">
+        <!-- Gallery Content -->
+        <main class="gallery-container">
+            <h2 class="text-center mb-lg" style="font-size: 2.5rem; font-weight: 300; color: #2c2c2c; letter-spacing: 2px;">Ceramic Gallery</h2>
+            <p class="text-center text-muted mb-xl" style="max-width: 600px; margin-left: auto; margin-right: auto;">
                 Explore our collection of handcrafted ceramics. Each piece is wheel-thrown with care in our Brisbane studio.
                 Interested in learning? Join our <a href="class-booking.html">pottery classes in Brisbane</a> or browse our
                 <a href="https://www.etsy.com/au/shop/BodhiSwanCeramics?utm_source=bodhiswan.com&utm_medium=site&utm_campaign=shop_cta">handmade ceramics</a> for purchase.
             </p>
             
-            <div class="gallery-grid">
+            <!-- Gallery Grid -->
+            <section class="gallery" aria-label="Ceramic artwork gallery">
                 <div class="gallery-item">
-                    <img src="images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg" alt="Handcrafted ceramic bowl" loading="lazy" width="300" height="300">
-                    <div class="gallery-caption">Thrown Bowl with Glaze</div>
+                    <img src="images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg" alt="Handcrafted ceramic bowl with unique glaze pattern" loading="lazy" width="300" height="300">
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="images/bodhiswan_348471159_3630382333858035_296460734488849167_n.jpg" alt="Ceramic vase" loading="lazy" width="300" height="300">
-                    <div class="gallery-caption">Tall Vase Collection</div>
+                    <img src="images/bodhiswan_348471159_3630382333858035_296460734488849167_n.jpg" alt="Contemporary ceramic vase with minimalist design" loading="lazy" width="300" height="300">
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="images/bodhiswan_348863468_1167309003909433_5762684848837982962_n.jpg" alt="Pottery pieces" loading="lazy" width="300" height="300">
-                    <div class="gallery-caption">Functional Stoneware</div>
+                    <img src="images/bodhiswan_348863468_1167309003909433_5762684848837982962_n.jpg" alt="Artisanal pottery piece showcasing traditional techniques" loading="lazy" width="300" height="300">
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="images/bodhiswan_349131030_7008228542527475_7205180136632410620_n.jpg" alt="Ceramic artwork" loading="lazy" width="300" height="300">
-                    <div class="gallery-caption">Decorative Pieces</div>
+                    <img src="images/bodhiswan_349131030_7008228542527475_7205180136632410620_n.jpg" alt="Modern ceramic creation with distinctive finish" loading="lazy" width="300" height="300">
                 </div>
+            </section>
+        </main>
+
+        <!-- Contact Section -->
+        <footer class="contact-section">
+            <div class="contact-info">
+                <span class="contact-link">Taringa, Queensland</span>
+                <a href="mailto:swan1995@gmail.com" class="contact-link">swan1995@gmail.com</a>
+                <a href="tel:0478756284" class="contact-link">0478 756 284</a>
+                <span class="social-handle">@bodhiswan</span>
             </div>
-        </div>
+        </footer>
     </div>
-</body>
-</html>
+
     <!-- LocalBusiness JSON-LD Schema -->
     <script type="application/ld+json">
     {
