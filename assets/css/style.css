@@ -406,24 +406,113 @@ h1 {
   }
 }
 
+/* Hero Content Section */
+.hero-content {
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
 .bio {
-  max-width: 600px;
-  margin: 1rem auto;
-  padding: 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
   font-weight: 300;
   color: #444;
-  background: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.8);
   backdrop-filter: blur(10px);
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   transform: translateY(0);
   transition: transform 0.3s ease;
+  text-align: left;
+}
+
+.bio h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2c2c2c;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.bio .intro {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  color: #555;
+  text-align: center;
+}
+
+.cta-section {
+  margin: 2rem 0;
+}
+
+.cta-section h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.offerings {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.offerings li {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: rgba(240, 248, 255, 0.6);
+  border-radius: 8px;
+  border-left: 4px solid var(--accent);
+}
+
+.offerings li strong {
+  color: #333;
+  font-weight: 600;
+}
+
+.main-cta {
+  text-align: center;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba(240, 248, 255, 0.8);
+  border-radius: 12px;
+  border: 1px solid rgba(135, 206, 235, 0.3);
+}
+
+.cta-button {
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
+  margin-bottom: 0.75rem;
+  display: inline-block;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+  color: white;
+  border: none;
+  box-shadow: 0 6px 20px rgba(135, 206, 235, 0.4);
+}
+
+.cta-button:hover {
+  background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(135, 206, 235, 0.6);
+}
+
+.cta-subtext {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+  font-style: italic;
 }
 
 .lesson-info {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   font-style: italic;
-  color: #555;
+  color: #666;
+  text-align: center;
+  font-size: 0.95rem;
 }
 
 .bio:hover {
@@ -1066,6 +1155,50 @@ h1 {
         padding: 0.6rem 1rem;
         font-size: 0.85rem;
         letter-spacing: 0.3px;
+    }
+    
+    /* Mobile Hero Content - Ensure it appears above gallery */
+    .hero-content {
+        order: -1;
+        margin: 1rem auto 2rem;
+    }
+    
+    .bio {
+        padding: 1.5rem;
+        margin: 0 0.5rem;
+    }
+    
+    .bio h2 {
+        font-size: 1.6rem;
+    }
+    
+    .bio .intro {
+        font-size: 1rem;
+    }
+    
+    .cta-section h3 {
+        font-size: 1.1rem;
+    }
+    
+    .offerings li {
+        padding: 0.6rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .main-cta {
+        padding: 1rem;
+        margin: 1.5rem 0;
+    }
+    
+    .cta-button {
+        font-size: 1rem;
+        padding: 0.9rem 1.5rem;
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .gallery {
+        margin-top: 1rem;
     }
     
     .faq-grid {
