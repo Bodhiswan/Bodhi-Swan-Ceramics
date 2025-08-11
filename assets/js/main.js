@@ -49,18 +49,74 @@ function initAnalytics() {
   }
 }
 
-// Mobile Navigation
+// Mobile Navigation and Auto-Hide Header
 function initMobileNavigation() {
   const menuToggle = document.querySelector('.mobile-menu-toggle');
   const navigation = document.querySelector('.navigation');
   const hamburger = document.querySelector('.hamburger');
+  const header = document.querySelector('.header');
 
-  if (!menuToggle || !navigation || !hamburger) return;
+  if (!menuToggle || !navigation || !hamburger || !header) return;
+
+  // Auto-hide header functionality
+  let lastScrollTop = 0;
+  let scrollTimeout;
+
+  function handleScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Clear existing timeout
+    clearTimeout(scrollTimeout);
+    
+    // Show header when scrolling up or at top
+    if (scrollTop < lastScrollTop || scrollTop < 100) {
+      header.classList.remove('hidden');
+      navigation.classList.remove('hidden');
+    }
+    // Hide header when scrolling down
+    else if (scrollTop > lastScrollTop && scrollTop > 200) {
+      header.classList.add('hidden');
+      navigation.classList.add('hidden');
+      // Close mobile menu if open
+      navigation.classList.remove('active');
+      hamburger.classList.remove('active');
+    }
+
+    // Add compact class when scrolled
+    if (scrollTop > 50) {
+      header.classList.add('compact');
+    } else {
+      header.classList.remove('compact');
+    }
+
+    lastScrollTop = scrollTop;
+
+    // Show header again after scroll stops
+    scrollTimeout = setTimeout(() => {
+      header.classList.remove('hidden');
+      navigation.classList.remove('hidden');
+    }, 1000);
+  }
+
+  // Throttled scroll handler
+  let ticking = false;
+  function requestTick() {
+    if (!ticking) {
+      requestAnimationFrame(handleScroll);
+      ticking = true;
+      setTimeout(() => { ticking = false; }, 16);
+    }
+  }
+
+  window.addEventListener('scroll', requestTick);
 
   // Toggle menu
   menuToggle.addEventListener('click', () => {
     navigation.classList.toggle('active');
     hamburger.classList.toggle('active');
+    // Show header when opening menu
+    header.classList.remove('hidden');
+    navigation.classList.remove('hidden');
   });
 
   // Close menu when clicking on a link (mobile only)
