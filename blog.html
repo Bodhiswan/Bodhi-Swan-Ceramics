@@ -10,187 +10,300 @@
     <link rel="shortcut icon" href="assets/icons/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Bodhi Swan" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <link rel="manifest" href="assets/icons/site.webmanifest" />
     
     <!-- Primary Meta Tags -->
-    <title>Pottery Blog Brisbane | Ceramics Tips & Stories - Bodhi Swan</title>
-    <meta name="description" content="Pottery blog from Brisbane ceramics artist. Learn wheel throwing techniques, glazing tips, firing advice, and stories from the studio at Bodhi Swan Ceramics.">
-    <meta name="keywords" content="pottery blog, ceramics tips, wheel throwing, glazing techniques, Brisbane pottery, ceramic art stories">
+    <title>Pottery Blog | Bodhi Swan Ceramics Brisbane</title>
+    <meta name="description" content="Stories from the studio, pottery tips, and insights into the world of ceramics in Brisbane. Learn about wheel throwing, glazing techniques, and ceramic art.">
+    <meta name="keywords" content="pottery blog, ceramic techniques, wheel throwing tips, glazing guide, pottery studio Brisbane, ceramic art, handmade pottery">
     <meta name="author" content="Bodhi Swan Ceramics">
     <meta name="robots" content="index, follow">
     
-    <!-- TODO: Replace with actual GA4 Measurement ID -->
-    <meta name="google-site-verification" content="PLACEHOLDER_GSC_TOKEN" />
-    <!-- TODO: Replace PLACEHOLDER_GSC_TOKEN with actual Google Search Console verification token -->
-
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Bodhi Swan Ceramics">
     <meta property="og:url" content="https://bodhiswan.com/blog.html">
-    <meta property="og:title" content="Pottery Blog Brisbane | Ceramics Tips & Stories - Bodhi Swan">
-    <meta property="og:description" content="Pottery blog from Brisbane ceramics artist. Learn wheel throwing techniques, glazing tips, firing advice, and stories from the studio at Bodhi Swan Ceramics.">
+    <meta property="og:title" content="Pottery Blog | Bodhi Swan Ceramics Brisbane">
+    <meta property="og:description" content="Stories from the studio, pottery tips, and insights into the world of ceramics in Brisbane.">
     <meta property="og:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://bodhiswan.com/blog.html">
-    <meta name="twitter:title" content="Pottery Blog Brisbane | Ceramics Tips & Stories - Bodhi Swan">
-    <meta name="twitter:description" content="Pottery blog from Brisbane ceramics artist. Learn wheel throwing techniques, glazing tips, firing advice, and stories from the studio at Bodhi Swan Ceramics.">
+    <meta name="twitter:title" content="Pottery Blog | Bodhi Swan Ceramics Brisbane">
+    <meta name="twitter:description" content="Stories from the studio, pottery tips, and insights into the world of ceramics in Brisbane.">
     <meta name="twitter:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
     
-    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="sitemap" href="/sitemap.xml">
-    <script defer src="assets/js/main.js"></script>
+    
+    <!-- Scripts -->
+    <script defer src="assets/js/app.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <a href="/"><img src="images/348982356_573566748281355_5155277251296915931_n.jpg" alt="Bodhi Swan Ceramics Logo" class="logo" width="100" height="100" /></a>
-            <h1>Bodhi Swan Ceramics</h1>
-        </div>
-
-        <div class="mobile-menu-container">
-            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
-                <span class="hamburger"></span>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Bodhi Swan</a>
+            
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="classes.html">Classes</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+            
+            <button class="nav-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
         </div>
+    </nav>
 
-        <nav class="navigation">
-            <div class="links">
-                <a href="index.html" class="button">Home</a>
-                <a href="class-booking.html" class="button" data-cta="book-class">Classes</a>
-                <a href="faq.html" class="button">FAQ</a>
-                <a href="blog.html" class="button active">Blog</a>
-                <a href="https://www.etsy.com/au/shop/BodhiSwanCeramics?utm_source=bodhiswan.com&utm_medium=site&utm_campaign=shop_cta" class="button" target="_blank" rel="noopener">Shop</a>
-                <a href="https://instagram.com/bodhiswan" target="_blank" rel="noopener" class="button">Instagram</a>
+    <!-- Mobile Navigation -->
+    <div class="nav-mobile">
+        <ul class="nav-mobile-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh;">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Pottery Blog</h1>
+                <p>Stories from the studio, pottery tips, and insights into the world of ceramics in Brisbane.</p>
             </div>
-        </nav>
+        </div>
+    </section>
 
-        <div class="blog-container">
-            <h2 style="text-align: center; font-size: 2.5rem; font-weight: 300; margin-bottom: 2rem;">Pottery Blog</h2>
-            <p style="text-align: center; color: #666; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Stories from the studio, pottery tips, and insights into the world of ceramics in Brisbane.
-            </p>
-            
-            <div class="blog-grid">
-                <article class="blog-post">
-                    <div class="blog-image">
-                        <img src="images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg" alt="Wheel throwing pottery" loading="lazy" width="400" height="300">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">August 2025</span>
-                            <span class="blog-category">Techniques</span>
+    <!-- Blog Posts -->
+    <section class="section">
+        <div class="container">
+            <div class="grid grid-2">
+                
+                <!-- Blog Post 1 -->
+                <article class="card">
+                    <img src="images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg" 
+                         alt="Wheel throwing ceramic cup" 
+                         class="card-image" 
+                         style="height: 250px;"
+                         loading="lazy">
+                    <div class="card-body">
+                        <div class="flex items-center mb-3" style="display: flex; align-items: center; gap: 1rem;">
+                            <span class="badge">Techniques</span>
+                            <time class="text-sm text-secondary">August 2025</time>
                         </div>
-                        <h3>Getting Started with Wheel Throwing</h3>
-                        <p>Wheel throwing can seem intimidating at first, but with the right approach and patience, anyone can learn this ancient craft. Here are my top tips for beginners starting their pottery journey...</p>
-                        <div class="blog-tags">
-                            <span class="tag">Beginner Tips</span>
-                            <span class="tag">Wheel Throwing</span>
+                        <h3 class="mb-3">Mastering the Wheel: Tips for Consistent Throwing</h3>
+                        <p class="text-secondary mb-4">Learn the fundamental techniques for creating consistent, centered pottery on the wheel. From centering clay to pulling walls, discover the secrets to successful wheel throwing.</p>
+                        <div class="mb-4">
+                            <h4 class="text-sm font-semibold mb-2">What You'll Learn:</h4>
+                            <ul class="text-sm text-secondary" style="list-style: none; padding: 0;">
+                                <li class="mb-1">• Proper centering techniques</li>
+                                <li class="mb-1">• Wall pulling methods</li>
+                                <li class="mb-1">• Troubleshooting common issues</li>
+                                <li class="mb-1">• Tools and clay preparation</li>
+                            </ul>
                         </div>
+                        <a href="#" class="btn btn-secondary">Read More</a>
                     </div>
                 </article>
 
-                <article class="blog-post">
-                    <div class="blog-image">
-                        <img src="images/bodhiswan_348471159_3630382333858035_296460734488849167_n.jpg" alt="Ceramic glazing process" loading="lazy" width="400" height="300">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">July 2025</span>
-                            <span class="blog-category">Glazing</span>
+                <!-- Blog Post 2 -->
+                <article class="card">
+                    <img src="images/bodhiswan_348471159_3630382333858035_296460734488849167_n.jpg" 
+                         alt="Glazed ceramic pieces" 
+                         class="card-image" 
+                         style="height: 250px;"
+                         loading="lazy">
+                    <div class="card-body">
+                        <div class="flex items-center mb-3" style="display: flex; align-items: center; gap: 1rem;">
+                            <span class="badge">Glazing</span>
+                            <time class="text-sm text-secondary">July 2025</time>
                         </div>
-                        <h3>Understanding Ceramic Glazes</h3>
-                        <p>Glazing is where the magic happens in ceramics. Learn about different glaze types, application techniques, and how to achieve consistent results in your firing...</p>
-                        <div class="blog-tags">
-                            <span class="tag">Glazing</span>
-                            <span class="tag">Firing</span>
+                        <h3 class="mb-3">Understanding Glaze Chemistry and Application</h3>
+                        <p class="text-secondary mb-4">Dive deep into the science behind ceramic glazes. Learn how different oxides create colors and textures, and master application techniques for professional results.</p>
+                        <div class="mb-4">
+                            <h4 class="text-sm font-semibold mb-2">Topics Covered:</h4>
+                            <ul class="text-sm text-secondary" style="list-style: none; padding: 0;">
+                                <li class="mb-1">• Glaze chemistry basics</li>
+                                <li class="mb-1">• Color development</li>
+                                <li class="mb-1">• Application methods</li>
+                                <li class="mb-1">• Firing considerations</li>
+                            </ul>
                         </div>
-                    </div>
-                </article>
-
-                <article class="blog-post">
-                    <div class="blog-image">
-                        <img src="images/bodhiswan_348863468_1167309003909433_5762684848837982962_n.jpg" alt="Pottery studio setup" loading="lazy" width="400" height="300">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">June 2025</span>
-                            <span class="blog-category">Studio Life</span>
-                        </div>
-                        <h3>Setting Up Your Home Pottery Space</h3>
-                        <p>Thinking about creating pottery at home? Here's what you need to know about setting up a functional pottery workspace, from basic tools to storage solutions...</p>
-                        <div class="blog-tags">
-                            <span class="tag">Home Studio</span>
-                            <span class="tag">Tools</span>
-                        </div>
+                        <a href="#" class="btn btn-secondary">Read More</a>
                     </div>
                 </article>
 
-                <article class="blog-post">
-                    <div class="blog-image">
-                        <img src="images/bodhiswan_349131030_7008228542527475_7205180136632410620_n.jpg" alt="Finished ceramic pieces" loading="lazy" width="400" height="300">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">May 2025</span>
-                            <span class="blog-category">Inspiration</span>
+                <!-- Blog Post 3 -->
+                <article class="card">
+                    <img src="images/bodhiswan_348863468_1167309003909433_5762684848837982962_n.jpg" 
+                         alt="Stoneware pottery collection" 
+                         class="card-image" 
+                         style="height: 250px;"
+                         loading="lazy">
+                    <div class="card-body">
+                        <div class="flex items-center mb-3" style="display: flex; align-items: center; gap: 1rem;">
+                            <span class="badge">Studio Life</span>
+                            <time class="text-sm text-secondary">June 2025</time>
                         </div>
-                        <h3>Finding Your Ceramic Style</h3>
-                        <p>Every potter develops their own unique style over time. Explore how to find your voice in clay, from experimenting with forms to developing signature techniques...</p>
-                        <div class="blog-tags">
-                            <span class="tag">Style</span>
-                            <span class="tag">Creativity</span>
+                        <h3 class="mb-3">Building a Sustainable Pottery Practice</h3>
+                        <p class="text-secondary mb-4">Explore how to create an environmentally conscious pottery studio. From clay recycling to energy-efficient firing, learn sustainable practices for modern ceramics.</p>
+                        <div class="mb-4">
+                            <h4 class="text-sm font-semibold mb-2">Sustainability Focus:</h4>
+                            <ul class="text-sm text-secondary" style="list-style: none; padding: 0;">
+                                <li class="mb-1">• Clay recycling methods</li>
+                                <li class="mb-1">• Water conservation</li>
+                                <li class="mb-1">• Efficient firing practices</li>
+                                <li class="mb-1">• Local material sourcing</li>
+                            </ul>
                         </div>
+                        <a href="#" class="btn btn-secondary">Read More</a>
                     </div>
                 </article>
+
+                <!-- Blog Post 4 -->
+                <article class="card">
+                    <img src="images/bodhiswan_349131030_7008228542527475_7205180136632410620_n.jpg" 
+                         alt="Artistic ceramic sculpture" 
+                         class="card-image" 
+                         style="height: 250px;"
+                         loading="lazy">
+                    <div class="card-body">
+                        <div class="flex items-center mb-3" style="display: flex; align-items: center; gap: 1rem;">
+                            <span class="badge">Inspiration</span>
+                            <time class="text-sm text-secondary">May 2025</time>
+                        </div>
+                        <h3 class="mb-3">Finding Your Ceramic Voice: Developing Personal Style</h3>
+                        <p class="text-secondary mb-4">Journey through the process of developing your unique ceramic aesthetic. Learn how to balance technical skill with creative expression in your pottery practice.</p>
+                        <div class="mb-4">
+                            <h4 class="text-sm font-semibold mb-2">Creative Development:</h4>
+                            <ul class="text-sm text-secondary" style="list-style: none; padding: 0;">
+                                <li class="mb-1">• Exploring influences</li>
+                                <li class="mb-1">• Experimentation techniques</li>
+                                <li class="mb-1">• Building a body of work</li>
+                                <li class="mb-1">• Documenting your journey</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn btn-secondary">Read More</a>
+                    </div>
+                </article>
+
             </div>
+        </div>
+    </section>
 
-            <div class="blog-cta">
-                <h3>Want to start your pottery journey?</h3>
-                <p>Join our classes in Brisbane and learn hands-on from experienced instructors.</p>
-                <div class="cta-buttons">
-                    <a href="class-booking.html" class="button" data-cta="book-class">Book a Class</a>
-                    <a href="faq.html" class="button">Read FAQ</a>
+    <!-- Newsletter Signup -->
+    <section class="section bg-surface-secondary">
+        <div class="container text-center">
+            <div class="card" style="max-width: 600px; margin: 0 auto;">
+                <div class="card-body">
+                    <h3 class="mb-4">Stay Updated</h3>
+                    <p class="mb-6">Get the latest pottery tips, studio updates, and new blog posts delivered to your inbox.</p>
+                    <form class="flex" style="display: flex; gap: 1rem; max-width: 400px; margin: 0 auto;">
+                        <input type="email" 
+                               placeholder="Enter your email" 
+                               class="form-input" 
+                               style="flex: 1; padding: 0.75rem 1rem; border: 1px solid var(--color-border); border-radius: 0.5rem; background: var(--color-surface);"
+                               required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                    <p class="text-xs text-secondary mt-3">No spam, unsubscribe anytime.</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="contact-section">
-            <div class="contact-info">
-                <span class="contact-link">Taringa, Queensland</span>
-                <a href="mailto:swan1995@gmail.com" class="contact-link">swan1995@gmail.com</a>
-                <a href="tel:0478756284" class="contact-link">0478 756 284</a>
-                <span class="social-handle">@bodhiswan</span>
+    <!-- Categories -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-8">
+                <h2>Explore Topics</h2>
+                <p>Browse our pottery content by category</p>
+            </div>
+            
+            <div class="grid grid-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h4 class="mb-2">Techniques</h4>
+                        <p class="text-secondary text-sm mb-4">Wheel throwing, hand building, and finishing methods</p>
+                        <a href="#" class="btn btn-outline">View Posts</a>
+                    </div>
+                </div>
+                
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h4 class="mb-2">Glazing</h4>
+                        <p class="text-secondary text-sm mb-4">Glaze recipes, application tips, and firing guides</p>
+                        <a href="#" class="btn btn-outline">View Posts</a>
+                    </div>
+                </div>
+                
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h4 class="mb-2">Studio Life</h4>
+                        <p class="text-secondary text-sm mb-4">Behind the scenes, tools, and workspace setup</p>
+                        <a href="#" class="btn btn-outline">View Posts</a>
+                    </div>
+                </div>
+                
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h4 class="mb-2">Inspiration</h4>
+                        <p class="text-secondary text-sm mb-4">Creative process, artist features, and design ideas</p>
+                        <a href="#" class="btn btn-outline">View Posts</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- LocalBusiness JSON-LD Schema -->
+    <!-- Schema Markup -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Bodhi Swan Ceramics",
-        "url": "https://bodhiswan.com",
-        "logo": "https://bodhiswan.com/images/348982356_573566748281355_5155277251296915931_n.jpg",
-        "image": "https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg",
-        "description": "Pottery blog from Brisbane ceramics artist. Learn wheel throwing techniques, glazing tips, firing advice, and stories from the studio.",
-        "areaServed": "Brisbane",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Taringa",
-            "addressRegion": "QLD",
-            "addressCountry": "AU"
+        "@type": "Blog",
+        "name": "Bodhi Swan Ceramics Blog",
+        "description": "Stories from the studio, pottery tips, and insights into the world of ceramics in Brisbane.",
+        "url": "https://bodhiswan.com/blog.html",
+        "author": {
+            "@type": "Person",
+            "name": "Bodhi Swan"
         },
-        "telephone": "0478756284",
-        "email": "swan1995@gmail.com",
-        "sameAs": [
-            "https://instagram.com/bodhiswan",
-            "https://www.etsy.com/au/shop/BodhiSwanCeramics"
-        ],
-        "openingHours": "By appointment",
-        "priceRange": "$60-$100"
+        "blogPost": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Mastering the Wheel: Tips for Consistent Throwing",
+                "description": "Learn the fundamental techniques for creating consistent, centered pottery on the wheel.",
+                "datePublished": "2025-08-01",
+                "author": {
+                    "@type": "Person",
+                    "name": "Bodhi Swan"
+                }
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "Understanding Glaze Chemistry and Application",
+                "description": "Dive deep into the science behind ceramic glazes and master application techniques.",
+                "datePublished": "2025-07-01",
+                "author": {
+                    "@type": "Person",
+                    "name": "Bodhi Swan"
+                }
+            }
+        ]
     }
     </script>
 </body>

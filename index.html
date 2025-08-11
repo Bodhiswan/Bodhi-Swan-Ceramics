@@ -10,99 +10,212 @@
     <link rel="shortcut icon" href="assets/icons/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Bodhi Swan" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <link rel="manifest" href="assets/icons/site.webmanifest" />
     
     <!-- Primary Meta Tags -->
     <title>Bodhi Swan Ceramics | Handcrafted Pottery & Classes in Brisbane</title>
-    <meta name="description" content="Discover handcrafted ceramics and pottery classes in Taringa, Brisbane. Wheel throwing workshops, private lessons, and unique ceramic art by Bodhi Swan.">
-    <meta name="keywords" content="ceramics, pottery, Brisbane pottery, handmade ceramics, ceramic art, Bodhi Swan, artisan pottery, functional ceramics, handcrafted pottery, Australian ceramics">
+    <meta name="description" content="Discover handcrafted ceramics and pottery classes in Brisbane. Modern minimalist pottery with traditional wheel-throwing techniques by Bodhi Swan.">
+    <meta name="keywords" content="ceramics, pottery, Brisbane pottery, handmade ceramics, ceramic art, Bodhi Swan, minimalist pottery, wheel throwing, pottery classes">
     <meta name="author" content="Bodhi Swan Ceramics">
     <meta name="robots" content="index, follow">
     
-    <!-- TODO: Replace with actual GA4 Measurement ID -->
-    <meta name="google-site-verification" content="PLACEHOLDER_GSC_TOKEN" />
-    <!-- TODO: Replace PLACEHOLDER_GSC_TOKEN with actual Google Search Console verification token -->
-
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Bodhi Swan Ceramics">
     <meta property="og:url" content="https://bodhiswan.com/">
     <meta property="og:title" content="Bodhi Swan Ceramics | Handcrafted Pottery & Classes in Brisbane">
-    <meta property="og:description" content="Discover handcrafted ceramics and pottery classes in Taringa, Brisbane. Wheel throwing workshops, private lessons, and unique ceramic art by Bodhi Swan.">
+    <meta property="og:description" content="Discover handcrafted ceramics and pottery classes in Brisbane. Modern minimalist pottery with traditional wheel-throwing techniques.">
     <meta property="og:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://bodhiswan.com/">
     <meta name="twitter:title" content="Bodhi Swan Ceramics | Handcrafted Pottery & Classes in Brisbane">
-    <meta name="twitter:description" content="Discover handcrafted ceramics and pottery classes in Taringa, Brisbane. Wheel throwing workshops, private lessons, and unique ceramic art by Bodhi Swan.">
+    <meta name="twitter:description" content="Discover handcrafted ceramics and pottery classes in Brisbane. Modern minimalist pottery with traditional wheel-throwing techniques.">
     <meta name="twitter:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
     
-    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="sitemap" href="/sitemap.xml">
-    <script defer src="assets/js/main.js"></script>
+    
+    <!-- Scripts -->
+    <script defer src="assets/js/app.js"></script>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <img src="images/348982356_573566748281355_5155277251296915931_n.jpg" alt="Bodhi Swan Ceramics Logo" class="logo" width="100" height="100">
-            <h1>Bodhi Swan Ceramics</h1>
-        </header>
-
-        <!-- Mobile Menu Toggle -->
-        <div class="mobile-menu-container">
-            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
-                <span class="hamburger"></span>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Bodhi Swan</a>
+            
+            <ul class="nav-menu">
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="classes.html">Classes</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+            
+            <button class="nav-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
         </div>
+    </nav>
 
-        <!-- Navigation -->
-        <nav class="navigation">
-            <div class="links">
-                <a href="index.html" class="button active">Home</a>
-                <a href="class-booking.html" class="button" data-cta="book-class">Classes</a>
-                <a href="faq.html" class="button">FAQ</a>
-                <a href="blog.html" class="button">Blog</a>
-                <a href="https://www.etsy.com/au/shop/BodhiSwanCeramics?utm_source=bodhiswan.com&utm_medium=site&utm_campaign=shop_cta" class="button" target="_blank" rel="noopener">Shop</a>
-                <a href="https://instagram.com/bodhiswan" target="_blank" rel="noopener" class="button">Instagram</a>
-            </div>
-        </nav>
-        
-        <!-- Hero Content -->
-        <main class="hero-content">
-            <section class="bio">
-                <h2>Welcome to Bodhi Swan Ceramics</h2>
-                <p class="intro">Hi, I'm Bodhi Swan, a passionate ceramics artist and teacher based in Taringa, Brisbane. I create beautiful, functional pottery using traditional wheel-throwing techniques combined with contemporary design.</p>
-                
-                
-                <div class="main-cta">
-                    <a href="class-booking.html" class="button cta" data-cta="hero-book-class">Start Your Pottery Journey Today</a>
-                    <p class="cta-subtext">Small classes • All skill levels welcome • Materials included</p>
-                </div>
-                
-                <p class="lesson-info">Private lessons available upon request - contact me using the details below for personalized instruction.</p>
-            </section>
-        </main>
-
-        <!-- Gallery - Simplified for mobile -->
-        <section class="gallery" aria-label="Ceramic artwork gallery">
-            <img src="images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg" alt="Handcrafted ceramic bowl with unique glaze pattern" loading="lazy" width="300" height="300">
-            <img src="images/bodhiswan_348471159_3630382333858035_296460734488849167_n.jpg" alt="Contemporary ceramic vase with minimalist design" loading="lazy" width="300" height="300">
-        </section>
-
-        <!-- Contact Section -->
-        <footer class="contact-section">
-            <div class="contact-info">
-                <span class="contact-link">Taringa, Queensland</span>
-                <a href="mailto:swan1995@gmail.com" class="contact-link">swan1995@gmail.com</a>
-                <a href="tel:0478756284" class="contact-link">0478 756 284</a>
-                <span class="social-handle">@bodhiswan</span>
-            </div>
-        </footer>
+    <!-- Mobile Navigation -->
+    <div class="nav-mobile">
+        <ul class="nav-mobile-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
     </div>
 
-    <!-- LocalBusiness JSON-LD Schema -->
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Handcrafted Ceramics</h1>
+                <p>Modern minimalist pottery created with traditional wheel-throwing techniques in Brisbane. Each piece tells a story of craftsmanship and contemporary design.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="classes.html" class="btn btn-primary btn-lg">Start Learning</a>
+                    <a href="gallery.html" class="btn btn-secondary btn-lg">View Gallery</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Work -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-12">
+                <h2>Featured Work</h2>
+                <p>A selection of recent ceramic pieces showcasing the intersection of traditional craft and modern design.</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="card">
+                    <img src="images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg" 
+                         alt="Handcrafted ceramic bowl with unique glaze pattern" 
+                         class="card-image" 
+                         loading="lazy">
+                    <div class="card-body">
+                        <h3>Artisan Bowl</h3>
+                        <p>Wheel-thrown stoneware with natural ash glaze. Perfect for everyday use with a timeless aesthetic.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="images/bodhiswan_348471159_3630382333858035_296460734488849167_n.jpg" 
+                         alt="Contemporary ceramic vase with minimalist design" 
+                         class="card-image" 
+                         loading="lazy">
+                    <div class="card-body">
+                        <h3>Modern Vessel</h3>
+                        <p>Contemporary form meets traditional technique. Each piece is unique with subtle variations in glaze and texture.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section bg-surface-secondary">
+        <div class="container">
+            <div class="grid grid-2" style="align-items: center; gap: 3rem;">
+                <div>
+                    <h2>About Bodhi Swan</h2>
+                    <p class="mb-6">Based in Brisbane, I create functional ceramics that blend traditional wheel-throwing techniques with contemporary minimalist design. Each piece is carefully crafted to bring beauty and mindfulness to everyday moments.</p>
+                    <p class="mb-8">My work focuses on clean lines, natural textures, and glazes that highlight the inherent beauty of clay. I believe in creating pieces that are both beautiful and functional, designed to be used and cherished for years to come.</p>
+                    <a href="classes.html" class="btn btn-primary">Learn Pottery</a>
+                </div>
+                <div>
+                    <img src="images/bodhiswan_348863468_1167309003909433_5762684848837982962_n.jpg" 
+                         alt="Pottery studio workspace" 
+                         class="rounded-xl shadow-lg" 
+                         style="width: 100%; height: 400px; object-fit: cover;"
+                         loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes Preview -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-12">
+                <h2>Learn Pottery</h2>
+                <p>Join our pottery classes and discover the meditative art of wheel throwing in a supportive, creative environment.</p>
+            </div>
+            
+            <div class="grid grid-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3>Beginner Classes</h3>
+                        <p class="mb-6">Perfect for those new to pottery. Learn basic wheel throwing techniques and create your first pieces.</p>
+                        <div class="text-accent font-semibold mb-4">$60 per class</div>
+                        <a href="classes.html" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3>Weekly Sessions</h3>
+                        <p class="mb-6">Regular weekly classes for ongoing skill development. Build your technique with consistent practice.</p>
+                        <div class="text-accent font-semibold mb-4">$50 per week</div>
+                        <a href="classes.html" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3>Private Lessons</h3>
+                        <p class="mb-6">One-on-one instruction tailored to your specific interests and skill level. Personalized guidance.</p>
+                        <div class="text-accent font-semibold mb-4">Contact for pricing</div>
+                        <a href="classes.html" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section bg-tertiary">
+        <div class="container text-center">
+            <h2 class="mb-6">Get in Touch</h2>
+            <p class="mb-8">Ready to start your pottery journey or have questions about classes? I'd love to hear from you.</p>
+            
+            <div class="grid grid-3" style="max-width: 600px; margin: 0 auto;">
+                <div>
+                    <h4 class="mb-2">Location</h4>
+                    <p class="text-secondary">Taringa, Brisbane</p>
+                </div>
+                <div>
+                    <h4 class="mb-2">Email</h4>
+                    <a href="mailto:swan1995@gmail.com" class="text-accent">swan1995@gmail.com</a>
+                </div>
+                <div>
+                    <h4 class="mb-2">Phone</h4>
+                    <a href="tel:0478756284" class="text-accent">0478 756 284</a>
+                </div>
+            </div>
+            
+            <div class="mt-8">
+                <a href="https://instagram.com/bodhiswan" target="_blank" rel="noopener" class="btn btn-ghost">
+                    Follow on Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schema Markup -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -111,12 +224,12 @@
         "url": "https://bodhiswan.com",
         "logo": "https://bodhiswan.com/images/348982356_573566748281355_5155277251296915931_n.jpg",
         "image": "https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg",
-        "description": "Handcrafted ceramics and pottery classes in Taringa, Brisbane. Wheel throwing workshops, private lessons, and unique ceramic art.",
+        "description": "Handcrafted ceramics and pottery classes in Brisbane. Modern minimalist pottery with traditional wheel-throwing techniques.",
         "areaServed": "Brisbane",
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "Taringa",
-            "addressRegion": "QLD",
+            "@addressRegion": "QLD",
             "addressCountry": "AU"
         },
         "telephone": "0478756284",
@@ -126,29 +239,7 @@
             "https://www.etsy.com/au/shop/BodhiSwanCeramics"
         ],
         "openingHours": "By appointment",
-        "priceRange": "$60-$100"
-    }
-    </script>
-
-    <!-- Product JSON-LD Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "Handcrafted Ceramic Pottery",
-        "image": "https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg",
-        "description": "Unique wheel-thrown ceramic pieces, perfect for everyday use. Features smooth interior glazes and natural exterior finishes.",
-        "brand": {
-            "@type": "Brand",
-            "name": "Bodhi Swan Ceramics"
-        },
-        "offers": {
-            "@type": "Offer",
-            "price": "100.00",
-            "priceCurrency": "AUD",
-            "availability": "https://schema.org/InStock",
-            "url": "https://www.etsy.com/au/shop/BodhiSwanCeramics"
-        }
+        "priceRange": "$50-$60"
     }
     </script>
 </body>

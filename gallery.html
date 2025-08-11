@@ -10,131 +10,239 @@
     <link rel="shortcut icon" href="assets/icons/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Bodhi Swan" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <link rel="manifest" href="assets/icons/site.webmanifest" />
     
     <!-- Primary Meta Tags -->
     <title>Ceramic Gallery Brisbane | Handcrafted Pottery Collection - Bodhi Swan</title>
     <meta name="description" content="Browse our ceramic gallery featuring handcrafted pottery from Brisbane. Unique wheel-thrown bowls, vases, and functional stoneware by Bodhi Swan Ceramics.">
-    <meta name="keywords" content="ceramic gallery, pottery collection, Brisbane ceramics, handmade pottery, wheel thrown ceramics, stoneware, functional pottery">
+    <meta name="keywords" content="ceramic gallery, pottery collection, Brisbane ceramics, handmade pottery, wheel thrown ceramics, stoneware, functional pottery, ceramic art">
     <meta name="author" content="Bodhi Swan Ceramics">
     <meta name="robots" content="index, follow">
-    
-    <!-- TODO: Replace with actual GA4 Measurement ID -->
-    <meta name="google-site-verification" content="PLACEHOLDER_GSC_TOKEN" />
-    <!-- TODO: Replace PLACEHOLDER_GSC_TOKEN with actual Google Search Console verification token -->
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Bodhi Swan Ceramics">
     <meta property="og:url" content="https://bodhiswan.com/gallery.html">
     <meta property="og:title" content="Ceramic Gallery Brisbane | Handcrafted Pottery Collection - Bodhi Swan">
-    <meta property="og:description" content="Browse our ceramic gallery featuring handcrafted pottery from Brisbane. Unique wheel-thrown bowls, vases, and functional stoneware by Bodhi Swan Ceramics.">
+    <meta property="og:description" content="Browse our ceramic gallery featuring handcrafted pottery from Brisbane. Unique wheel-thrown bowls, vases, and functional stoneware.">
     <meta property="og:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://bodhiswan.com/gallery.html">
     <meta name="twitter:title" content="Ceramic Gallery Brisbane | Handcrafted Pottery Collection - Bodhi Swan">
-    <meta name="twitter:description" content="Browse our ceramic gallery featuring handcrafted pottery from Brisbane. Unique wheel-thrown bowls, vases, and functional stoneware by Bodhi Swan Ceramics.">
+    <meta name="twitter:description" content="Browse our ceramic gallery featuring handcrafted pottery from Brisbane. Unique wheel-thrown bowls, vases, and functional stoneware.">
     <meta name="twitter:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
     
-    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="sitemap" href="/sitemap.xml">
-    <script defer src="assets/js/main.js"></script>
+    
+    <!-- Scripts -->
+    <script defer src="assets/js/app.js"></script>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <a href="/"><img src="images/348982356_573566748281355_5155277251296915931_n.jpg" alt="Bodhi Swan Ceramics Logo" class="logo" width="100" height="100"></a>
-            <h1>Bodhi Swan Ceramics</h1>
-        </header>
-
-        <!-- Mobile Menu Toggle -->
-        <div class="mobile-menu-container">
-            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
-                <span class="hamburger"></span>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Bodhi Swan</a>
+            
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="classes.html">Classes</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+            
+            <button class="nav-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
         </div>
+    </nav>
 
-        <!-- Navigation -->
-        <nav class="navigation">
-            <div class="links">
-                <a href="index.html" class="button">Home</a>
-                <a href="class-booking.html" class="button" data-cta="book-class">Classes</a>
-                <a href="faq.html" class="button">FAQ</a>
-                <a href="blog.html" class="button">Blog</a>
-                <a href="gallery.html" class="button active">Gallery</a>
-                <a href="https://www.etsy.com/au/shop/BodhiSwanCeramics?utm_source=bodhiswan.com&utm_medium=site&utm_campaign=shop_cta" class="button" target="_blank" rel="noopener">Shop</a>
-                <a href="https://instagram.com/bodhiswan" target="_blank" rel="noopener" class="button">Instagram</a>
-            </div>
-        </nav>
-        
-        <!-- Gallery Content -->
-        <main class="gallery-container">
-            <h2 class="text-center mb-lg" style="font-size: 2.5rem; font-weight: 300; color: #2c2c2c; letter-spacing: 2px;">Ceramic Gallery</h2>
-            <p class="text-center text-muted mb-xl" style="max-width: 600px; margin-left: auto; margin-right: auto;">
-                Explore our collection of handcrafted ceramics. Each piece is wheel-thrown with care in our Brisbane studio.
-                Interested in learning? Join our <a href="class-booking.html">pottery classes in Brisbane</a> or browse our
-                <a href="https://www.etsy.com/au/shop/BodhiSwanCeramics?utm_source=bodhiswan.com&utm_medium=site&utm_campaign=shop_cta">handmade ceramics</a> for purchase.
-            </p>
-            
-            <!-- Gallery Grid -->
-            <section class="gallery" aria-label="Ceramic artwork gallery">
-                <div class="gallery-item">
-                    <img src="images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg" alt="Handcrafted ceramic bowl with unique glaze pattern" loading="lazy" width="300" height="300">
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="images/bodhiswan_348471159_3630382333858035_296460734488849167_n.jpg" alt="Contemporary ceramic vase with minimalist design" loading="lazy" width="300" height="300">
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="images/bodhiswan_348863468_1167309003909433_5762684848837982962_n.jpg" alt="Artisanal pottery piece showcasing traditional techniques" loading="lazy" width="300" height="300">
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="images/bodhiswan_349131030_7008228542527475_7205180136632410620_n.jpg" alt="Modern ceramic creation with distinctive finish" loading="lazy" width="300" height="300">
-                </div>
-            </section>
-        </main>
-
-        <!-- Contact Section -->
-        <footer class="contact-section">
-            <div class="contact-info">
-                <span class="contact-link">Taringa, Queensland</span>
-                <a href="mailto:swan1995@gmail.com" class="contact-link">swan1995@gmail.com</a>
-                <a href="tel:0478756284" class="contact-link">0478 756 284</a>
-                <span class="social-handle">@bodhiswan</span>
-            </div>
-        </footer>
+    <!-- Mobile Navigation -->
+    <div class="nav-mobile">
+        <ul class="nav-mobile-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
     </div>
 
-    <!-- LocalBusiness JSON-LD Schema -->
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh;">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Ceramic Gallery</h1>
+                <p>Explore our collection of handcrafted ceramics. Each piece is wheel-thrown with care, showcasing the beauty of traditional techniques and contemporary design.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="section">
+        <div class="container">
+            <div class="grid grid-2" style="gap: 3rem;">
+                
+                <div class="card">
+                    <img src="images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg" 
+                         alt="Handcrafted ceramic bowl with unique glaze pattern" 
+                         class="card-image" 
+                         style="height: 300px;"
+                         loading="lazy">
+                    <div class="card-body">
+                        <h3 class="mb-2">Artisan Bowl</h3>
+                        <p class="text-secondary mb-4">Wheel-thrown stoneware with natural ash glaze. Perfect for everyday use with a timeless aesthetic that celebrates the beauty of imperfection.</p>
+                        <div class="text-sm text-secondary">
+                            <div class="mb-1"><strong>Material:</strong> Stoneware clay</div>
+                            <div class="mb-1"><strong>Glaze:</strong> Natural ash glaze</div>
+                            <div><strong>Dimensions:</strong> 15cm diameter × 8cm height</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/bodhiswan_348471159_3630382333858035_296460734488849167_n.jpg" 
+                         alt="Contemporary ceramic vase with minimalist design" 
+                         class="card-image" 
+                         style="height: 300px;"
+                         loading="lazy">
+                    <div class="card-body">
+                        <h3 class="mb-2">Modern Vessel</h3>
+                        <p class="text-secondary mb-4">Contemporary form meets traditional technique. Each piece is unique with subtle variations in glaze and texture that make it truly one-of-a-kind.</p>
+                        <div class="text-sm text-secondary">
+                            <div class="mb-1"><strong>Material:</strong> Porcelain clay</div>
+                            <div class="mb-1"><strong>Glaze:</strong> Matte white glaze</div>
+                            <div><strong>Dimensions:</strong> 12cm diameter × 18cm height</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/bodhiswan_348863468_1167309003909433_5762684848837982962_n.jpg" 
+                         alt="Artisanal pottery piece showcasing traditional techniques" 
+                         class="card-image" 
+                         style="height: 300px;"
+                         loading="lazy">
+                    <div class="card-body">
+                        <h3 class="mb-2">Functional Stoneware</h3>
+                        <p class="text-secondary mb-4">Robust stoneware designed for daily use. The earthy tones and organic textures reflect the natural beauty of clay and fire working together.</p>
+                        <div class="text-sm text-secondary">
+                            <div class="mb-1"><strong>Material:</strong> High-fire stoneware</div>
+                            <div class="mb-1"><strong>Glaze:</strong> Iron-rich reduction glaze</div>
+                            <div><strong>Dimensions:</strong> Various sizes available</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/bodhiswan_349131030_7008228542527475_7205180136632410620_n.jpg" 
+                         alt="Modern ceramic creation with distinctive finish" 
+                         class="card-image" 
+                         style="height: 300px;"
+                         loading="lazy">
+                    <div class="card-body">
+                        <h3 class="mb-2">Decorative Pieces</h3>
+                        <p class="text-secondary mb-4">Sculptural ceramics that blur the line between functional pottery and art. These pieces bring contemplative beauty to any space.</p>
+                        <div class="text-sm text-secondary">
+                            <div class="mb-1"><strong>Material:</strong> Mixed clay bodies</div>
+                            <div class="mb-1"><strong>Finish:</strong> Varied glazes and textures</div>
+                            <div><strong>Purpose:</strong> Decorative and functional</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section bg-surface-secondary">
+        <div class="container">
+            <div class="text-center mb-12">
+                <h2>The Making Process</h2>
+                <p>Each piece follows a careful journey from clay to finished ceramic</p>
+            </div>
+            
+            <div class="grid grid-4">
+                <div class="text-center">
+                    <div class="bg-accent text-white rounded-xl p-6 mb-4" style="width: 80px; height: 80px; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+                        <span class="text-2xl font-bold">1</span>
+                    </div>
+                    <h4 class="mb-2">Throwing</h4>
+                    <p class="text-secondary text-sm">Shaping clay on the potter's wheel with careful attention to form and proportion.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-accent text-white rounded-xl p-6 mb-4" style="width: 80px; height: 80px; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+                        <span class="text-2xl font-bold">2</span>
+                    </div>
+                    <h4 class="mb-2">Drying</h4>
+                    <p class="text-secondary text-sm">Slow, controlled drying to prevent cracking and prepare for the first firing.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-accent text-white rounded-xl p-6 mb-4" style="width: 80px; height: 80px; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+                        <span class="text-2xl font-bold">3</span>
+                    </div>
+                    <h4 class="mb-2">Glazing</h4>
+                    <p class="text-secondary text-sm">Applying glazes that will create unique colors and textures during the final firing.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-accent text-white rounded-xl p-6 mb-4" style="width: 80px; height: 80px; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+                        <span class="text-2xl font-bold">4</span>
+                    </div>
+                    <h4 class="mb-2">Firing</h4>
+                    <p class="text-secondary text-sm">High-temperature firing transforms clay and glaze into durable, beautiful ceramics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section">
+        <div class="container text-center">
+            <h2 class="mb-6">Create Your Own</h2>
+            <p class="mb-8" style="max-width: 600px; margin-left: auto; margin-right: auto;">
+                Inspired by what you see? Join our pottery classes and learn to create your own beautiful ceramics. 
+                From beginner basics to advanced techniques, we'll guide you on your creative journey.
+            </p>
+            
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="classes.html" class="btn btn-primary btn-lg">Join Classes</a>
+                <a href="shop.html" class="btn btn-secondary btn-lg">Shop Collection</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schema Markup -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Bodhi Swan Ceramics",
-        "url": "https://bodhiswan.com",
-        "logo": "https://bodhiswan.com/images/348982356_573566748281355_5155277251296915931_n.jpg",
-        "image": "https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg",
+        "@type": "ImageGallery",
+        "name": "Bodhi Swan Ceramics Gallery",
         "description": "Ceramic gallery featuring handcrafted pottery from Brisbane. Unique wheel-thrown bowls, vases, and functional stoneware.",
-        "areaServed": "Brisbane",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Taringa",
-            "addressRegion": "QLD",
-            "addressCountry": "AU"
+        "creator": {
+            "@type": "Person",
+            "name": "Bodhi Swan",
+            "url": "https://bodhiswan.com"
         },
-        "telephone": "0478756284",
-        "email": "swan1995@gmail.com",
-        "sameAs": [
-            "https://instagram.com/bodhiswan",
-            "https://www.etsy.com/au/shop/BodhiSwanCeramics"
-        ],
-        "openingHours": "By appointment",
-        "priceRange": "$60-$100"
+        "image": [
+            "https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg",
+            "https://bodhiswan.com/images/bodhiswan_348471159_3630382333858035_296460734488849167_n.jpg",
+            "https://bodhiswan.com/images/bodhiswan_348863468_1167309003909433_5762684848837982962_n.jpg",
+            "https://bodhiswan.com/images/bodhiswan_349131030_7008228542527475_7205180136632410620_n.jpg"
+        ]
     }
     </script>
 </body>
