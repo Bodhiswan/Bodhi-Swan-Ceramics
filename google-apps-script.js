@@ -406,16 +406,33 @@ function createResponse(success, message, data = null) {
  * Test function to initialize the system
  */
 function initializeSystem() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  
-  // Create sheets if they don't exist
-  const sheetNames = [CONFIG.BOOKINGS_SHEET, CONFIG.AVAILABILITY_SHEET, CONFIG.SETTINGS_SHEET];
-  
-  sheetNames.forEach(name => {
-    if (!ss.getSheetByName(name)) {
-      ss.insertSheet(name);
+  try {
+    // First, check if we have an active spreadsheet
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    
+    if (!ss) {
+      throw new Error('No active spreadsheet found. Please open a Google Sheet first.');
     }
-  });
+    
+    console.log('Active spreadsheet found:', ss.getName());
+    
+    // Create sheets if they don't exist
+    const sheetNames = [CONFIG.BOOKINGS_SHEET, CONFIG.AVAILABILITY_SHEET, CONFIG.SETTINGS_SHEET];
+    
+    sheetNames.forEach(name => {
+      try {
+        let sheet = ss.getSheetByName(name);
+        if (!sheet) {
+          console.log('Creating sheet:', name);
+          sheet = ss.insertSheet(name);
+        } else {
+          console.log('Sheet already exists:', name);
+        }
+      } catch (error) {
+        console.error('Error creating sheet', name, ':', error);
+        throw error;
+      }
+    });
   
   // Initialize availability
   initializeAvailability();
@@ -438,5 +455,126 @@ function initializeSystem() {
     bookingsSheet.appendRow(headers);
   }
   
-  console.log('System initialized successfully');
+    console.log('System initialized successfully');
+    return 'System initialized successfully! All sheets created.';
+    
+  } catch (error) {
+    console.error('Error initializing system:', error);
+    throw new Error('Initialization failed: ' + error.toString());
+  }
+}
+
+/**
+ * Alternative initialization function that creates a new spreadsheet
+ */
+function createNewBookingSpreadsheet() {
+  try {
+    // Create a new spreadsheet
+    const ss = SpreadsheetApp.create('Bodhi Swan Ceramics - Booking System');
+    
+    console.log('New spreadsheet created:', ss.getUrl());
+    
+    // Remove default sheet
+    const defaultSheet = ss.getSheets()[0];
+    if (defaultSheet.getName() === 'Sheet1') {
+      ss.deleteSheet(defaultSheet);
+    }
+    
+    // Create our sheets
+    const sheetNames = [CONFIG.BOOKINGS_SHEET, CONFIG.AVAILABILITY_SHEET, CONFIG.SETTINGS_SHEET];
+    
+    sheetNames.forEach(name => {
+      ss.insertSheet(name);
+    });
+    
+    // Initialize the sheets with data
+    initializeAvailabilityForSpreadsheet(ss);
+    initializeSettingsForSpreadsheet(ss);
+    initializeBookingsForSpreadsheet(ss);
+    
+    console.log('New booking system spreadsheet created successfully');
+    console.log('Spreadsheet URL:', ss.getUrl());
+    
+    return {
+      success: true,
+      message: 'New booking system created successfully!',
+      spreadsheetUrl: ss.getUrl(),
+      spreadsheetId: ss.getId()
+    };
+    
+  } catch (error) {
+    console.error('Error creating new spreadsheet:', error);
+    throw new Error('Failed to create new spreadsheet: ' + error.toString());
+  }
+}
+
+/**
+ * Initialize availability for a specific spreadsheet
+ */
+function initializeAvailabilityForSpreadsheet(ss) {
+  const availabilitySheet = ss.getSheetByName(CONFIG.AVAILABILITY_SHEET);
+  
+  // Clear existing data
+  availabilitySheet.clear();
+  
+  // Add headers
+  const headers = ['Date Key', 'Date', 'Day of Week', 'Times Available', 'Max Capacity', 'Current Bookings'];
+  availabilitySheet.appendRow(headers);
+  
+  // Generate availability for next 3 months
+  const today = new Date();
+  const endDate = new Date(today.getFullYear(), today.getMonth() + 3, today.getDate());
+  
+  for (let date = new Date(today); date <= endDate; date.setDate(date.getDate() + 1)) {
+    const dayOfWeek = date.getDay();
+    const dateKey = formatDateKey(date);
+    const dateStr = formatDisplayDate(date);
+    const dayName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][dayOfWeek];
+    
+    // Monday evening classes
+    if (dayOfWeek === 1) {
+      availabilitySheet.appendRow([
+        dateKey,
+        dateStr,
+        dayName,
+        '6:00 PM',
+        6,
+        0
+      ]);
+    }
+    
+    // Saturday workshops (every other Saturday)
+    if (dayOfWeek === 6 && Math.floor((date.getDate() - 1) / 7) % 2 === 0) {
+      availabilitySheet.appendRow([
+        dateKey,
+        dateStr,
+        dayName,
+        '10:00 AM, 2:00 PM',
+        8,
+        0
+      ]);
+    }
+  }
+}
+
+/**
+ * Initialize settings for a specific spreadsheet
+ */
+function initializeSettingsForSpreadsheet(ss) {
+  const settingsSheet = ss.getSheetByName(CONFIG.SETTINGS_SHEET);
+  settingsSheet.clear();
+  settingsSheet.appendRow(['Setting', 'Value']);
+  settingsSheet.appendRow(['default_capacity', '6']);
+  settingsSheet.appendRow(['notification_email', CONFIG.NOTIFICATION_EMAIL]);
+  settingsSheet.appendRow(['studio_address', 'Shop 4 & 6, 8 Station Road, Indooroopilly, QLD']);
+}
+
+/**
+ * Initialize bookings for a specific spreadsheet
+ */
+function initializeBookingsForSpreadsheet(ss) {
+  const bookingsSheet = ss.getSheetByName(CONFIG.BOOKINGS_SHEET);
+  bookingsSheet.clear();
+  const headers = ['Timestamp', 'Date', 'Time', 'Class Type', 'Full Name', 'Email', 'Phone', 'Experience', 'Notes', 'Status', 'Date Key', 'Booking ID'];
+  bookingsSheet.appendRow(headers);
 }

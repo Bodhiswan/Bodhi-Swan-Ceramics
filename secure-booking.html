@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/png" href="assets/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+    <link rel="shortcut icon" href="assets/icons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Bodhi Swan" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="manifest" href="assets/icons/site.webmanifest" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Secure Booking | Bodhi Swan Ceramics Brisbane</title>
+    <meta name="description" content="Securely book your pottery class in Brisbane. Enterprise-grade security with Firebase authentication and encrypted data storage.">
+    <meta name="keywords" content="secure pottery booking Brisbane, encrypted booking system, pottery class booking, wheel throwing booking, ceramic class schedule">
+    <meta name="author" content="Bodhi Swan Ceramics">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bodhi Swan Ceramics">
+    <meta property="og:url" content="https://bodhiswan.com/secure-booking.html">
+    <meta property="og:title" content="Secure Booking | Bodhi Swan Ceramics Brisbane">
+    <meta property="og:description" content="Securely book your pottery class with enterprise-grade security and data protection.">
+    <meta property="og:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://bodhiswan.com/secure-booking.html">
+    <meta name="twitter:title" content="Secure Booking | Bodhi Swan Ceramics Brisbane">
+    <meta name="twitter:description" content="Securely book your pottery class with enterprise-grade security and data protection.">
+    <meta name="twitter:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="sitemap" href="/sitemap.xml">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-functions-compat.js"></script>
+    
+    <!-- Scripts -->
+    <script defer src="assets/js/app.js"></script>
+    <script defer src="assets/js/firebase-booking.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Bodhi Swan</a>
+            
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="classes.html">Classes</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+            
+            <button class="nav-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="nav-mobile">
+        <ul class="nav-mobile-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div id="loadingIndicator" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.9); z-index: 1000; display: flex; align-items: center; justify-content: center;">
+        <div style="text-align: center;">
+            <div style="width: 40px; height: 40px; border: 4px solid var(--color-surface-secondary); border-top: 4px solid var(--color-accent); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1rem;"></div>
+            <p style="color: var(--color-text-secondary);">Securing your booking...</p>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh;">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Secure Booking</h1>
+                <p>Book your pottery class with enterprise-grade security. Your personal information is encrypted and protected with Firebase's industry-leading security infrastructure.</p>
+                
+                <!-- Security Features -->
+                <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--color-accent);">
+                        <span style="font-size: 1.2rem;">🔒</span>
+                        <span style="font-size: 0.875rem;">End-to-End Encryption</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--color-accent);">
+                        <span style="font-size: 1.2rem;">🛡️</span>
+                        <span style="font-size: 0.875rem;">Firebase Security</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--color-accent);">
+                        <span style="font-size: 1.2rem;">✅</span>
+                        <span style="font-size: 0.875rem;">Data Validation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Status -->
+    <section class="section-sm bg-surface-secondary">
+        <div class="container text-center">
+            <div class="card" style="max-width: 600px; margin: 0 auto;">
+                <div class="card-body">
+                    <h3 class="mb-4">Security Status</h3>
+                    <div id="authStatus" class="auth-status not-authenticated">
+                        Initializing secure connection...
+                    </div>
+                    <p class="text-sm text-secondary mt-2">
+                        Your booking session is protected by Firebase Authentication and all data is encrypted in transit and at rest.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking System -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-8">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                    <h2 style="margin: 0;">Select Your Class</h2>
+                    <button id="refreshAvailability" class="btn btn-ghost" style="padding: 0.5rem;" title="Refresh availability">
+                        ↻
+                    </button>
+                </div>
+                <p>Choose your preferred date and time. All data is securely encrypted and protected.</p>
+            </div>
+            
+            <div class="grid grid-2" style="gap: 3rem; align-items: start;">
+                
+                <!-- Calendar -->
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="mb-6">Select a Date</h3>
+                        
+                        <!-- Calendar Header -->
+                        <div class="calendar-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                            <button id="prevMonth" class="btn btn-ghost" style="padding: 0.5rem;">‹</button>
+                            <h4 id="currentMonth" class="text-xl font-semibold"></h4>
+                            <button id="nextMonth" class="btn btn-ghost" style="padding: 0.5rem;">›</button>
+                        </div>
+                        
+                        <!-- Calendar Grid -->
+                        <div class="calendar-grid" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem; margin-bottom: 2rem;">
+                            <div class="calendar-day-header" style="text-align: center; font-weight: 600; padding: 0.5rem; color: var(--color-text-secondary);">Sun</div>
+                            <div class="calendar-day-header" style="text-align: center; font-weight: 600; padding: 0.5rem; color: var(--color-text-secondary);">Mon</div>
+                            <div class="calendar-day-header" style="text-align: center; font-weight: 600; padding: 0.5rem; color: var(--color-text-secondary);">Tue</div>
+                            <div class="calendar-day-header" style="text-align: center; font-weight: 600; padding: 0.5rem; color: var(--color-text-secondary);">Wed</div>
+                            <div class="calendar-day-header" style="text-align: center; font-weight: 600; padding: 0.5rem; color: var(--color-text-secondary);">Thu</div>
+                            <div class="calendar-day-header" style="text-align: center; font-weight: 600; padding: 0.5rem; color: var(--color-text-secondary);">Fri</div>
+                            <div class="calendar-day-header" style="text-align: center; font-weight: 600; padding: 0.5rem; color: var(--color-text-secondary);">Sat</div>
+                        </div>
+                        
+                        <div id="calendarDays" class="calendar-days" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem;"></div>
+                        
+                        <!-- Legend -->
+                        <div class="calendar-legend" style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.875rem;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <div style="width: 12px; height: 12px; background: var(--color-accent); border-radius: 50%;"></div>
+                                <span>Available</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <div style="width: 12px; height: 12px; background: var(--color-text-secondary); border-radius: 50%;"></div>
+                                <span>Fully Booked</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <div style="width: 12px; height: 12px; background: var(--color-primary); border-radius: 50%;"></div>
+                                <span>Selected</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking Form -->
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="mb-6">Secure Booking Details</h3>
+                        
+                        <form id="bookingForm">
+                            <!-- Selected Date Display -->
+                            <div class="mb-6">
+                                <label class="form-label">Selected Date</label>
+                                <div id="selectedDate" class="form-input" style="background: var(--color-surface-secondary); color: var(--color-text-secondary);">
+                                    Please select a date from the calendar
+                                </div>
+                            </div>
+
+                            <!-- Time Slot Selection -->
+                            <div class="mb-6">
+                                <label class="form-label">Available Times</label>
+                                <div id="timeSlots" class="time-slots" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.5rem;">
+                                    <div class="text-secondary">Select a date to see available times</div>
+                                </div>
+                            </div>
+
+                            <!-- Class Type -->
+                            <div class="mb-6">
+                                <label for="classType" class="form-label">Class Type</label>
+                                <select id="classType" class="form-input" required>
+                                    <option value="">Select class type</option>
+                                    <option value="drop-in">Drop-in Class ($60)</option>
+                                    <option value="weekly">Weekly Session ($50)</option>
+                                    <option value="private">Private Lesson (Custom pricing)</option>
+                                </select>
+                            </div>
+
+                            <!-- Personal Information -->
+                            <div class="mb-6">
+                                <label for="fullName" class="form-label">Full Name</label>
+                                <input type="text" id="fullName" class="form-input" required maxlength="50" pattern="[A-Za-z\s]{2,50}">
+                                <small class="text-xs text-secondary">Encrypted and securely stored</small>
+                            </div>
+
+                            <div class="mb-6">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" id="email" class="form-input" required>
+                                <small class="text-xs text-secondary">Used for booking confirmation only</small>
+                            </div>
+
+                            <div class="mb-6">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" id="phone" class="form-input" required pattern="(\+61|0)[2-9]\d{8}" placeholder="0412 345 678">
+                                <small class="text-xs text-secondary">Australian format required</small>
+                            </div>
+
+                            <!-- Experience Level -->
+                            <div class="mb-6">
+                                <label for="experience" class="form-label">Experience Level</label>
+                                <select id="experience" class="form-input" required>
+                                    <option value="">Select your experience</option>
+                                    <option value="beginner">Complete Beginner</option>
+                                    <option value="some">Some Experience</option>
+                                    <option value="intermediate">Intermediate</option>
+                                    <option value="advanced">Advanced</option>
+                                </select>
+                            </div>
+
+                            <!-- Special Requests -->
+                            <div class="mb-6">
+                                <label for="notes" class="form-label">Special Requests or Notes (Optional)</label>
+                                <textarea id="notes" class="form-input" rows="3" maxlength="500" placeholder="Any specific goals, accessibility needs, or questions?"></textarea>
+                                <small class="text-xs text-secondary">Maximum 500 characters</small>
+                            </div>
+
+                            <!-- Security Information -->
+                            <div class="mb-6 p-4 bg-surface-secondary rounded-lg">
+                                <h4 class="mb-2">🔒 Security & Privacy</h4>
+                                <ul class="text-sm text-secondary" style="list-style: none; padding: 0;">
+                                    <li class="mb-1">✓ All data encrypted with AES-256</li>
+                                    <li class="mb-1">✓ Firebase enterprise security</li>
+                                    <li class="mb-1">✓ No data shared with third parties</li>
+                                    <li class="mb-1">✓ Secure payment processing</li>
+                                </ul>
+                            </div>
+
+                            <!-- Payment Information -->
+                            <div class="mb-6 p-4 bg-surface-secondary rounded-lg">
+                                <h4 class="mb-2">Payment Information</h4>
+                                <p class="text-sm text-secondary mb-2">Payment is taken at the beginning of class and includes:</p>
+                                <ul class="text-sm text-secondary" style="list-style: none; padding: 0;">
+                                    <li class="mb-1">• Class fee (as selected above)</li>
+                                    <li class="mb-1">• Clay costs ($3-10 per session)</li>
+                                    <li class="mb-1">• Firing and glazing (if applicable)</li>
+                                </ul>
+                                <p class="text-sm mt-2"><strong>Weekly members:</strong> Can set up weekly payment schedule after first class.</p>
+                            </div>
+
+                            <!-- Terms and Conditions -->
+                            <div class="mb-6">
+                                <label class="checkbox-container" style="display: flex; align-items: start; gap: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" id="terms" required style="margin-top: 0.25rem;">
+                                    <span class="text-sm">I agree to the <a href="#" class="text-accent">terms and conditions</a>, <a href="#" class="text-accent">privacy policy</a>, and understand that payment is due at the beginning of class. I consent to secure data processing.</span>
+                                </label>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;" disabled id="submitBtn">
+                                Complete Secure Booking
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section bg-surface-secondary">
+        <div class="container text-center">
+            <h2 class="mb-6">Need Help with Secure Booking?</h2>
+            <p class="mb-8">Can't find a suitable time or have questions about our security measures? We're here to help.</p>
+            
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="mailto:swan1995@gmail.com?subject=Secure Booking Inquiry" class="btn btn-primary">Email Us</a>
+                <a href="tel:0478756284" class="btn btn-secondary">Call Us</a>
+                <a href="faq.html" class="btn btn-ghost">View FAQ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ReservationService",
+        "name": "Secure Pottery Class Booking",
+        "description": "Securely book pottery classes at Bodhi Swan Ceramics in Brisbane with enterprise-grade security",
+        "provider": {
+            "@type": "LocalBusiness",
+            "name": "Bodhi Swan Ceramics",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Shop 4 & 6, 8 Station Road",
+                "addressLocality": "Indooroopilly",
+                "addressRegion": "QLD",
+                "addressCountry": "AU"
+            },
+            "telephone": "0478756284",
+            "email": "swan1995@gmail.com"
+        },
+        "securityMeasures": [
+            "End-to-end encryption",
+            "Firebase Authentication",
+            "Data validation",
+            "Secure data storage"
+        ]
+    }
+    </script>
+
+    <style>
+        .auth-status {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .auth-status.authenticated {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+        
+        .auth-status.not-authenticated {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fde68a;
+        }
+        
+        .form-input:invalid {
+            border-color: #ef4444;
+        }
+        
+        .form-input:valid {
+            border-color: #10b981;
+        }
+    </style>
+</body>
+</html>

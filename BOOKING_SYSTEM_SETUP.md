@@ -2,32 +2,39 @@
 
 This guide will help you set up the serverless booking system using Google Sheets and Google Apps Script.
 
-## Step 1: Create Google Sheet
-
-1. Go to [Google Sheets](https://sheets.google.com)
-2. Create a new spreadsheet
-3. Name it "Bodhi Swan Ceramics - Booking System"
-4. Create three sheets with these exact names:
-   - `Bookings`
-   - `Availability` 
-   - `Settings`
-
-## Step 2: Set up Google Apps Script
+## Step 1: Set up Google Apps Script (IMPORTANT: Do this first!)
 
 1. Go to [Google Apps Script](https://script.google.com)
 2. Click "New Project"
 3. Replace the default code with the contents of `google-apps-script.js`
 4. Save the project (name it "Bodhi Swan Booking System")
-5. Run the `initializeSystem()` function once to set up the sheets
-6. Deploy as web app:
-   - Click "Deploy" > "New Deployment"
-   - Choose "Web app" as type
-   - Set execute as "Me"
-   - Set access to "Anyone"
-   - Click "Deploy"
-   - Copy the web app URL
 
-## Step 3: Configure the Frontend
+## Step 2: Create and Initialize the Spreadsheet
+
+**Option A: Create New Spreadsheet (Recommended)**
+1. In Google Apps Script, run the `createNewBookingSpreadsheet()` function
+2. This will automatically create a new spreadsheet with all required sheets
+3. Copy the spreadsheet URL from the execution log
+4. The spreadsheet will be named "Bodhi Swan Ceramics - Booking System"
+
+**Option B: Use Existing Spreadsheet**
+1. Create a new Google Sheet manually
+2. Name it "Bodhi Swan Ceramics - Booking System"
+3. In Google Apps Script, go to "Resources" > "Libraries" or use the spreadsheet container
+4. Bind the script to your spreadsheet
+5. Run the `initializeSystem()` function
+
+## Step 3: Deploy the Web App
+
+1. In Google Apps Script, click "Deploy" > "New Deployment"
+2. Choose "Web app" as type
+3. Set execute as "Me"
+4. Set access to "Anyone"
+5. Click "Deploy"
+6. Copy the web app URL
+7. **Important**: You may need to authorize the script to access Gmail and Sheets
+
+## Step 4: Configure the Frontend
 
 1. Open `assets/js/booking.js`
 2. Update the config object with your details:
@@ -43,7 +50,7 @@ this.config = {
 };
 ```
 
-## Step 4: Test the System
+## Step 5: Test the System
 
 1. Open your website and navigate to `/booking.html`
 2. The calendar should load with available dates
@@ -128,20 +135,31 @@ Update the booking form options in `booking.html` to reflect your current pricin
 
 ### Common Issues
 
-1. **Calendar not loading**
+1. **Error: "Cannot read properties of null (reading 'getSheetByName')"**
+   - This means the script isn't properly connected to a spreadsheet
+   - Solution: Use `createNewBookingSpreadsheet()` function instead of `initializeSystem()`
+   - Or ensure you're running the script from within a Google Sheet (not standalone)
+
+2. **Calendar not loading**
    - Check the script URL in booking.js
    - Ensure the web app is deployed with "Anyone" access
    - Check browser console for errors
 
-2. **Bookings not saving**
-   - Verify the Google Apps Script has permission to access Gmail
+3. **Bookings not saving**
+   - Verify the Google Apps Script has permission to access Gmail and Sheets
    - Check that the sheet names match exactly
-   - Run the initializeSystem() function again
+   - Re-run the initialization function
 
-3. **Emails not sending**
+4. **Emails not sending**
    - Ensure Gmail API is enabled in Google Apps Script
    - Check spam folders
    - Verify email addresses are correct
+   - Grant necessary permissions when prompted
+
+5. **Authorization Issues**
+   - When first running functions, Google will ask for permissions
+   - Grant access to Gmail and Google Sheets
+   - You may need to go through advanced settings if warnings appear
 
 ### Getting Help
 
