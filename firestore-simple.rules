@@ -1,0 +1,43 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Availability collection - public read, authenticated write
+    match /availability/{document} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    // Bookings collection - authenticated users can create bookings
+    match /bookings/{bookingId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null && isValidBookingData();
+      allow update: if request.auth != null;
+      allow delete: if false;
+    }
+    
+    // Users collection - authenticated users can manage their data
+    match /users/{userId} {
+      allow read, write: if request.auth != null;
+    }
+    
+    // Activity logs - authenticated write
+    match /activity/{document} {
+      allow read, write: if request.auth != null;
+    }
+    
+    // Admin collection - authenticated write
+    match /admin/{document} {
+      allow read, write: if request.auth != null;
+    }
+    
+    // Simplified validation function
+    function isValidBookingData() {
+      let data = request.resource.data;
+      return data.keys().hasAll(['fullName', 'email', 'phone']) &&
+             data.fullName is string &&
+             data.email is string &&
+             data.phone is string;
+    }
+  }
+}

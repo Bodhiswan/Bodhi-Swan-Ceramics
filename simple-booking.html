@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Class | Bodhi Swan Ceramics</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Bodhi Swan</a>
+            
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="classes.html">Classes</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+            
+            <button class="nav-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="nav-mobile">
+        <ul class="nav-mobile-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh;">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Book Your Class</h1>
+                <p>Choose your preferred date and time for pottery classes. Simple booking system with immediate confirmation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking System -->
+    <section class="section">
+        <div class="container">
+            <div class="grid grid-2" style="gap: 3rem; align-items: start;">
+                
+                <!-- Calendar -->
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="mb-6">Select a Date</h3>
+                        
+                        <!-- Calendar Header -->
+                        <div class="calendar-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                            <button id="prevMonth" class="btn btn-ghost" style="padding: 0.5rem;">‹</button>
+                            <h4 id="currentMonth" class="text-xl font-semibold"></h4>
+                            <button id="nextMonth" class="btn btn-ghost" style="padding: 0.5rem;">›</button>
+                        </div>
+                        
+                        <!-- Calendar Grid -->
+                        <div class="calendar-grid" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem; margin-bottom: 2rem;">
+                            <div class="calendar-day-header" style="text-align: center; font-weight: 600; padding: 0.5rem; color: var(--color-text-secondary);">Sun</div>
+                            <div class="calendar-day-header" style="text-align: center; font-weight: 600; padding: 0.5rem; color: var(--color-text-secondary);">Mon</div>
+                            <div class="calendar-day-header" style="text-align: center; font-weight: 600; padding: 0.5rem; color: var(--color-text-secondary);">Tue</div>
+                            <div class="calendar-day-header" style="text-align: center; font-weight: 600; padding: 0.5rem; color: var(--color-text-secondary);">Wed</div>
+                            <div class="calendar-day-header" style="text-align: center; font-weight: 600; padding: 0.5rem; color: var(--color-text-secondary);">Thu</div>
+                            <div class="calendar-day-header" style="text-align: center; font-weight: 600; padding: 0.5rem; color: var(--color-text-secondary);">Fri</div>
+                            <div class="calendar-day-header" style="text-align: center; font-weight: 600; padding: 0.5rem; color: var(--color-text-secondary);">Sat</div>
+                        </div>
+                        
+                        <div id="calendarDays" class="calendar-days" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem;"></div>
+                        
+                        <!-- Legend -->
+                        <div class="calendar-legend" style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.875rem;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <div style="width: 12px; height: 12px; background: var(--color-accent); border-radius: 50%;"></div>
+                                <span>Available</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <div style="width: 12px; height: 12px; background: var(--color-primary); border-radius: 50%;"></div>
+                                <span>Selected</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking Form -->
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="mb-6">Booking Details</h3>
+                        
+                        <form id="bookingForm">
+                            <!-- Selected Date Display -->
+                            <div class="mb-6">
+                                <label class="form-label">Selected Date</label>
+                                <div id="selectedDate" class="form-input" style="background: var(--color-surface-secondary); color: var(--color-text-secondary);">
+                                    Please select a date from the calendar
+                                </div>
+                            </div>
+
+                            <!-- Time Slot Selection -->
+                            <div class="mb-6">
+                                <label class="form-label">Available Times</label>
+                                <div id="timeSlots" class="time-slots" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.5rem;">
+                                    <div class="text-secondary">Select a date to see available times</div>
+                                </div>
+                            </div>
+
+                            <!-- Class Type -->
+                            <div class="mb-6">
+                                <label for="classType" class="form-label">Class Type</label>
+                                <select id="classType" class="form-input" required>
+                                    <option value="">Select class type</option>
+                                    <option value="drop-in">Drop-in Class ($60)</option>
+                                    <option value="weekly">Weekly Session ($50)</option>
+                                    <option value="private">Private Lesson (Custom pricing)</option>
+                                </select>
+                            </div>
+
+                            <!-- Personal Information -->
+                            <div class="mb-6">
+                                <label for="fullName" class="form-label">Full Name</label>
+                                <input type="text" id="fullName" class="form-input" required>
+                            </div>
+
+                            <div class="mb-6">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" id="email" class="form-input" required>
+                            </div>
+
+                            <div class="mb-6">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" id="phone" class="form-input" required placeholder="0412 345 678">
+                            </div>
+
+                            <!-- Experience Level -->
+                            <div class="mb-6">
+                                <label for="experience" class="form-label">Experience Level</label>
+                                <select id="experience" class="form-input" required>
+                                    <option value="">Select your experience</option>
+                                    <option value="beginner">Complete Beginner</option>
+                                    <option value="some">Some Experience</option>
+                                    <option value="intermediate">Intermediate</option>
+                                    <option value="advanced">Advanced</option>
+                                </select>
+                            </div>
+
+                            <!-- Special Requests -->
+                            <div class="mb-6">
+                                <label for="notes" class="form-label">Special Requests or Notes (Optional)</label>
+                                <textarea id="notes" class="form-input" rows="3" placeholder="Any specific goals, accessibility needs, or questions?"></textarea>
+                            </div>
+
+                            <!-- Payment Information -->
+                            <div class="mb-6 p-4 bg-surface-secondary rounded-lg">
+                                <h4 class="mb-2">Payment Information</h4>
+                                <p class="text-sm text-secondary mb-2">Payment is taken at the beginning of class and includes:</p>
+                                <ul class="text-sm text-secondary" style="list-style: none; padding: 0;">
+                                    <li class="mb-1">• Class fee (as selected above)</li>
+                                    <li class="mb-1">• Clay costs ($3-10 per session)</li>
+                                    <li class="mb-1">• Firing and glazing (if applicable)</li>
+                                </ul>
+                                <p class="text-sm mt-2"><strong>Weekly members:</strong> Can set up weekly payment schedule after first class.</p>
+                            </div>
+
+                            <!-- Terms and Conditions -->
+                            <div class="mb-6">
+                                <label class="checkbox-container" style="display: flex; align-items: start; gap: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" id="terms" required style="margin-top: 0.25rem;">
+                                    <span class="text-sm">I agree to the terms and conditions and understand that payment is due at the beginning of class.</span>
+                                </label>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;" disabled id="submitBtn">
+                                Complete Booking
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        class SimpleBookingSystem {
+            constructor() {
+                this.currentDate = new Date();
+                this.selectedDate = null;
+                this.selectedTime = null;
+                this.availableSlots = {};
+                
+                this.generateAvailableSlots();
+                this.renderCalendar();
+                this.bindEvents();
+                this.updateFormState();
+            }
+
+            generateAvailableSlots() {
+                const slots = {};
+                const today = new Date();
+                const endDate = new Date(today.getFullYear(), today.getMonth() + 3, today.getDate());
+                
+                for (let date = new Date(today); date <= endDate; date.setDate(date.getDate() + 1)) {
+                    const dayOfWeek = date.getDay();
+                    const dateStr = this.formatDateKey(date);
+                    
+                    // Monday evening classes
+                    if (dayOfWeek === 1) {
+                        slots[dateStr] = {
+                            times: ['6:00 PM'],
+                            available: 6
+                        };
+                    }
+                    
+                    // Saturday workshops (some dates)
+                    if (dayOfWeek === 6 && Math.random() > 0.7) {
+                        slots[dateStr] = {
+                            times: ['10:00 AM', '2:00 PM'],
+                            available: 8
+                        };
+                    }
+                }
+                
+                this.availableSlots = slots;
+                console.log('Generated slots for', Object.keys(slots).length, 'dates');
+            }
+
+            formatDateKey(date) {
+                return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+            }
+
+            formatDisplayDate(date) {
+                return date.toLocaleDateString('en-AU', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+            }
+
+            renderCalendar() {
+                const monthNames = [
+                    'January', 'February', 'March', 'April', 'May', 'June',
+                    'July', 'August', 'September', 'October', 'November', 'December'
+                ];
+
+                const currentMonthEl = document.getElementById('currentMonth');
+                currentMonthEl.textContent = `${monthNames[this.currentDate.getMonth()]} ${this.currentDate.getFullYear()}`;
+
+                const calendarDays = document.getElementById('calendarDays');
+                calendarDays.innerHTML = '';
+
+                const firstDay = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), 1);
+                const startDate = new Date(firstDay);
+                startDate.setDate(startDate.getDate() - firstDay.getDay());
+
+                for (let i = 0; i < 42; i++) {
+                    const cellDate = new Date(startDate);
+                    cellDate.setDate(startDate.getDate() + i);
+                    
+                    const dayEl = document.createElement('div');
+                    dayEl.className = 'calendar-day';
+                    dayEl.textContent = cellDate.getDate();
+                    
+                    dayEl.style.cssText = `
+                        padding: 0.75rem 0.5rem;
+                        text-align: center;
+                        border-radius: 0.5rem;
+                        cursor: pointer;
+                        transition: all 0.2s ease;
+                        position: relative;
+                        min-height: 40px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    `;
+
+                    const isCurrentMonth = cellDate.getMonth() === this.currentDate.getMonth();
+                    const isToday = this.isSameDate(cellDate, new Date());
+                    const isPast = cellDate < new Date().setHours(0, 0, 0, 0);
+                    const dateKey = this.formatDateKey(cellDate);
+                    const hasSlots = this.availableSlots[dateKey];
+                    const isSelected = this.selectedDate && this.isSameDate(cellDate, this.selectedDate);
+
+                    if (!isCurrentMonth) {
+                        dayEl.style.color = 'var(--color-text-secondary)';
+                        dayEl.style.opacity = '0.3';
+                    } else if (isPast) {
+                        dayEl.style.color = 'var(--color-text-secondary)';
+                        dayEl.style.cursor = 'not-allowed';
+                    } else if (isSelected) {
+                        dayEl.style.background = 'var(--color-primary)';
+                        dayEl.style.color = 'white';
+                    } else if (hasSlots) {
+                        dayEl.style.background = 'var(--color-accent)';
+                        dayEl.style.color = 'white';
+                        dayEl.title = `${hasSlots.available} spots available`;
+                    }
+
+                    if (isToday && isCurrentMonth) {
+                        dayEl.style.border = '2px solid var(--color-accent)';
+                    }
+
+                    if (isCurrentMonth && !isPast && hasSlots) {
+                        dayEl.addEventListener('click', () => this.selectDate(cellDate));
+                    }
+
+                    calendarDays.appendChild(dayEl);
+                }
+            }
+
+            selectDate(date) {
+                this.selectedDate = new Date(date);
+                this.selectedTime = null;
+                this.renderCalendar();
+                this.updateSelectedDate();
+                this.renderTimeSlots();
+                this.updateFormState();
+            }
+
+            updateSelectedDate() {
+                const selectedDateEl = document.getElementById('selectedDate');
+                if (this.selectedDate) {
+                    selectedDateEl.textContent = this.formatDisplayDate(this.selectedDate);
+                    selectedDateEl.style.background = 'var(--color-surface)';
+                    selectedDateEl.style.color = 'var(--color-text)';
+                } else {
+                    selectedDateEl.textContent = 'Please select a date from the calendar';
+                    selectedDateEl.style.background = 'var(--color-surface-secondary)';
+                    selectedDateEl.style.color = 'var(--color-text-secondary)';
+                }
+            }
+
+            renderTimeSlots() {
+                const timeSlotsEl = document.getElementById('timeSlots');
+                
+                if (!this.selectedDate) {
+                    timeSlotsEl.innerHTML = '<div class="text-secondary">Select a date to see available times</div>';
+                    return;
+                }
+
+                const dateKey = this.formatDateKey(this.selectedDate);
+                const slots = this.availableSlots[dateKey];
+
+                if (!slots || !slots.times.length) {
+                    timeSlotsEl.innerHTML = '<div class="text-secondary">No available times for this date</div>';
+                    return;
+                }
+
+                timeSlotsEl.innerHTML = '';
+                
+                slots.times.forEach(time => {
+                    const timeBtn = document.createElement('button');
+                    timeBtn.type = 'button';
+                    timeBtn.className = 'time-slot-btn';
+                    
+                    timeBtn.innerHTML = `
+                        <div>${time}</div>
+                        <div style="font-size: 0.75rem; opacity: 0.8;">${slots.available} spots left</div>
+                    `;
+                    
+                    timeBtn.style.cssText = `
+                        padding: 1rem;
+                        border: 2px solid var(--color-border);
+                        border-radius: 0.5rem;
+                        background: var(--color-surface);
+                        color: var(--color-text);
+                        cursor: pointer;
+                        transition: all 0.2s ease;
+                        font-size: 0.875rem;
+                        font-weight: 500;
+                        text-align: center;
+                    `;
+
+                    if (this.selectedTime === time) {
+                        timeBtn.style.background = 'var(--color-primary)';
+                        timeBtn.style.color = 'white';
+                        timeBtn.style.borderColor = 'var(--color-primary)';
+                    }
+
+                    timeBtn.addEventListener('click', () => {
+                        this.selectedTime = time;
+                        this.renderTimeSlots();
+                        this.updateFormState();
+                    });
+
+                    timeSlotsEl.appendChild(timeBtn);
+                });
+            }
+
+            updateFormState() {
+                const submitBtn = document.getElementById('submitBtn');
+                const termsCheckbox = document.getElementById('terms');
+                
+                const isFormValid = this.selectedDate && 
+                                   this.selectedTime && 
+                                   termsCheckbox.checked &&
+                                   this.validateRequiredFields();
+                
+                submitBtn.disabled = !isFormValid;
+                
+                if (isFormValid) {
+                    submitBtn.style.opacity = '1';
+                    submitBtn.style.cursor = 'pointer';
+                } else {
+                    submitBtn.style.opacity = '0.6';
+                    submitBtn.style.cursor = 'not-allowed';
+                }
+            }
+
+            validateRequiredFields() {
+                const requiredFields = ['classType', 'fullName', 'email', 'phone', 'experience'];
+                return requiredFields.every(fieldId => {
+                    const field = document.getElementById(fieldId);
+                    return field && field.value.trim() !== '';
+                });
+            }
+
+            bindEvents() {
+                // Calendar navigation
+                document.getElementById('prevMonth').addEventListener('click', () => {
+                    this.currentDate.setMonth(this.currentDate.getMonth() - 1);
+                    this.renderCalendar();
+                });
+
+                document.getElementById('nextMonth').addEventListener('click', () => {
+                    this.currentDate.setMonth(this.currentDate.getMonth() + 1);
+                    this.renderCalendar();
+                });
+
+                // Form validation
+                const formFields = ['classType', 'fullName', 'email', 'phone', 'experience', 'terms'];
+                formFields.forEach(fieldId => {
+                    const field = document.getElementById(fieldId);
+                    if (field) {
+                        field.addEventListener('change', () => this.updateFormState());
+                        field.addEventListener('input', () => this.updateFormState());
+                    }
+                });
+
+                // Form submission
+                document.getElementById('bookingForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.handleFormSubmission();
+                });
+            }
+
+            handleFormSubmission() {
+                if (!this.selectedDate || !this.selectedTime) {
+                    alert('Please select a date and time for your class.');
+                    return;
+                }
+
+                // Collect form data
+                const formData = {
+                    date: this.formatDisplayDate(this.selectedDate),
+                    time: this.selectedTime,
+                    classType: document.getElementById('classType').value,
+                    fullName: document.getElementById('fullName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    experience: document.getElementById('experience').value,
+                    notes: document.getElementById('notes').value
+                };
+
+                this.showSuccessMessage(formData);
+            }
+
+            showSuccessMessage(formData) {
+                const bookingId = 'BSC-' + Date.now().toString(36).toUpperCase();
+                
+                const message = `
+                    <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 1000;">
+                        <div style="background: white; padding: 2rem; border-radius: 1rem; max-width: 500px; margin: 1rem; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                            <div style="text-align: center; margin-bottom: 1.5rem;">
+                                <div style="width: 60px; height: 60px; background: var(--color-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                                    <span style="color: white; font-size: 1.5rem;">✓</span>
+                                </div>
+                                <h3 style="margin: 0; color: var(--color-text);">Booking Confirmed!</h3>
+                            </div>
+                            <div style="margin-bottom: 1.5rem; color: var(--color-text-secondary); line-height: 1.5;">
+                                <p><strong>Booking ID:</strong> ${bookingId}</p>
+                                <p><strong>Date:</strong> ${formData.date}</p>
+                                <p><strong>Time:</strong> ${formData.time}</p>
+                                <p><strong>Class:</strong> ${formData.classType}</p>
+                                <p style="margin-top: 1rem; font-size: 0.875rem;">
+                                    We'll contact you shortly to confirm your booking. Payment is due at the beginning of class.
+                                </p>
+                            </div>
+                            <button onclick="this.parentElement.parentElement.remove(); location.reload();" style="width: 100%; background: var(--color-primary); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 0.5rem; cursor: pointer; font-weight: 500;">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.insertAdjacentHTML('beforeend', message);
+            }
+
+            isSameDate(date1, date2) {
+                return date1.getFullYear() === date2.getFullYear() &&
+                       date1.getMonth() === date2.getMonth() &&
+                       date1.getDate() === date2.getDate();
+            }
+        }
+
+        // Initialize booking system when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new SimpleBookingSystem();
+        });
+    </script>
+</body>
+</html>

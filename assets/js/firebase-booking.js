@@ -5,13 +5,32 @@
 
 // Firebase configuration - replace with your Firebase project config
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
+
+  apiKey: "AIzaSyBW9ZhKDhsRD2D7Yv45VSPqSYFBaV2kq-E",
+
+  authDomain: "bodhi-swan-ceramics.firebaseapp.com",
+
+  projectId: "bodhi-swan-ceramics",
+
+  storageBucket: "bodhi-swan-ceramics.firebasestorage.app",
+
+  messagingSenderId: "657925294092",
+
+  appId: "1:657925294092:web:4b7a8bb637ece7ded7c629",
+
+  measurementId: "G-PKSRH5FCT2"
+
 };
+
+
+// IMPORTANT: You need to replace the values above with your actual Firebase config
+// To get your config:
+// 1. Go to Firebase Console: https://console.firebase.google.com
+// 2. Select your project
+// 3. Click the gear icon > Project settings
+// 4. Scroll down to "Your apps" section
+// 5. Click on your web app
+// 6. Copy the config object and replace the values above
 
 class SecureBookingSystem {
     constructor() {
@@ -52,7 +71,13 @@ class SecureBookingSystem {
             
         } catch (error) {
             console.error('Error initializing Firebase booking system:', error);
-            this.showErrorMessage('Failed to initialize booking system. Please try again later.');
+            // Fall back to demo mode for testing
+            console.log('Falling back to demo mode...');
+            this.generateDemoSlots();
+            this.renderCalendar();
+            this.bindEvents();
+            this.updateFormState();
+            this.showLoading(false);
         }
     }
 
@@ -83,12 +108,14 @@ class SecureBookingSystem {
         } catch (error) {
             console.error('Error loading availability:', error);
             // Fallback to demo data for development
+            console.log('Loading demo data...');
             this.generateDemoSlots();
         }
     }
 
     generateDemoSlots() {
         // Generate demo slots for testing
+        console.log('Generating demo slots...');
         const slots = {};
         const today = new Date();
         const endDate = new Date(today.getFullYear(), today.getMonth() + 3, today.getDate());
@@ -103,6 +130,7 @@ class SecureBookingSystem {
                     times: ['6:00 PM'],
                     maxCapacity: 6,
                     booked: Math.floor(Math.random() * 4),
+                    available: 6 - Math.floor(Math.random() * 4),
                     classType: 'regular'
                 };
             }
@@ -113,12 +141,14 @@ class SecureBookingSystem {
                     times: ['10:00 AM', '2:00 PM'],
                     maxCapacity: 8,
                     booked: Math.floor(Math.random() * 3),
+                    available: 8 - Math.floor(Math.random() * 3),
                     classType: 'workshop'
                 };
             }
         }
         
         this.availableSlots = slots;
+        console.log('Demo slots generated:', Object.keys(slots).length, 'dates');
     }
 
     async authenticateUser(email, name) {

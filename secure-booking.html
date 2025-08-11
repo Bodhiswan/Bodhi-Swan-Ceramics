@@ -15,9 +15,9 @@
     <link rel="manifest" href="assets/icons/site.webmanifest" />
     
     <!-- Primary Meta Tags -->
-    <title>Secure Booking | Bodhi Swan Ceramics Brisbane</title>
-    <meta name="description" content="Securely book your pottery class in Brisbane. Enterprise-grade security with Firebase authentication and encrypted data storage.">
-    <meta name="keywords" content="secure pottery booking Brisbane, encrypted booking system, pottery class booking, wheel throwing booking, ceramic class schedule">
+    <title>Book Your Class | Bodhi Swan Ceramics Brisbane</title>
+    <meta name="description" content="Book your pottery class in Brisbane. Choose your preferred date and time for wheel throwing classes and workshops.">
+    <meta name="keywords" content="pottery booking Brisbane, pottery class booking, wheel throwing booking, ceramic class schedule">
     <meta name="author" content="Bodhi Swan Ceramics">
     <meta name="robots" content="index, follow">
     
@@ -25,15 +25,15 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Bodhi Swan Ceramics">
     <meta property="og:url" content="https://bodhiswan.com/secure-booking.html">
-    <meta property="og:title" content="Secure Booking | Bodhi Swan Ceramics Brisbane">
-    <meta property="og:description" content="Securely book your pottery class with enterprise-grade security and data protection.">
+    <meta property="og:title" content="Book Your Class | Bodhi Swan Ceramics Brisbane">
+    <meta property="og:description" content="Book your pottery class in Brisbane. Choose your preferred date and time.">
     <meta property="og:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://bodhiswan.com/secure-booking.html">
-    <meta name="twitter:title" content="Secure Booking | Bodhi Swan Ceramics Brisbane">
-    <meta name="twitter:description" content="Securely book your pottery class with enterprise-grade security and data protection.">
+    <meta name="twitter:title" content="Book Your Class | Bodhi Swan Ceramics Brisbane">
+    <meta name="twitter:description" content="Book your pottery class in Brisbane. Choose your preferred date and time.">
     <meta name="twitter:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
     
     <!-- Stylesheets -->
@@ -97,44 +97,12 @@
     <section class="hero" style="min-height: 60vh;">
         <div class="container">
             <div class="hero-content">
-                <h1>Secure Booking</h1>
-                <p>Book your pottery class with enterprise-grade security. Your personal information is encrypted and protected with Firebase's industry-leading security infrastructure.</p>
-                
-                <!-- Security Features -->
-                <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
-                    <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--color-accent);">
-                        <span style="font-size: 1.2rem;">🔒</span>
-                        <span style="font-size: 0.875rem;">End-to-End Encryption</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--color-accent);">
-                        <span style="font-size: 1.2rem;">🛡️</span>
-                        <span style="font-size: 0.875rem;">Firebase Security</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--color-accent);">
-                        <span style="font-size: 1.2rem;">✅</span>
-                        <span style="font-size: 0.875rem;">Data Validation</span>
-                    </div>
-                </div>
+                <h1>Book Your Class</h1>
+                <p>Choose your preferred date and time for pottery classes. Select from our weekly sessions or special workshops.</p>
             </div>
         </div>
     </section>
 
-    <!-- Security Status -->
-    <section class="section-sm bg-surface-secondary">
-        <div class="container text-center">
-            <div class="card" style="max-width: 600px; margin: 0 auto;">
-                <div class="card-body">
-                    <h3 class="mb-4">Security Status</h3>
-                    <div id="authStatus" class="auth-status not-authenticated">
-                        Initializing secure connection...
-                    </div>
-                    <p class="text-sm text-secondary mt-2">
-                        Your booking session is protected by Firebase Authentication and all data is encrypted in transit and at rest.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Booking System -->
     <section class="section">
@@ -146,7 +114,7 @@
                         ↻
                     </button>
                 </div>
-                <p>Choose your preferred date and time. All data is securely encrypted and protected.</p>
+                <p>Choose your preferred date and time for your pottery class.</p>
             </div>
             
             <div class="grid grid-2" style="gap: 3rem; align-items: start;">
@@ -197,7 +165,7 @@
                 <!-- Booking Form -->
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="mb-6">Secure Booking Details</h3>
+                        <h3 class="mb-6">Booking Details</h3>
                         
                         <form id="bookingForm">
                             <!-- Selected Date Display -->
@@ -231,7 +199,7 @@
                             <div class="mb-6">
                                 <label for="fullName" class="form-label">Full Name</label>
                                 <input type="text" id="fullName" class="form-input" required maxlength="50" pattern="[A-Za-z\s]{2,50}">
-                                <small class="text-xs text-secondary">Encrypted and securely stored</small>
+                                <small class="text-xs text-secondary">Required for booking confirmation</small>
                             </div>
 
                             <div class="mb-6">
@@ -265,16 +233,6 @@
                                 <small class="text-xs text-secondary">Maximum 500 characters</small>
                             </div>
 
-                            <!-- Security Information -->
-                            <div class="mb-6 p-4 bg-surface-secondary rounded-lg">
-                                <h4 class="mb-2">🔒 Security & Privacy</h4>
-                                <ul class="text-sm text-secondary" style="list-style: none; padding: 0;">
-                                    <li class="mb-1">✓ All data encrypted with AES-256</li>
-                                    <li class="mb-1">✓ Firebase enterprise security</li>
-                                    <li class="mb-1">✓ No data shared with third parties</li>
-                                    <li class="mb-1">✓ Secure payment processing</li>
-                                </ul>
-                            </div>
 
                             <!-- Payment Information -->
                             <div class="mb-6 p-4 bg-surface-secondary rounded-lg">
@@ -292,13 +250,13 @@
                             <div class="mb-6">
                                 <label class="checkbox-container" style="display: flex; align-items: start; gap: 0.5rem; cursor: pointer;">
                                     <input type="checkbox" id="terms" required style="margin-top: 0.25rem;">
-                                    <span class="text-sm">I agree to the <a href="#" class="text-accent">terms and conditions</a>, <a href="#" class="text-accent">privacy policy</a>, and understand that payment is due at the beginning of class. I consent to secure data processing.</span>
+                                    <span class="text-sm">I agree to the <a href="#" class="text-accent">terms and conditions</a> and understand that payment is due at the beginning of class.</span>
                                 </label>
                             </div>
 
                             <!-- Submit Button -->
                             <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;" disabled id="submitBtn">
-                                Complete Secure Booking
+                                Complete Booking
                             </button>
                         </form>
                     </div>
@@ -310,8 +268,8 @@
     <!-- Contact Section -->
     <section class="section bg-surface-secondary">
         <div class="container text-center">
-            <h2 class="mb-6">Need Help with Secure Booking?</h2>
-            <p class="mb-8">Can't find a suitable time or have questions about our security measures? We're here to help.</p>
+            <h2 class="mb-6">Need Help with Booking?</h2>
+            <p class="mb-8">Can't find a suitable time or have questions about classes? We're here to help.</p>
             
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                 <a href="mailto:swan1995@gmail.com?subject=Secure Booking Inquiry" class="btn btn-primary">Email Us</a>
