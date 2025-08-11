@@ -98,7 +98,7 @@
     </section>
 
     <!-- Featured Work -->
-    <section class="section">
+    <section class="section pottery-accent texture-overlay">
         <div class="container">
             <div class="text-center mb-12">
                 <h2>Featured Work</h2>
@@ -107,9 +107,9 @@
             
             <div class="grid grid-2">
                 <div class="card">
-                    <img src="images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg" 
-                         alt="Handcrafted ceramic bowl with unique glaze pattern" 
-                         class="card-image" 
+                    <img src="images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg"
+                         alt="Handcrafted ceramic bowl with unique glaze pattern"
+                         class="card-image"
                          loading="lazy">
                     <div class="card-body">
                         <h3>Artisan Bowl</h3>
@@ -118,9 +118,9 @@
                 </div>
                 
                 <div class="card">
-                    <img src="images/bodhiswan_348471159_3630382333858035_296460734488849167_n.jpg" 
-                         alt="Contemporary ceramic vase with minimalist design" 
-                         class="card-image" 
+                    <img src="images/bodhiswan_348471159_3630382333858035_296460734488849167_n.jpg"
+                         alt="Contemporary ceramic vase with minimalist design"
+                         class="card-image"
                          loading="lazy">
                     <div class="card-body">
                         <h3>Modern Vessel</h3>
@@ -135,25 +135,27 @@
     <section class="section bg-surface-secondary">
         <div class="container">
             <div class="grid grid-2" style="align-items: center; gap: 3rem;">
-                <div>
+                <div style="position: relative; z-index: 1;">
                     <h2>About Bodhi Swan</h2>
                     <p class="mb-6">Based in Brisbane, I create functional ceramics that blend traditional wheel-throwing techniques with contemporary minimalist design. Each piece is carefully crafted to bring beauty and mindfulness to everyday moments.</p>
                     <p class="mb-8">My work focuses on clean lines, natural textures, and glazes that highlight the inherent beauty of clay. I believe in creating pieces that are both beautiful and functional, designed to be used and cherished for years to come.</p>
                     <a href="classes.html" class="btn btn-primary">Learn Pottery</a>
                 </div>
-                <div>
-                    <img src="images/bodhiswan_348863468_1167309003909433_5762684848837982962_n.jpg" 
-                         alt="Pottery studio workspace" 
-                         class="rounded-xl shadow-lg" 
+                <div style="position: relative;">
+                    <img src="images/bodhiswan_348863468_1167309003909433_5762684848837982962_n.jpg"
+                         alt="Pottery studio workspace"
+                         class="rounded-xl shadow-lg"
                          style="width: 100%; height: 400px; object-fit: cover;"
                          loading="lazy">
+                    <!-- Decorative pottery shape -->
+                    <div style="position: absolute; top: -20px; right: -20px; width: 60px; height: 80px; background: linear-gradient(45deg, rgba(120, 119, 198, 0.1) 0%, transparent 70%); border-radius: 50% 20% 80% 30% / 30% 60% 40% 70%; transform: rotate(15deg); pointer-events: none; z-index: -1;"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Classes Preview -->
-    <section class="section">
+    <section class="section clay-texture">
         <div class="container">
             <div class="text-center mb-12">
                 <h2>Learn Pottery</h2>
@@ -163,6 +165,9 @@
             <div class="grid grid-3">
                 <div class="card text-center">
                     <div class="card-body">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(45deg, rgba(120, 119, 198, 0.1) 0%, rgba(255, 177, 153, 0.1) 100%); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+                            <span style="font-size: 1.2rem;">🏺</span>
+                        </div>
                         <h3>Beginner Classes</h3>
                         <p class="mb-6">Perfect for those new to pottery. Learn basic wheel throwing techniques and create your first pieces.</p>
                         <div class="text-accent font-semibold mb-4">$60 per class</div>
@@ -172,6 +177,9 @@
                 
                 <div class="card text-center">
                     <div class="card-body">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(45deg, rgba(255, 177, 153, 0.1) 0%, rgba(120, 119, 198, 0.1) 100%); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+                            <span style="font-size: 1.2rem;">🎯</span>
+                        </div>
                         <h3>Weekly Sessions</h3>
                         <p class="mb-6">Regular weekly classes for ongoing skill development. Build your technique with consistent practice.</p>
                         <div class="text-accent font-semibold mb-4">$50 per week</div>
@@ -181,11 +189,58 @@
                 
                 <div class="card text-center">
                     <div class="card-body">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(45deg, rgba(120, 119, 198, 0.1) 0%, rgba(255, 177, 153, 0.1) 100%); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+                            <span style="font-size: 1.2rem;">👨‍🎨</span>
+                        </div>
                         <h3>Private Lessons</h3>
                         <p class="mb-6">One-on-one instruction tailored to your specific interests and skill level. Personalized guidance.</p>
                         <div class="text-accent font-semibold mb-4">Contact for pricing</div>
                         <a href="classes.html" class="btn btn-secondary">Learn More</a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pottery Process Section -->
+    <section class="section bg-surface-secondary">
+        <div class="container">
+            <div class="text-center mb-12">
+                <h2>The Making Process</h2>
+                <p>Each piece follows a careful journey from clay to finished ceramic</p>
+            </div>
+            
+            <div class="grid grid-4">
+                <div class="text-center">
+                    <div class="organic-border pottery-loader" style="background: linear-gradient(135deg, #8b7355 0%, #a08262 100%); color: white; padding: 1.5rem; margin: 0 auto 1rem; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(139, 115, 85, 0.3);">
+                        <span class="text-2xl font-bold">1</span>
+                    </div>
+                    <h4 class="mb-2">Throwing</h4>
+                    <p class="text-secondary text-sm">Shaping clay on the potter's wheel with careful attention to form and proportion.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="organic-border" style="background: linear-gradient(135deg, #a08262 0%, #cd853f 100%); color: white; padding: 1.5rem; margin: 0 auto 1rem; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(160, 130, 98, 0.3);">
+                        <span class="text-2xl font-bold">2</span>
+                    </div>
+                    <h4 class="mb-2">Drying</h4>
+                    <p class="text-secondary text-sm">Slow, controlled drying to prevent cracking and prepare for the first firing.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="organic-border" style="background: linear-gradient(135deg, #cd853f 0%, #daa520 100%); color: white; padding: 1.5rem; margin: 0 auto 1rem; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(205, 133, 63, 0.3);">
+                        <span class="text-2xl font-bold">3</span>
+                    </div>
+                    <h4 class="mb-2">Glazing</h4>
+                    <p class="text-secondary text-sm">Applying glazes that will create unique colors and textures during the final firing.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="organic-border fire-animation" style="color: white; padding: 1.5rem; margin: 0 auto 1rem; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                        <span class="text-2xl font-bold">4</span>
+                    </div>
+                    <h4 class="mb-2">Firing</h4>
+                    <p class="text-secondary text-sm">High-temperature firing transforms clay and glaze into durable, beautiful ceramics.</p>
                 </div>
             </div>
         </div>

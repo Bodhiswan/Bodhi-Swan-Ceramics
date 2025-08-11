@@ -79,7 +79,7 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="hero" style="min-height: 60vh;">
+    <section class="hero clay-texture" style="min-height: 60vh;">
         <div class="container">
             <div class="hero-content">
                 <h1>Pottery Blog</h1>
@@ -89,17 +89,21 @@
     </section>
 
     <!-- Blog Posts -->
-    <section class="section">
+    <section class="section pottery-accent">
         <div class="container">
             <div class="grid grid-2">
                 
                 <!-- Featured Blog Post - Centering Clay -->
-                <article class="card" style="grid-column: 1 / -1;">
+                <article class="card" style="grid-column: 1 / -1; position: relative; overflow: hidden;">
                     <img src="images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg"
                          alt="Hands centering clay on pottery wheel"
                          class="card-image"
                          style="height: 300px;"
                          loading="lazy">
+                    <!-- Featured post indicator -->
+                    <div style="position: absolute; top: 1rem; left: 1rem; background: linear-gradient(135deg, var(--color-accent) 0%, #0056cc 100%); color: white; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.75rem; font-weight: 600; box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3); z-index: 10;">
+                        ✨ Featured Article
+                    </div>
                     <div class="card-body">
                         <div class="flex items-center mb-3" style="display: flex; align-items: center; gap: 1rem;">
                             <span class="badge">Techniques</span>
@@ -130,7 +134,7 @@
                             <p class="mb-4">The meditative aspect of centering shouldn't be overlooked. There's something deeply satisfying about bringing chaos into order, about feeling the clay surrender to your will through patience and persistence. This is where the true art of pottery begins.</p>
                         </div>
                         
-                        <div class="mt-6 pt-4 border-t border-gray-200">
+                        <div class="mt-6 pt-4" style="border-top: 1px solid rgba(120, 119, 198, 0.1);">
                             <div class="flex items-center gap-4" style="display: flex; align-items: center; gap: 1rem;">
                                 <span class="text-sm text-secondary">Share this post:</span>
                                 <a href="#" class="text-accent text-sm">Facebook</a>
@@ -142,13 +146,18 @@
                 </article>
 
                 <!-- Coming Soon Posts -->
-                <article class="card" style="opacity: 0.5; pointer-events: none;">
-                    <div style="background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%); height: 250px; display: flex; align-items: center; justify-content: center;">
-                        <span class="text-secondary">Coming Soon</span>
+                <article class="card" style="opacity: 0.4; pointer-events: none; position: relative;">
+                    <div style="background: linear-gradient(135deg, rgba(120, 119, 198, 0.05) 0%, rgba(255, 177, 153, 0.05) 100%); height: 250px; display: flex; align-items: center; justify-content: center; position: relative;">
+                        <div style="text-align: center;">
+                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, rgba(120, 119, 198, 0.1) 0%, rgba(255, 177, 153, 0.1) 100%); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+                                <span style="font-size: 1.5rem; opacity: 0.6;">🎨</span>
+                            </div>
+                            <span class="text-secondary">Coming Soon</span>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="flex items-center mb-3" style="display: flex; align-items: center; gap: 1rem;">
-                            <span class="badge" style="background: #e0e0e0; color: #999;">Glazing</span>
+                            <span class="badge" style="background: rgba(120, 119, 198, 0.1); color: #999;">Glazing</span>
                             <time class="text-sm text-secondary">Coming Soon</time>
                         </div>
                         <h3 class="mb-3" style="color: #999;">Understanding Glaze Chemistry</h3>
@@ -156,13 +165,18 @@
                     </div>
                 </article>
 
-                <article class="card" style="opacity: 0.5; pointer-events: none;">
-                    <div style="background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%); height: 250px; display: flex; align-items: center; justify-content: center;">
-                        <span class="text-secondary">Coming Soon</span>
+                <article class="card" style="opacity: 0.4; pointer-events: none; position: relative;">
+                    <div style="background: linear-gradient(135deg, rgba(255, 177, 153, 0.05) 0%, rgba(120, 119, 198, 0.05) 100%); height: 250px; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center;">
+                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, rgba(255, 177, 153, 0.1) 0%, rgba(120, 119, 198, 0.1) 100%); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+                                <span style="font-size: 1.5rem; opacity: 0.6;">🌱</span>
+                            </div>
+                            <span class="text-secondary">Coming Soon</span>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="flex items-center mb-3" style="display: flex; align-items: center; gap: 1rem;">
-                            <span class="badge" style="background: #e0e0e0; color: #999;">Studio Life</span>
+                            <span class="badge" style="background: rgba(255, 177, 153, 0.1); color: #999;">Studio Life</span>
                             <time class="text-sm text-secondary">Coming Soon</time>
                         </div>
                         <h3 class="mb-3" style="color: #999;">Building a Sustainable Practice</h3>
