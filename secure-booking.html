@@ -184,15 +184,14 @@
                                 </div>
                             </div>
 
-                            <!-- Class Type -->
+                            <!-- Class Type (Fixed) -->
                             <div class="mb-6">
-                                <label for="classType" class="form-label">Class Type</label>
-                                <select id="classType" class="form-input" required>
-                                    <option value="">Select class type</option>
-                                    <option value="drop-in">Drop-in Class ($60)</option>
-                                    <option value="weekly">Weekly Session ($50)</option>
-                                    <option value="private">Private Lesson (Custom pricing)</option>
-                                </select>
+                                <label class="form-label">Class Type</label>
+                                <div class="form-input" style="background: var(--color-surface-secondary); color: var(--color-text-secondary);">
+                                    Standard Pottery Class ($60)
+                                </div>
+                                <input type="hidden" id="classType" value="standard" required>
+                                <small class="text-xs text-secondary">All bookings are for standard pottery classes</small>
                             </div>
 
                             <!-- Personal Information -->
@@ -239,7 +238,7 @@
                                 <h4 class="mb-2">Payment Information</h4>
                                 <p class="text-sm text-secondary mb-2">Payment is taken at the beginning of class and includes:</p>
                                 <ul class="text-sm text-secondary" style="list-style: none; padding: 0;">
-                                    <li class="mb-1">• Class fee (as selected above)</li>
+                                    <li class="mb-1">• Class fee ($60)</li>
                                     <li class="mb-1">• Clay costs ($3-10 per session)</li>
                                     <li class="mb-1">• Firing and glazing (if applicable)</li>
                                 </ul>
