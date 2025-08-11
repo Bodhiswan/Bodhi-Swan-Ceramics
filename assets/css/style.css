@@ -854,3 +854,21 @@ h1 {
     font-style: italic;
     color: #888;
 }
+
+/* Subscription info tile styling */
+.prices .subscription-info {
+    background: rgba(240, 248, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(135, 206, 235, 0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    text-align: left;
+}
+
+.prices .subscription-info p {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 0;
+    line-height: 1.5;
+}
