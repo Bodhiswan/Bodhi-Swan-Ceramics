@@ -36,6 +36,11 @@
     <meta name="twitter:description" content="Browse our ceramic gallery featuring handcrafted pottery from Brisbane. Unique wheel-thrown bowls, vases, and functional stoneware.">
     <meta name="twitter:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
     
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="sitemap" href="/sitemap.xml">
@@ -47,15 +52,18 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <a href="/" class="nav-logo">Bodhi Swan</a>
+            <div class="nav-brand">
+                <img src="images/logo.png" alt="Bodhi Swan Ceramics" class="nav-logo-img">
+                <span class="nav-logo-text">Bodhi Swan</span>
+            </div>
             
             <ul class="nav-menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="classes.html">Classes</a></li>
-                <li><a href="gallery.html" class="active">Gallery</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+                <li><a href="classes.html" class="nav-link">Classes</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="blog.html" class="nav-link">Journal</a></li>
+                <li><a href="faq.html" class="nav-link">FAQ</a></li>
             </ul>
             
             <button class="nav-toggle" aria-label="Toggle navigation menu">
@@ -70,22 +78,13 @@
     <div class="nav-mobile">
         <ul class="nav-mobile-menu">
             <li><a href="/">Home</a></li>
-            <li><a href="classes.html">Classes</a></li>
             <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="classes.html">Classes</a></li>
             <li><a href="shop.html">Shop</a></li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="blog.html">Journal</a></li>
             <li><a href="faq.html">FAQ</a></li>
         </ul>
     </div>
-
-    <!-- Hero Section -->
-    <section class="hero texture-overlay" style="min-height: 60vh;">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Gallery</h1>
-            </div>
-        </div>
-    </section>
 
     <!-- Gallery Grid -->
     <section class="section pottery-accent">
@@ -96,65 +95,67 @@
                 <div style="position: relative; overflow: hidden; aspect-ratio: 1 / 1;">
                     <img src="images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg"
                          alt="Handcrafted ceramic bowl with unique glaze pattern"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         loading="lazy"
-                         onmouseover="this.style.transform='scale(1.05)'"
-                         onmouseout="this.style.transform='scale(1)'">
+                         style="width: 100%; height: 100%; object-fit: cover;"
+                         loading="lazy">
                 </div>
 
                 <div style="position: relative; overflow: hidden; aspect-ratio: 1 / 1;">
                     <img src="images/bodhiswan_348471159_3630382333858035_296460734488849167_n.jpg"
                          alt="Contemporary ceramic vase with minimalist design"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         loading="lazy"
-                         onmouseover="this.style.transform='scale(1.05)'"
-                         onmouseout="this.style.transform='scale(1)'">
+                         style="width: 100%; height: 100%; object-fit: cover;"
+                         loading="lazy">
                 </div>
 
                 <div style="position: relative; overflow: hidden; aspect-ratio: 1 / 1;">
                     <img src="images/bodhiswan_348863468_1167309003909433_5762684848837982962_n.jpg"
                          alt="Artisanal pottery piece showcasing traditional techniques"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         loading="lazy"
-                         onmouseover="this.style.transform='scale(1.05)'"
-                         onmouseout="this.style.transform='scale(1)'">
+                         style="width: 100%; height: 100%; object-fit: cover;"
+                         loading="lazy">
                 </div>
 
                 <div style="position: relative; overflow: hidden; aspect-ratio: 1 / 1;">
                     <img src="images/bodhiswan_349131030_7008228542527475_7205180136632410620_n.jpg"
                          alt="Modern ceramic creation with distinctive finish"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         loading="lazy"
-                         onmouseover="this.style.transform='scale(1.05)'"
-                         onmouseout="this.style.transform='scale(1)'">
-                </div>
-
-                <div style="position: relative; overflow: hidden; aspect-ratio: 1 / 1;">
-                    <img src="images/348982356_573566748281355_5155277251296915931_n.jpg"
-                         alt="Additional ceramic artwork"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         loading="lazy"
-                         onmouseover="this.style.transform='scale(1.05)'"
-                         onmouseout="this.style.transform='scale(1)'">
+                         style="width: 100%; height: 100%; object-fit: cover;"
+                         loading="lazy">
                 </div>
 
             </div>
         </div>
     </section>
 
-
-    <!-- Call to Action -->
-    <section class="section">
-        <div class="container text-center">
-            <h2 class="mb-6">Create Your Own</h2>
-            <p class="mb-8" style="max-width: 600px; margin-left: auto; margin-right: auto;">
-                Inspired by what you see? Join our pottery classes and learn to create your own beautiful ceramics. 
-                From beginner basics to advanced techniques, we'll guide you on your creative journey.
-            </p>
-            
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="classes.html" class="btn btn-primary btn-lg">Join Classes</a>
-                <a href="shop.html" class="btn btn-secondary btn-lg">Shop Collection</a>
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 600px; margin: 0 auto;">
+                    <p class="contact-item">
+                        <span class="contact-label">Studio</span>
+                        <span class="contact-value">Taringa, Brisbane</span>
+                    </p>
+                    <p class="contact-item">
+                        <span class="contact-label">Email</span>
+                        <a href="mailto:swan1995@gmail.com" class="contact-link">swan1995@gmail.com</a>
+                    </p>
+                    <p class="contact-item">
+                        <span class="contact-label">Phone</span>
+                        <a href="tel:0478756284" class="contact-link">0478 756 284</a>
+                    </p>
+                    <p class="contact-item">
+                        <span class="contact-label">Instagram</span>
+                        <a href="https://instagram.com/bodhiswan" target="_blank" rel="noopener" class="contact-link">@bodhiswan</a>
+                    </p>
+                </div>
+                
+                <!-- Mobile responsive -->
+                <style>
+                    @media (max-width: 768px) {
+                        .contact-info {
+                            grid-template-columns: 1fr !important;
+                            gap: 1rem !important;
+                        }
+                    }
+                </style>
             </div>
         </div>
     </section>

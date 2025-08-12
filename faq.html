@@ -36,6 +36,11 @@
     <meta name="twitter:description" content="Frequently asked questions about pottery classes in Brisbane. Learn about costs, materials, firing, glazing, and what to expect.">
     <meta name="twitter:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
     
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="sitemap" href="/sitemap.xml">
@@ -47,15 +52,18 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <a href="/" class="nav-logo">Bodhi Swan</a>
+            <div class="nav-brand">
+                <img src="images/logo.png" alt="Bodhi Swan Ceramics" class="nav-logo-img">
+                <span class="nav-logo-text">Bodhi Swan</span>
+            </div>
             
             <ul class="nav-menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="classes.html">Classes</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="faq.html" class="active">FAQ</a></li>
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="classes.html" class="nav-link">Classes</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="blog.html" class="nav-link">Journal</a></li>
+                <li><a href="faq.html" class="nav-link active">FAQ</a></li>
             </ul>
             
             <button class="nav-toggle" aria-label="Toggle navigation menu">
@@ -70,148 +78,234 @@
     <div class="nav-mobile">
         <ul class="nav-mobile-menu">
             <li><a href="/">Home</a></li>
-            <li><a href="classes.html">Classes</a></li>
             <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="classes.html">Classes</a></li>
             <li><a href="shop.html">Shop</a></li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="blog.html">Journal</a></li>
             <li><a href="faq.html">FAQ</a></li>
         </ul>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero" style="min-height: 60vh;">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Frequently Asked Questions</h1>
-            </div>
-        </div>
-    </section>
-
     <!-- FAQ Content -->
     <section class="section">
         <div class="container container-md">
-            <div class="grid" style="gap: 2rem;">
+            <div class="text-center mb-12">
+                <h1>Frequently Asked Questions</h1>
+            </div>
+            <div class="faq-accordion">
                 
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="mb-4">When do I pay for classes?</h3>
-                        <p>All payments are taken at the beginning of class, unless you are a member paying weekly. This includes the class fee and any additional costs for clay, firing, and glazing.</p>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>When do I pay for classes?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>All payments are taken at the end of class. This includes the class fee and any additional costs for clay, firing, and glazing.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="mb-4">What does the class fee include?</h3>
-                        <p>The class fee covers studio access, wheel time, tools, and expert instruction. Clay, firing, and glazing are additional costs to keep pricing flexible based on what you create.</p>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What does the class fee include?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>The class fee covers studio access, wheel time, tools, and expert instruction. Clay, firing, and glazing are additional costs to keep pricing flexible based on what you create.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="mb-4">How much does clay cost?</h3>
-                        <p>Clay costs approximately $3-5 per kilogram. Most beginners use 1-2kg per session, so expect around $3-10 per class. You only pay for what you use.</p>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How much does clay cost?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Clay costs approximately $3-5 per kilogram. Most beginners use 1-2kg per session, so expect around $3-15 per class. You only pay for what you use.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="mb-4">What are firing and glazing costs?</h3>
-                        <p>Firing costs are based on piece size. Small items (cups, bowls) cost $5-10 to fire. Glazing adds $3-8 per piece depending on complexity. We'll discuss options during class.</p>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What are firing and glazing costs?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Firing costs are based on piece size. Small items (cups, bowls) cost $5-10 to fire. Glazing adds $3-8 per piece depending on complexity. We'll discuss options during class.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="mb-4">Do I need to bring anything?</h3>
-                        <p>Just bring yourself and clothes you don't mind getting dirty! We provide all tools, aprons, and towels. Closed-toe shoes are recommended for safety.</p>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Do I need to bring anything?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Just bring yourself and clothes you don't mind getting dirty! We have spare aprons, but you are encouraged to bring your own. Closed-toe shoes are recommended for safety.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="mb-4">How long until my pieces are ready?</h3>
-                        <p>After throwing, pieces need to dry (1-2 weeks), then bisque fire (1 week), glaze, and final fire (1 week). Total time is typically 3-4 weeks from creation to completion.</p>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How long until my pieces are ready?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>After throwing, pieces need to dry (1-2 weeks), then bisque fire (1 week), glaze, and final fire (1 week). Total time is typically 3-4 weeks from creation to completion.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="mb-4">Can complete beginners attend?</h3>
-                        <p>Absolutely! Our classes are designed for all skill levels. We provide guided instruction for beginners and support for more experienced potters. Everyone starts somewhere.</p>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Can complete beginners attend?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Absolutely! Our classes are designed for all skill levels. We provide guided instruction for beginners and support for more experienced potters. Everyone starts somewhere.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="mb-4">What if I miss a class?</h3>
-                        <p>Life happens! Contact us to reschedule when possible. Weekly subscription members have more flexibility with makeup classes and priority rebooking.</p>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How do I set up weekly payments?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>After attending your first class, we can set up a weekly subscription for $50/week. This gives you priority booking, a discounted rate, and consistent skill building.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="mb-4">How do I set up weekly payments?</h3>
-                        <p>After attending your first class, we can set up a weekly subscription for $50/week. This gives you priority booking, a discounted rate, and consistent skill building.</p>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Is parking available?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Yes! Free parking is available behind the studio off Coonan Street. The studio is also a short walk from Indooroopilly train station and shopping centre.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="mb-4">Is parking available?</h3>
-                        <p>Yes! Free parking is available behind the studio off Coonan Street. The studio is also a short walk from Indooroopilly train station and shopping centre.</p>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Can I book private lessons?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Yes! Private lessons are available by arrangement. Perfect for personalized instruction, flexible scheduling, or accelerated learning. Contact us to discuss your goals and schedule.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="mb-4">Can I book private lessons?</h3>
-                        <p>Yes! Private lessons are available by arrangement. Perfect for personalized instruction, flexible scheduling, or accelerated learning. Contact us to discuss your goals and schedule.</p>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What's the class atmosphere like?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Our studio has a relaxed, supportive atmosphere. We encourage creativity and experimentation in a non-judgmental environment.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="mb-4">What's the class atmosphere like?</h3>
-                        <p>Our studio has a relaxed, supportive atmosphere. Small class sizes ensure personal attention, and we encourage creativity and experimentation in a non-judgmental environment.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="mb-4">Do you offer gift certificates?</h3>
-                        <p>Yes! Pottery classes make wonderful gifts. Contact us to arrange gift certificates for single classes, weekly sessions, or private lessons. Perfect for birthdays or special occasions.</p>
-                    </div>
-                </div>
 
             </div>
         </div>
     </section>
 
+    <!-- FAQ JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    const faqAnswer = faqItem.querySelector('.faq-answer');
+                    const faqIcon = this.querySelector('.faq-icon');
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    
+                    // Close all other FAQ items
+                    faqQuestions.forEach(otherQuestion => {
+                        if (otherQuestion !== this) {
+                            const otherItem = otherQuestion.parentElement;
+                            const otherAnswer = otherItem.querySelector('.faq-answer');
+                            const otherIcon = otherQuestion.querySelector('.faq-icon');
+                            
+                            otherItem.classList.remove('active');
+                            otherAnswer.style.maxHeight = null;
+                            otherQuestion.setAttribute('aria-expanded', 'false');
+                            otherIcon.textContent = '+';
+                        }
+                    });
+                    
+                    // Toggle current FAQ item
+                    if (isExpanded) {
+                        faqItem.classList.remove('active');
+                        faqAnswer.style.maxHeight = null;
+                        this.setAttribute('aria-expanded', 'false');
+                        faqIcon.textContent = '+';
+                    } else {
+                        faqItem.classList.add('active');
+                        faqAnswer.style.maxHeight = faqAnswer.scrollHeight + 'px';
+                        this.setAttribute('aria-expanded', 'true');
+                        faqIcon.textContent = '−';
+                    }
+                });
+            });
+        });
+    </script>
+
     <!-- Contact Section -->
-    <section class="section bg-surface-secondary">
-        <div class="container text-center">
-            <h2 class="mb-6">Still Have Questions?</h2>
-            <p class="mb-8">Can't find what you're looking for? We're here to help make your pottery journey as smooth as possible.</p>
-            
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
-                <a href="mailto:swan1995@gmail.com" class="btn btn-primary">Email Us</a>
-                <a href="tel:0478756284" class="btn btn-secondary">Call Us</a>
-                <a href="classes.html" class="btn btn-ghost">View Classes</a>
-            </div>
-            
-            <div class="grid grid-3" style="max-width: 600px; margin: 0 auto;">
-                <div>
-                    <h4 class="mb-2">Location</h4>
-                    <p class="text-secondary">Indooroopilly, Brisbane</p>
+    <section class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 600px; margin: 0 auto;">
+                    <p class="contact-item">
+                        <span class="contact-label">Studio</span>
+                        <span class="contact-value">Taringa, Brisbane</span>
+                    </p>
+                    <p class="contact-item">
+                        <span class="contact-label">Email</span>
+                        <a href="mailto:swan1995@gmail.com" class="contact-link">swan1995@gmail.com</a>
+                    </p>
+                    <p class="contact-item">
+                        <span class="contact-label">Phone</span>
+                        <a href="tel:0478756284" class="contact-link">0478 756 284</a>
+                    </p>
+                    <p class="contact-item">
+                        <span class="contact-label">Instagram</span>
+                        <a href="https://instagram.com/bodhiswan" target="_blank" rel="noopener" class="contact-link">@bodhiswan</a>
+                    </p>
                 </div>
-                <div>
-                    <h4 class="mb-2">Email</h4>
-                    <a href="mailto:swan1995@gmail.com" class="text-accent">swan1995@gmail.com</a>
-                </div>
-                <div>
-                    <h4 class="mb-2">Phone</h4>
-                    <a href="tel:0478756284" class="text-accent">0478 756 284</a>
-                </div>
+                
+                <!-- Mobile responsive -->
+                <style>
+                    @media (max-width: 768px) {
+                        .contact-info {
+                            grid-template-columns: 1fr !important;
+                            gap: 1rem !important;
+                        }
+                    }
+                </style>
             </div>
         </div>
     </section>

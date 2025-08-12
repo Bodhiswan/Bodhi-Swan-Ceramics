@@ -36,6 +36,11 @@
     <meta name="twitter:description" content="Shop unique handcrafted ceramics from Brisbane. Wheel-thrown pottery, bowls, vases, and functional stoneware.">
     <meta name="twitter:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
     
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="sitemap" href="/sitemap.xml">
@@ -47,15 +52,18 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <a href="/" class="nav-logo">Bodhi Swan</a>
+            <div class="nav-brand">
+                <img src="images/logo.png" alt="Bodhi Swan Ceramics" class="nav-logo-img">
+                <span class="nav-logo-text">Bodhi Swan</span>
+            </div>
             
             <ul class="nav-menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="classes.html">Classes</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="shop.html" class="active">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="classes.html" class="nav-link">Classes</a></li>
+                <li><a href="shop.html" class="nav-link active">Shop</a></li>
+                <li><a href="blog.html" class="nav-link">Journal</a></li>
+                <li><a href="faq.html" class="nav-link">FAQ</a></li>
             </ul>
             
             <button class="nav-toggle" aria-label="Toggle navigation menu">
@@ -70,23 +78,19 @@
     <div class="nav-mobile">
         <ul class="nav-mobile-menu">
             <li><a href="/">Home</a></li>
-            <li><a href="classes.html">Classes</a></li>
             <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="classes.html">Classes</a></li>
             <li><a href="shop.html">Shop</a></li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="blog.html">Journal</a></li>
             <li><a href="faq.html">FAQ</a></li>
         </ul>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero" style="min-height: 60vh;">
+    <section class="section">
         <div class="container">
-            <div class="hero-content">
+            <div class="text-center mb-12">
                 <h1>Shop</h1>
             </div>
-        </div>
-    </section>
-
             
             <div class="grid grid-2">
                 
@@ -94,120 +98,45 @@
                     <div style="height: 250px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);">
                         <div style="text-align: center;">
                             <div style="font-size: 1.5rem; color: #999; margin-bottom: 0.5rem;">SOLD OUT</div>
-                            <div style="font-size: 0.875rem; color: #bbb;">Item no longer available</div>
                         </div>
                     </div>
                 </div>
-
-                <div class="card" style="opacity: 0.4; background: #f8f8f8; border: 2px dashed #ddd;">
-                    <div style="height: 250px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);">
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; color: #999; margin-bottom: 0.5rem;">SOLD OUT</div>
-                            <div style="font-size: 0.875rem; color: #bbb;">Item no longer available</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card" style="opacity: 0.4; background: #f8f8f8; border: 2px dashed #ddd;">
-                    <div style="height: 250px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);">
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; color: #999; margin-bottom: 0.5rem;">SOLD OUT</div>
-                            <div style="font-size: 0.875rem; color: #bbb;">Item no longer available</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card" style="opacity: 0.4; background: #f8f8f8; border: 2px dashed #ddd;">
-                    <div style="height: 250px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);">
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; color: #999; margin-bottom: 0.5rem;">SOLD OUT</div>
-                            <div style="font-size: 0.875rem; color: #bbb;">Item no longer available</div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Custom Orders -->
-    <section class="section bg-surface-secondary">
+    <!-- Contact Section -->
+    <section class="contact">
         <div class="container">
-            <div class="grid grid-2" style="align-items: center; gap: 3rem;">
-                <div>
-                    <h2 class="mb-6">Custom Orders</h2>
-                    <p class="mb-6">Looking for something specific? I create custom ceramic pieces tailored to your needs. Whether it's a special gift, a set for your home, or a unique piece for your space, let's discuss your vision.</p>
-                    
-                    <div class="mb-6">
-                        <h4 class="mb-2">What I Can Create:</h4>
-                        <ul style="list-style: none; padding: 0;">
-                            <li class="mb-2">✓ Custom dinnerware sets</li>
-                            <li class="mb-2">✓ Personalized gifts</li>
-                            <li class="mb-2">✓ Decorative vessels</li>
-                            <li class="mb-2">✓ Architectural ceramics</li>
-                            <li class="mb-2">✓ Memorial pieces</li>
-                        </ul>
-                    </div>
-                    
-                    <a href="mailto:swan1995@gmail.com?subject=Custom Order Inquiry" class="btn btn-primary">Discuss Custom Order</a>
-                </div>
-                <div>
-                    <div class="bg-surface rounded-xl p-8 text-center shadow-md">
-                        <h4 class="mb-4">Custom Order Process</h4>
-                        <div class="text-left">
-                            <div class="mb-4">
-                                <div class="font-semibold mb-1">1. Consultation</div>
-                                <div class="text-sm text-secondary">Discuss your vision, requirements, and timeline</div>
-                            </div>
-                            <div class="mb-4">
-                                <div class="font-semibold mb-1">2. Design & Quote</div>
-                                <div class="text-sm text-secondary">Receive detailed proposal with pricing and timeline</div>
-                            </div>
-                            <div class="mb-4">
-                                <div class="font-semibold mb-1">3. Creation</div>
-                                <div class="text-sm text-secondary">Handcraft your pieces with regular updates</div>
-                            </div>
-                            <div>
-                                <div class="font-semibold mb-1">4. Delivery</div>
-                                <div class="text-sm text-secondary">Careful packaging and delivery of finished pieces</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Care Instructions -->
-    <section class="section">
-        <div class="container text-center">
-            <h2 class="mb-6">Caring for Your Ceramics</h2>
-            <p class="mb-8" style="max-width: 600px; margin-left: auto; margin-right: auto;">
-                All pieces are designed for daily use and are dishwasher and microwave safe unless otherwise noted. 
-                Here are some tips to keep your ceramics beautiful for years to come.
-            </p>
-            
-            <div class="grid grid-3">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <h4 class="mb-4">Daily Care</h4>
-                        <p class="text-secondary">Hand washing is recommended for longevity, though most pieces are dishwasher safe. Avoid extreme temperature changes.</p>
-                    </div>
+            <div class="contact-content">
+                <div class="contact-info" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 600px; margin: 0 auto;">
+                    <p class="contact-item">
+                        <span class="contact-label">Studio</span>
+                        <span class="contact-value">Taringa, Brisbane</span>
+                    </p>
+                    <p class="contact-item">
+                        <span class="contact-label">Email</span>
+                        <a href="mailto:swan1995@gmail.com" class="contact-link">swan1995@gmail.com</a>
+                    </p>
+                    <p class="contact-item">
+                        <span class="contact-label">Phone</span>
+                        <a href="tel:0478756284" class="contact-link">0478 756 284</a>
+                    </p>
+                    <p class="contact-item">
+                        <span class="contact-label">Instagram</span>
+                        <a href="https://instagram.com/bodhiswan" target="_blank" rel="noopener" class="contact-link">@bodhiswan</a>
+                    </p>
                 </div>
                 
-                <div class="card">
-                    <div class="card-body text-center">
-                        <h4 class="mb-4">Storage</h4>
-                        <p class="text-secondary">Stack carefully with soft padding between pieces. Store in a dry place away from direct sunlight for glazed pieces.</p>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-body text-center">
-                        <h4 class="mb-4">Repairs</h4>
-                        <p class="text-secondary">Small chips can often be smoothed with fine sandpaper. Contact us for advice on repairs or restoration services.</p>
-                    </div>
-                </div>
+                <!-- Mobile responsive -->
+                <style>
+                    @media (max-width: 768px) {
+                        .contact-info {
+                            grid-template-columns: 1fr !important;
+                            gap: 1rem !important;
+                        }
+                    }
+                </style>
             </div>
         </div>
     </section>

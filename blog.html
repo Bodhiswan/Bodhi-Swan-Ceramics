@@ -36,6 +36,11 @@
     <meta name="twitter:description" content="Stories from the studio, pottery tips, and insights into the world of ceramics in Brisbane.">
     <meta name="twitter:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
     
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="sitemap" href="/sitemap.xml">
@@ -47,15 +52,18 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <a href="/" class="nav-logo">Bodhi Swan</a>
+            <div class="nav-brand">
+                <img src="images/logo.png" alt="Bodhi Swan Ceramics" class="nav-logo-img">
+                <span class="nav-logo-text">Bodhi Swan</span>
+            </div>
             
             <ul class="nav-menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="classes.html">Classes</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="blog.html" class="active">Blog</a></li>
-                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="classes.html" class="nav-link">Classes</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="blog.html" class="nav-link active">Journal</a></li>
+                <li><a href="faq.html" class="nav-link">FAQ</a></li>
             </ul>
             
             <button class="nav-toggle" aria-label="Toggle navigation menu">
@@ -70,175 +78,160 @@
     <div class="nav-mobile">
         <ul class="nav-mobile-menu">
             <li><a href="/">Home</a></li>
-            <li><a href="classes.html">Classes</a></li>
             <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="classes.html">Classes</a></li>
             <li><a href="shop.html">Shop</a></li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="blog.html">Journal</a></li>
             <li><a href="faq.html">FAQ</a></li>
         </ul>
     </div>
 
-    <!-- Blog Posts -->
-    <section class="section pottery-accent">
-        <div class="container">
-            <div class="grid grid-2">
-                
-                <!-- Featured Blog Post - Centering Clay -->
-                <article class="card" style="grid-column: 1 / -1; position: relative; overflow: hidden;">
-                    <img src="images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg"
-                         alt="Hands centering clay on pottery wheel"
-                         class="card-image"
-                         style="height: 300px;"
-                         loading="lazy">
-                    <!-- Featured post indicator -->
-                    <div style="position: absolute; top: 1rem; left: 1rem; background: linear-gradient(135deg, var(--color-accent) 0%, #0056cc 100%); color: white; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.75rem; font-weight: 600; box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3); z-index: 10;">
-                        ✨ Featured Article
-                    </div>
-                    <div class="card-body">
-                        <div class="flex items-center mb-3" style="display: flex; align-items: center; gap: 1rem;">
-                            <span class="badge">Techniques</span>
-                            <time class="text-sm text-secondary">August 2025</time>
-                        </div>
-                        <h2 class="mb-4">The Art of Centering Clay: Foundation of Wheel Throwing</h2>
-                        
-                        <div class="text-secondary mb-6" style="line-height: 1.7;">
-                            <p class="mb-4">Centering clay is perhaps the most fundamental and challenging skill in wheel throwing. It's the foundation upon which every successful piece is built, yet it's often the technique that frustrates beginners the most. After years of teaching and throwing, I've learned that centering is as much about mindset and body mechanics as it is about technique.</p>
-                            
-                            <h3 class="text-primary mb-3 mt-6">Understanding the Physics</h3>
-                            <p class="mb-4">When clay spins off-center, it creates centrifugal force that fights against your hands. The goal is to gradually coax the clay into perfect alignment with the wheel's axis. This requires steady, consistent pressure applied at the right angles and with the right timing.</p>
-                            
-                            <h3 class="text-primary mb-3 mt-6">The Setup</h3>
-                            <p class="mb-4">Start with well-wedged clay - about 500g for beginners. Slam it down firmly onto the center of your wheel head. The initial placement doesn't need to be perfect, but it should be close. Wet your hands and the clay thoroughly.</p>
-                            
-                            <h3 class="text-primary mb-3 mt-6">The Technique</h3>
-                            <p class="mb-4">Position your body directly in front of the wheel. Brace your arms against your body or the wheel for stability. Place your left hand on the side of the clay, fingers pointing down, and your right hand on top, palm flat. Apply firm, steady pressure inward and downward simultaneously.</p>
-                            
-                            <p class="mb-4">The key is patience. Don't try to force the clay into submission quickly. Instead, maintain consistent pressure and let the wheel do the work. You'll feel the clay gradually stop fighting and begin to move smoothly under your hands.</p>
-                            
-                            <h3 class="text-primary mb-3 mt-6">Common Mistakes</h3>
-                            <p class="mb-4">The biggest mistake I see is inconsistent pressure. Students often grip too tightly or release pressure too early. Another common issue is poor body positioning - if you're not stable, your hands can't be stable either.</p>
-                            
-                            <h3 class="text-primary mb-3 mt-6">Practice Makes Perfect</h3>
-                            <p class="mb-4">I tell my students to spend entire sessions just centering clay. Center it, cut it off, and center it again. This repetition builds muscle memory and confidence. Remember, even experienced potters sometimes struggle with centering - it's a skill that requires constant practice and attention.</p>
-                            
-                            <p class="mb-4">The meditative aspect of centering shouldn't be overlooked. There's something deeply satisfying about bringing chaos into order, about feeling the clay surrender to your will through patience and persistence. This is where the true art of pottery begins.</p>
-                        </div>
-                        
-                        <div class="mt-6 pt-4" style="border-top: 1px solid rgba(120, 119, 198, 0.1);">
-                            <div class="flex items-center gap-4" style="display: flex; align-items: center; gap: 1rem;">
-                                <span class="text-sm text-secondary">Share this post:</span>
-                                <a href="#" class="text-accent text-sm">Facebook</a>
-                                <a href="#" class="text-accent text-sm">Instagram</a>
-                                <a href="#" class="text-accent text-sm">Email</a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Coming Soon Posts -->
-                <article class="card" style="opacity: 0.4; pointer-events: none; position: relative;">
-                    <div style="background: linear-gradient(135deg, rgba(120, 119, 198, 0.05) 0%, rgba(255, 177, 153, 0.05) 100%); height: 250px; display: flex; align-items: center; justify-content: center; position: relative;">
-                        <div style="text-align: center;">
-                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, rgba(120, 119, 198, 0.1) 0%, rgba(255, 177, 153, 0.1) 100%); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
-                                <span style="font-size: 1.5rem; opacity: 0.6;">🎨</span>
-                            </div>
-                            <span class="text-secondary">Coming Soon</span>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="flex items-center mb-3" style="display: flex; align-items: center; gap: 1rem;">
-                            <span class="badge" style="background: rgba(120, 119, 198, 0.1); color: #999;">Glazing</span>
-                            <time class="text-sm text-secondary">Coming Soon</time>
-                        </div>
-                        <h3 class="mb-3" style="color: #999;">Understanding Glaze Chemistry</h3>
-                        <p class="text-secondary mb-4">Deep dive into the science behind ceramic glazes and application techniques.</p>
-                    </div>
-                </article>
-
-                <article class="card" style="opacity: 0.4; pointer-events: none; position: relative;">
-                    <div style="background: linear-gradient(135deg, rgba(255, 177, 153, 0.05) 0%, rgba(120, 119, 198, 0.05) 100%); height: 250px; display: flex; align-items: center; justify-content: center;">
-                        <div style="text-align: center;">
-                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, rgba(255, 177, 153, 0.1) 0%, rgba(120, 119, 198, 0.1) 100%); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
-                                <span style="font-size: 1.5rem; opacity: 0.6;">🌱</span>
-                            </div>
-                            <span class="text-secondary">Coming Soon</span>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="flex items-center mb-3" style="display: flex; align-items: center; gap: 1rem;">
-                            <span class="badge" style="background: rgba(255, 177, 153, 0.1); color: #999;">Studio Life</span>
-                            <time class="text-sm text-secondary">Coming Soon</time>
-                        </div>
-                        <h3 class="mb-3" style="color: #999;">Building a Sustainable Practice</h3>
-                        <p class="text-secondary mb-4">Environmentally conscious pottery studio practices and techniques.</p>
-                    </div>
-                </article>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Signup -->
-    <section class="section bg-surface-secondary">
-        <div class="container text-center">
-            <div class="card" style="max-width: 600px; margin: 0 auto;">
-                <div class="card-body">
-                    <h3 class="mb-4">Stay Updated</h3>
-                    <p class="mb-6">Get the latest pottery tips, studio updates, and new blog posts delivered to your inbox.</p>
-                    <form class="flex" style="display: flex; gap: 1rem; max-width: 400px; margin: 0 auto;">
-                        <input type="email" 
-                               placeholder="Enter your email" 
-                               class="form-input" 
-                               style="flex: 1; padding: 0.75rem 1rem; border: 1px solid var(--color-border); border-radius: 0.5rem; background: var(--color-surface);"
-                               required>
-                        <button type="submit" class="btn btn-primary">Subscribe</button>
-                    </form>
-                    <p class="text-xs text-secondary mt-3">No spam, unsubscribe anytime.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Categories -->
+    <!-- Journal Entries -->
     <section class="section">
-        <div class="container">
-            <div class="text-center mb-8">
-                <h2>Explore Topics</h2>
-                <p>Browse our pottery content by category</p>
-            </div>
+        <div class="container" style="max-width: 800px;">
             
-            <div class="grid grid-4">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <h4 class="mb-2">Techniques</h4>
-                        <p class="text-secondary text-sm mb-4">Wheel throwing, hand building, and finishing methods</p>
-                        <a href="#" class="btn btn-outline">View Posts</a>
+            <!-- Journal Article 1 -->
+            <article class="journal-article" data-article="1" style="background: var(--color-white); padding: var(--space-2xl); border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); margin-bottom: var(--space-2xl); cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease;">
+                <!-- Journal Header -->
+                <header style="border-bottom: 1px solid var(--color-light-gray); padding-bottom: var(--space-lg); margin-bottom: var(--space-xl);">
+                    <div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-md);">
+                        <span style="background: var(--color-light-gray); color: var(--color-dark-gray); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.875rem; font-weight: 500;">Studio Thoughts</span>
+                        <time style="color: var(--color-gray); font-size: 0.875rem;">August 12th, 2025</time>
+                    </div>
+                    <h2 style="font-family: var(--font-serif); font-size: 2rem; line-height: 1.2; color: var(--color-black); margin: 0;">Centering Clay</h2>
+                    <p style="color: var(--color-gray); font-style: italic; margin-top: var(--space-sm);">The Eternal Struggle</p>
+                </header>
+                
+                <!-- Journal Preview Content -->
+                <div class="journal-preview" style="font-family: var(--font-serif); font-size: 1.1rem; line-height: 1.8; color: var(--color-dark-gray);">
+                    <p style="margin-bottom: var(--space-lg);">Centering clay on the potter's wheel is the foundational skill in wheel throwing, much like learning to ride a bike. It involves shaping a lump of clay into a symmetrical, spinning mass that's perfectly aligned with the wheel's center...</p>
+                    
+                    <div style="text-align: center; margin-top: var(--space-lg);">
+                        <span style="color: var(--color-gray); font-size: 0.9rem; font-weight: 500;">Click to read full article</span>
                     </div>
                 </div>
                 
-                <div class="card text-center">
-                    <div class="card-body">
-                        <h4 class="mb-2">Glazing</h4>
-                        <p class="text-secondary text-sm mb-4">Glaze recipes, application tips, and firing guides</p>
-                        <a href="#" class="btn btn-outline">View Posts</a>
+                <!-- Journal Full Content (Hidden) -->
+                <div class="journal-content" style="display: none; font-family: var(--font-serif); font-size: 1.1rem; line-height: 1.8; color: var(--color-dark-gray);">
+                    <p style="margin-bottom: var(--space-lg);">Centering clay on the potter's wheel is the foundational skill in wheel throwing, much like learning to ride a bike. It involves shaping a lump of clay into a symmetrical, spinning mass that's perfectly aligned with the wheel's center. Get this right, and your pots will form smoothly; mess it up, and everything wobbles into chaos. Practice is key, and with the right approach, you'll conquer it in no time.</p>
+                    
+                    <p style="margin-bottom: var(--space-lg);">Before you even touch the wheel, proper wedging is essential. Wedging kneads the clay to remove air bubbles and ensure uniform consistency, preventing cracks during throwing. Spiral, ram, or slam wedging - you must wedge consistently. If you find yourself making mistakes you should restart the process, you'll thank yourself in the future.</p>
+                    
+                    <p style="margin-bottom: var(--space-lg);">For beginners, choose softer clay to make centering easier. Soft clay yields to pressure without fighting back, allowing you to focus on technique rather than brute force. Pair this with non-grogged clay for practice sessions—grogged clay (with added grit) is great for strength in final pieces but can irritate skin and cause dryness or abrasions on your hands during repetitive practice. Save the grog for when you're not practicing!</p>
+                    
+                    <p style="margin-bottom: var(--space-lg);">Centering is akin to learning to ride a bike. At first, it feels impossible—wobbly, frustrating, with constant corrections. But once muscle memory kicks in, it becomes intuitive. Start slow: Brace your elbows, generate strength through posture and structural pressure rather than tense extended muscles.</p>
+                    
+                    <p style="margin-bottom: var(--space-xl); font-style: italic; color: var(--color-gray);">Centering is the first hurdle you will face, once you conquer it throwing becomes 'almost' trivial.</p>
+                    
+                    <div style="text-align: center; margin-top: var(--space-lg);">
+                        <button class="collapse-btn" style="background: var(--color-light-gray); border: none; padding: 0.5rem 1rem; border-radius: 4px; color: var(--color-dark-gray); font-size: 0.9rem; cursor: pointer;">Collapse article</button>
                     </div>
                 </div>
                 
-                <div class="card text-center">
-                    <div class="card-body">
-                        <h4 class="mb-2">Studio Life</h4>
-                        <p class="text-secondary text-sm mb-4">Behind the scenes, tools, and workspace setup</p>
-                        <a href="#" class="btn btn-outline">View Posts</a>
+                <!-- Journal Footer (Hidden in preview) -->
+                <footer class="journal-footer" style="display: none; border-top: 1px solid var(--color-light-gray); padding-top: var(--space-lg); margin-top: var(--space-2xl);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-md);">
+                        <span style="color: var(--color-gray); font-size: 0.875rem;">Written by Bodhi Swan</span>
+                        <div style="display: flex; gap: var(--space-md);">
+                            <a href="#" style="color: var(--color-gray); font-size: 0.875rem; text-decoration: none;">Share</a>
+                            <a href="classes.html" style="color: var(--color-black); font-size: 0.875rem; text-decoration: none;">Learn with me</a>
+                        </div>
                     </div>
+                </footer>
+            </article>
+        </div>
+    </section>
+
+    <!-- Journal JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const articles = document.querySelectorAll('.journal-article');
+            
+            articles.forEach(article => {
+                const preview = article.querySelector('.journal-preview');
+                const content = article.querySelector('.journal-content');
+                const footer = article.querySelector('.journal-footer');
+                const collapseBtn = article.querySelector('.collapse-btn');
+                
+                // Click to expand
+                article.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('collapse-btn')) return; // Don't expand when clicking collapse
+                    
+                    if (preview.style.display !== 'none') {
+                        // Expand
+                        preview.style.display = 'none';
+                        content.style.display = 'block';
+                        footer.style.display = 'block';
+                        article.style.cursor = 'default';
+                        article.style.padding = 'var(--space-3xl)';
+                        
+                        // Scroll to top of article
+                        article.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+                
+                // Click to collapse
+                collapseBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    // Collapse
+                    preview.style.display = 'block';
+                    content.style.display = 'none';
+                    footer.style.display = 'none';
+                    article.style.cursor = 'pointer';
+                    article.style.padding = 'var(--space-2xl)';
+                });
+                
+                // Hover effects for preview state
+                article.addEventListener('mouseenter', function() {
+                    if (preview.style.display !== 'none') {
+                        article.style.transform = 'translateY(-2px)';
+                        article.style.boxShadow = '0 8px 30px rgba(0,0,0,0.12)';
+                    }
+                });
+                
+                article.addEventListener('mouseleave', function() {
+                    if (preview.style.display !== 'none') {
+                        article.style.transform = 'translateY(0)';
+                        article.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 600px; margin: 0 auto;">
+                    <p class="contact-item">
+                        <span class="contact-label">Studio</span>
+                        <span class="contact-value">Taringa, Brisbane</span>
+                    </p>
+                    <p class="contact-item">
+                        <span class="contact-label">Email</span>
+                        <a href="mailto:swan1995@gmail.com" class="contact-link">swan1995@gmail.com</a>
+                    </p>
+                    <p class="contact-item">
+                        <span class="contact-label">Phone</span>
+                        <a href="tel:0478756284" class="contact-link">0478 756 284</a>
+                    </p>
+                    <p class="contact-item">
+                        <span class="contact-label">Instagram</span>
+                        <a href="https://instagram.com/bodhiswan" target="_blank" rel="noopener" class="contact-link">@bodhiswan</a>
+                    </p>
                 </div>
                 
-                <div class="card text-center">
-                    <div class="card-body">
-                        <h4 class="mb-2">Inspiration</h4>
-                        <p class="text-secondary text-sm mb-4">Creative process, artist features, and design ideas</p>
-                        <a href="#" class="btn btn-outline">View Posts</a>
-                    </div>
-                </div>
+                <!-- Mobile responsive -->
+                <style>
+                    @media (max-width: 768px) {
+                        .contact-info {
+                            grid-template-columns: 1fr !important;
+                            gap: 1rem !important;
+                        }
+                    }
+                </style>
             </div>
         </div>
     </section>

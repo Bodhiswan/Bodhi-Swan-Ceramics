@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Website Access</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .link-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            margin: 20px 0;
+            transition: background 0.3s;
+        }
+        .link-button:hover {
+            background: #34495e;
+        }
+        .status {
+            color: #27ae60;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .instructions {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏺 Bodhi Swan Ceramics</h1>
+        <div class="status">✅ Local Server Running</div>
+        <p>Your website is currently running locally on port 3000</p>
+        
+        <a href="http://localhost:3000" class="link-button" target="_blank">
+            🌐 Open Website
+        </a>
+        
+        <div class="instructions">
+            <h3>Quick Access:</h3>
+            <ul>
+                <li><strong>Main Site:</strong> <a href="http://localhost:3000">http://localhost:3000</a></li>
+                <li><strong>Gallery:</strong> <a href="http://localhost:3000/gallery.html">http://localhost:3000/gallery.html</a></li>
+                <li><strong>Classes:</strong> <a href="http://localhost:3000/classes.html">http://localhost:3000/classes.html</a></li>
+                <li><strong>Shop:</strong> <a href="http://localhost:3000/shop.html">http://localhost:3000/shop.html</a></li>
+                <li><strong>Booking:</strong> <a href="http://localhost:3000/booking.html">http://localhost:3000/booking.html</a></li>
+            </ul>
+            <p><em>Note: Make sure the Python server is running in your terminal with the command: <code>python -m http.server 3000</code></em></p>
+        </div>
+    </div>
+</body>
+</html>

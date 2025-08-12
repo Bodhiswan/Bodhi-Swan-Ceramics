@@ -36,6 +36,11 @@
     <meta name="twitter:description" content="Book your pottery class in Brisbane. Choose from available dates and times for wheel throwing classes.">
     <meta name="twitter:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
     
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="sitemap" href="/sitemap.xml">
@@ -48,15 +53,18 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <a href="/" class="nav-logo">Bodhi Swan</a>
+            <div class="nav-brand">
+                <img src="images/logo.png" alt="Bodhi Swan Ceramics" class="nav-logo-img">
+                <span class="nav-logo-text">Bodhi Swan</span>
+            </div>
             
             <ul class="nav-menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="classes.html">Classes</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="classes.html" class="nav-link">Classes</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="blog.html" class="nav-link">Journal</a></li>
+                <li><a href="faq.html" class="nav-link">FAQ</a></li>
             </ul>
             
             <button class="nav-toggle" aria-label="Toggle navigation menu">
@@ -71,23 +79,13 @@
     <div class="nav-mobile">
         <ul class="nav-mobile-menu">
             <li><a href="/">Home</a></li>
-            <li><a href="classes.html">Classes</a></li>
             <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="classes.html">Classes</a></li>
             <li><a href="shop.html">Shop</a></li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="blog.html">Journal</a></li>
             <li><a href="faq.html">FAQ</a></li>
         </ul>
     </div>
-
-    <!-- Hero Section -->
-    <section class="hero" style="min-height: 60vh;">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Book Your Class</h1>
-                <p>Choose your preferred date and time for pottery classes. All payments are taken at the beginning of class.</p>
-            </div>
-        </div>
-    </section>
 
     <!-- Loading Indicator -->
     <div id="loadingIndicator" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.9); z-index: 1000; display: flex; align-items: center; justify-content: center;">
@@ -101,6 +99,8 @@
     <section class="section">
         <div class="container">
             <div class="text-center mb-8">
+                <h1 class="mb-4">Book Your Class</h1>
+                <p class="mb-6">Choose your preferred date and time for pottery classes. All payments are taken at the beginning of class.</p>
                 <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
                     <h2 style="margin: 0;">Select Your Class</h2>
                     <button id="refreshAvailability" class="btn btn-ghost" style="padding: 0.5rem;" title="Refresh availability">

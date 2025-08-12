@@ -36,26 +36,41 @@
     <meta name="twitter:description" content="Learn pottery in Brisbane with expert instruction. Beginner-friendly wheel throwing classes, weekly sessions, and private lessons.">
     <meta name="twitter:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
     
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="sitemap" href="/sitemap.xml">
     
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-functions-compat.js"></script>
+    
     <!-- Scripts -->
     <script defer src="assets/js/app.js"></script>
+    <script defer src="assets/js/firebase-booking.js"></script>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <a href="/" class="nav-logo">Bodhi Swan</a>
+            <div class="nav-brand">
+                <img src="images/logo.png" alt="Bodhi Swan Ceramics" class="nav-logo-img">
+                <span class="nav-logo-text">Bodhi Swan</span>
+            </div>
             
             <ul class="nav-menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="classes.html" class="active">Classes</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="classes.html" class="nav-link active">Classes</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="blog.html" class="nav-link">Journal</a></li>
+                <li><a href="faq.html" class="nav-link">FAQ</a></li>
             </ul>
             
             <button class="nav-toggle" aria-label="Toggle navigation menu">
@@ -70,216 +85,461 @@
     <div class="nav-mobile">
         <ul class="nav-mobile-menu">
             <li><a href="/">Home</a></li>
-            <li><a href="classes.html">Classes</a></li>
             <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="classes.html">Classes</a></li>
             <li><a href="shop.html">Shop</a></li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="blog.html">Journal</a></li>
             <li><a href="faq.html">FAQ</a></li>
         </ul>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero" style="min-height: 70vh;">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Learn Pottery</h1>
-                <p>Discover the meditative art of wheel throwing in our Brisbane studio. Small classes, expert instruction, and a supportive creative environment.</p>
-            </div>
-        </div>
-    </section>
-
-
-            
-            <div class="grid grid-3">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <h3 class="mb-4">Drop-in Classes</h3>
-                        <div class="text-4xl font-bold text-accent mb-2">$60</div>
-                        <div class="text-secondary mb-6">per class</div>
-                        <ul style="list-style: none; padding: 0; margin-bottom: 2rem; text-align: left;">
-                            <li class="mb-2">✓ 3-hour session</li>
-                            <li class="mb-2">✓ All tools provided</li>
-                            <li class="mb-2">✓ Expert instruction</li>
-                            <li class="mb-2">✓ Small class sizes</li>
-                            <li class="mb-2">✓ Beginner friendly</li>
-                        </ul>
-                        <a href="secure-booking.html" class="btn btn-secondary">Book Now</a>
-                    </div>
-                </div>
-                
-                <div class="card text-center" style="transform: scale(1.05); border: 2px solid var(--color-accent);">
-                    <div class="card-body">
-                        <div class="bg-accent text-white rounded-lg p-2 mb-4" style="margin: -1.5rem -1.5rem 1rem -1.5rem;">
-                            <small class="font-semibold">MOST POPULAR</small>
-                        </div>
-                        <h3 class="mb-4">Weekly Sessions</h3>
-                        <div class="text-4xl font-bold text-accent mb-2">$50</div>
-                        <div class="text-secondary mb-6">per week</div>
-                        <ul style="list-style: none; padding: 0; margin-bottom: 2rem; text-align: left;">
-                            <li class="mb-2">✓ Consistent skill building</li>
-                            <li class="mb-2">✓ Priority booking</li>
-                            <li class="mb-2">✓ Discounted rate</li>
-                            <li class="mb-2">✓ Progress tracking</li>
-                            <li class="mb-2">✓ Community support</li>
-                        </ul>
-                        <a href="secure-booking.html" class="btn btn-primary">Start Weekly</a>
-                    </div>
-                </div>
-                
-                <div class="card text-center">
-                    <div class="card-body">
-                        <h3 class="mb-4">Private Lessons</h3>
-                        <div class="text-4xl font-bold text-accent mb-2">Custom</div>
-                        <div class="text-secondary mb-6">pricing</div>
-                        <ul style="list-style: none; padding: 0; margin-bottom: 2rem; text-align: left;">
-                            <li class="mb-2">✓ One-on-one instruction</li>
-                            <li class="mb-2">✓ Flexible scheduling</li>
-                            <li class="mb-2">✓ Personalized curriculum</li>
-                            <li class="mb-2">✓ Accelerated learning</li>
-                            <li class="mb-2">✓ Custom projects</li>
-                        </ul>
-                        <a href="mailto:swan1995@gmail.com" class="btn btn-secondary">Contact</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Payment Information -->
-            <div class="text-center mt-12">
-                <div class="card" style="max-width: 600px; margin: 0 auto;">
-                    <div class="card-body">
-                        <h3 class="mb-4">Payment Information</h3>
-                        <p class="mb-4">All payments are taken at the beginning of class, unless you are a member paying weekly.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Class Structure -->
-    <section class="section bg-surface-secondary">
-        <div class="container">
-            <div class="grid grid-2" style="align-items: center; gap: 3rem;">
-                <div>
-                    <h2 class="mb-6">What to Expect</h2>
-                    <div class="mb-6">
-                        <h4 class="mb-2">Setup & Introduction (15 min)</h4>
-                        <p class="text-secondary">Brief studio orientation, tool introduction, and wheel setup.</p>
-                    </div>
-                    <div class="mb-6">
-                        <h4 class="mb-2">Guided Instruction (60 min)</h4>
-                        <p class="text-secondary">Focused lessons on centering, opening, pulling, and forming techniques.</p>
-                    </div>
-                    <div class="mb-6">
-                        <h4 class="mb-2">Independent Practice (90 min)</h4>
-                        <p class="text-secondary">Supervised practice time with individual guidance and support.</p>
-                    </div>
-                    <div class="mb-6">
-                        <h4 class="mb-2">Finishing & Cleanup (15 min)</h4>
-                        <p class="text-secondary">Label pieces for drying, discuss next steps, and studio cleanup.</p>
-                    </div>
-                </div>
-                <div>
-                    <img src="images/bodhiswan_349131030_7008228542527475_7205180136632410620_n.jpg" 
-                         alt="Pottery wheel in action" 
-                         class="rounded-xl shadow-lg" 
-                         style="width: 100%; height: 400px; object-fit: cover;"
-                         loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Studio Location -->
+    <!-- Pricing Section -->
     <section class="section">
-        <div class="container">
+        <div class="container container-md">
             <div class="text-center mb-12">
-                <h2>Studio Location</h2>
-                <p>Conveniently located in Indooroopilly with easy access and free parking</p>
+                <h1>Pottery Classes</h1>
+                <p class="text-secondary">Learn wheel throwing with Bodhi Swan</p>
             </div>
             
-            <div class="grid grid-2" style="align-items: center; gap: 3rem;">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="mb-4">The Ceramic Studio</h3>
-                        <div class="mb-4">
-                            <h5 class="mb-2">Address</h5>
-                            <p class="text-secondary">Shop 4 & 6, 8 Station Road<br>Indooroopilly, QLD</p>
-                        </div>
-                        <div class="mb-4">
-                            <h5 class="mb-2">Parking</h5>
-                            <p class="text-secondary">Free parking behind the studio off Coonan Street</p>
-                        </div>
-                        <div class="mb-4">
-                            <h5 class="mb-2">Public Transport</h5>
-                            <p class="text-secondary">Short walk from Indooroopilly train station and shopping centre</p>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="bg-surface-secondary rounded-xl p-8 text-center">
-                        <h4 class="mb-4">Class Times</h4>
-                        <div class="text-2xl font-semibold mb-2">Monday Evenings</div>
-                        <div class="text-lg text-accent mb-4">6:00 PM - 9:00 PM</div>
-                        <p class="text-secondary">Classes run weekly with flexible start dates. Perfect for after-work creativity and relaxation.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Booking Section -->
-    <section id="booking" class="section bg-tertiary">
-        <div class="container">
-            <div class="text-center mb-12">
-                <h2>Book Your Class</h2>
-                <p>Ready to start your pottery journey? Choose your preferred session below.</p>
-            </div>
-            
-            <div class="grid grid-2" style="max-width: 800px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 600px; margin: 2rem auto 0;">
                 <div class="card text-center">
                     <div class="card-body">
-                        <h3 class="mb-4">September Sessions</h3>
-                        <p class="mb-6">Join our upcoming Monday evening classes. Perfect for beginners and continuing students.</p>
-                        <div class="mb-6">
-                            <div class="font-semibold mb-2">Available Dates:</div>
-                            <div class="text-secondary">
-                                Mon 1 Sep • Mon 8 Sep<br>
-                                Mon 15 Sep • Mon 22 Sep<br>
-                                Mon 29 Sep
-                            </div>
+                        <h3 class="mb-4">First Class</h3>
+                        <div style="margin-bottom: 1.5rem;">
+                            <span style="font-size: 2.5rem; font-weight: 600; color: var(--color-black);">$70</span><span style="font-size: 1rem; color: var(--color-gray);">/class</span>
                         </div>
-                        <a href="secure-booking.html" class="btn btn-primary">Book Now</a>
                     </div>
                 </div>
                 
                 <div class="card text-center">
                     <div class="card-body">
-                        <h3 class="mb-4">Private Sessions</h3>
-                        <p class="mb-6">Prefer one-on-one instruction? Book a private lesson tailored to your schedule and goals.</p>
-                        <div class="mb-6">
-                            <div class="font-semibold mb-2">Benefits:</div>
-                            <div class="text-secondary">
-                                Flexible timing<br>
-                                Personalized instruction<br>
-                                Accelerated learning<br>
-                                Custom projects
-                            </div>
+                        <h3 class="mb-4">Returning Classes</h3>
+                        <div style="margin-bottom: 1.5rem;">
+                            <span style="font-size: 2.5rem; font-weight: 600; color: var(--color-black);">$60</span><span style="font-size: 1rem; color: var(--color-gray);">/class</span>
                         </div>
-                        <a href="mailto:swan1995@gmail.com?subject=Private Lesson Inquiry" class="btn btn-secondary">Inquire</a>
                     </div>
                 </div>
             </div>
             
-            <div class="text-center mt-12">
-                <p class="text-secondary mb-4">Questions about classes or need a different time?</p>
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="mailto:swan1995@gmail.com" class="btn btn-ghost">Email</a>
-                    <a href="tel:0478756284" class="btn btn-ghost">Call</a>
-                    <a href="faq.html" class="btn btn-ghost">FAQ</a>
-                </div>
+            <!-- Centered Book Now Button -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <button onclick="scrollToCalendar('both')" class="btn-primary" style="padding: 1rem 2rem;">Book Now</button>
             </div>
         </div>
     </section>
+
+    <!-- Accordion Sections -->
+    <section class="section" style="padding-top: 1rem;">
+        <div class="container container-md">
+            <div class="faq-accordion">
+                
+                <!-- What to Expect -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What to Expect</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p style="color: var(--color-dark-gray); margin-bottom: 1.5rem;">Each session starts with an optional guided throwing lesson led by Bodhi, focusing on essential techniques like centering clay and basic throwing. Beginners are especially encouraged to join, but everyone can participate to refresh or refine their skills.</p>
+                            
+                            <p style="color: var(--color-dark-gray); margin-bottom: 1.5rem;">After the intro (about 20-30 minutes), you'll dive into self-guided throwing and trimming at your own pace. Bodhi will be on hand for personalized help—whether it's troubleshooting a wobbly pot, or performing "resurrection miracles" on collapsed pieces.</p>
+                            
+                            <p style="color: var(--color-dark-gray); margin-bottom: 1.5rem;">Your experience evolves over time: In your first week, focus on throwing to build foundational pots. The second week shifts to trimming those pieces, with extra time to throw more if you're ready. From then on, enjoy a mix of both activities to hone your craft.</p>
+                            
+                            <p style="color: var(--color-dark-gray); margin-bottom: 2rem;">For those eager to explore advanced techniques or complex forms (like handles or lids), the self-guided portion offers ample opportunity for one-on-one instruction.</p>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="margin-bottom: 0.5rem;">Setup & Introduction (10 min)</h4>
+                                <p style="color: var(--color-gray); margin: 0;">Brief studio orientation, tool introduction, and wheel setup.</p>
+                            </div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="margin-bottom: 0.5rem;">Guided Instruction (~30 min)</h4>
+                                <p style="color: var(--color-gray); margin: 0;">Focused lessons on centering, opening, pulling, and forming techniques.</p>
+                            </div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="margin-bottom: 0.5rem;">Independent Practice (~60 min)</h4>
+                                <p style="color: var(--color-gray); margin: 0;">Supervised practice time with individual guidance and support.</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 0.5rem;">Finishing & Cleanup (10 min)</h4>
+                                <p style="color: var(--color-gray); margin: 0;">Label pieces for drying, discuss next steps, and studio cleanup.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Studio Location -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Studio Location</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <h4 style="margin-bottom: 1rem;">The Ceramic Studio</h4>
+                            <div style="margin-bottom: 1rem;">
+                                <h5 style="margin-bottom: 0.5rem; font-weight: 500;">Address</h5>
+                                <p style="color: var(--color-gray); margin: 0;">Shop 4 & 6, 8 Station Road<br>Indooroopilly, QLD</p>
+                            </div>
+                            <div style="margin-bottom: 1rem;">
+                                <h5 style="margin-bottom: 0.5rem; font-weight: 500;">Parking</h5>
+                                <p style="color: var(--color-gray); margin: 0;">Free parking behind the studio off Coonan Street</p>
+                            </div>
+                            <div style="margin-bottom: 1rem;">
+                                <h5 style="margin-bottom: 0.5rem; font-weight: 500;">Public Transport</h5>
+                                <p style="color: var(--color-gray); margin: 0;">Short walk from Indooroopilly train station and shopping centre</p>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calendar -->
+                <div class="faq-item" id="calendar-section">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Calendar & Booking</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <!-- Loading Indicator -->
+                            <div id="loadingIndicator" style="display: none; text-align: center; padding: 2rem;">
+                                <div style="width: 40px; height: 40px; border: 4px solid var(--color-light-gray); border-top: 4px solid var(--color-black); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1rem;"></div>
+                                <p style="color: var(--color-gray);">Loading calendar...</p>
+                            </div>
+
+                            <!-- Booking System -->
+                            <div id="booking-system" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+                                
+                                <!-- Calendar -->
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                                            <h4 style="margin: 0;">Select a Date</h4>
+                                            <button id="refreshAvailability" class="btn-secondary" style="padding: 0.5rem;" title="Refresh availability">
+                                                ↻
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Calendar Header -->
+                                        <div class="calendar-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                                            <button id="prevMonth" class="btn-secondary" style="padding: 0.5rem;">‹</button>
+                                            <h5 id="currentMonth" style="margin: 0; font-size: 1.1rem; font-weight: 600;"></h5>
+                                            <button id="nextMonth" class="btn-secondary" style="padding: 0.5rem;">›</button>
+                                        </div>
+                                        
+                                        <!-- Calendar Grid -->
+                                        <div class="calendar-grid" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.25rem; margin-bottom: 1rem;">
+                                            <div class="calendar-day-header" style="text-align: center; font-weight: 600; padding: 0.5rem; color: var(--color-gray); font-size: 0.8rem;">Sun</div>
+                                            <div class="calendar-day-header" style="text-align: center; font-weight: 600; padding: 0.5rem; color: var(--color-gray); font-size: 0.8rem;">Mon</div>
+                                            <div class="calendar-day-header" style="text-align: center; font-weight: 600; padding: 0.5rem; color: var(--color-gray); font-size: 0.8rem;">Tue</div>
+                                            <div class="calendar-day-header" style="text-align: center; font-weight: 600; padding: 0.5rem; color: var(--color-gray); font-size: 0.8rem;">Wed</div>
+                                            <div class="calendar-day-header" style="text-align: center; font-weight: 600; padding: 0.5rem; color: var(--color-gray); font-size: 0.8rem;">Thu</div>
+                                            <div class="calendar-day-header" style="text-align: center; font-weight: 600; padding: 0.5rem; color: var(--color-gray); font-size: 0.8rem;">Fri</div>
+                                            <div class="calendar-day-header" style="text-align: center; font-weight: 600; padding: 0.5rem; color: var(--color-gray); font-size: 0.8rem;">Sat</div>
+                                        </div>
+                                        
+                                        <div id="calendarDays" class="calendar-days" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.25rem;"></div>
+                                        
+                                        <!-- Legend -->
+                                        <div class="calendar-legend" style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.75rem;">
+                                            <div style="display: flex; align-items: center; gap: 0.25rem;">
+                                                <div style="width: 10px; height: 10px; background: var(--color-black); border-radius: 50%;"></div>
+                                                <span>Available</span>
+                                            </div>
+                                            <div style="display: flex; align-items: center; gap: 0.25rem;">
+                                                <div style="width: 10px; height: 10px; background: var(--color-gray); border-radius: 50%;"></div>
+                                                <span>Fully Booked</span>
+                                            </div>
+                                            <div style="display: flex; align-items: center; gap: 0.25rem;">
+                                                <div style="width: 10px; height: 10px; background: var(--color-dark-gray); border-radius: 50%;"></div>
+                                                <span>Selected</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Booking Form -->
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 style="margin-bottom: 1.5rem;">Booking Details</h4>
+                                        
+                                        <form id="bookingForm">
+                                            <!-- Selected Date Display -->
+                                            <div style="margin-bottom: 1rem;">
+                                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--color-black);">Selected Date</label>
+                                                <div id="selectedDate" style="padding: 0.75rem; background: var(--color-light-gray); color: var(--color-gray); border-radius: 4px; border: 1px solid rgba(0,0,0,0.1);">
+                                                    Please select a date from the calendar
+                                                </div>
+                                            </div>
+
+                                            <!-- Time Slot Selection -->
+                                            <div style="margin-bottom: 1rem;">
+                                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--color-black);">Available Times</label>
+                                                <div id="timeSlots" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 0.5rem;">
+                                                    <div style="color: var(--color-gray); font-size: 0.9rem;">Select a date to see available times</div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Class Type -->
+                                            <div style="margin-bottom: 1rem;">
+                                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--color-black);">Class Type</label>
+                                                <div style="padding: 0.75rem; background: var(--color-light-gray); color: var(--color-gray); border-radius: 4px; border: 1px solid rgba(0,0,0,0.1);">
+                                                    Standard Pottery Class ($60)
+                                                </div>
+                                                <input type="hidden" id="classType" value="standard" required>
+                                            </div>
+
+                                            <!-- Personal Information -->
+                                            <div style="margin-bottom: 1rem;">
+                                                <label for="fullName" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--color-black);">Full Name</label>
+                                                <input type="text" id="fullName" style="width: 100%; padding: 0.75rem; border: 1px solid rgba(0,0,0,0.2); border-radius: 4px; font-family: inherit;" required maxlength="50" pattern="[A-Za-z\s]{2,50}">
+                                            </div>
+
+                                            <div style="margin-bottom: 1rem;">
+                                                <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--color-black);">Email Address</label>
+                                                <input type="email" id="email" style="width: 100%; padding: 0.75rem; border: 1px solid rgba(0,0,0,0.2); border-radius: 4px; font-family: inherit;" required>
+                                            </div>
+
+                                            <div style="margin-bottom: 1rem;">
+                                                <label for="phone" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--color-black);">Phone Number</label>
+                                                <input type="tel" id="phone" style="width: 100%; padding: 0.75rem; border: 1px solid rgba(0,0,0,0.2); border-radius: 4px; font-family: inherit;" required pattern="(\+61|0)[2-9]\d{8}" placeholder="0412 345 678">
+                                            </div>
+
+                                            <!-- Experience Level -->
+                                            <div style="margin-bottom: 1rem;">
+                                                <label for="experience" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--color-black);">Experience Level</label>
+                                                <select id="experience" style="width: 100%; padding: 0.75rem; border: 1px solid rgba(0,0,0,0.2); border-radius: 4px; font-family: inherit;" required>
+                                                    <option value="">Select your experience</option>
+                                                    <option value="beginner">Complete Beginner</option>
+                                                    <option value="some">Some Experience</option>
+                                                    <option value="intermediate">Intermediate</option>
+                                                    <option value="advanced">Advanced</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Special Requests -->
+                                            <div style="margin-bottom: 1rem;">
+                                                <label for="notes" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--color-black);">Special Requests (Optional)</label>
+                                                <textarea id="notes" style="width: 100%; padding: 0.75rem; border: 1px solid rgba(0,0,0,0.2); border-radius: 4px; font-family: inherit; resize: vertical;" rows="3" maxlength="500" placeholder="Any specific goals, accessibility needs, or questions?"></textarea>
+                                            </div>
+
+                                            <!-- Payment Information -->
+                                            <div style="margin-bottom: 1rem; padding: 1rem; background: var(--color-light-gray); border-radius: 4px;">
+                                                <h5 style="margin-bottom: 0.5rem; font-size: 1rem;">Payment Information</h5>
+                                                <p style="font-size: 0.85rem; color: var(--color-gray); margin-bottom: 0.5rem;">Payment is taken at the beginning of class:</p>
+                                                <ul style="font-size: 0.85rem; color: var(--color-gray); list-style: none; padding: 0; margin: 0;">
+                                                    <li style="margin-bottom: 0.25rem;">• Class fee ($70/$60)</li>
+                                                    <li style="margin-bottom: 0.25rem;">• Clay costs ($3-15 per session)</li>
+                                                    <li>• Firing and glazing (if applicable)</li>
+                                                </ul>
+                                            </div>
+
+                                            <!-- Terms and Conditions -->
+                                            <div style="margin-bottom: 1.5rem;">
+                                                <label style="display: flex; align-items: start; gap: 0.5rem; cursor: pointer; font-size: 0.9rem;">
+                                                    <input type="checkbox" id="terms" required style="margin-top: 0.25rem;">
+                                                    <span>I agree to the <a href="terms-and-conditions.html" target="_blank" style="color: var(--color-black); text-decoration: underline;">terms and conditions</a> and understand that payment is due at the beginning of class.</span>
+                                                </label>
+                                            </div>
+
+                                            <!-- Submit Button -->
+                                            <button type="submit" class="btn-primary" style="width: 100%; padding: 1rem;" disabled id="submitBtn">
+                                                Complete Booking
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Responsive mobile layout -->
+                            <style>
+                                @media (max-width: 768px) {
+                                    #booking-system {
+                                        grid-template-columns: 1fr !important;
+                                        gap: 1rem !important;
+                                    }
+                                }
+                                
+                                @keyframes spin {
+                                    0% { transform: rotate(0deg); }
+                                    100% { transform: rotate(360deg); }
+                                }
+
+                                /* Disable hover effects on booking system cards */
+                                #booking-system .card:hover {
+                                    transform: none !important;
+                                    box-shadow: none !important;
+                                    scale: none !important;
+                                    transition: none !important;
+                                }
+
+                                #booking-system .card {
+                                    transition: none !important;
+                                }
+
+                                /* Disable hover effects on form elements */
+                                #booking-system input:hover,
+                                #booking-system select:hover,
+                                #booking-system textarea:hover,
+                                #booking-system button:hover:not(.btn-primary):not(.btn-secondary) {
+                                    transform: none !important;
+                                    box-shadow: none !important;
+                                    scale: none !important;
+                                }
+
+                                /* Disable hover effects on pricing cards */
+                                .card:hover {
+                                    transform: none !important;
+                                    box-shadow: none !important;
+                                    scale: none !important;
+                                    transition: none !important;
+                                }
+
+                                .card {
+                                    transition: none !important;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 600px; margin: 0 auto;">
+                    <p class="contact-item">
+                        <span class="contact-label">Studio</span>
+                        <span class="contact-value">Taringa, Brisbane</span>
+                    </p>
+                    <p class="contact-item">
+                        <span class="contact-label">Email</span>
+                        <a href="mailto:swan1995@gmail.com" class="contact-link">swan1995@gmail.com</a>
+                    </p>
+                    <p class="contact-item">
+                        <span class="contact-label">Phone</span>
+                        <a href="tel:0478756284" class="contact-link">0478 756 284</a>
+                    </p>
+                    <p class="contact-item">
+                        <span class="contact-label">Instagram</span>
+                        <a href="https://instagram.com/bodhiswan" target="_blank" rel="noopener" class="contact-link">@bodhiswan</a>
+                    </p>
+                </div>
+                
+                <!-- Mobile responsive -->
+                <style>
+                    @media (max-width: 768px) {
+                        .contact-info {
+                            grid-template-columns: 1fr !important;
+                            gap: 1rem !important;
+                        }
+                    }
+                </style>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    const faqAnswer = faqItem.querySelector('.faq-answer');
+                    const faqIcon = this.querySelector('.faq-icon');
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    
+                    // Close all other FAQ items
+                    faqQuestions.forEach(otherQuestion => {
+                        if (otherQuestion !== this) {
+                            const otherItem = otherQuestion.parentElement;
+                            const otherAnswer = otherItem.querySelector('.faq-answer');
+                            const otherIcon = otherQuestion.querySelector('.faq-icon');
+                            
+                            otherItem.classList.remove('active');
+                            otherAnswer.style.maxHeight = null;
+                            otherQuestion.setAttribute('aria-expanded', 'false');
+                            otherIcon.textContent = '+';
+                        }
+                    });
+                    
+                    // Toggle current FAQ item
+                    if (isExpanded) {
+                        faqItem.classList.remove('active');
+                        faqAnswer.style.maxHeight = null;
+                        this.setAttribute('aria-expanded', 'false');
+                        faqIcon.textContent = '+';
+                    } else {
+                        faqItem.classList.add('active');
+                        faqAnswer.style.maxHeight = faqAnswer.scrollHeight + 'px';
+                        this.setAttribute('aria-expanded', 'true');
+                        faqIcon.textContent = '−';
+                    }
+                });
+            });
+        });
+
+        function scrollToCalendar(classType) {
+            const calendarSection = document.getElementById('calendar-section');
+            const calendarQuestion = calendarSection.querySelector('.faq-question');
+            const calendarAnswer = calendarSection.querySelector('.faq-answer');
+            const calendarIcon = calendarQuestion.querySelector('.faq-icon');
+            
+            // Close all other sections first
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== calendarSection) {
+                    const answer = item.querySelector('.faq-answer');
+                    const question = item.querySelector('.faq-question');
+                    const icon = question.querySelector('.faq-icon');
+                    
+                    item.classList.remove('active');
+                    answer.style.maxHeight = null;
+                    question.setAttribute('aria-expanded', 'false');
+                    icon.textContent = '+';
+                }
+            });
+            
+            // Expand calendar section first
+            calendarSection.classList.add('active');
+            calendarAnswer.style.maxHeight = calendarAnswer.scrollHeight + 'px';
+            calendarQuestion.setAttribute('aria-expanded', 'true');
+            calendarIcon.textContent = '−';
+            
+            // Pre-fill class type in the form if available
+            const classTypeInput = document.getElementById('classType');
+            if (classTypeInput) {
+                if (classType === 'drop-in') {
+                    classTypeInput.value = 'drop-in';
+                } else if (classType === 'weekly') {
+                    classTypeInput.value = 'weekly';
+                }
+            }
+            
+            // Wait for expansion animation to complete, then scroll to correct position
+            setTimeout(() => {
+                // Calculate position halfway between top and center after expansion
+                const elementRect = calendarSection.getBoundingClientRect();
+                const absoluteElementTop = elementRect.top + window.pageYOffset;
+                const windowHeight = window.innerHeight;
+                const quarterViewportHeight = windowHeight * 0.25; // Halfway between top (0) and center (0.5)
+                const scrollToPosition = absoluteElementTop - quarterViewportHeight;
+                
+                // Smooth scroll to custom position
+                window.scrollTo({
+                    top: scrollToPosition,
+                    behavior: 'smooth'
+                });
+            }, 350); // Wait for CSS transition to complete
+        }
+    </script>
 
     <!-- Schema Markup -->
     <script type="application/ld+json">
