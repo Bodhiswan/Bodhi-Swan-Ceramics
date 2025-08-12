@@ -42,12 +42,18 @@
     
     <!-- Scripts -->
     <script defer src="assets/js/app.js"></script>
+    <script defer src="assets/js/tilted-card.js"></script>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <a href="/" class="nav-logo">Bodhi Swan</a>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <img src="images/348982356_573566748281355_5155277251296915931_n.jpg"
+                     alt="Bodhi Swan Ceramics Logo"
+                     style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%;">
+                <a href="/" class="nav-logo">Bodhi Swan</a>
+            </div>
             
             <ul class="nav-menu">
                 <li><a href="/" class="active">Home</a></li>
@@ -82,11 +88,6 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div style="text-align: center; margin-bottom: 2rem;">
-                    <img src="images/348982356_573566748281355_5155277251296915931_n.jpg"
-                         alt="Bodhi Swan Ceramics Logo"
-                         style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; margin: 0 auto 1.5rem; display: block; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                </div>
                 <h1>Handcrafted Ceramics</h1>
                 <p>Modern minimalist pottery created with traditional wheel-throwing techniques in Brisbane. Each piece tells a story of craftsmanship and contemporary design.</p>
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
@@ -120,49 +121,6 @@
         </div>
     </section>
 
-    <!-- Pottery Process Section -->
-    <section class="section pottery-accent texture-overlay">
-        <div class="container">
-            <div class="text-center mb-12">
-                <h2>The Making Process</h2>
-                <p>Each piece follows a careful journey from clay to finished ceramic</p>
-            </div>
-            
-            <div class="grid grid-4">
-                <div class="text-center">
-                    <div class="organic-border pottery-loader" style="background: linear-gradient(135deg, #8b7355 0%, #a08262 100%); color: white; padding: 1.5rem; margin: 0 auto 1rem; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(139, 115, 85, 0.3);">
-                        <span class="text-2xl font-bold">1</span>
-                    </div>
-                    <h4 class="mb-2">Throwing</h4>
-                    <p class="text-secondary text-sm">Shaping clay on the potter's wheel with careful attention to form and proportion.</p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="organic-border" style="background: linear-gradient(135deg, #a08262 0%, #cd853f 100%); color: white; padding: 1.5rem; margin: 0 auto 1rem; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(160, 130, 98, 0.3);">
-                        <span class="text-2xl font-bold">2</span>
-                    </div>
-                    <h4 class="mb-2">Drying</h4>
-                    <p class="text-secondary text-sm">Slow, controlled drying to prevent cracking and prepare for the first firing.</p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="organic-border" style="background: linear-gradient(135deg, #cd853f 0%, #daa520 100%); color: white; padding: 1.5rem; margin: 0 auto 1rem; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(205, 133, 63, 0.3);">
-                        <span class="text-2xl font-bold">3</span>
-                    </div>
-                    <h4 class="mb-2">Glazing</h4>
-                    <p class="text-secondary text-sm">Applying glazes that will create unique colors and textures during the final firing.</p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="organic-border fire-animation" style="color: white; padding: 1.5rem; margin: 0 auto 1rem; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
-                        <span class="text-2xl font-bold">4</span>
-                    </div>
-                    <h4 class="mb-2">Firing</h4>
-                    <p class="text-secondary text-sm">High-temperature firing transforms clay and glaze into durable, beautiful ceramics.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Classes Preview -->
     <section class="section clay-texture">
@@ -216,9 +174,9 @@
     <section class="section bg-tertiary">
         <div class="container text-center">
             <h2 class="mb-6">Get in Touch</h2>
-            <p class="mb-8">Ready to start your pottery journey or have questions about classes? I'd love to hear from you.</p>
+            <p class="mb-8">Ready to start your pottery journey or have questions about classes?</p>
             
-            <div class="grid grid-3" style="max-width: 600px; margin: 0 auto;">
+            <div style="display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap; margin-bottom: 2rem;">
                 <div>
                     <h4 class="mb-2">Location</h4>
                     <p class="text-secondary">Taringa, Brisbane</p>
@@ -231,12 +189,14 @@
                     <h4 class="mb-2">Phone</h4>
                     <a href="tel:0478756284" class="text-accent">0478 756 284</a>
                 </div>
-            </div>
-            
-            <div class="mt-8">
-                <a href="https://instagram.com/bodhiswan" target="_blank" rel="noopener" class="btn btn-ghost">
-                    Follow on Instagram
-                </a>
+                <div>
+                    <a href="https://instagram.com/bodhiswan" target="_blank" rel="noopener"
+                       style="display: inline-block; padding: 0.5rem; border-radius: 50%; background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); color: white; text-decoration: none; transition: transform 0.2s ease;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
     </section>

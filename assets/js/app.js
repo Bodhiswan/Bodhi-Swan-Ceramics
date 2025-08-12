@@ -91,14 +91,19 @@ class BodhiSwanApp {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in');
+          // Add both classes for different animation types
+          if (entry.target.classList.contains('scroll-animate')) {
+            entry.target.classList.add('visible');
+          } else {
+            entry.target.classList.add('fade-in');
+          }
           observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
     // Observe elements for animation
-    document.querySelectorAll('.card, .hero-content, section > *').forEach(el => {
+    document.querySelectorAll('.card, .hero-content, section > *, .scroll-animate').forEach(el => {
       observer.observe(el);
     });
   }

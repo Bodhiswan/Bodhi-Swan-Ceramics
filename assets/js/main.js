@@ -224,8 +224,9 @@ function initFormEnhancements() {
   });
 }
 
-// Smooth scrolling for anchor links
+// Smooth scrolling with inertia
 function initSmoothScrolling() {
+  // Native smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const target = document.querySelector(this.getAttribute('href'));
@@ -238,6 +239,49 @@ function initSmoothScrolling() {
       }
     });
   });
+
+  // Inertial scrolling for touch devices
+  if ('ontouchstart' in window) {
+    let startY, startTime;
+    const body = document.body;
+    
+    body.addEventListener('touchstart', (e) => {
+      startY = e.touches[0].clientY;
+      startTime = Date.now();
+    }, { passive: true });
+
+    body.addEventListener('touchend', (e) => {
+      const endY = e.changedTouches[0].clientY;
+      const endTime = Date.now();
+      const distance = endY - startY;
+      const duration = endTime - startTime;
+      
+      if (Math.abs(distance) > 50 && duration < 300) {
+        const momentum = distance * 3;
+        window.scrollBy({
+          top: -momentum,
+          behavior: 'smooth'
+        });
+      }
+    }, { passive: true });
+  }
+
+  // Custom smooth scroll for mouse wheel
+  const smoothScroll = (e) => {
+    if (e.deltaMode !== 0) return; // Skip if not pixel units
+    
+    e.preventDefault();
+    window.scrollBy({
+      top: e.deltaY * 0.5,
+      left: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  // Only enable custom smooth scroll if prefers-reduced-motion is not set
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.addEventListener('wheel', smoothScroll, { passive: false });
+  }
 }
 
 // Error handling
@@ -267,6 +311,52 @@ function initErrorHandling() {
   });
 }
 
+// Random glitch effect trigger
+function triggerRandomGlitch() {
+  const glitchElements = document.querySelectorAll('.glitch-trigger');
+  if (glitchElements.length === 0) return;
+
+  const randomElement = glitchElements[Math.floor(Math.random() * glitchElements.length)];
+  randomElement.classList.add('glitch-active');
+  
+  setTimeout(() => {
+    randomElement.classList.remove('glitch-active');
+  }, 500);
+}
+
+// Scroll animation observer
+function initScrollAnimations() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        
+        // Add parallax effect to elements with data-parallax attribute
+        if (entry.target.dataset.parallax) {
+          const speed = parseFloat(entry.target.dataset.parallax) || 0.2;
+          const parallaxWrapper = document.createElement('div');
+          parallaxWrapper.className = 'parallax-wrapper';
+          parallaxWrapper.style.overflow = 'hidden';
+          entry.target.parentNode.insertBefore(parallaxWrapper, entry.target);
+          parallaxWrapper.appendChild(entry.target);
+          
+          window.addEventListener('scroll', () => {
+            const yPos = -window.scrollY * speed;
+            entry.target.style.transform = `translateY(${yPos}px)`;
+          });
+        }
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+  });
+
+  document.querySelectorAll('.scroll-animate').forEach(el => {
+    observer.observe(el);
+  });
+}
+
 // Initialize everything when DOM is ready
 function init() {
   initAnalytics();
@@ -276,9 +366,19 @@ function init() {
   initFormEnhancements();
   initSmoothScrolling();
   initErrorHandling();
+  initScrollAnimations();
 
   // Add loaded class to body for CSS transitions
   document.body.classList.add('loaded');
+
+  // Set up random glitch effects
+  setInterval(triggerRandomGlitch, 10000);
+  document.querySelectorAll('.glitch-trigger').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      el.classList.add('glitch-brief');
+      setTimeout(() => el.classList.remove('glitch-brief'), 500);
+    });
+  });
 }
 
 // Start initialization
