@@ -93,6 +93,15 @@ body {
   position: relative;
 }
 
+/* Mobile background adjustments */
+@media (max-width: 768px) {
+  body {
+    background-size: 100% auto;
+    background-position: center center;
+    background-attachment: scroll;
+  }
+}
+
 /* Light overlay to ensure text readability */
 body::before {
   content: '';
