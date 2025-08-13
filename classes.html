@@ -14,25 +14,31 @@
     <link rel="manifest" href="assets/icons/site.webmanifest" />
     
     <!-- Primary Meta Tags -->
-    <title>Pottery Classes Brisbane | Learn Wheel Throwing - Bodhi Swan Ceramics</title>
+    <title>Classes — Bodhi Swan Ceramics</title>
     <meta name="description" content="Learn pottery in Brisbane with expert instruction. Beginner-friendly wheel throwing classes, weekly sessions, and private lessons in a modern studio environment.">
     <meta name="keywords" content="pottery classes Brisbane, wheel throwing lessons, ceramic classes, pottery workshops, learn pottery, Brisbane pottery studio">
     <meta name="author" content="Bodhi Swan Ceramics">
     <meta name="robots" content="index, follow">
     
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://bodhiswan.com/classes.html">
+    
+    <!-- CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.googletagmanager.com; connect-src 'self' https://firestore.googleapis.com https://securetoken.googleapis.com; style-src 'self' 'unsafe-inline';">
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Bodhi Swan Ceramics">
+    <meta property="og:title" content="Classes — Bodhi Swan Ceramics">
+    <meta property="og:description" content="Handcrafted ceramics and small, supportive wheel‑throwing classes in Brisbane.">
     <meta property="og:url" content="https://bodhiswan.com/classes.html">
-    <meta property="og:title" content="Pottery Classes Brisbane | Learn Wheel Throwing - Bodhi Swan Ceramics">
-    <meta property="og:description" content="Learn pottery in Brisbane with expert instruction. Beginner-friendly wheel throwing classes, weekly sessions, and private lessons.">
     <meta property="og:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://bodhiswan.com/classes.html">
-    <meta name="twitter:title" content="Pottery Classes Brisbane | Learn Wheel Throwing - Bodhi Swan Ceramics">
-    <meta name="twitter:description" content="Learn pottery in Brisbane with expert instruction. Beginner-friendly wheel throwing classes, weekly sessions, and private lessons.">
+    <meta name="twitter:title" content="Classes — Bodhi Swan Ceramics">
+    <meta name="twitter:description" content="Handcrafted ceramics and small, supportive wheel‑throwing classes in Brisbane.">
     <meta name="twitter:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
     
     <!-- Fonts -->
@@ -68,7 +74,7 @@
                 <li><a href="gallery.html" class="nav-link">Gallery</a></li>
                 <li><a href="classes.html" class="nav-link active">Classes</a></li>
                 <li><a href="shop.html" class="nav-link">Shop</a></li>
-                <li><a href="blog.html" class="nav-link">Journal</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
                 <li><a href="faq.html" class="nav-link">FAQ</a></li>
             </ul>
             
@@ -87,13 +93,16 @@
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="classes.html">Classes</a></li>
             <li><a href="shop.html">Shop</a></li>
-            <li><a href="blog.html">Journal</a></li>
+            <li><a href="blog.html">Blog</a></li>
             <li><a href="faq.html">FAQ</a></li>
         </ul>
     </div>
 
+    <!-- Skip Link -->
+    <a class="sr-only" href="#main">Skip to content</a>
+
     <!-- Pricing Section -->
-    <section class="section">
+    <section class="section" id="main">
         <div class="container container-md">
             <div class="text-center mb-12">
                 <h1>Pottery Classes</h1>
@@ -339,7 +348,7 @@
                                             <div style="margin-bottom: 1.5rem;">
                                                 <label style="display: flex; align-items: start; gap: 0.5rem; cursor: pointer; font-size: 0.9rem;">
                                                     <input type="checkbox" id="terms" required style="margin-top: 0.25rem;">
-                                                    <span>I agree to the <a href="terms-and-conditions.html" target="_blank" style="color: var(--color-black); text-decoration: underline;">terms and conditions</a> and understand that payment is due at the beginning of class.</span>
+                                                    <span>I agree to the <a href="terms-and-conditions.html" target="_blank" rel="noopener" style="color: var(--color-black); text-decoration: underline;">terms and conditions</a> and understand that payment is due at the beginning of class.</span>
                                                 </label>
                                             </div>
 
@@ -408,41 +417,17 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact">
-        <div class="container">
-            <div class="contact-content">
-                <div class="contact-info" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 600px; margin: 0 auto;">
-                    <p class="contact-item">
-                        <span class="contact-label">Studio</span>
-                        <span class="contact-value">Taringa, Brisbane</span>
-                    </p>
-                    <p class="contact-item">
-                        <span class="contact-label">Email</span>
-                        <a href="mailto:swan1995@gmail.com" class="contact-link">swan1995@gmail.com</a>
-                    </p>
-                    <p class="contact-item">
-                        <span class="contact-label">Phone</span>
-                        <a href="tel:0478756284" class="contact-link">0478 756 284</a>
-                    </p>
-                    <p class="contact-item">
-                        <span class="contact-label">Instagram</span>
-                        <a href="https://instagram.com/bodhiswan" target="_blank" rel="noopener" class="contact-link">@bodhiswan</a>
-                    </p>
-                </div>
-                
-                <!-- Mobile responsive -->
-                <style>
-                    @media (max-width: 768px) {
-                        .contact-info {
-                            grid-template-columns: 1fr !important;
-                            gap: 1rem !important;
-                        }
-                    }
-                </style>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <span class="footer-item">Taringa, Brisbane</span>
+                <a href="mailto:swan1995@gmail.com" class="footer-item">swan1995@gmail.com</a>
+                <a href="tel:0478756284" class="footer-item">0478 756 284</a>
+                <a href="https://instagram.com/bodhiswan" target="_blank" rel="noopener" class="footer-item">@bodhiswan</a>
             </div>
         </div>
-    </section>
+    </footer>
 
     <!-- Classes JavaScript -->
     <script>
@@ -485,6 +470,14 @@
                 });
             });
         });
+
+        // Check for hash fragment on page load and open calendar section if present
+        if (window.location.hash === '#calendar-section') {
+            // Wait for DOM to be ready, then open calendar section
+            setTimeout(() => {
+                scrollToCalendar('both');
+            }, 100);
+        }
 
         function scrollToCalendar(classType) {
             const calendarSection = document.getElementById('calendar-section');

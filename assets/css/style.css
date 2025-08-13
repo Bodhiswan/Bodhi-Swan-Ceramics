@@ -2,10 +2,29 @@
 
 /* ===== CSS RESET & VARIABLES ===== */
 :root {
-  /* Minimal Color Palette */
-  --color-black: #000000;
-  --color-dark-gray: #2a2a2a;
-  --color-gray: #666666;
+  /* Global Style Tokens */
+  --bg: #ffffff;
+  --ink: #111;
+  --ink-2: #333;
+  --muted: #6b7280;
+  --brand: #0f172a;
+  --accent: #d4af37;
+  --tile: #f5f5f5;
+  --tile-border: #e5e7eb;
+  --tile-hover: #eaeaea;
+  --radius: 14px;
+  --shadow: 0 6px 20px rgba(0,0,0,.08);
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  
+  /* Legacy Color Palette (maintained for compatibility) */
+  --color-black: #111;
+  --color-dark-gray: #333;
+  --color-gray: #6b7280;
   --color-light-gray: #f5f5f5;
   --color-white: #ffffff;
   --color-cream: #fefcf8;
@@ -20,14 +39,14 @@
   --weight-medium: 500;
   --weight-semibold: 600;
   
-  /* Spacing */
-  --space-xs: 0.5rem;   /* 8px */
-  --space-sm: 1rem;     /* 16px */
-  --space-md: 1.5rem;   /* 24px */
-  --space-lg: 2rem;     /* 32px */
-  --space-xl: 3rem;     /* 48px */
-  --space-2xl: 4rem;    /* 64px */
-  --space-3xl: 6rem;    /* 96px */
+  /* Spacing (legacy) */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
   
   /* Layout */
   --container-width: 1200px;
@@ -53,8 +72,8 @@ body {
   font-family: var(--font-sans);
   font-weight: var(--weight-regular);
   line-height: 1.6;
-  color: var(--color-dark-gray);
-  background: var(--color-white);
+  color: var(--ink);
+  background: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -86,9 +105,9 @@ a {
 
 /* ===== LAYOUT ===== */
 .container {
-  max-width: var(--container-width);
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 var(--space-md);
+  padding: 0 var(--space-4);
 }
 
 /* ===== NAVIGATION ===== */
@@ -653,5 +672,113 @@ input:focus-visible {
   
   .faq-answer-content {
     padding: 0 0 var(--space-md) 0;
+  }
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--bg);
+  border-top: 1px solid var(--tile-border);
+  padding: var(--space-3xl) 0 var(--space-2xl);
+  margin-top: var(--space-3xl);
+}
+
+.footer-content {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  text-align: center;
+}
+
+.footer-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-2xl);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-lg);
+}
+
+.footer-item {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: var(--weight-regular);
+  color: var(--muted);
+  letter-spacing: 0.01em;
+  transition: color var(--transition);
+}
+
+.footer-item:hover {
+  color: var(--ink);
+}
+
+.footer-copyright {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: var(--weight-light);
+  color: var(--muted);
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--tile-border);
+  letter-spacing: 0.02em;
+}
+
+/* ===== GLOBAL UTILITY STYLES ===== */
+.tile {
+  background: var(--tile);
+  border: 1px solid var(--tile-border);
+  border-radius: var(--radius);
+  padding: var(--space-6);
+  box-shadow: var(--shadow);
+}
+
+a.button {
+  display: inline-block;
+  border-radius: 12px;
+  padding: .7rem 1rem;
+  border: 1px solid var(--tile-border);
+  text-decoration: none;
+}
+
+a.button:hover {
+  background: var(--tile-hover);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+:focus-visible {
+  outline: 2px dashed var(--accent);
+  outline-offset: 4px;
+}
+
+/* Responsive footer */
+@media (max-width: 768px) {
+  .footer {
+    padding: var(--space-2xl) 0 var(--space-lg);
+    margin-top: var(--space-2xl);
+  }
+  
+  .footer-info {
+    gap: var(--space-lg);
+    flex-direction: column;
+  }
+  
+  .footer-item {
+    font-size: 0.8rem;
+  }
+  
+  .footer-copyright {
+    font-size: 0.7rem;
   }
 }
