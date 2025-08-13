@@ -694,7 +694,7 @@ input:focus-visible {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--space-2xl);
+  gap: var(--space-lg);
   flex-wrap: wrap;
   margin-bottom: var(--space-lg);
 }
@@ -706,10 +706,18 @@ input:focus-visible {
   color: var(--muted);
   letter-spacing: 0.01em;
   transition: color var(--transition);
+  position: relative;
 }
 
 .footer-item:hover {
   color: var(--ink);
+}
+
+.footer-item:not(:last-child)::after {
+  content: "•";
+  color: var(--muted);
+  margin-left: var(--space-lg);
+  font-weight: var(--weight-regular);
 }
 
 .footer-copyright {
