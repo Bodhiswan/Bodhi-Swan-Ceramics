@@ -102,39 +102,65 @@
     <a class="sr-only" href="#main">Skip to content</a>
 
     <!-- Pricing Section -->
-    <section class="section" id="main">
+    <section class="section" id="main" style="padding: var(--space-2xl) 0;">
         <div class="container container-md">
-            <div class="text-center mb-12">
-                <h1>Pottery Classes</h1>
-                <p class="text-secondary">Learn wheel throwing with Bodhi Swan</p>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 600px; margin: 2rem auto 0;">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <h3 class="mb-4">First Class</h3>
-                        <div style="margin-bottom: 1.5rem;">
-                            <span style="font-size: 2.5rem; font-weight: 600; color: var(--color-black);">$70</span><span style="font-size: 1rem; color: var(--color-gray);">/class</span>
+            <!-- Tile Container -->
+            <div class="classes-tile" style="background: var(--bg); padding: var(--space-xl) var(--space-2xl); border-radius: var(--radius); box-shadow: var(--shadow); max-width: 650px; margin: 0 auto; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+                <!-- Title and Subtitle inside tile -->
+                <div style="margin-bottom: var(--space-lg);">
+                    <h1 style="font-family: var(--font-serif); font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: var(--weight-regular); color: var(--color-black); margin-bottom: var(--space-xs);">Pottery Classes</h1>
+                    <p style="color: var(--muted); font-size: 1rem; font-style: italic; margin: 0;">Learn wheel throwing with Bodhi Swan</p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 500px; margin: 0 auto var(--space-lg);">
+                    <div class="card text-center">
+                        <div class="card-body" style="padding: var(--space-lg);">
+                            <h3 style="margin-bottom: var(--space-md); font-size: 1.1rem;">First Class</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span style="font-size: 2rem; font-weight: 600; color: var(--color-black);">$70</span><span style="font-size: 0.9rem; color: var(--color-gray);">/class</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card text-center">
+                        <div class="card-body" style="padding: var(--space-lg);">
+                            <h3 style="margin-bottom: var(--space-md); font-size: 1.1rem;">Returning Classes</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span style="font-size: 2rem; font-weight: 600; color: var(--color-black);">$60</span><span style="font-size: 0.9rem; color: var(--color-gray);">/class</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="card text-center">
-                    <div class="card-body">
-                        <h3 class="mb-4">Returning Classes</h3>
-                        <div style="margin-bottom: 1.5rem;">
-                            <span style="font-size: 2.5rem; font-weight: 600; color: var(--color-black);">$60</span><span style="font-size: 1rem; color: var(--color-gray);">/class</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Centered Book Now Button -->
-            <div style="text-align: center; margin-top: 2rem;">
-                <button onclick="scrollToCalendar('both')" class="btn-primary" style="padding: 1rem 2rem;">Book Now</button>
+                <!-- Centered Book Now Button -->
+                <button onclick="scrollToCalendar('both')" class="btn-primary" style="padding: 0.8rem 1.5rem;">Book Now</button>
             </div>
         </div>
     </section>
+
+    <!-- Classes tile hover effect -->
+    <style>
+        .classes-tile:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        
+        @media (max-width: 768px) {
+            .classes-tile {
+                margin: 0 var(--space-md);
+                padding: var(--space-lg) var(--space-md);
+            }
+            
+            .classes-tile:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            }
+            
+            .classes-tile .card-body {
+                padding: var(--space-md) !important;
+            }
+        }
+    </style>
 
     <!-- Accordion Sections -->
     <section class="section" style="padding-top: 1rem;">
