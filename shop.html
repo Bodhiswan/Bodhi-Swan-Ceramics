@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Favicon and App Icons -->
     <link rel="icon" type="image/png" href="images/logo.png" />
     <link rel="shortcut icon" href="images/logo.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png" />
@@ -12,47 +10,35 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <link rel="manifest" href="assets/icons/site.webmanifest" />
-    
-    <!-- Primary Meta Tags -->
     <title>Shop — Bodhi Swan Ceramics</title>
-    <meta name="description" content="Shop unique handcrafted ceramics from Brisbane. Wheel-thrown pottery, bowls, vases, and functional stoneware. Each piece is one-of-a-kind.">
-    <meta name="keywords" content="buy ceramics Brisbane, handmade pottery shop, wheel thrown ceramics, ceramic bowls, pottery vases, functional ceramics, Australian pottery">
-    <meta name="author" content="Bodhi Swan Ceramics">
+    <meta name="description" content="Browse one-off handmade ceramic pieces from Bodhi Swan Ceramics and open each work for full details before checkout.">
     <meta name="robots" content="index, follow">
-    
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://bodhiswan.com/shop.html">
-    
-    <!-- CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.googletagmanager.com; connect-src 'self' https://firestore.googleapis.com https://securetoken.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:;">
-    
-    <!-- Open Graph / Facebook -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.googletagmanager.com; connect-src 'self' https://firestore.googleapis.com https://securetoken.googleapis.com https://bodhiswanceramics.netlify.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:;">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Bodhi Swan Ceramics">
     <meta property="og:title" content="Shop — Bodhi Swan Ceramics">
-    <meta property="og:description" content="Handcrafted ceramics and small, supportive wheel‑throwing classes in Brisbane.">
+    <meta property="og:description" content="Browse one-off handmade ceramic pieces from Bodhi Swan Ceramics.">
     <meta property="og:url" content="https://bodhiswan.com/shop.html">
-    <meta property="og:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
-
-    <!-- Twitter -->
+    <meta property="og:image" content="https://bodhiswan.com/images/cup1.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://bodhiswan.com/shop.html">
     <meta name="twitter:title" content="Shop — Bodhi Swan Ceramics">
-    <meta name="twitter:description" content="Handcrafted ceramics and small, supportive wheel‑throwing classes in Brisbane.">
-    <meta name="twitter:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
-    
-    <!-- Fonts -->
+    <meta name="twitter:description" content="Browse one-off handmade ceramic pieces from Bodhi Swan Ceramics.">
+    <meta name="twitter:image" content="https://bodhiswan.com/images/cup1.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="sitemap" href="/sitemap.xml">
     <style>
+        .shop-shell {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
         .shop-intro {
             max-width: 760px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 2.5rem;
             text-align: center;
         }
 
@@ -68,28 +54,41 @@
             margin-bottom: 1rem;
         }
 
+        .shop-intro-copy {
+            max-width: 640px;
+            margin: 0 auto;
+            color: var(--color-dark-gray);
+        }
+
         .shop-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
             margin-top: 2rem;
         }
 
         .shop-card {
+            border-radius: 20px;
+            overflow: hidden;
             background: var(--color-white);
             border: 1px solid var(--tile-border);
-            border-radius: var(--radius);
-            overflow: hidden;
             box-shadow: var(--shadow);
+            transition: transform var(--transition), box-shadow var(--transition);
         }
 
-        .shop-card.is-sold-out {
-            opacity: 0.9;
+        .shop-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .shop-card-link {
+            display: block;
+            height: 100%;
         }
 
         .shop-card-image {
             position: relative;
-            aspect-ratio: 4 / 5;
+            aspect-ratio: 1 / 1;
             background: var(--tile);
         }
 
@@ -114,18 +113,18 @@
         }
 
         .shop-card-content {
-            padding: 1.25rem;
+            padding: 1.1rem 1.15rem 1.25rem;
         }
 
         .shop-card-title {
-            font-size: 1.5rem;
-            margin-bottom: 0.35rem;
+            font-size: 1.55rem;
+            margin-bottom: 0.25rem;
         }
 
         .shop-card-price {
             color: var(--muted);
             font-size: 0.95rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.65rem;
         }
 
         .shop-card-description {
@@ -136,24 +135,16 @@
 
         .shop-card-action {
             display: inline-block;
-            border-radius: 12px;
-            padding: 0.75rem 1rem;
-            border: 1px solid var(--color-black);
-            background: var(--color-black);
-            color: var(--color-white);
-            transition: all var(--transition);
-        }
-
-        .shop-card-action:hover {
-            background: var(--color-white);
-            color: var(--color-black);
-        }
-
-        .shop-card-action.is-disabled {
-            border-color: var(--tile-border);
+            border-radius: 999px;
+            padding: 0.65rem 0.9rem;
             background: var(--tile);
+            color: var(--color-black);
+            border: 1px solid var(--tile-border);
+            font-size: 0.92rem;
+        }
+
+        .shop-card.is-sold-out .shop-card-action {
             color: var(--muted);
-            cursor: default;
         }
 
         .shop-empty {
@@ -162,31 +153,41 @@
             text-align: center;
         }
 
-        .shop-note {
-            max-width: 760px;
-            margin: 2rem auto 0;
+        .shop-note-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            margin-top: 2rem;
+        }
+
+        .shop-note-card {
+            background: linear-gradient(180deg, #faf8f5 0%, #f3efe8 100%);
+            border: 1px solid #e7e1d8;
+            border-radius: 18px;
             padding: 1.25rem;
-            background: var(--tile);
-            border: 1px solid var(--tile-border);
-            border-radius: var(--radius);
+        }
+
+        .shop-note-card h2 {
+            font-size: 1.35rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .shop-note-card p {
+            margin: 0;
             color: var(--color-dark-gray);
         }
     </style>
-    
-    <!-- Scripts -->
     <script defer src="assets/js/app.js"></script>
     <script defer src="assets/js/shop-data.js"></script>
     <script defer src="assets/js/shop-page.js"></script>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
             <a href="/" class="nav-brand" aria-label="Bodhi Swan Ceramics home">
                 <img src="images/logo.png" alt="Bodhi Swan Ceramics" class="nav-logo-img">
                 <span class="nav-logo-text">Bodhi Swan</span>
             </a>
-            
             <ul class="nav-menu">
                 <li><a href="/" class="nav-link">Home</a></li>
                 <li><a href="gallery.html" class="nav-link">Gallery</a></li>
@@ -196,7 +197,6 @@
                 <li><a href="blog.html" class="nav-link">Blog</a></li>
                 <li><a href="faq.html" class="nav-link">FAQ</a></li>
             </ul>
-            
             <button class="nav-toggle" aria-label="Toggle navigation menu">
                 <span></span>
                 <span></span>
@@ -205,7 +205,6 @@
         </div>
     </nav>
 
-    <!-- Mobile Navigation -->
     <div class="nav-mobile">
         <ul class="nav-mobile-menu">
             <li><a href="/">Home</a></li>
@@ -218,24 +217,23 @@
         </ul>
     </div>
 
-    <!-- Skip Link -->
     <a class="sr-only" href="#main">Skip to content</a>
 
     <section class="section" id="main">
-        <div class="container">
+        <div class="container shop-shell">
             <div class="shop-intro">
                 <div class="shop-intro-meta">
-                    <span>Own website</span>
+                    <span>Collection view</span>
                     <span>&middot;</span>
-                    <span>Stripe checkout</span>
+                    <span>Piece pages</span>
                     <span>&middot;</span>
                     <span id="shopAvailableCount">0 available now</span>
                 </div>
                 <h1 style="margin-bottom: 0.75rem;">Shop</h1>
-                <p style="max-width: 640px; margin: 0 auto;">Each available piece is listed here on your site, and checkout can send customers to Stripe securely. For now, the current collection is marked sold out until you add live Stripe payment links.</p>
+                <p class="shop-intro-copy">Browse the current pieces as a clean image list first. Open any work to see its own page with more detail, artwork notes, and shipping information before heading to Stripe checkout.</p>
             </div>
 
-            <div id="shopEmpty" class="shop-empty tile">
+            <div id="shopEmpty" class="shop-empty tile" hidden>
                 <p class="muted" style="letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem;">Current collection</p>
                 <h2 style="margin-bottom: 1rem;">Sold Out</h2>
                 <p style="max-width: 520px; margin: 0 auto 1.5rem; color: var(--color-dark-gray);">The current collection has sold through. New work will be announced once fresh pieces are ready.</p>
@@ -244,13 +242,23 @@
 
             <div id="shopGrid" class="shop-grid" aria-live="polite"></div>
 
-            <div class="shop-note">
-                To make an item live, open <code>assets/js/shop-data.js</code>, paste in its Stripe Payment Link, and switch <code>soldOut</code> to <code>false</code>.
+            <div class="shop-note-grid">
+                <div class="shop-note-card">
+                    <h2>Shipping</h2>
+                    <p>Every piece is packed by hand with protective wrapping. Individual item pages carry the shipping note for that work.</p>
+                </div>
+                <div class="shop-note-card">
+                    <h2>One-off work</h2>
+                    <p>These are handmade art objects as much as functional pieces, so natural variation and small marks are part of the final surface.</p>
+                </div>
+                <div class="shop-note-card">
+                    <h2>Item pages</h2>
+                    <p>Each tile opens its own page so you can show more images and context without crowding the main shop grid.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-info">
@@ -261,17 +269,5 @@
             </div>
         </div>
     </footer>
-
-    <!-- Schema Markup -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Store",
-        "name": "Bodhi Swan Ceramics Shop",
-        "description": "Shop handcrafted ceramics on Bodhi Swan Ceramics, with secure Stripe checkout for available pieces.",
-        "url": "https://bodhiswan.com/shop.html",
-        "sameAs": "https://instagram.com/bodhiswan"
-    }
-    </script>
 </body>
 </html>

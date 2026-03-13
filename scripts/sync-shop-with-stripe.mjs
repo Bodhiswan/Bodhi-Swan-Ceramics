@@ -39,7 +39,19 @@ async function writeShopData(items) {
     price: `AUD ${item.priceAud}`,
     description: item.description,
     image: item.image,
+    images: Array.isArray(item.images) && item.images.length
+      ? item.images.map((image) => ({
+          src: image.src,
+          alt: image.alt || item.alt || item.title
+        }))
+      : [{ src: item.image, alt: item.alt || item.title }],
     alt: item.alt,
+    material: item.material || '',
+    size: item.size || '',
+    technique: item.technique || '',
+    shippingNote: item.shippingNote || '',
+    artNote: item.artNote || '',
+    detailUrl: `shop-item.html?slug=${encodeURIComponent(item.slug)}`,
     stripeUrl: item.stripe?.paymentLinkUrl || '',
     soldOut: Boolean(item.soldOut)
   }));

@@ -31,7 +31,7 @@ class BodhiShopPage {
             return;
         }
 
-        this.empty.hidden = availableItems.length !== 0;
+        this.empty.hidden = true;
 
         this.items.forEach((item) => {
             this.grid.appendChild(this.createCard(item));
@@ -41,6 +41,11 @@ class BodhiShopPage {
     createCard(item) {
         const article = document.createElement('article');
         article.className = `shop-card${item.soldOut ? ' is-sold-out' : ''}`;
+
+        const link = document.createElement('a');
+        link.className = 'shop-card-link';
+        link.href = item.detailUrl || `shop-item.html?slug=${encodeURIComponent(item.slug)}`;
+        link.setAttribute('aria-label', `View ${item.title}`);
 
         const imageWrapper = document.createElement('div');
         imageWrapper.className = 'shop-card-image';
@@ -73,23 +78,18 @@ class BodhiShopPage {
         description.className = 'shop-card-description';
         description.textContent = item.description;
 
-        const action = document.createElement(item.soldOut ? 'span' : 'a');
-        action.className = item.soldOut ? 'shop-card-action is-disabled' : 'shop-card-action';
-        action.textContent = item.soldOut ? 'Sold out' : 'Buy with Stripe';
-
-        if (!item.soldOut) {
-            action.href = item.stripeUrl;
-            action.target = '_blank';
-            action.rel = 'noopener';
-        }
+        const action = document.createElement('span');
+        action.className = `shop-card-action${item.soldOut ? ' is-disabled' : ''}`;
+        action.textContent = item.soldOut ? 'View piece' : 'View piece';
 
         content.appendChild(title);
         content.appendChild(price);
         content.appendChild(description);
         content.appendChild(action);
 
-        article.appendChild(imageWrapper);
-        article.appendChild(content);
+        link.appendChild(imageWrapper);
+        link.appendChild(content);
+        article.appendChild(link);
 
         return article;
     }

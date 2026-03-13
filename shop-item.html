@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <link rel="shortcut icon" href="images/logo.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png" />
+    <meta name="apple-mobile-web-app-title" content="Bodhi Swan" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="manifest" href="assets/icons/site.webmanifest" />
+    <title>Piece — Shop — Bodhi Swan Ceramics</title>
+    <meta name="description" content="Open an individual ceramic piece from Bodhi Swan Ceramics for images, details, shipping notes, and checkout.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bodhiswan.com/shop-item.html">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.googletagmanager.com; connect-src 'self' https://firestore.googleapis.com https://securetoken.googleapis.com https://bodhiswanceramics.netlify.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:;">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .shop-item-shell {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .shop-item-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .shop-item-layout {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .shop-item-gallery {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .shop-item-gallery-card {
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--tile);
+            border: 1px solid var(--tile-border);
+        }
+
+        .shop-item-gallery-card img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .shop-item-gallery-card.is-featured {
+            aspect-ratio: 4 / 5;
+        }
+
+        .shop-item-summary {
+            background: linear-gradient(180deg, #fbfaf7 0%, #f3efe8 100%);
+            border: 1px solid #e7e1d8;
+            border-radius: 24px;
+            padding: 1.5rem;
+            align-self: start;
+            position: sticky;
+            top: 110px;
+        }
+
+        .shop-item-badge {
+            display: inline-block;
+            padding: 0.4rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(17, 17, 17, 0.08);
+            color: var(--color-black);
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 1rem;
+        }
+
+        .shop-item-badge.is-live {
+            background: rgba(31, 94, 54, 0.1);
+            color: #1f5e36;
+        }
+
+        .shop-item-price {
+            color: var(--muted);
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .shop-item-description {
+            color: var(--color-dark-gray);
+            margin-bottom: 1.25rem;
+        }
+
+        .shop-item-buy {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            padding: 0.9rem 1rem;
+            border-radius: 14px;
+            background: var(--color-black);
+            color: var(--color-white);
+            border: 1px solid var(--color-black);
+            margin-bottom: 1.5rem;
+        }
+
+        .shop-item-buy.is-disabled {
+            background: var(--tile);
+            border-color: var(--tile-border);
+            color: var(--muted);
+            pointer-events: none;
+        }
+
+        .shop-item-facts,
+        .shop-item-notes {
+            display: grid;
+            gap: 0.85rem;
+        }
+
+        .shop-item-facts div,
+        .shop-item-notes div {
+            padding-top: 0.85rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .shop-item-facts dt,
+        .shop-item-notes dt {
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 0.3rem;
+        }
+
+        .shop-item-facts dd,
+        .shop-item-notes dd {
+            margin: 0;
+            color: var(--color-dark-gray);
+        }
+
+        .shop-item-missing {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        @media (min-width: 900px) {
+            .shop-item-layout {
+                grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
+                align-items: start;
+            }
+        }
+    </style>
+    <script defer src="assets/js/app.js"></script>
+    <script defer src="assets/js/shop-data.js"></script>
+    <script defer src="assets/js/shop-item-page.js"></script>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-brand" aria-label="Bodhi Swan Ceramics home">
+                <img src="images/logo.png" alt="Bodhi Swan Ceramics" class="nav-logo-img">
+                <span class="nav-logo-text">Bodhi Swan</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="classes.html" class="nav-link">Classes</a></li>
+                <li><a href="calendar.html" class="nav-link">Calendar</a></li>
+                <li><a href="shop.html" class="nav-link active">Shop</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="faq.html" class="nav-link">FAQ</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="nav-mobile">
+        <ul class="nav-mobile-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </div>
+
+    <a class="sr-only" href="#main">Skip to content</a>
+
+    <section class="section" id="main">
+        <div class="container shop-item-shell">
+            <a href="shop.html" class="shop-item-back">Back to shop</a>
+
+            <div id="shopItemMissing" class="shop-item-missing tile" hidden>
+                <h1 style="margin-bottom: 0.75rem;">Piece not found</h1>
+                <p style="max-width: 520px; margin: 0 auto 1.25rem; color: var(--color-dark-gray);">That item page does not have a matching piece yet. Head back to the collection to browse what is currently listed.</p>
+                <a href="shop.html" class="btn-secondary">Return to shop</a>
+            </div>
+
+            <div id="shopItemContent" class="shop-item-layout" hidden>
+                <div id="shopItemGallery" class="shop-item-gallery"></div>
+
+                <aside class="shop-item-summary">
+                    <span id="shopItemBadge" class="shop-item-badge">Sold out</span>
+                    <h1 id="shopItemTitle" style="margin-bottom: 0.35rem;">Piece title</h1>
+                    <p id="shopItemPrice" class="shop-item-price">AUD 0</p>
+                    <p id="shopItemDescription" class="shop-item-description"></p>
+                    <a id="shopItemBuy" class="shop-item-buy" href="#">Buy with Stripe</a>
+
+                    <dl class="shop-item-facts">
+                        <div>
+                            <dt>Material</dt>
+                            <dd id="shopItemMaterial"></dd>
+                        </div>
+                        <div>
+                            <dt>Size</dt>
+                            <dd id="shopItemSize"></dd>
+                        </div>
+                        <div>
+                            <dt>Technique</dt>
+                            <dd id="shopItemTechnique"></dd>
+                        </div>
+                    </dl>
+
+                    <dl class="shop-item-notes" style="margin-top: 1.5rem;">
+                        <div>
+                            <dt>Shipping</dt>
+                            <dd id="shopItemShipping"></dd>
+                        </div>
+                        <div>
+                            <dt>Artwork note</dt>
+                            <dd id="shopItemArtNote"></dd>
+                        </div>
+                    </dl>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <span class="footer-item">Taringa, Brisbane</span>
+                <a href="mailto:swan1995@gmail.com" class="footer-item">swan1995@gmail.com</a>
+                <a href="tel:0478756284" class="footer-item">0478 756 284</a>
+                <a href="https://instagram.com/bodhiswan" target="_blank" rel="noopener" class="footer-item">@bodhiswan</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
