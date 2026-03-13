@@ -107,7 +107,9 @@ async function ensureStripeResources(item) {
     const paymentLink = await stripeRequest('payment_links', {
       'line_items[0][price]': item.stripe.priceId,
       'line_items[0][quantity]': '1',
-      'metadata[slug]': item.slug
+      'metadata[slug]': item.slug,
+      'shipping_address_collection[allowed_countries][0]': 'AU',
+      'phone_number_collection[enabled]': 'true'
     });
     item.stripe.paymentLinkId = paymentLink.id;
     item.stripe.paymentLinkUrl = paymentLink.url;
