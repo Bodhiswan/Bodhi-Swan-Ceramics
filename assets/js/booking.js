@@ -1,7 +1,11 @@
 class BookingRequestCalendar {
     constructor() {
+        const apiBase = window.BODHI_BOOKING_CONFIG?.apiBase || 'https://bodhiswanceramics.netlify.app/.netlify/functions';
+
         this.config = {
-            endpoint: '',
+            apiBase,
+            bookingApiUrl: window.BODHI_BOOKING_CONFIG?.bookingApiUrl || `${apiBase}/booking-api`,
+            checkoutApiUrl: window.BODHI_BOOKING_CONFIG?.checkoutApiUrl || `${apiBase}/create-booking-checkout`,
             recipientEmail: 'swan1995@gmail.com',
             maxMonthsAhead: 3,
             ...window.BODHI_BOOKING_CONFIG
@@ -20,7 +24,8 @@ class BookingRequestCalendar {
             timeSlots: document.getElementById('timeSlots'),
             form: document.getElementById('bookingForm'),
             submitBtn: document.getElementById('submitBtn'),
-            status: document.getElementById('requestStatus')
+            status: document.getElementById('requestStatus'),
+            classType: document.getElementById('classType')
         };
 
         this.generateDefaultAvailability();
@@ -28,7 +33,9 @@ class BookingRequestCalendar {
         this.renderCalendar();
         this.updateSelectedDate();
         this.renderTimeSlots();
+        this.applyStatusFromUrl();
         this.updateSubmitState();
+        this.loadAvailability();
     }
 
     bindEvents() {
@@ -49,7 +56,14 @@ class BookingRequestCalendar {
             }
 
             const eventName = field.type === 'checkbox' || field.tagName === 'SELECT' ? 'change' : 'input';
-            field.addEventListener(eventName, () => this.updateSubmitState());
+            field.addEventListener(eventName, () => {
+                this.updateSubmitState();
+                if (fieldId === 'classType') {
+                    this.updateSelectedDate();
+                    this.updateSubmitButtonLabel();
+                }
+            });
+
             if (eventName !== 'input') {
                 field.addEventListener('input', () => this.updateSubmitState());
             }
@@ -59,6 +73,43 @@ class BookingRequestCalendar {
             event.preventDefault();
             await this.handleSubmit();
         });
+    }
+
+    async loadAvailability() {
+        try {
+            const response = await fetch(`${this.config.bookingApiUrl}?t=${Date.now()}`, {
+                cache: 'no-store'
+            });
+            const result = await response.json();
+
+            if (!response.ok || result.success === false || !result?.data?.slots) {
+                return;
+            }
+
+            const liveSlots = {};
+            Object.entries(result.data.slots).forEach(([dateKey, slotInfo]) => {
+                const availableCount = Number(slotInfo.available ?? 0);
+                if (availableCount <= 0) {
+                    return;
+                }
+
+                liveSlots[dateKey] = {
+                    times: Array.isArray(slotInfo.times) ? slotInfo.times : [],
+                    label: availableCount === 1 ? '1 place left' : `${availableCount} places left`,
+                    available: availableCount
+                };
+            });
+
+            if (Object.keys(liveSlots).length) {
+                this.availableSlots = liveSlots;
+                this.renderCalendar();
+                this.updateSelectedDate();
+                this.renderTimeSlots();
+                this.updateSubmitState();
+            }
+        } catch {
+            // Keep the default calendar if the live endpoint is unavailable.
+        }
     }
 
     generateDefaultAvailability() {
@@ -73,14 +124,16 @@ class BookingRequestCalendar {
             if (day === 1) {
                 this.availableSlots[key] = {
                     times: ['6:00 PM'],
-                    label: 'Monday evening class'
+                    label: 'Monday evening class',
+                    available: 6
                 };
             }
 
             if (day === 6) {
                 this.availableSlots[key] = {
                     times: ['10:00 AM', '2:00 PM'],
-                    label: 'Saturday session'
+                    label: 'Saturday session',
+                    available: 8
                 };
             }
         }
@@ -112,7 +165,8 @@ class BookingRequestCalendar {
             const isCurrentMonth = cellDate.getMonth() === this.currentDate.getMonth();
             const dateKey = this.formatDateKey(cellDate);
             const isPast = this.isPastDate(cellDate);
-            const isAvailable = Boolean(this.availableSlots[dateKey]) && !isPast;
+            const slotInfo = this.availableSlots[dateKey];
+            const isAvailable = Boolean(slotInfo) && !isPast;
             const isSelected = this.selectedDate && this.formatDateKey(this.selectedDate) === dateKey;
 
             if (!isCurrentMonth) {
@@ -158,7 +212,14 @@ class BookingRequestCalendar {
 
         const dateKey = this.formatDateKey(this.selectedDate);
         const slotInfo = this.availableSlots[dateKey];
-        this.elements.selectedDate.textContent = `${this.formatDisplayDate(this.selectedDate)}${slotInfo ? `, ${slotInfo.label}` : ''}`;
+        const classType = this.elements.classType?.value || '';
+        const paymentLabel = this.isPaidClassType(classType)
+            ? ', payment happens in Stripe after you continue'
+            : classType === 'private-request'
+                ? ', this stays as a request until Bodhi replies'
+                : '';
+
+        this.elements.selectedDate.textContent = `${this.formatDisplayDate(this.selectedDate)}${slotInfo ? `, ${slotInfo.label}` : ''}${paymentLabel}`;
     }
 
     renderTimeSlots() {
@@ -198,7 +259,7 @@ class BookingRequestCalendar {
 
     async handleSubmit() {
         if (!this.isFormReady()) {
-            this.showStatus('Please choose a date, choose a time, and complete the form before sending your request.', 'error');
+            this.showStatus('Please choose a date, choose a time, and complete the form before continuing.', 'error');
             return;
         }
 
@@ -206,8 +267,26 @@ class BookingRequestCalendar {
         this.setSubmitting(true);
 
         try {
-            if (this.config.endpoint) {
-                const response = await fetch(this.config.endpoint, {
+            if (this.isPaidClassType(payload.classType)) {
+                const response = await fetch(this.config.checkoutApiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                if (!response.ok || !result.success || !result.checkoutUrl) {
+                    throw new Error(result.message || 'Could not start payment.');
+                }
+
+                window.location.href = result.checkoutUrl;
+                return;
+            }
+
+            if (this.config.bookingApiUrl) {
+                const response = await fetch(this.config.bookingApiUrl, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -219,11 +298,11 @@ class BookingRequestCalendar {
                 });
 
                 const result = await response.json();
-                if (!result.success) {
+                if (!response.ok || !result.success) {
                     throw new Error(result.message || 'Could not send booking request.');
                 }
 
-                this.showStatus('Booking request sent. Bodhi will reply to confirm your session.', 'success');
+                this.showStatus('Private lesson request sent. Bodhi will reply to confirm the details.', 'success');
                 this.resetForm();
                 return;
             }
@@ -279,7 +358,25 @@ class BookingRequestCalendar {
             return;
         }
 
+        this.updateSubmitButtonLabel();
         this.elements.submitBtn.disabled = !this.isFormReady() || this.elements.submitBtn.dataset.loading === 'true';
+    }
+
+    updateSubmitButtonLabel() {
+        if (!this.elements.submitBtn) {
+            return;
+        }
+
+        if (this.elements.submitBtn.dataset.loading === 'true') {
+            return;
+        }
+
+        const classType = this.elements.classType?.value || '';
+        this.elements.submitBtn.textContent = this.isPaidClassType(classType)
+            ? 'Continue to Payment'
+            : classType === 'private-request'
+                ? 'Send Private Lesson Request'
+                : 'Choose Class Type';
     }
 
     isFormReady() {
@@ -300,9 +397,15 @@ class BookingRequestCalendar {
         return Boolean(this.selectedDate && this.selectedTime && fieldsValid);
     }
 
+    isPaidClassType(classType) {
+        return classType === 'first-class' || classType === 'returning-class';
+    }
+
     setSubmitting(isSubmitting) {
         this.elements.submitBtn.dataset.loading = isSubmitting ? 'true' : 'false';
-        this.elements.submitBtn.textContent = isSubmitting ? 'Sending Request...' : 'Send Booking Request';
+        this.elements.submitBtn.textContent = isSubmitting
+            ? (this.isPaidClassType(this.elements.classType?.value || '') ? 'Opening Payment...' : 'Sending Request...')
+            : this.elements.submitBtn.textContent;
         this.updateSubmitState();
     }
 
@@ -314,6 +417,19 @@ class BookingRequestCalendar {
         this.renderCalendar();
         this.renderTimeSlots();
         this.updateSubmitState();
+    }
+
+    applyStatusFromUrl() {
+        const params = new URLSearchParams(window.location.search);
+        const bookingStatus = params.get('booking');
+
+        if (bookingStatus === 'paid') {
+            this.showStatus('Payment received. Your class booking is being finalised and a confirmation email should follow shortly.', 'success');
+        }
+
+        if (bookingStatus === 'cancelled') {
+            this.showStatus('Payment was cancelled, so your booking was not completed. You can choose another date or try again.', 'error');
+        }
     }
 
     showStatus(message, type) {

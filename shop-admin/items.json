@@ -80,7 +80,7 @@
   {
     "slug": "large-stoneware-mug-green-floating-satin-glaze",
     "title": "Large Stoneware Mug",
-    "priceAud": 1,
+    "priceAud": 65,
     "description": "Wheel-thrown large stoneware mug with a green floating satin glaze.",
     "image": "images/cup1.png",
     "images": [
@@ -93,14 +93,14 @@
     "material": "Stoneware",
     "size": "Large",
     "technique": "Wheel-thrown",
-    "shippingNote": "Packed carefully with protective wrapping. Australian shipping only for now.",
+    "shippingNote": "Free shipping across Australia. Packed carefully with protective wrapping and sent with tracked postage.",
     "artNote": "This is a one-off handmade piece. Subtle variation, surface movement, and small marks are part of the work.",
-    "soldOut": true,
+    "soldOut": false,
     "stripe": {
       "productId": "prod_U8jZsVPrDFWtwz",
-      "priceId": "price_1TASkNAw2iyVnuCT5HzKWz1F",
-      "paymentLinkId": "plink_1TASkOAw2iyVnuCTXxziGGqz",
-      "paymentLinkUrl": "https://buy.stripe.com/aFa5kC944aIu9L7fgigIo0b"
+      "priceId": "price_1TAT5aAw2iyVnuCTGRBiBJO5",
+      "paymentLinkId": "plink_1TAT5bAw2iyVnuCT0WVPj3HX",
+      "paymentLinkUrl": "https://buy.stripe.com/28E9ASeoo2bYe1nd8agIo0c"
     }
   }
 ]

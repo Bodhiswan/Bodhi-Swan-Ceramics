@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://bodhiswan.com/calendar.html">
     
     <!-- CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.googletagmanager.com; connect-src 'self' https://firestore.googleapis.com https://securetoken.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.googletagmanager.com; connect-src 'self' https://firestore.googleapis.com https://securetoken.googleapis.com https://bodhiswanceramics.netlify.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:;">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -331,7 +331,7 @@
     <script defer src="assets/js/app.js"></script>
     <script>
         window.BODHI_BOOKING_CONFIG = {
-            endpoint: "",
+            apiBase: "https://bodhiswanceramics.netlify.app/.netlify/functions",
             recipientEmail: "swan1995@gmail.com"
         };
     </script>
@@ -383,7 +383,7 @@
         <div class="container">
             <div class="booking-intro">
                 <h1>Booking Calendar</h1>
-                <p>Pick a class date, choose a time, and send a booking request directly to Bodhi. Requests are reviewed manually, so you can add notes or ask for a different time if needed.</p>
+                <p>Pick a class date, choose a time, and continue to payment for regular classes. Private lesson requests can still be sent through without paying straight away.</p>
             </div>
 
             <div class="booking-shell">
@@ -426,7 +426,7 @@
 
                 <div class="booking-panel">
                     <h2>Send Request</h2>
-                    <p>Your request will be sent to Bodhi for confirmation.</p>
+                    <p>Regular class bookings go through Stripe first, then the booking is saved and confirmed. Private lesson requests are still reviewed manually.</p>
 
                     <form id="bookingForm" class="request-form">
                         <div class="request-field">
@@ -471,12 +471,12 @@
                         </div>
 
                         <div class="request-note">
-                            Payment is handled separately after confirmation. If you need a different day or time, mention it in the notes and Bodhi can reply directly.
+                            First-time and returning classes continue to secure Stripe checkout. Private lesson requests stay as an enquiry until Bodhi replies with details.
                         </div>
 
                         <label class="request-consent" for="terms">
                             <input type="checkbox" id="terms" required>
-                            <span>I agree to the <a href="terms-and-conditions.html" style="text-decoration: underline;">terms and conditions</a> and understand this is a booking request, not an instant confirmation.</span>
+                            <span>I agree to the <a href="terms-and-conditions.html" style="text-decoration: underline;">terms and conditions</a> and understand that paid classes continue to Stripe checkout, while private lessons remain a request until confirmed.</span>
                         </label>
 
                         <button type="submit" class="btn-primary request-submit" id="submitBtn" disabled>Send Booking Request</button>

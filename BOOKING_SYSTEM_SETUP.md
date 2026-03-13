@@ -1,6 +1,10 @@
-# Google Sheets Booking System Setup Guide
+# Booking + Stripe Setup Guide
 
-This guide will help you set up the serverless booking system using Google Sheets and Google Apps Script.
+This guide will help you run the booking calendar with:
+
+- Google Sheets + Google Apps Script for availability, emails, and booking records
+- Netlify Functions for the public booking API and Stripe checkout creation
+- Stripe Checkout for paid class bookings
 
 ## Step 1: Set up Google Apps Script (IMPORTANT: Do this first!)
 
@@ -34,28 +38,66 @@ This guide will help you set up the serverless booking system using Google Sheet
 6. Copy the web app URL
 7. **Important**: You may need to authorize the script to access Gmail and Sheets
 
-## Step 4: Configure the Frontend
+## Step 4: Configure Netlify
 
-1. Open `assets/js/booking.js`
-2. Open `booking.html`
-3. Update `window.BODHI_BOOKING_CONFIG` with your deployed Apps Script URL:
+Add these environment variables in Netlify:
 
-```javascript
-window.BODHI_BOOKING_CONFIG = {
-    endpoint: 'YOUR_GOOGLE_APPS_SCRIPT_URL',
-    recipientEmail: 'swan1995@gmail.com'
-};
-```
+- `BOOKING_APPS_SCRIPT_URL`
+  - your deployed Google Apps Script web app URL
+- `STRIPE_SECRET_KEY`
+  - your Stripe restricted or secret key for Checkout Session creation
+- `STRIPE_WEBHOOK_SECRET`
+  - the `whsec_...` signing secret from the Stripe webhook endpoint
+- `PUBLIC_SITE_URL`
+  - `https://bodhiswan.com`
 
-4. If `endpoint` is left blank, the booking page will fall back to opening the visitor's email app with the request pre-filled.
+Optional:
 
-## Step 5: Test the System
+- `BOOKING_API_URL`
+  - `https://bodhiswanceramics.netlify.app/.netlify/functions/booking-api`
+  - only needed if you want the checkout creator to call the public Netlify booking endpoint instead of talking to Apps Script directly
 
-1. Open your website and navigate to `/booking.html`
+## Step 5: Stripe Webhook
+
+In Stripe, use this webhook endpoint:
+
+- `https://bodhiswanceramics.netlify.app/.netlify/functions/stripe-webhook`
+
+Listen for:
+
+- `checkout.session.completed`
+
+The webhook now handles both:
+
+- shop purchases
+- paid class bookings
+
+For paid class bookings it will:
+
+1. receive the successful Stripe checkout event
+2. send the booking into Google Apps Script
+3. try to confirm the booking automatically
+4. fall back to a booking request if the slot can no longer be auto-confirmed
+
+## Step 6: Frontend
+
+`calendar.html` and `booking.html` now point at:
+
+- `https://bodhiswanceramics.netlify.app/.netlify/functions/booking-api`
+- `https://bodhiswanceramics.netlify.app/.netlify/functions/create-booking-checkout`
+
+So you do not need to paste the Apps Script URL into the frontend anymore.
+
+## Step 7: Test the System
+
+1. Open your website and navigate to `/calendar.html`
 2. The calendar should load with available dates
-3. Try making a test request
-4. Check your Google Sheet to see if the request appears in `Booking Requests`
-5. Check your email for the studio notification and customer acknowledgement
+3. Test a private lesson request
+4. Test a paid class booking with Stripe
+5. Check your Google Sheet:
+   - successful paid class should land in `Bookings`
+   - fallback/manual cases should land in `Booking Requests`
+6. Check email notifications and customer confirmations
 
 ## Google Sheets Structure
 
@@ -104,9 +146,10 @@ window.BODHI_BOOKING_CONFIG = {
    - Current Bookings: 0
 
 ### Viewing Bookings
-- All bookings appear in the Bookings sheet
+- Paid confirmed classes appear in the `Bookings` sheet
+- Manual/private/fallback cases appear in `Booking Requests`
 - Sort by date to see upcoming classes
-- Filter by status to see confirmed/cancelled bookings
+- Filter by status to see confirmed/request entries
 
 ### Email Notifications
 - You'll receive an email for each new booking
@@ -128,7 +171,10 @@ Modify the `sendBookingConfirmation()` function to customize:
 - Additional information
 
 ### Pricing
-Update the booking form options in `booking.html` to reflect your current pricing.
+Update the class pricing in both places if it changes:
+
+- `calendar.html` / `booking.html` form labels
+- `netlify/functions/create-booking-checkout.js`
 
 ## Troubleshooting
 
@@ -140,22 +186,31 @@ Update the booking form options in `booking.html` to reflect your current pricin
    - Or ensure you're running the script from within a Google Sheet (not standalone)
 
 2. **Calendar not loading**
-   - Check the script URL in booking.js
+   - Check `BOOKING_APPS_SCRIPT_URL` in Netlify
    - Ensure the web app is deployed with "Anyone" access
-   - Check browser console for errors
+   - Check the Netlify function:
+     - `/.netlify/functions/booking-api`
 
-3. **Bookings not saving**
-   - Verify the Google Apps Script has permission to access Gmail and Sheets
-   - Check that the sheet names match exactly
-   - Re-run the initialization function
+3. **Bookings not saving after payment**
+   - Verify the Stripe webhook is active
+   - Verify `STRIPE_WEBHOOK_SECRET` in Netlify
+   - Verify `BOOKING_APPS_SCRIPT_URL` in Netlify
+   - Check Netlify function logs
+   - Re-run the Apps Script initialization if the sheet tabs are missing
 
-4. **Emails not sending**
+4. **Stripe checkout not opening**
+   - Verify `STRIPE_SECRET_KEY` in Netlify
+   - Confirm the class type is one of:
+     - `first-class`
+     - `returning-class`
+
+5. **Emails not sending**
    - Ensure Gmail API is enabled in Google Apps Script
    - Check spam folders
    - Verify email addresses are correct
    - Grant necessary permissions when prompted
 
-5. **Authorization Issues**
+6. **Authorization Issues**
    - When first running functions, Google will ask for permissions
    - Grant access to Gmail and Google Sheets
    - You may need to go through advanced settings if warnings appear
