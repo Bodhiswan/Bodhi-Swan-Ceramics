@@ -49,9 +49,134 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="sitemap" href="/sitemap.xml">
+    <style>
+        .shop-intro {
+            max-width: 760px;
+            margin: 0 auto 2rem;
+            text-align: center;
+        }
+
+        .shop-intro-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.45rem 0.9rem;
+            border: 1px solid var(--tile-border);
+            border-radius: 999px;
+            color: var(--muted);
+            font-size: 0.88rem;
+            margin-bottom: 1rem;
+        }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .shop-card {
+            background: var(--color-white);
+            border: 1px solid var(--tile-border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .shop-card.is-sold-out {
+            opacity: 0.9;
+        }
+
+        .shop-card-image {
+            position: relative;
+            aspect-ratio: 4 / 5;
+            background: var(--tile);
+        }
+
+        .shop-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .shop-card-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(17, 17, 17, 0.88);
+            color: #fff;
+            padding: 0.35rem 0.7rem;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .shop-card-content {
+            padding: 1.25rem;
+        }
+
+        .shop-card-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .shop-card-price {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .shop-card-description {
+            color: var(--color-dark-gray);
+            font-size: 0.96rem;
+            margin-bottom: 1rem;
+        }
+
+        .shop-card-action {
+            display: inline-block;
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--color-black);
+            background: var(--color-black);
+            color: var(--color-white);
+            transition: all var(--transition);
+        }
+
+        .shop-card-action:hover {
+            background: var(--color-white);
+            color: var(--color-black);
+        }
+
+        .shop-card-action.is-disabled {
+            border-color: var(--tile-border);
+            background: var(--tile);
+            color: var(--muted);
+            cursor: default;
+        }
+
+        .shop-empty {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .shop-note {
+            max-width: 760px;
+            margin: 2rem auto 0;
+            padding: 1.25rem;
+            background: var(--tile);
+            border: 1px solid var(--tile-border);
+            border-radius: var(--radius);
+            color: var(--color-dark-gray);
+        }
+    </style>
     
     <!-- Scripts -->
     <script defer src="assets/js/app.js"></script>
+    <script defer src="assets/js/shop-data.js"></script>
+    <script defer src="assets/js/shop-page.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -97,12 +222,30 @@
     <a class="sr-only" href="#main">Skip to content</a>
 
     <section class="section" id="main">
-        <div class="container" style="max-width: 760px;">
-            <div class="tile" style="text-align: center; padding: clamp(2rem, 6vw, 4rem); margin-top: 1rem;">
-                <p class="muted" style="letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem;">Shop Update</p>
-                <h1 style="margin-bottom: 1rem;">Sold Out</h1>
+        <div class="container">
+            <div class="shop-intro">
+                <div class="shop-intro-meta">
+                    <span>Own website</span>
+                    <span>&middot;</span>
+                    <span>Stripe checkout</span>
+                    <span>&middot;</span>
+                    <span id="shopAvailableCount">0 available now</span>
+                </div>
+                <h1 style="margin-bottom: 0.75rem;">Shop</h1>
+                <p style="max-width: 640px; margin: 0 auto;">Each available piece is listed here on your site, and checkout can send customers to Stripe securely. For now, the current collection is marked sold out until you add live Stripe payment links.</p>
+            </div>
+
+            <div id="shopEmpty" class="shop-empty tile">
+                <p class="muted" style="letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem;">Current collection</p>
+                <h2 style="margin-bottom: 1rem;">Sold Out</h2>
                 <p style="max-width: 520px; margin: 0 auto 1.5rem; color: var(--color-dark-gray);">The current collection has sold through. New work will be announced once fresh pieces are ready.</p>
                 <a href="https://instagram.com/bodhiswan" target="_blank" rel="noopener" class="btn-secondary">Follow on Instagram</a>
+            </div>
+
+            <div id="shopGrid" class="shop-grid" aria-live="polite"></div>
+
+            <div class="shop-note">
+                To make an item live, open <code>assets/js/shop-data.js</code>, paste in its Stripe Payment Link, and switch <code>soldOut</code> to <code>false</code>.
             </div>
         </div>
     </section>
@@ -125,7 +268,7 @@
         "@context": "https://schema.org",
         "@type": "Store",
         "name": "Bodhi Swan Ceramics Shop",
-        "description": "The current Bodhi Swan Ceramics collection is sold out.",
+        "description": "Shop handcrafted ceramics on Bodhi Swan Ceramics, with secure Stripe checkout for available pieces.",
         "url": "https://bodhiswan.com/shop.html",
         "sameAs": "https://instagram.com/bodhiswan"
     }

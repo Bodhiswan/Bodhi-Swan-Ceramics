@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "stoneware-bowl-01",
+    "title": "Stoneware Bowl",
+    "priceAud": 85,
+    "description": "Wheel-thrown stoneware bowl with a soft glaze finish and quiet everyday proportions.",
+    "image": "images/IMG_1498.JPG",
+    "alt": "Stoneware bowl with a soft glaze finish",
+    "soldOut": true,
+    "stripe": {
+      "productId": "prod_U8jZGpdvZ8itDb",
+      "priceId": "",
+      "paymentLinkId": "",
+      "paymentLinkUrl": ""
+    }
+  },
+  {
+    "slug": "serving-vessel-01",
+    "title": "Serving Vessel",
+    "priceAud": 120,
+    "description": "A larger hand-thrown serving piece with a warm natural finish and subtle movement in the form.",
+    "image": "images/IMG_3892.JPG",
+    "alt": "Hand-thrown serving vessel with warm natural finish",
+    "soldOut": true,
+    "stripe": {
+      "productId": "prod_U8jZYiZc8H9m0O",
+      "priceId": "",
+      "paymentLinkId": "",
+      "paymentLinkUrl": ""
+    }
+  },
+  {
+    "slug": "cup-01",
+    "title": "Ceramic Cup",
+    "priceAud": 60,
+    "description": "A small functional cup for coffee or tea, with a tactile surface and balanced shape.",
+    "image": "images/IMG_0847.JPEG",
+    "alt": "Ceramic cup with tactile glaze surface",
+    "soldOut": true,
+    "stripe": {
+      "productId": "prod_U8jZyhYoPVskgD",
+      "priceId": "",
+      "paymentLinkId": "",
+      "paymentLinkUrl": ""
+    }
+  },
+  {
+    "slug": "large-stoneware-mug-green-floating-satin-glaze",
+    "title": "Large Stoneware Mug",
+    "priceAud": 65,
+    "description": "Wheel-thrown large stoneware mug with a green floating satin glaze.",
+    "image": "images/cup1.png",
+    "alt": "Large wheel-thrown stoneware mug with a green floating satin glaze",
+    "soldOut": false,
+    "stripe": {
+      "productId": "prod_U8jZsVPrDFWtwz",
+      "priceId": "price_1TAS6bAw2iyVnuCT5o4lADDP",
+      "paymentLinkId": "plink_1TAS6bAw2iyVnuCTWiCh3ENF",
+      "paymentLinkUrl": "https://buy.stripe.com/eVq7sK6VW7wi9L7gkmgIo09"
+    }
+  }
+]
