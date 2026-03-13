@@ -33,11 +33,11 @@ window.BODHI_SHOP_ITEMS = [
   {
     "slug": "large-stoneware-mug-green-floating-satin-glaze",
     "title": "Large Stoneware Mug",
-    "price": "AUD 65",
+    "price": "AUD 1",
     "description": "Wheel-thrown large stoneware mug with a green floating satin glaze.",
     "image": "images/cup1.png",
     "alt": "Large wheel-thrown stoneware mug with a green floating satin glaze",
-    "stripeUrl": "https://buy.stripe.com/9B69ASdkkcQC8H33xAgIo0a",
+    "stripeUrl": "https://buy.stripe.com/aFa5kC944aIu9L7fgigIo0b",
     "soldOut": false
   }
 ];

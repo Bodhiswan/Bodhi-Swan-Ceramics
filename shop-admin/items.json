@@ -47,16 +47,16 @@
   {
     "slug": "large-stoneware-mug-green-floating-satin-glaze",
     "title": "Large Stoneware Mug",
-    "priceAud": 65,
+    "priceAud": 1,
     "description": "Wheel-thrown large stoneware mug with a green floating satin glaze.",
     "image": "images/cup1.png",
     "alt": "Large wheel-thrown stoneware mug with a green floating satin glaze",
     "soldOut": false,
     "stripe": {
       "productId": "prod_U8jZsVPrDFWtwz",
-      "priceId": "price_1TAS6bAw2iyVnuCT5o4lADDP",
-      "paymentLinkId": "plink_1TASESAw2iyVnuCTqCgPj7rL",
-      "paymentLinkUrl": "https://buy.stripe.com/9B69ASdkkcQC8H33xAgIo0a"
+      "priceId": "price_1TASkNAw2iyVnuCT5HzKWz1F",
+      "paymentLinkId": "plink_1TASkOAw2iyVnuCTXxziGGqz",
+      "paymentLinkUrl": "https://buy.stripe.com/aFa5kC944aIu9L7fgigIo0b"
     }
   }
 ]
