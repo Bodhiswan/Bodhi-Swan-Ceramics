@@ -4,8 +4,14 @@ class BodhiShopPage {
         this.grid = document.getElementById('shopGrid');
         this.empty = document.getElementById('shopEmpty');
         this.availableCount = document.getElementById('shopAvailableCount');
+        this.liveStatusUrl = 'https://bodhiswanceramics.netlify.app/.netlify/functions/live-shop-status';
+        this.refreshIntervalMs = 15000;
+        this.maxRefreshAttempts = 12;
+        this.refreshAttempts = 0;
 
         this.render();
+        this.refreshFromLiveStatus();
+        this.startPolling();
     }
 
     render() {
@@ -86,6 +92,72 @@ class BodhiShopPage {
         article.appendChild(content);
 
         return article;
+    }
+
+    async refreshFromLiveStatus() {
+        if (!this.items.length) {
+            return;
+        }
+
+        try {
+            const response = await fetch(`${this.liveStatusUrl}?t=${Date.now()}`, {
+                cache: 'no-store'
+            });
+
+            if (!response.ok) {
+                return;
+            }
+
+            const payload = await response.json();
+            if (!payload?.ok || !payload.items) {
+                return;
+            }
+
+            let changed = false;
+            this.items = this.items.map((item) => {
+                const liveItem = payload.items[item.slug];
+                if (!liveItem) {
+                    return item;
+                }
+
+                const nextPrice = Number.isFinite(liveItem.priceAud) ? `AUD ${liveItem.priceAud}` : item.price;
+                const nextStripeUrl = liveItem.stripeUrl || item.stripeUrl;
+                const nextSoldOut = Boolean(liveItem.soldOut);
+
+                if (
+                    nextPrice !== item.price ||
+                    nextStripeUrl !== item.stripeUrl ||
+                    nextSoldOut !== item.soldOut
+                ) {
+                    changed = true;
+                    return {
+                        ...item,
+                        price: nextPrice,
+                        stripeUrl: nextStripeUrl,
+                        soldOut: nextSoldOut
+                    };
+                }
+
+                return item;
+            });
+
+            if (changed) {
+                this.render();
+            }
+        } catch {
+            // Ignore transient network errors and keep the static shop visible.
+        }
+    }
+
+    startPolling() {
+        window.setInterval(() => {
+            if (this.refreshAttempts >= this.maxRefreshAttempts) {
+                return;
+            }
+
+            this.refreshAttempts += 1;
+            this.refreshFromLiveStatus();
+        }, this.refreshIntervalMs);
     }
 }
 
