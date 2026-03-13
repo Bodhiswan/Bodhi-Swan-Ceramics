@@ -51,7 +51,7 @@
     "description": "Wheel-thrown large stoneware mug with a green floating satin glaze.",
     "image": "images/cup1.png",
     "alt": "Large wheel-thrown stoneware mug with a green floating satin glaze",
-    "soldOut": false,
+    "soldOut": true,
     "stripe": {
       "productId": "prod_U8jZsVPrDFWtwz",
       "priceId": "price_1TASkNAw2iyVnuCT5HzKWz1F",
