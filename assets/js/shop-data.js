@@ -38,6 +38,6 @@ window.BODHI_SHOP_ITEMS = [
     "image": "images/cup1.png",
     "alt": "Large wheel-thrown stoneware mug with a green floating satin glaze",
     "stripeUrl": "https://buy.stripe.com/aFa5kC944aIu9L7fgigIo0b",
-    "soldOut": false
+    "soldOut": true
   }
 ];
