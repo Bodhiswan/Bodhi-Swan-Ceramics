@@ -24,7 +24,7 @@
     <link rel="canonical" href="https://bodhiswan.com/shop.html">
     
     <!-- CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.googletagmanager.com; connect-src 'self' https://firestore.googleapis.com https://securetoken.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.googletagmanager.com; connect-src 'self' https://firestore.googleapis.com https://securetoken.googleapis.com; style-src 'self' 'unsafe-inline';">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -57,16 +57,15 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <a href="/" class="nav-brand" aria-label="Bodhi Swan Ceramics home">
+            <div class="nav-brand">
                 <img src="images/logo.png" alt="Bodhi Swan Ceramics" class="nav-logo-img">
                 <span class="nav-logo-text">Bodhi Swan</span>
-            </a>
+            </div>
             
             <ul class="nav-menu">
                 <li><a href="/" class="nav-link">Home</a></li>
                 <li><a href="gallery.html" class="nav-link">Gallery</a></li>
                 <li><a href="classes.html" class="nav-link">Classes</a></li>
-                <li><a href="calendar.html" class="nav-link">Calendar</a></li>
                 <li><a href="shop.html" class="nav-link active">Shop</a></li>
                 <li><a href="blog.html" class="nav-link">Blog</a></li>
                 <li><a href="faq.html" class="nav-link">FAQ</a></li>
@@ -86,7 +85,6 @@
             <li><a href="/">Home</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="classes.html">Classes</a></li>
-            <li><a href="calendar.html">Calendar</a></li>
             <li><a href="shop.html">Shop</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="faq.html">FAQ</a></li>
@@ -97,12 +95,20 @@
     <a class="sr-only" href="#main">Skip to content</a>
 
     <section class="section" id="main">
-        <div class="container" style="max-width: 760px;">
-            <div class="tile" style="text-align: center; padding: clamp(2rem, 6vw, 4rem); margin-top: 1rem;">
-                <p class="muted" style="letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem;">Shop Update</p>
-                <h1 style="margin-bottom: 1rem;">Sold Out</h1>
-                <p style="max-width: 520px; margin: 0 auto 1.5rem; color: var(--color-dark-gray);">The current collection has sold through. New work will be announced once fresh pieces are ready.</p>
-                <a href="https://instagram.com/bodhiswan" target="_blank" rel="noopener" class="btn-secondary">Follow on Instagram</a>
+        <div class="container">
+            <div class="text-center mb-12">
+                <h1>Shop</h1>
+            </div>
+            
+            <div class="grid grid-2">
+                
+                <div class="card" style="opacity: 0.4; background: #f8f8f8; border: 2px dashed #ddd;">
+                    <div style="height: 250px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);">
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.5rem; color: #999; margin-bottom: 0.5rem;">SOLD OUT</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -125,9 +131,35 @@
         "@context": "https://schema.org",
         "@type": "Store",
         "name": "Bodhi Swan Ceramics Shop",
-        "description": "The current Bodhi Swan Ceramics collection is sold out.",
+        "description": "Shop unique handcrafted ceramics from Brisbane. Wheel-thrown pottery, bowls, vases, and functional stoneware.",
         "url": "https://bodhiswan.com/shop.html",
-        "sameAs": "https://instagram.com/bodhiswan"
+        "sameAs": "https://www.etsy.com/au/shop/BodhiSwanCeramics",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Ceramic Products",
+            "itemListElement": [
+                {
+                    "@type": "Product",
+                    "name": "Artisan Espresso Cup",
+                    "description": "Wheel-thrown espresso cup with smooth interior glaze",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "85",
+                        "priceCurrency": "AUD"
+                    }
+                },
+                {
+                    "@type": "Product",
+                    "name": "Modern Ceramic Vase",
+                    "description": "Contemporary vessel with clean lines and subtle texture",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "120",
+                        "priceCurrency": "AUD"
+                    }
+                }
+            ]
+        }
     }
     </script>
 </body>

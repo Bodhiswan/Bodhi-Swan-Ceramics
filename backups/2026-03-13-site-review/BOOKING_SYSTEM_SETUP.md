@@ -37,25 +37,26 @@ This guide will help you set up the serverless booking system using Google Sheet
 ## Step 4: Configure the Frontend
 
 1. Open `assets/js/booking.js`
-2. Open `booking.html`
-3. Update `window.BODHI_BOOKING_CONFIG` with your deployed Apps Script URL:
+2. Update the config object with your details:
 
 ```javascript
-window.BODHI_BOOKING_CONFIG = {
-    endpoint: 'YOUR_GOOGLE_APPS_SCRIPT_URL',
-    recipientEmail: 'swan1995@gmail.com'
+this.config = {
+    // Replace with your Google Sheets ID (from the URL)
+    spreadsheetId: 'YOUR_GOOGLE_SHEETS_ID',
+    // Replace with your Google Apps Script Web App URL
+    scriptUrl: 'YOUR_GOOGLE_APPS_SCRIPT_URL',
+    // Optional: API Key for reading public sheets
+    apiKey: 'YOUR_GOOGLE_API_KEY'
 };
 ```
-
-4. If `endpoint` is left blank, the booking page will fall back to opening the visitor's email app with the request pre-filled.
 
 ## Step 5: Test the System
 
 1. Open your website and navigate to `/booking.html`
 2. The calendar should load with available dates
-3. Try making a test request
-4. Check your Google Sheet to see if the request appears in `Booking Requests`
-5. Check your email for the studio notification and customer acknowledgement
+3. Try making a test booking
+4. Check your Google Sheet to see if the booking appears
+5. Check your email for confirmation
 
 ## Google Sheets Structure
 

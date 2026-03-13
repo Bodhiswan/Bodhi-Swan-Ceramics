@@ -29,7 +29,6 @@
 // Configuration
 const CONFIG = {
   BOOKINGS_SHEET: 'Bookings',
-  REQUESTS_SHEET: 'Booking Requests',
   AVAILABILITY_SHEET: 'Availability',
   SETTINGS_SHEET: 'Settings',
   NOTIFICATION_EMAIL: 'swan1995@gmail.com'
@@ -45,8 +44,6 @@ function doPost(e) {
     switch (data.action) {
       case 'submitBooking':
         return submitBooking(data.data);
-      case 'submitBookingRequest':
-        return submitBookingRequest(data.data);
       case 'getAvailability':
         return getAvailability();
       case 'updateAvailability':
@@ -126,44 +123,6 @@ function submitBooking(bookingData) {
   } catch (error) {
     console.error('Error submitting booking:', error);
     return createResponse(false, 'Failed to submit booking: ' + error.toString());
-  }
-}
-
-/**
- * Submit a booking request without auto-confirming a slot
- */
-function submitBookingRequest(requestData) {
-  try {
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
-    const requestsSheet = getOrCreateSheet(ss, CONFIG.REQUESTS_SHEET);
-
-    if (requestsSheet.getLastRow() <= 0) {
-      requestsSheet.appendRow(['Timestamp', 'Date', 'Time', 'Class Type', 'Full Name', 'Email', 'Phone', 'Experience', 'Notes', 'Status', 'Date Key', 'Request ID']);
-    }
-
-    const requestId = generateBookingId();
-    requestsSheet.appendRow([
-      new Date(),
-      requestData.date,
-      requestData.time,
-      requestData.classType,
-      requestData.fullName,
-      requestData.email,
-      requestData.phone,
-      requestData.experience,
-      requestData.notes || '',
-      'request',
-      requestData.dateKey,
-      requestId
-    ]);
-
-    sendRequestReceivedEmail(requestData, requestId);
-    sendRequestNotificationToStudio(requestData, requestId);
-
-    return createResponse(true, 'Booking request received', { requestId });
-  } catch (error) {
-    console.error('Error submitting booking request:', error);
-    return createResponse(false, 'Failed to send booking request: ' + error.toString());
   }
 }
 
@@ -299,15 +258,6 @@ function updateDateAvailability(dateKey, change) {
   }
 }
 
-function getOrCreateSheet(ss, name) {
-  let sheet = ss.getSheetByName(name);
-  if (!sheet) {
-    sheet = ss.insertSheet(name);
-  }
-
-  return sheet;
-}
-
 /**
  * Send booking confirmation email to customer
  */
@@ -369,42 +319,6 @@ function sendBookingConfirmation(bookingData, bookingId) {
 }
 
 /**
- * Send request received email to customer
- */
-function sendRequestReceivedEmail(requestData, requestId) {
-  const subject = `Pottery Booking Request Received - ${requestData.date}`;
-  
-  const htmlBody = `
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-      <h2 style="color: #2c3e50;">Booking request received</h2>
-      <p>Thanks for sending through a booking request with Bodhi Swan Ceramics.</p>
-      <p>Bodhi will review the request and reply to confirm the session details.</p>
-      <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
-        <tr><td style="padding: 0.5rem 0; border-bottom: 1px solid #eee;"><strong>Date:</strong></td><td style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">${requestData.date}</td></tr>
-        <tr><td style="padding: 0.5rem 0; border-bottom: 1px solid #eee;"><strong>Time:</strong></td><td style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">${requestData.time}</td></tr>
-        <tr><td style="padding: 0.5rem 0; border-bottom: 1px solid #eee;"><strong>Class Type:</strong></td><td style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">${requestData.classType}</td></tr>
-        <tr><td style="padding: 0.5rem 0; border-bottom: 1px solid #eee;"><strong>Request ID:</strong></td><td style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">${requestId}</td></tr>
-      </table>
-      <p style="color: #7f8c8d;">If you need to add anything else, reply to this email or contact 0478 756 284.</p>
-    </div>
-  `;
-  
-  try {
-    GmailApp.sendEmail(
-      requestData.email,
-      subject,
-      '',
-      {
-        htmlBody: htmlBody,
-        name: 'Bodhi Swan Ceramics'
-      }
-    );
-  } catch (error) {
-    console.error('Error sending request received email:', error);
-  }
-}
-
-/**
  * Send notification email to studio
  */
 function sendNotificationToStudio(bookingData, bookingId) {
@@ -438,41 +352,6 @@ The booking has been automatically confirmed and the customer has been sent a co
     );
   } catch (error) {
     console.error('Error sending notification email:', error);
-  }
-}
-
-/**
- * Send request notification email to studio
- */
-function sendRequestNotificationToStudio(requestData, requestId) {
-  const subject = `New Booking Request: ${requestData.fullName} - ${requestData.date}`;
-  
-  const body = `
-New pottery booking request received:
-
-Request ID: ${requestId}
-Date: ${requestData.date}
-Time: ${requestData.time}
-Class Type: ${requestData.classType}
-
-Student Information:
-Name: ${requestData.fullName}
-Email: ${requestData.email}
-Phone: ${requestData.phone}
-Experience: ${requestData.experience}
-
-Special Notes:
-${requestData.notes || 'None'}
-  `;
-  
-  try {
-    GmailApp.sendEmail(
-      CONFIG.NOTIFICATION_EMAIL,
-      subject,
-      body
-    );
-  } catch (error) {
-    console.error('Error sending request notification email:', error);
   }
 }
 
@@ -538,7 +417,7 @@ function initializeSystem() {
     console.log('Active spreadsheet found:', ss.getName());
     
     // Create sheets if they don't exist
-    const sheetNames = [CONFIG.BOOKINGS_SHEET, CONFIG.REQUESTS_SHEET, CONFIG.AVAILABILITY_SHEET, CONFIG.SETTINGS_SHEET];
+    const sheetNames = [CONFIG.BOOKINGS_SHEET, CONFIG.AVAILABILITY_SHEET, CONFIG.SETTINGS_SHEET];
     
     sheetNames.forEach(name => {
       try {
@@ -575,13 +454,6 @@ function initializeSystem() {
     const headers = ['Timestamp', 'Date', 'Time', 'Class Type', 'Full Name', 'Email', 'Phone', 'Experience', 'Notes', 'Status', 'Date Key', 'Booking ID'];
     bookingsSheet.appendRow(headers);
   }
-
-  const requestsSheet = ss.getSheetByName(CONFIG.REQUESTS_SHEET);
-  if (requestsSheet.getLastRow() <= 1) {
-    requestsSheet.clear();
-    const requestHeaders = ['Timestamp', 'Date', 'Time', 'Class Type', 'Full Name', 'Email', 'Phone', 'Experience', 'Notes', 'Status', 'Date Key', 'Request ID'];
-    requestsSheet.appendRow(requestHeaders);
-  }
   
     console.log('System initialized successfully');
     return 'System initialized successfully! All sheets created.';
@@ -609,7 +481,7 @@ function createNewBookingSpreadsheet() {
     }
     
     // Create our sheets
-    const sheetNames = [CONFIG.BOOKINGS_SHEET, CONFIG.REQUESTS_SHEET, CONFIG.AVAILABILITY_SHEET, CONFIG.SETTINGS_SHEET];
+    const sheetNames = [CONFIG.BOOKINGS_SHEET, CONFIG.AVAILABILITY_SHEET, CONFIG.SETTINGS_SHEET];
     
     sheetNames.forEach(name => {
       ss.insertSheet(name);
@@ -619,7 +491,6 @@ function createNewBookingSpreadsheet() {
     initializeAvailabilityForSpreadsheet(ss);
     initializeSettingsForSpreadsheet(ss);
     initializeBookingsForSpreadsheet(ss);
-    initializeRequestsForSpreadsheet(ss);
     
     console.log('New booking system spreadsheet created successfully');
     console.log('Spreadsheet URL:', ss.getUrl());
@@ -706,11 +577,4 @@ function initializeBookingsForSpreadsheet(ss) {
   bookingsSheet.clear();
   const headers = ['Timestamp', 'Date', 'Time', 'Class Type', 'Full Name', 'Email', 'Phone', 'Experience', 'Notes', 'Status', 'Date Key', 'Booking ID'];
   bookingsSheet.appendRow(headers);
-}
-
-function initializeRequestsForSpreadsheet(ss) {
-  const requestsSheet = ss.getSheetByName(CONFIG.REQUESTS_SHEET);
-  requestsSheet.clear();
-  const headers = ['Timestamp', 'Date', 'Time', 'Class Type', 'Full Name', 'Email', 'Phone', 'Experience', 'Notes', 'Status', 'Date Key', 'Request ID'];
-  requestsSheet.appendRow(headers);
 }
