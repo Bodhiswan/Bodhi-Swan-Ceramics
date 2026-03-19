@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <link rel="shortcut icon" href="images/logo.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png" />
+    <meta name="apple-mobile-web-app-title" content="Bodhi Swan" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="manifest" href="assets/icons/site.webmanifest" />
+    <title>About — Bodhi Swan Ceramics</title>
+    <meta name="description" content="About Bodhi Swan Ceramics, the studio practice, and the teaching approach behind the work in Brisbane.">
+    <meta name="keywords" content="about Bodhi Swan, Brisbane ceramic artist, pottery teacher Brisbane, ceramic studio practice">
+    <meta name="author" content="Bodhi Swan Ceramics">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bodhiswan.com/about.html">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.googletagmanager.com; connect-src 'self' https://firestore.googleapis.com https://securetoken.googleapis.com https://bodhiswanceramics.netlify.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:;">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bodhi Swan Ceramics">
+    <meta property="og:title" content="About — Bodhi Swan Ceramics">
+    <meta property="og:description" content="About the studio practice and teaching approach behind Bodhi Swan Ceramics.">
+    <meta property="og:url" content="https://bodhiswan.com/about.html">
+    <meta property="og:image" content="https://bodhiswan.com/images/headshot%201.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://bodhiswan.com/about.html">
+    <meta name="twitter:title" content="About — Bodhi Swan Ceramics">
+    <meta name="twitter:description" content="About the studio practice and teaching approach behind Bodhi Swan Ceramics.">
+    <meta name="twitter:image" content="https://bodhiswan.com/images/headshot%201.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="sitemap" href="/sitemap.xml">
+    <style>
+        body {
+            background: #fbf9f8;
+        }
+
+        .about-page {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 7.2rem 1rem 4rem;
+        }
+
+        .about-grid {
+            display: grid;
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        .about-sidebar {
+            display: grid;
+            gap: 1.75rem;
+        }
+
+        .about-portrait {
+            background: #eae8e7;
+            padding: 1.2rem;
+        }
+
+        .about-portrait img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            filter: grayscale(100%);
+        }
+
+        .about-meta-group {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .about-meta-label,
+        .about-section-label {
+            display: block;
+            font-size: 0.68rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(17, 17, 17, 0.46);
+            margin-bottom: 0.35rem;
+        }
+
+        .about-meta-text {
+            margin: 0;
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            font-size: 1.08rem;
+            color: rgba(17, 17, 17, 0.86);
+        }
+
+        .about-connect-list {
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .about-connect-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: opacity 0.3s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .about-connect-link::before {
+            content: "";
+            width: 2.6rem;
+            height: 1px;
+            background: rgba(17, 17, 17, 0.76);
+            transition: width 0.35s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .about-connect-link:hover {
+            opacity: 0.72;
+        }
+
+        .about-connect-link:hover::before {
+            width: 3.5rem;
+        }
+
+        .about-main {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .about-heading {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .about-title {
+            font-family: 'Crimson Text', serif;
+            font-size: clamp(3.8rem, 10vw, 6.8rem);
+            line-height: 0.92;
+            letter-spacing: -0.05em;
+            margin: 0;
+        }
+
+        .about-title span {
+            display: inline-block;
+            padding-left: clamp(2rem, 7vw, 6.5rem);
+            font-style: italic;
+        }
+
+        .about-lead {
+            font-family: 'Crimson Text', serif;
+            font-size: clamp(1.5rem, 3vw, 2.15rem);
+            line-height: 1.45;
+            color: rgba(17, 17, 17, 0.88);
+            max-width: 42rem;
+            margin: 0;
+        }
+
+        .about-copy {
+            display: grid;
+            gap: 1.4rem;
+            max-width: 44rem;
+        }
+
+        .about-copy p {
+            margin: 0;
+            color: rgba(17, 17, 17, 0.72);
+            line-height: 1.8;
+        }
+
+        .about-statement {
+            max-width: 44rem;
+            padding: 1.8rem 0 0 1.25rem;
+            border-left: 1px solid rgba(196, 199, 199, 0.7);
+        }
+
+        .about-statement blockquote {
+            margin: 0;
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            font-size: clamp(1.35rem, 2.7vw, 1.9rem);
+            line-height: 1.6;
+            color: rgba(17, 17, 17, 0.88);
+        }
+
+        .about-exhibitions {
+            display: grid;
+            gap: 1.1rem;
+            max-width: 44rem;
+        }
+
+        .about-exhibition {
+            display: grid;
+            gap: 0.3rem;
+            padding: 0.95rem 0;
+            transition: transform 0.35s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .about-exhibition:hover {
+            transform: translateX(0.45rem);
+        }
+
+        .about-exhibition-year {
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(17, 17, 17, 0.44);
+        }
+
+        .about-exhibition h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .about-exhibition p {
+            margin: 0;
+            color: rgba(17, 17, 17, 0.62);
+        }
+
+        .about-studio-band {
+            margin-top: 4rem;
+            padding: 3rem 0;
+            background: #eae8e7;
+        }
+
+        .about-studio-grid {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: grid;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-studio-copy {
+            max-width: 33rem;
+        }
+
+        .about-studio-copy h2 {
+            font-family: 'Crimson Text', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-style: italic;
+            line-height: 1.2;
+            margin-bottom: 0.8rem;
+        }
+
+        .about-studio-copy p {
+            margin: 0 0 1.35rem;
+            color: rgba(17, 17, 17, 0.66);
+        }
+
+        .about-studio-button {
+            display: inline-block;
+            background: #1e1e1e;
+            color: #ffffff;
+            padding: 0.95rem 1.5rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            transition: opacity 0.3s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .about-studio-button:hover {
+            opacity: 0.88;
+        }
+
+        .about-studio-visual {
+            position: relative;
+        }
+
+        .about-studio-visual img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            filter: grayscale(100%);
+        }
+
+        .about-studio-note {
+            display: none;
+            position: absolute;
+            left: -1.75rem;
+            bottom: -1.75rem;
+            max-width: 14rem;
+            padding: 1rem;
+            background: rgba(251, 249, 248, 0.84);
+            backdrop-filter: blur(18px);
+        }
+
+        .about-studio-note p {
+            margin: 0;
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            line-height: 1.6;
+            color: rgba(17, 17, 17, 0.8);
+        }
+
+        @media (min-width: 980px) {
+            .about-grid {
+                grid-template-columns: minmax(290px, 0.78fr) minmax(0, 1.22fr);
+                gap: 4.5rem;
+            }
+
+            .about-main {
+                padding-top: 1rem;
+            }
+
+            .about-exhibition {
+                grid-template-columns: 6rem minmax(0, 1fr);
+                align-items: baseline;
+                gap: 1rem;
+            }
+
+            .about-studio-grid {
+                grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+                gap: 3.5rem;
+            }
+
+            .about-studio-note {
+                display: block;
+            }
+        }
+    </style>
+    <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-brand" aria-label="Bodhi Swan Ceramics home">
+                <img src="images/logo.png" alt="Bodhi Swan Ceramics" class="nav-logo-img">
+                <span class="nav-logo-text">Bodhi Swan</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="about.html" class="nav-link active">About</a></li>
+                <li><a href="classes.html" class="nav-link">Classes</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="nav-mobile">
+        <ul class="nav-mobile-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="classes.html">Classes</a></li>
+        </ul>
+    </div>
+
+    <a class="sr-only" href="#main">Skip to content</a>
+
+    <main id="main" class="about-page">
+        <section class="about-grid">
+            <aside class="about-sidebar">
+                <div class="about-portrait">
+                    <img src="images/headshot 1.png" alt="Portrait of Bodhi Swan in the studio">
+                </div>
+
+                <div class="about-meta-group">
+                    <div>
+                        <span class="about-meta-label">Base of practice</span>
+                        <p class="about-meta-text">Brisbane Ceramics / Indooroopilly, QLD</p>
+                    </div>
+
+                    <div>
+                        <span class="about-meta-label">Connect</span>
+                        <div class="about-connect-list">
+                            <a class="about-connect-link" href="https://instagram.com/bodhiswan" target="_blank" rel="noopener">Instagram</a>
+                            <a class="about-connect-link" href="mailto:swan1995@gmail.com">Email Studio</a>
+                            <a class="about-connect-link" href="classes.html">Classes</a>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="about-main">
+                <header class="about-heading">
+                    <span class="about-section-label">About the artist</span>
+                    <h1 class="about-title">Bodhi<br><span>Swan</span></h1>
+                    <p class="about-lead">Bodhi Swan is a Brisbane-based ceramic artist whose practice moves between wheel-thrown functional work, quieter sculptural decisions, and the patient teaching of clay as a repeatable craft.</p>
+                </header>
+
+                <div class="about-copy">
+                    <p>Bodhi works out of Brisbane Ceramics and teaches at both Brisbane Ceramics in Milton and The Ceramic Studio in Indooroopilly. His path into ceramics began under the guidance of Isabell at the Logan Artists Association, and over the last five years the work has gradually settled into a slower, more restrained language of stoneware, oxide washes, and useful forms.</p>
+                    <p>What matters most in the studio is not speed or spectacle, but rhythm. Repetition at the wheel, attention to weight, and the quiet decisions that turn a rough form into something that can live well in the hand all sit at the center of the practice.</p>
+                    <p>That same rhythm shapes the teaching. Classes are built to be supportive, practical, and grounded, with enough space for complete beginners and enough direct help for returning students to keep deepening their technique.</p>
+                </div>
+
+                <div class="about-statement">
+                    <span class="about-section-label">Artist statement</span>
+                    <blockquote>"I want the clay to keep a little of its own memory. The best pieces usually arrive when I stop trying to force a perfect outcome and let the form settle into something quieter, steadier, and more honest."</blockquote>
+                </div>
+
+                <section class="about-exhibitions">
+                    <span class="about-section-label">Studio background</span>
+
+                    <article class="about-exhibition">
+                        <span class="about-exhibition-year">Practice</span>
+                        <div>
+                            <h3>Stoneware and oxide-led surfaces</h3>
+                            <p>Current work focuses on functional forms, surface variation, and glaze language developed through oxide washes.</p>
+                        </div>
+                    </article>
+
+                    <article class="about-exhibition">
+                        <span class="about-exhibition-year">Teaching</span>
+                        <div>
+                            <h3>Small, supportive wheel classes</h3>
+                            <p>Beginners are welcomed into a slower pace with enough room for repetition, troubleshooting, and one-on-one help.</p>
+                        </div>
+                    </article>
+
+                    <article class="about-exhibition">
+                        <span class="about-exhibition-year">Grounding</span>
+                        <div>
+                            <h3>Built between making and sharing</h3>
+                            <p>The studio practice and the classes feed each other, keeping the work functional, practical, and close to real use.</p>
+                        </div>
+                    </article>
+                </section>
+            </section>
+        </section>
+    </main>
+
+    <section class="about-studio-band">
+        <div class="about-studio-grid">
+            <div class="about-studio-copy">
+                <span class="about-section-label">In the studio</span>
+                <h2>Observe the process behind the porcelain.</h2>
+                <p>The studio is where wheel habits, glaze testing, and slower formal decisions start to settle into finished work. If you want to see that process in person, the classes page is the best place to begin.</p>
+                <a class="about-studio-button" href="classes.html">Browse Classes</a>
+            </div>
+
+            <div class="about-studio-visual">
+                <img src="images/IMG_0803.JPEG" alt="Hands working with clay in the studio">
+                <div class="about-studio-note">
+                    <p>Studio session: wheel-thrown forms, trimming rhythm, and quieter surface decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <span class="footer-item">Taringa, Brisbane</span>
+                <a href="mailto:swan1995@gmail.com" class="footer-item">swan1995@gmail.com</a>
+                <a href="tel:0478756284" class="footer-item">0478 756 284</a>
+                <a href="https://instagram.com/bodhiswan" target="_blank" rel="noopener" class="footer-item">@bodhiswan</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Bodhi Swan",
+        "jobTitle": "Ceramic Artist",
+        "url": "https://bodhiswan.com/about.html",
+        "image": "https://bodhiswan.com/images/headshot%201.png",
+        "email": "mailto:swan1995@gmail.com",
+        "telephone": "+61478756284"
+    }
+    </script>
+</body>
+</html>

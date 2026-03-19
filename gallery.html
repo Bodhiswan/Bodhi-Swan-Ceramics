@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Favicon and App Icons -->
     <link rel="icon" type="image/png" href="images/logo.png" />
     <link rel="shortcut icon" href="images/logo.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png" />
@@ -12,66 +10,269 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <link rel="manifest" href="assets/icons/site.webmanifest" />
-    
-    <!-- Primary Meta Tags -->
     <title>Gallery — Bodhi Swan Ceramics</title>
-    <meta name="description" content="Browse our ceramic gallery featuring handcrafted pottery from Brisbane. Unique wheel-thrown bowls, vases, and functional stoneware by Bodhi Swan Ceramics.">
-    <meta name="keywords" content="ceramic gallery, pottery collection, Brisbane ceramics, handmade pottery, wheel thrown ceramics, stoneware, functional pottery, ceramic art">
+    <meta name="description" content="Browse handcrafted pottery and ceramic studio images by Bodhi Swan Ceramics in an editorial gallery layout.">
+    <meta name="keywords" content="ceramic gallery, pottery collection, Brisbane ceramics, handmade pottery, wheel thrown ceramics, stoneware, ceramic art">
     <meta name="author" content="Bodhi Swan Ceramics">
     <meta name="robots" content="index, follow">
-    
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://bodhiswan.com/gallery.html">
-    
-    <!-- CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.googletagmanager.com; connect-src 'self' https://firestore.googleapis.com https://securetoken.googleapis.com; style-src 'self' 'unsafe-inline';">
-    
-    <!-- Open Graph / Facebook -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.googletagmanager.com; connect-src 'self' https://firestore.googleapis.com https://securetoken.googleapis.com https://bodhiswanceramics.netlify.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:;">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Bodhi Swan Ceramics">
     <meta property="og:title" content="Gallery — Bodhi Swan Ceramics">
-    <meta property="og:description" content="Handcrafted ceramics and small, supportive wheel‑throwing classes in Brisbane.">
+    <meta property="og:description" content="Handcrafted ceramics and small, supportive wheel-throwing classes in Brisbane.">
     <meta property="og:url" content="https://bodhiswan.com/gallery.html">
     <meta property="og:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
-
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://bodhiswan.com/gallery.html">
     <meta name="twitter:title" content="Gallery — Bodhi Swan Ceramics">
-    <meta name="twitter:description" content="Handcrafted ceramics and small, supportive wheel‑throwing classes in Brisbane.">
+    <meta name="twitter:description" content="Handcrafted ceramics and small, supportive wheel-throwing classes in Brisbane.">
     <meta name="twitter:image" content="https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg">
-    
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="sitemap" href="/sitemap.xml">
-    
-    <!-- Scripts -->
+    <style>
+        body {
+            background: #fbf9f6;
+        }
+
+        .gallery-shell {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .gallery-intro {
+            padding: 7rem 0 2.5rem;
+            max-width: 760px;
+        }
+
+        .gallery-kicker {
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(17, 17, 17, 0.56);
+        }
+
+        .gallery-intro h1 {
+            font-family: 'Noto Serif', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 0.95;
+            letter-spacing: -0.05em;
+            margin-bottom: 0.9rem;
+        }
+
+        .gallery-intro p {
+            color: rgba(17, 17, 17, 0.72);
+            font-size: 1.04rem;
+            margin-bottom: 0;
+        }
+
+        .gallery-curated {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(244, 240, 235, 0.92));
+            border: 1px solid rgba(17, 17, 17, 0.08);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 16px 32px rgba(17, 17, 17, 0.05);
+            cursor: pointer;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.9s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .gallery-card-copy {
+            padding: 1rem 1.1rem 1.2rem;
+        }
+
+        .gallery-card-copy h2 {
+            font-family: 'Noto Serif', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .gallery-card-copy p {
+            color: rgba(17, 17, 17, 0.68);
+            margin-bottom: 0;
+        }
+
+        .gallery-card-tall {
+            aspect-ratio: 4 / 5;
+        }
+
+        .gallery-card-square {
+            aspect-ratio: 1 / 1;
+        }
+
+        .gallery-card-wide {
+            aspect-ratio: 16 / 10;
+        }
+
+        .gallery-archive-intro {
+            display: flex;
+            justify-content: space-between;
+            gap: 1.5rem;
+            align-items: end;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-archive-intro h2 {
+            font-family: 'Noto Serif', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 0;
+        }
+
+        .gallery-archive-intro p {
+            max-width: 34rem;
+            color: rgba(17, 17, 17, 0.68);
+            margin-bottom: 0;
+        }
+
+        .gallery-archive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0.9rem;
+        }
+
+        .gallery-archive-item {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #efeae1;
+            cursor: pointer;
+        }
+
+        .gallery-archive-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.8s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .gallery-archive-item:hover img {
+            transform: scale(1.05);
+        }
+
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 10, 10, 0.92);
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        #lightbox-close,
+        #lightbox-prev,
+        #lightbox-next {
+            position: absolute;
+            color: white;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        #lightbox-close {
+            top: 18px;
+            right: 24px;
+            font-size: 2rem;
+        }
+
+        #lightbox-prev,
+        #lightbox-next {
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            width: 54px;
+            height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 999px;
+        }
+
+        #lightbox-prev {
+            left: 24px;
+        }
+
+        #lightbox-next {
+            right: 24px;
+        }
+
+        #lightbox-img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 94%;
+            max-height: 92%;
+            object-fit: contain;
+        }
+
+        @media (min-width: 920px) {
+            .gallery-curated {
+                grid-template-columns: repeat(12, minmax(0, 1fr));
+            }
+
+            .gallery-curated .gallery-card:nth-child(1) {
+                grid-column: span 7;
+            }
+
+            .gallery-curated .gallery-card:nth-child(2) {
+                grid-column: span 5;
+                transform: translateY(3rem);
+            }
+
+            .gallery-curated .gallery-card:nth-child(3) {
+                grid-column: span 4;
+            }
+
+            .gallery-curated .gallery-card:nth-child(4) {
+                grid-column: span 8;
+            }
+        }
+
+        @media (max-width: 919px) {
+            .gallery-archive-intro {
+                display: grid;
+            }
+        }
+    </style>
     <script defer src="assets/js/app.js"></script>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
             <a href="/" class="nav-brand" aria-label="Bodhi Swan Ceramics home">
                 <img src="images/logo.png" alt="Bodhi Swan Ceramics" class="nav-logo-img">
                 <span class="nav-logo-text">Bodhi Swan</span>
             </a>
-            
             <ul class="nav-menu">
                 <li><a href="/" class="nav-link">Home</a></li>
                 <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
                 <li><a href="classes.html" class="nav-link">Classes</a></li>
-                <li><a href="calendar.html" class="nav-link">Calendar</a></li>
-                <li><a href="shop.html" class="nav-link">Shop</a></li>
-                <li><a href="blog.html" class="nav-link">Blog</a></li>
-                <li><a href="faq.html" class="nav-link">FAQ</a></li>
             </ul>
-            
             <button class="nav-toggle" aria-label="Toggle navigation menu">
                 <span></span>
                 <span></span>
@@ -80,487 +281,107 @@
         </div>
     </nav>
 
-    <!-- Mobile Navigation -->
     <div class="nav-mobile">
         <ul class="nav-mobile-menu">
             <li><a href="/">Home</a></li>
             <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="classes.html">Classes</a></li>
-            <li><a href="calendar.html">Calendar</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="faq.html">FAQ</a></li>
         </ul>
     </div>
 
-    <!-- Skip Link -->
     <a class="sr-only" href="#main">Skip to content</a>
 
-    <!-- Gallery Grid -->
-    <section class="section pottery-accent" id="main">
-        <div class="container">
-            <!-- Square grid with minimal spacing -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.5rem; grid-auto-rows: auto;">
-                
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg"
-                         alt="Handcrafted ceramic bowl with unique glaze pattern"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
+    <section class="section" id="main">
+        <div class="container gallery-shell">
+            <div class="gallery-intro">
+                <span class="gallery-kicker">Studio archive</span>
+                <h1>Finished pieces, close surfaces, and the quieter moments around them.</h1>
+                <p>The gallery now opens with a more curated view before dropping into the wider archive. Click any image to open it larger.</p>
+            </div>
 
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/bodhiswan_348471159_3630382333858035_296460734488849167_n.jpg"
-                         alt="Contemporary ceramic vase with minimalist design"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
+            <div class="gallery-curated">
+                <article class="gallery-card" data-gallery-image>
+                    <div class="gallery-card-tall">
+                        <img src="images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg" alt="Handcrafted ceramic bowl with unique glaze pattern">
+                    </div>
+                    <div class="gallery-card-copy">
+                        <h2>Quiet glaze study</h2>
+                        <p>A softer introduction to the work through surface, curve, and restraint.</p>
+                    </div>
+                </article>
 
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/bodhiswan_348863468_1167309003909433_5762684848837982962_n.jpg"
-                         alt="Artisanal pottery piece showcasing traditional techniques"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
+                <article class="gallery-card" data-gallery-image>
+                    <div class="gallery-card-square">
+                        <img src="images/bodhiswan_348471159_3630382333858035_296460734488849167_n.jpg" alt="Contemporary ceramic vase with minimalist design">
+                    </div>
+                    <div class="gallery-card-copy">
+                        <h2>Vertical form</h2>
+                        <p>Clean silhouette, quiet surface, and a more sculptural profile.</p>
+                    </div>
+                </article>
 
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/bodhiswan_349131030_7008228542527475_7205180136632410620_n.jpg"
-                         alt="Modern ceramic creation with distinctive finish"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
+                <article class="gallery-card" data-gallery-image>
+                    <div class="gallery-card-square">
+                        <img src="images/IMG_0803.JPEG" alt="Wheel-thrown bowl in warm light">
+                    </div>
+                    <div class="gallery-card-copy">
+                        <h2>Wheel-thrown bowl</h2>
+                        <p>A close look at proportion and the slight movement left in the rim.</p>
+                    </div>
+                </article>
 
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/348982356_573566748281355_5155277251296915931_n.jpg"
-                         alt="Instagram photo of a finished ceramic piece with a soft natural finish"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
+                <article class="gallery-card" data-gallery-image>
+                    <div class="gallery-card-wide">
+                        <img src="images/IMG_3892.JPG" alt="Large hand-thrown vessel with warm natural finish">
+                    </div>
+                    <div class="gallery-card-copy">
+                        <h2>Serving vessel</h2>
+                        <p>Larger stoneware work with a warmer, grounded finish and more volume in the body.</p>
+                    </div>
+                </article>
+            </div>
 
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/IMG_0039.JPG"
-                         alt="Handcrafted ceramic piece in natural lighting"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
+            <div class="gallery-archive-intro">
+                <h2>Full Archive</h2>
+                <p>The archive keeps the rest of the studio and finished-work images together in a simpler grid so the page still feels usable once you have a lot of pieces.</p>
+            </div>
 
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/IMG_0097.JPG"
-                         alt="Artisanal pottery with textured surface"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
-
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/IMG_0172.JPEG"
-                         alt="Contemporary ceramic bowl with unique form"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
-
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/IMG_0289.JPG"
-                         alt="Modern pottery piece with minimalist aesthetic"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
-
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/IMG_0640.JPEG"
-                         alt="Handthrown ceramic vessel with natural glaze"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
-
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/IMG_0799.JPEG"
-                         alt="Artistic ceramic creation with distinctive finish"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
-
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/IMG_0803.JPEG"
-                         alt="Functional ceramic piece with elegant design"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
-
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/IMG_0834.JPEG"
-                         alt="Handcrafted pottery with traditional techniques"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
-
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/IMG_0847.JPEG"
-                         alt="Modern ceramic bowl with artistic glaze pattern"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
-
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/IMG_0858.JPEG"
-                         alt="Contemporary pottery piece with textured surface"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
-
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/IMG_0967.JPG"
-                         alt="Artisanal ceramic creation with unique form"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
-
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/IMG_1024.JPG"
-                         alt="Handthrown pottery with natural clay finish"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
-
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/IMG_1044.JPG"
-                         alt="Modern ceramic vessel with minimalist design"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
-
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/IMG_1126.JPG"
-                         alt="Elegant pottery piece with artistic glazing"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
-
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/IMG_1498.JPG"
-                         alt="Handcrafted ceramic bowl with distinctive texture"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
-
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/IMG_1598.JPG"
-                         alt="Contemporary ceramic creation with organic form"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
-
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/IMG_3409.JPG"
-                         alt="Artisanal pottery with traditional wheel throwing"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
-
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/IMG_3477.JPG"
-                         alt="Modern ceramic piece with unique glaze finish"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
-
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/IMG_3791.JPG"
-                         alt="Functional pottery with elegant proportions"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
-
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/IMG_3837.JPG"
-                         alt="Handthrown ceramic vessel with natural beauty"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
-
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/IMG_3892.JPG"
-                         alt="Contemporary ceramic art with distinctive style"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
-
-                <div class="gallery-item" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer;">
-                    <img src="images/IMG_6847.JPEG"
-                         alt="Artistic pottery piece with modern aesthetic"
-                         width="640" height="640"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
-                         sizes="(min-width: 900px) 300px, (min-width: 600px) 50vw, 100vw"
-                         loading="lazy">
-                </div>
-
+            <div class="gallery-archive-grid">
+                <div class="gallery-archive-item" data-gallery-image><img src="images/bodhiswan_348863468_1167309003909433_5762684848837982962_n.jpg" alt="Artisanal pottery piece showcasing traditional techniques"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/bodhiswan_349131030_7008228542527475_7205180136632410620_n.jpg" alt="Modern ceramic creation with distinctive finish"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/348982356_573566748281355_5155277251296915931_n.jpg" alt="Finished ceramic piece with a soft natural finish"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/IMG_0039.JPG" alt="Handcrafted ceramic piece in natural lighting"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/IMG_0097.JPG" alt="Artisanal pottery with textured surface"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/IMG_0172.JPEG" alt="Contemporary ceramic bowl with unique form"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/IMG_0289.JPG" alt="Modern pottery piece with minimalist aesthetic"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/IMG_0640.JPEG" alt="Handthrown ceramic vessel with natural glaze"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/IMG_0799.JPEG" alt="Artistic ceramic creation with distinctive finish"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/IMG_0834.JPEG" alt="Handcrafted pottery with traditional techniques"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/IMG_0847.JPEG" alt="Modern ceramic bowl with artistic glaze pattern"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/IMG_0858.JPEG" alt="Contemporary pottery piece with textured surface"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/IMG_0967.JPG" alt="Artisanal ceramic creation with unique form"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/IMG_1024.JPG" alt="Handthrown pottery with natural clay finish"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/IMG_1044.JPG" alt="Modern ceramic vessel with minimalist design"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/IMG_1126.JPG" alt="Elegant pottery piece with artistic glazing"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/IMG_1498.JPG" alt="Handcrafted ceramic bowl with distinctive texture"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/IMG_1598.JPG" alt="Contemporary ceramic creation with organic form"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/IMG_3409.JPG" alt="Artisanal pottery with traditional wheel throwing"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/IMG_3477.JPG" alt="Modern ceramic piece with unique glaze finish"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/IMG_3791.JPG" alt="Functional pottery with elegant proportions"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/IMG_3837.JPG" alt="Handthrown ceramic vessel with natural beauty"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/IMG_6847.JPEG" alt="Artistic pottery piece with modern aesthetic"></div>
             </div>
         </div>
     </section>
 
-    <!-- Lightbox Modal -->
-    <div id="lightbox" style="
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.9);
-        z-index: 9999;
-        cursor: pointer;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    ">
-        <div style="
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            user-select: none;
-            z-index: 10000;
-        " id="lightbox-close">&times;</div>
-        
-        <img id="lightbox-img" style="
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 95%;
-            max-height: 95%;
-            object-fit: contain;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-        " alt="">
-        
-        <!-- Navigation arrows -->
-        <div id="lightbox-prev" style="
-            position: absolute;
-            left: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            user-select: none;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 50%;
-            transition: background 0.3s ease;
-        ">‹</div>
-        
-        <div id="lightbox-next" style="
-            position: absolute;
-            right: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            user-select: none;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 50%;
-            transition: background 0.3s ease;
-        ">›</div>
+    <div id="lightbox">
+        <div id="lightbox-close">&times;</div>
+        <img id="lightbox-img" alt="">
+        <div id="lightbox-prev">‹</div>
+        <div id="lightbox-next">›</div>
     </div>
 
-    <!-- Gallery Styles and JavaScript -->
-    <style>
-        /* Hover effects for gallery items */
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-        
-        .gallery-item::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0);
-            transition: background 0.3s ease;
-            pointer-events: none;
-        }
-        
-        .gallery-item:hover::after {
-            background: rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Lightbox hover effects */
-        #lightbox-prev:hover,
-        #lightbox-next:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-        
-        #lightbox-close:hover {
-            opacity: 0.8;
-        }
-        
-        /* Mobile responsive */
-        @media (max-width: 768px) {
-            #lightbox-prev,
-            #lightbox-next {
-                font-size: 1.5rem;
-                padding: 8px;
-            }
-            
-            #lightbox-close {
-                font-size: 1.5rem;
-                top: 15px;
-                right: 20px;
-            }
-        }
-    </style>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            const lightboxClose = document.getElementById('lightbox-close');
-            const lightboxPrev = document.getElementById('lightbox-prev');
-            const lightboxNext = document.getElementById('lightbox-next');
-            
-            let currentImageIndex = 0;
-            const imageData = [];
-            
-            // Collect all image data
-            galleryItems.forEach((item, index) => {
-                const img = item.querySelector('img');
-                imageData.push({
-                    src: img.src,
-                    alt: img.alt
-                });
-                
-                // Add click handler to each gallery item
-                item.addEventListener('click', () => {
-                    currentImageIndex = index;
-                    openLightbox();
-                });
-            });
-            
-            function openLightbox() {
-                const imageData_current = imageData[currentImageIndex];
-                lightboxImg.src = imageData_current.src;
-                lightboxImg.alt = imageData_current.alt;
-                
-                lightbox.style.display = 'block';
-                // Force reflow then fade in
-                lightbox.offsetHeight;
-                lightbox.style.opacity = '1';
-                
-                // Prevent body scroll
-                document.body.style.overflow = 'hidden';
-            }
-            
-            function closeLightbox() {
-                lightbox.style.opacity = '0';
-                setTimeout(() => {
-                    lightbox.style.display = 'none';
-                    document.body.style.overflow = '';
-                }, 300);
-            }
-            
-            function nextImage() {
-                currentImageIndex = (currentImageIndex + 1) % imageData.length;
-                const imageData_current = imageData[currentImageIndex];
-                lightboxImg.src = imageData_current.src;
-                lightboxImg.alt = imageData_current.alt;
-            }
-            
-            function prevImage() {
-                currentImageIndex = (currentImageIndex - 1 + imageData.length) % imageData.length;
-                const imageData_current = imageData[currentImageIndex];
-                lightboxImg.src = imageData_current.src;
-                lightboxImg.alt = imageData_current.alt;
-            }
-            
-            // Event listeners
-            lightboxClose.addEventListener('click', closeLightbox);
-            lightboxNext.addEventListener('click', nextImage);
-            lightboxPrev.addEventListener('click', prevImage);
-            
-            // Close on background click
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) {
-                    closeLightbox();
-                }
-            });
-            
-            // Keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                if (lightbox.style.display === 'block') {
-                    switch(e.key) {
-                        case 'Escape':
-                            closeLightbox();
-                            break;
-                        case 'ArrowRight':
-                            nextImage();
-                            break;
-                        case 'ArrowLeft':
-                            prevImage();
-                            break;
-                    }
-                }
-            });
-        });
-    </script>
-
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-info">
@@ -572,7 +393,89 @@
         </div>
     </footer>
 
-    <!-- Schema Markup -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryItems = Array.from(document.querySelectorAll('[data-gallery-image]'));
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const lightboxPrev = document.getElementById('lightbox-prev');
+            const lightboxNext = document.getElementById('lightbox-next');
+
+            let currentImageIndex = 0;
+            const imageData = galleryItems.map((item) => {
+                const image = item.querySelector('img');
+                return {
+                    src: image.src,
+                    alt: image.alt
+                };
+            });
+
+            function openLightbox(index) {
+                currentImageIndex = index;
+                const current = imageData[currentImageIndex];
+                lightboxImg.src = current.src;
+                lightboxImg.alt = current.alt;
+                lightbox.style.display = 'block';
+                lightbox.offsetHeight;
+                lightbox.style.opacity = '1';
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.style.opacity = '0';
+                setTimeout(() => {
+                    lightbox.style.display = 'none';
+                    document.body.style.overflow = '';
+                }, 250);
+            }
+
+            function nextImage() {
+                currentImageIndex = (currentImageIndex + 1) % imageData.length;
+                lightboxImg.src = imageData[currentImageIndex].src;
+                lightboxImg.alt = imageData[currentImageIndex].alt;
+            }
+
+            function prevImage() {
+                currentImageIndex = (currentImageIndex - 1 + imageData.length) % imageData.length;
+                lightboxImg.src = imageData[currentImageIndex].src;
+                lightboxImg.alt = imageData[currentImageIndex].alt;
+            }
+
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', () => openLightbox(index));
+            });
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightboxNext.addEventListener('click', nextImage);
+            lightboxPrev.addEventListener('click', prevImage);
+
+            lightbox.addEventListener('click', (event) => {
+                if (event.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (lightbox.style.display !== 'block') {
+                    return;
+                }
+
+                if (event.key === 'Escape') {
+                    closeLightbox();
+                }
+
+                if (event.key === 'ArrowRight') {
+                    nextImage();
+                }
+
+                if (event.key === 'ArrowLeft') {
+                    prevImage();
+                }
+            });
+        });
+    </script>
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -583,36 +486,7 @@
             "@type": "Person",
             "name": "Bodhi Swan",
             "url": "https://bodhiswan.com"
-        },
-        "image": [
-            "https://bodhiswan.com/images/bodhiswan_348455879_578736824387942_7902606742957668195_n.jpg",
-            "https://bodhiswan.com/images/bodhiswan_348471159_3630382333858035_296460734488849167_n.jpg",
-            "https://bodhiswan.com/images/bodhiswan_348863468_1167309003909433_5762684848837982962_n.jpg",
-            "https://bodhiswan.com/images/bodhiswan_349131030_7008228542527475_7205180136632410620_n.jpg",
-            "https://bodhiswan.com/images/348982356_573566748281355_5155277251296915931_n.jpg",
-            "https://bodhiswan.com/images/IMG_0039.JPG",
-            "https://bodhiswan.com/images/IMG_0097.JPG",
-            "https://bodhiswan.com/images/IMG_0172.JPEG",
-            "https://bodhiswan.com/images/IMG_0289.JPG",
-            "https://bodhiswan.com/images/IMG_0640.JPEG",
-            "https://bodhiswan.com/images/IMG_0799.JPEG",
-            "https://bodhiswan.com/images/IMG_0803.JPEG",
-            "https://bodhiswan.com/images/IMG_0834.JPEG",
-            "https://bodhiswan.com/images/IMG_0847.JPEG",
-            "https://bodhiswan.com/images/IMG_0858.JPEG",
-            "https://bodhiswan.com/images/IMG_0967.JPG",
-            "https://bodhiswan.com/images/IMG_1024.JPG",
-            "https://bodhiswan.com/images/IMG_1044.JPG",
-            "https://bodhiswan.com/images/IMG_1126.JPG",
-            "https://bodhiswan.com/images/IMG_1498.JPG",
-            "https://bodhiswan.com/images/IMG_1598.JPG",
-            "https://bodhiswan.com/images/IMG_3409.JPG",
-            "https://bodhiswan.com/images/IMG_3477.JPG",
-            "https://bodhiswan.com/images/IMG_3791.JPG",
-            "https://bodhiswan.com/images/IMG_3837.JPG",
-            "https://bodhiswan.com/images/IMG_3892.JPG",
-            "https://bodhiswan.com/images/IMG_6847.JPEG"
-        ]
+        }
     }
     </script>
 </body>
