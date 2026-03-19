@@ -22,12 +22,12 @@
     <meta property="og:title" content="Pottery in Brisbane — Bodhi Swan Ceramics">
     <meta property="og:description" content="Handcrafted ceramics and small, supportive wheel-throwing classes in Brisbane.">
     <meta property="og:url" content="https://bodhiswan.com/">
-    <meta property="og:image" content="https://bodhiswan.com/images/IMG_3892.JPG">
+    <meta property="og:image" content="https://bodhiswan.com/images/pottery-done/nice-bowl.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://bodhiswan.com/">
     <meta name="twitter:title" content="Pottery in Brisbane — Bodhi Swan Ceramics">
     <meta name="twitter:description" content="Handcrafted ceramics and small, supportive wheel-throwing classes in Brisbane.">
-    <meta name="twitter:image" content="https://bodhiswan.com/images/IMG_3892.JPG">
+    <meta name="twitter:image" content="https://bodhiswan.com/images/pottery-done/nice-bowl.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -35,44 +35,44 @@
     <link rel="sitemap" href="/sitemap.xml">
     <style>
         body {
-            background: #fbf9f6;
+            background: #fbf9f8;
         }
 
         .editorial-kicker {
             display: inline-block;
             margin-bottom: 1.1rem;
-            font-size: 0.72rem;
-            letter-spacing: 0.24em;
+            font-size: 0.68rem;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
-            color: rgba(17, 17, 17, 0.55);
+            color: rgba(30, 30, 30, 0.48);
         }
 
         .home-shell {
-            max-width: 1280px;
+            max-width: 1440px;
             margin: 0 auto;
         }
 
         .home-hero {
-            padding: 7.5rem 0 3rem;
+            padding: 6.4rem 0 2.8rem;
         }
 
         .home-hero-grid {
             display: grid;
-            gap: 2rem;
-            align-items: end;
+            gap: 2.25rem;
+            align-items: start;
         }
 
         .home-hero-copy h1 {
-            font-family: 'Noto Serif', serif;
-            font-size: clamp(3.7rem, 9vw, 7.6rem);
-            line-height: 0.93;
+            font-family: 'Crimson Text', serif;
+            font-size: clamp(3.4rem, 8vw, 6.5rem);
+            line-height: 0.92;
             letter-spacing: -0.05em;
             margin-bottom: 1.25rem;
         }
 
         .home-hero-copy p {
             max-width: 38rem;
-            color: rgba(17, 17, 17, 0.72);
+            color: rgba(30, 30, 30, 0.68);
             font-size: 1.05rem;
         }
 
@@ -88,19 +88,16 @@
         }
 
         .home-hero-visual {
-            position: relative;
-            min-height: 540px;
             display: grid;
             grid-template-columns: 1.15fr 0.85fr;
             gap: 1rem;
+            align-items: start;
         }
 
         .home-hero-card,
         .home-detail-card {
-            border-radius: 28px;
             overflow: hidden;
-            background: #efeae1;
-            box-shadow: 0 18px 40px rgba(31, 24, 18, 0.08);
+            background: #eae8e7;
         }
 
         .home-hero-card img,
@@ -126,28 +123,25 @@
         }
 
         .home-floating-note {
-            position: absolute;
-            left: -1.25rem;
-            bottom: 2rem;
-            max-width: 250px;
-            padding: 1.2rem 1.25rem;
-            background: rgba(251, 249, 246, 0.88);
+            grid-column: 1 / -1;
+            max-width: 340px;
+            padding: 1rem 0 0;
+            background: transparent;
             border: 1px solid rgba(17, 17, 17, 0.08);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 14px 30px rgba(17, 17, 17, 0.08);
+            border-width: 1px 0 0;
         }
 
         .home-floating-note strong {
             display: block;
             margin-bottom: 0.4rem;
-            font-size: 0.74rem;
+            font-size: 0.68rem;
             letter-spacing: 0.18em;
             text-transform: uppercase;
         }
 
         .home-floating-note p {
             margin: 0;
-            color: rgba(17, 17, 17, 0.72);
+            color: rgba(30, 30, 30, 0.68);
             font-size: 0.92rem;
         }
 
@@ -157,15 +151,13 @@
 
         .home-feature-grid {
             display: grid;
-            gap: 1.25rem;
+            gap: 2rem;
         }
 
         .home-feature-card {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(244, 240, 235, 0.9));
-            border: 1px solid rgba(17, 17, 17, 0.07);
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 16px 30px rgba(17, 17, 17, 0.05);
+            background: transparent;
+            border-top: 1px solid rgba(30, 30, 30, 0.08);
+            padding-top: 1rem;
         }
 
         .home-feature-card img {
@@ -174,16 +166,17 @@
             min-height: 320px;
             object-fit: cover;
             display: block;
+            background: #eae8e7;
         }
 
         .home-feature-copy {
-            padding: 1.5rem;
+            padding: 1rem 0 0;
         }
 
         .home-feature-copy h2,
         .home-about-copy h2,
         .home-cta-copy h2 {
-            font-family: 'Noto Serif', serif;
+            font-family: 'Crimson Text', serif;
             font-size: clamp(2rem, 4vw, 3.3rem);
             letter-spacing: -0.04em;
             margin-bottom: 0.7rem;
@@ -193,8 +186,8 @@
             display: flex;
             justify-content: space-between;
             gap: 1rem;
-            color: rgba(17, 17, 17, 0.56);
-            font-size: 0.78rem;
+            color: rgba(30, 30, 30, 0.5);
+            font-size: 0.68rem;
             letter-spacing: 0.16em;
             text-transform: uppercase;
         }
@@ -208,20 +201,17 @@
 
         .home-about-grid {
             display: grid;
-            gap: 1.6rem;
+            gap: 2.5rem;
             align-items: center;
         }
 
         .home-about-image {
             background: #ede7dd;
-            border-radius: 30px;
-            padding: 1rem;
         }
 
         .home-about-image img {
             width: 100%;
             display: block;
-            border-radius: 22px;
             aspect-ratio: 4 / 5;
             object-fit: cover;
         }
@@ -255,31 +245,27 @@
         }
 
         .home-cta-panel {
-            background: linear-gradient(180deg, #f0ebe4 0%, #e7e1d8 100%);
+            background: #eae8e7;
             border: 1px solid rgba(17, 17, 17, 0.08);
-            border-radius: 32px;
-            padding: 2rem;
+            padding: 2.25rem;
             display: grid;
-            gap: 1.4rem;
+            gap: 2rem;
             align-items: start;
         }
 
         .home-cta-links {
             display: grid;
-            gap: 1rem;
+            gap: 0;
         }
 
         .home-cta-link {
-            padding: 1.15rem 1.2rem;
-            border-radius: 18px;
-            background: rgba(255, 255, 255, 0.52);
-            border: 1px solid rgba(17, 17, 17, 0.08);
-            transition: transform var(--transition), background var(--transition);
+            padding: 1rem 0;
+            border-top: 1px solid rgba(17, 17, 17, 0.08);
+            transition: opacity var(--transition);
         }
 
         .home-cta-link:hover {
-            transform: translateY(-2px);
-            background: rgba(255, 255, 255, 0.78);
+            opacity: 0.72;
         }
 
         .home-cta-link strong {
@@ -289,24 +275,23 @@
         }
 
         .home-cta-link span {
-            color: rgba(17, 17, 17, 0.68);
+            color: rgba(30, 30, 30, 0.68);
             font-size: 0.96rem;
         }
 
         @media (min-width: 900px) {
-            .home-hero-grid,
+            .home-hero-grid {
+                grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+            }
+
             .home-about-grid,
             .home-cta-panel {
                 grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
             }
 
             .home-feature-grid {
-                grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-                align-items: end;
-            }
-
-            .home-feature-grid .home-feature-card:last-child {
-                transform: translateY(3rem);
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                align-items: start;
             }
 
             .home-about-copy {
@@ -320,17 +305,14 @@
 
         @media (max-width: 899px) {
             .home-hero {
-                padding-top: 6rem;
+                padding-top: 5.4rem;
             }
 
             .home-hero-visual {
-                min-height: auto;
                 grid-template-columns: 1fr;
             }
 
             .home-floating-note {
-                position: static;
-                margin-top: 1rem;
                 max-width: none;
             }
 
@@ -378,8 +360,8 @@
             <div class="home-hero-grid">
                 <div class="home-hero-copy">
                     <span class="editorial-kicker">Brisbane ceramic artist</span>
-                    <h1>Quiet forms, wheel-thrown with patience.</h1>
-                    <p>Bodhi Swan makes one-off ceramic work and teaches small, supportive pottery classes in Brisbane. The studio practice sits between useful objects, careful surfaces, and slower handmade rhythm.</p>
+                    <h1>Wheel-thrown ceramics made in Brisbane.</h1>
+                    <p>Bodhi Swan makes one-off ceramic pieces and teaches small pottery classes in Brisbane. The work is mostly functional stoneware, with a focus on shape, glaze, and everyday use.</p>
                     <div class="home-hero-actions">
                         <a href="gallery.html" class="btn-primary">View Gallery</a>
                         <a href="classes.html#calendar-section" class="btn-secondary">Book a Class</a>
@@ -388,19 +370,19 @@
 
                 <div class="home-hero-visual">
                     <div class="home-hero-card">
-                        <img src="images/IMG_3892.JPG" alt="Ceramic serving vessel by Bodhi Swan">
+                        <img src="images/pottery-done/nice-bowl.png" alt="Wheel-thrown stoneware bowl by Bodhi Swan">
                     </div>
                     <div class="home-hero-stack">
                         <div class="home-detail-card">
-                            <img src="images/cup1.png" alt="Large stoneware mug with green satin glaze">
+                            <img src="images/pottery-done/green-mug.png" alt="Green satin glaze stoneware mug">
                         </div>
                         <div class="home-detail-card">
-                            <img src="images/IMG_1498.JPG" alt="Stoneware bowl by Bodhi Swan">
+                            <img src="images/pottery-done/bowl-colourful.png" alt="Colourful glazed stoneware bowl">
                         </div>
                     </div>
                     <div class="home-floating-note">
                         <strong>Current focus</strong>
-                        <p>Stoneware forms, oxide washes, and quietly glazed functional work made for everyday use.</p>
+                        <p>Stoneware bowls, mugs, cups, and other functional pieces.</p>
                     </div>
                 </div>
             </div>
@@ -409,19 +391,19 @@
         <section class="home-section">
             <div class="home-feature-grid">
                 <article class="home-feature-card">
-                    <img src="images/IMG_0834.JPEG" alt="Pottery detail in warm studio light">
+                    <img src="images/pottery-done/flower-cup.png" alt="Cup with floral surface detailing">
                     <div class="home-feature-copy">
                         <div class="home-feature-meta">
                             <span>Featured work</span>
                             <span>Stoneware</span>
                         </div>
-                        <h2>Objects with a slower presence.</h2>
-                        <p>Each piece is shaped with restraint, leaving room for surface, weight, and use to carry the feeling rather than decoration doing all the work.</p>
+                        <h2>Functional studio work.</h2>
+                        <p>The pieces are made to be used, with attention to proportion, finish, and how they feel in the hand.</p>
                     </div>
                 </article>
 
                 <article class="home-feature-card">
-                    <img src="images/IMG_0803.JPEG" alt="Wheel-thrown ceramic bowl by Bodhi Swan">
+                    <img src="images/pottery-done/blue-chatter.png" alt="Bowl with blue chatter glaze effects">
                     <div class="home-feature-copy">
                         <div class="home-feature-meta">
                             <span>Studio note</span>
@@ -442,9 +424,9 @@
 
                 <div class="home-about-copy">
                     <span class="editorial-kicker">About Bodhi Swan</span>
-                    <h2>Teaching and making from a grounded studio practice.</h2>
+                    <h2>Making and teaching from a working studio.</h2>
                     <p>Bodhi Swan is a ceramic artist based in Brisbane, working out of Brisbane Ceramics and teaching at both Brisbane Ceramics in Milton and The Ceramic Studio in Indooroopilly.</p>
-                    <p>With five years in ceramics and a practice shaped by close studio learning, he is currently focused on stoneware forms and developing a distinct glazing language through oxide washes.</p>
+                    <p>He has been working in ceramics for five years and is currently focused on stoneware forms and glaze testing.</p>
 
                     <div class="home-about-facts">
                         <div>
@@ -469,21 +451,21 @@
                 <div class="home-cta-copy">
                     <span class="editorial-kicker">Explore more</span>
                     <h2>See the work, book a class, or browse available pieces.</h2>
-                    <p>The site now splits the experience clearly: the gallery for finished work, the calendar for bookings, and the shop for currently available ceramics.</p>
+                    <p>You can browse the work, read about the studio, or book a class from here.</p>
                 </div>
 
                 <div class="home-cta-links">
                     <a class="home-cta-link" href="gallery.html">
                         <strong>Gallery</strong>
-                        <span>Browse finished work and studio photographs.</span>
+                        <span>Browse finished pieces and recent studio photos.</span>
                     </a>
                     <a class="home-cta-link" href="about.html">
                         <strong>About</strong>
-                        <span>Read Bodhi's practice, studio background, and teaching approach.</span>
+                        <span>Read about Bodhi, the studio, and the teaching approach.</span>
                     </a>
                     <a class="home-cta-link" href="classes.html">
                         <strong>Classes</strong>
-                        <span>Read what to expect and jump into the booking section.</span>
+                        <span>See class information and open the booking section.</span>
                     </a>
                 </div>
             </div>
@@ -506,7 +488,7 @@
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Bodhi Swan Ceramics",
-        "image": "https://bodhiswan.com/images/IMG_3892.JPG",
+        "image": "https://bodhiswan.com/images/pottery-done/nice-bowl.png",
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "Indooroopilly",
