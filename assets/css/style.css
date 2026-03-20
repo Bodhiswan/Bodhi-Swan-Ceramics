@@ -659,6 +659,28 @@ input:focus-visible {
 
 /* Responsive FAQ styles */
 @media (max-width: 768px) {
+  .nav-container {
+    height: 74px;
+    padding: 0 1rem;
+  }
+
+  .nav-brand {
+    gap: 0.45rem;
+  }
+
+  .nav-logo-img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .nav-logo-text {
+    font-size: 1rem;
+  }
+
+  .nav-mobile {
+    top: 74px;
+  }
+
   .faq-question {
     font-size: 1.1rem;
     padding: var(--space-md) 0;
