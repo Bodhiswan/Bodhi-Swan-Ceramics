@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="Placeholder image of an exhibition room">
+  <rect width="1200" height="750" fill="#f2ede4"/>
+  <rect y="560" width="1200" height="190" fill="#e3dccd"/>
+  <rect x="180" y="380" width="150" height="200" fill="#faf7f1"/>
+  <rect x="180" y="570" width="150" height="12" fill="#d8d0bf"/>
+  <rect x="530" y="330" width="150" height="250" fill="#faf7f1"/>
+  <rect x="530" y="570" width="150" height="12" fill="#d8d0bf"/>
+  <rect x="880" y="410" width="150" height="170" fill="#faf7f1"/>
+  <rect x="880" y="570" width="150" height="12" fill="#d8d0bf"/>
+  <path d="M 235 380 C 235 350 230 344 230 330 C 230 308 280 308 280 330 C 280 344 275 350 275 380 Z" fill="#9e5435"/>
+  <path d="M 580 330 C 580 290 572 282 572 262 C 572 232 638 232 638 262 C 638 282 630 290 630 330 Z" fill="#5d6f93"/>
+  <path d="M 930 410 C 930 386 926 380 926 368 C 926 350 984 350 984 368 C 984 380 980 386 980 410 Z" fill="#84a182"/>
+</svg>

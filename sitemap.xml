@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://bodhiswan.com/</loc><lastmod>2026-03-20</lastmod></url>
-  <url><loc>https://bodhiswan.com/about.html</loc><lastmod>2026-03-20</lastmod></url>
-  <url><loc>https://bodhiswan.com/gallery.html</loc><lastmod>2026-03-20</lastmod></url>
-  <url><loc>https://bodhiswan.com/classes.html</loc><lastmod>2026-03-20</lastmod></url>
-  <url><loc>https://bodhiswan.com/calendar.html</loc><lastmod>2026-03-20</lastmod></url>
+  <url><loc>https://bodhiswan.com/</loc></url>
+  <url><loc>https://bodhiswan.com/gallery.html</loc></url>
+  <url><loc>https://bodhiswan.com/exhibitions.html</loc></url>
+  <url><loc>https://bodhiswan.com/shop.html</loc></url>
+  <url><loc>https://bodhiswan.com/about.html</loc></url>
 </urlset>

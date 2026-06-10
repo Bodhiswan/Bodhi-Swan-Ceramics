@@ -1,44 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Page not found — Bodhi Swan Ceramics</title>
-<meta name="robots" content="noindex, nofollow">
-<link rel="canonical" href="https://bodhiswan.com/404.html">
-<link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page not found — Bodhi Swan Ceramics</title>
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
-  <!-- header -->
-  <header class="container" role="banner">
-    <a class="sr-only" href="#main">Skip to content</a>
-    <nav aria-label="Primary" class="tile" style="display:flex;align-items:center;gap:var(--space-6);justify-content:space-between">
-      <a href="/" aria-label="Home"><img src="/images/logo.png" alt="Bodhi Swan Ceramics" style="height:36px"></a>
-      <ul style="display:flex;gap:var(--space-6);list-style:none;margin:0;padding:0">
-        <li><a href="/">Home</a></li>
-        <li><a href="/gallery.html">Gallery</a></li>
-        <li><a href="/classes.html">Classes</a></li>
-        <li><a href="/shop.html">Shop</a></li>
-        <li><a href="/blog.html">Blog</a></li>
-        <li><a href="/faq.html">FAQ</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a href="index.html" class="brand" aria-label="Bodhi Swan Ceramics home">
+                <span class="brand__name">Bodhi Swan</span>
+                <span class="brand__tag">Ceramics</span>
+            </a>
+            <nav class="site-nav" aria-label="Primary">
+                <a href="gallery.html">Gallery</a>
+                <a href="exhibitions.html">Exhibitions</a>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+            </nav>
+        </div>
+    </header>
 
-  <main id="main" class="container">
-    <div class="tile">
-      <h1>That page is still on the wheel</h1>
-      <p class="muted">We couldn't find that page. Try the <a href="/classes.html">Classes</a> page or visit the <a href="/">home page</a>.</p>
-    </div>
-  </main>
-
-  <!-- footer -->
-  <footer class="container" role="contentinfo" style="margin-top:var(--space-8)">
-    <div class="tile" style="display:grid;gap:var(--space-4)">
-      <p><strong>Studio:</strong> Indooroopilly, Brisbane • <a href="mailto:swan1995@gmail.com">swan1995@gmail.com</a> • <a href="tel:+61478756284">0478 756 284</a></p>
-      <p class="muted">© <span id="year"></span> Bodhi Swan Ceramics</p>
-    </div>
-    <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
-  </footer>
+    <main class="container error-page">
+        <div>
+            <span class="kicker">404</span>
+            <h1>This shelf is empty.</h1>
+            <p>The page you're after may have been moved, sold, or never thrown in the first place.</p>
+            <a class="btn" href="index.html">Back to the studio</a>
+        </div>
+    </main>
 </body>
 </html>

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <link rel="shortcut icon" href="images/logo.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png" />
+    <meta name="apple-mobile-web-app-title" content="Bodhi Swan" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="manifest" href="assets/icons/site.webmanifest" />
+    <title>Ceramic Gallery | Bodhi Swan Ceramics Brisbane</title>
+    <meta name="description" content="Browse recent bowls, mugs, cups, and studio pieces by Brisbane ceramic artist Bodhi Swan.">
+    <meta name="keywords" content="ceramic gallery, pottery collection, Brisbane ceramics, handmade pottery, wheel thrown ceramics, stoneware, ceramic art">
+    <meta name="author" content="Bodhi Swan Ceramics">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bodhiswan.com/gallery.html">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.googletagmanager.com; connect-src 'self' https://firestore.googleapis.com https://securetoken.googleapis.com https://bodhiswanceramics.netlify.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:;">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bodhi Swan Ceramics">
+    <meta property="og:title" content="Ceramic Gallery | Bodhi Swan Ceramics Brisbane">
+    <meta property="og:description" content="Browse recent bowls, mugs, cups, and studio pieces by Brisbane ceramic artist Bodhi Swan.">
+    <meta property="og:url" content="https://bodhiswan.com/gallery.html">
+    <meta property="og:image" content="https://bodhiswan.com/images/pottery-done/bowl-colourful.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://bodhiswan.com/gallery.html">
+    <meta name="twitter:title" content="Ceramic Gallery | Bodhi Swan Ceramics Brisbane">
+    <meta name="twitter:description" content="Browse recent bowls, mugs, cups, and studio pieces by Brisbane ceramic artist Bodhi Swan.">
+    <meta name="twitter:image" content="https://bodhiswan.com/images/pottery-done/bowl-colourful.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="sitemap" href="/sitemap.xml">
+    <style>
+        body {
+            background: #fbf9f8;
+        }
+
+        .gallery-shell {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .gallery-page {
+            padding-top: 4.5rem;
+        }
+
+        .gallery-intro {
+            padding: 0.35rem 0 1.85rem;
+            max-width: 880px;
+        }
+
+        .gallery-kicker {
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(17, 17, 17, 0.56);
+        }
+
+        .gallery-intro h1 {
+            font-family: 'Noto Serif', serif;
+            font-size: clamp(2.8rem, 6.7vw, 5.4rem);
+            line-height: 0.95;
+            letter-spacing: -0.05em;
+            margin-bottom: 0.9rem;
+        }
+
+        .gallery-intro p {
+            color: rgba(30, 30, 30, 0.68);
+            font-size: 1.04rem;
+            margin-bottom: 0;
+        }
+
+        .gallery-curated {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .gallery-card {
+            background: transparent;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            background: #eae8e7;
+            transition: transform 0.9s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .gallery-card-copy {
+            padding: 0.9rem 0 0;
+        }
+
+        .gallery-card-copy h2 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .gallery-card-copy p {
+            color: rgba(30, 30, 30, 0.68);
+            margin-bottom: 0;
+        }
+
+        .gallery-card-tall {
+            aspect-ratio: 4 / 5;
+        }
+
+        .gallery-card-square {
+            aspect-ratio: 1 / 1;
+        }
+
+        .gallery-card-wide {
+            aspect-ratio: 16 / 10;
+        }
+
+        .gallery-archive-intro {
+            display: flex;
+            justify-content: space-between;
+            gap: 1.5rem;
+            align-items: end;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-archive-intro h2 {
+            font-family: 'Noto Serif', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 0;
+        }
+
+        .gallery-archive-intro p {
+            max-width: 34rem;
+            color: rgba(17, 17, 17, 0.68);
+            margin-bottom: 0;
+        }
+
+        .gallery-archive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0.9rem;
+        }
+
+        .gallery-archive-item {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background: #eae8e7;
+            cursor: pointer;
+        }
+
+        .gallery-archive-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.8s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .gallery-archive-item:hover img {
+            transform: scale(1.05);
+        }
+
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 10, 10, 0.92);
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        #lightbox-close,
+        #lightbox-prev,
+        #lightbox-next {
+            position: absolute;
+            color: white;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        #lightbox-close {
+            top: 18px;
+            right: 24px;
+            font-size: 2rem;
+        }
+
+        #lightbox-prev,
+        #lightbox-next {
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            width: 54px;
+            height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        #lightbox-prev {
+            left: 24px;
+        }
+
+        #lightbox-next {
+            right: 24px;
+        }
+
+        #lightbox-img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 94%;
+            max-height: 92%;
+            object-fit: contain;
+        }
+
+        @media (min-width: 920px) {
+            .gallery-curated {
+                grid-template-columns: repeat(12, minmax(0, 1fr));
+            }
+
+            .gallery-curated .gallery-card:nth-child(1) {
+                grid-column: span 7;
+            }
+
+            .gallery-curated .gallery-card:nth-child(2) {
+                grid-column: span 5;
+            }
+
+            .gallery-curated .gallery-card:nth-child(3) {
+                grid-column: span 4;
+            }
+
+            .gallery-curated .gallery-card:nth-child(4) {
+                grid-column: span 8;
+            }
+        }
+
+        @media (max-width: 919px) {
+            .gallery-page {
+                padding-top: 2.4rem;
+                padding-bottom: 3.5rem;
+            }
+
+            .gallery-intro {
+                padding-bottom: 1.1rem;
+            }
+
+            .gallery-intro h1 {
+                font-size: clamp(2.25rem, 12vw, 3.35rem);
+                line-height: 0.98;
+            }
+
+            .gallery-curated {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 0.55rem;
+                margin-bottom: 1.35rem;
+            }
+
+            .gallery-card-copy {
+                display: none;
+            }
+
+            .gallery-card-tall,
+            .gallery-card-square,
+            .gallery-card-wide {
+                aspect-ratio: 1 / 1;
+            }
+
+            .gallery-archive-intro {
+                display: grid;
+            }
+        }
+    </style>
+    <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-brand" aria-label="Bodhi Swan Ceramics home">
+                <img src="images/logo.png" alt="Bodhi Swan Ceramics" class="nav-logo-img">
+                <span class="nav-logo-text">Bodhi Swan</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="classes.html" class="nav-link">Classes</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="nav-mobile">
+        <ul class="nav-mobile-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="classes.html">Classes</a></li>
+        </ul>
+    </div>
+
+    <a class="sr-only" href="#main">Skip to content</a>
+
+    <section class="section gallery-page" id="main">
+        <div class="container gallery-shell">
+            <div class="gallery-intro">
+                <span class="gallery-kicker">Studio archive</span>
+                <h1>Finished pieces and recent studio photos.</h1>
+                <p>Click any image to open it larger.</p>
+            </div>
+
+            <div class="gallery-curated">
+                <article class="gallery-card" data-gallery-image>
+                    <div class="gallery-card-tall">
+                        <img src="images/pottery-done/nice-bowl.png" alt="Wheel-thrown stoneware bowl with quiet glaze variation">
+                    </div>
+                    <div class="gallery-card-copy">
+                        <h2>Stoneware bowl</h2>
+                        <p>A larger bowl with a soft, varied glaze surface.</p>
+                    </div>
+                </article>
+
+                <article class="gallery-card" data-gallery-image>
+                    <div class="gallery-card-square">
+                        <img src="images/pottery-done/green-og-mug.png" alt="Stoneware mug with green floating satin glaze">
+                    </div>
+                    <div class="gallery-card-copy">
+                        <h2>Green mug</h2>
+                        <p>A mug with a brighter glaze and a more curved handle.</p>
+                    </div>
+                </article>
+
+                <article class="gallery-card" data-gallery-image>
+                    <div class="gallery-card-square">
+                        <img src="images/pottery-done/bowl-colourful.png" alt="Colourful glazed bowl with layered interior surface">
+                    </div>
+                    <div class="gallery-card-copy">
+                        <h2>Glazed bowl</h2>
+                        <p>A bowl with more movement in the interior glaze.</p>
+                    </div>
+                </article>
+
+                <article class="gallery-card" data-gallery-image>
+                    <div class="gallery-card-wide">
+                        <img src="images/pottery-done/raw-cup.png" alt="Raw cup with soft earthy glaze finish">
+                    </div>
+                    <div class="gallery-card-copy">
+                        <h2>Raw cup</h2>
+                        <p>A simple cup with a softer, earthy finish.</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="gallery-archive-intro">
+                <h2>Full Archive</h2>
+                <p>The rest of the recent images are collected below.</p>
+            </div>
+
+            <div class="gallery-archive-grid">
+                <div class="gallery-archive-item" data-gallery-image><img src="images/pottery-done/bowl-colourful.png" alt="Colourful glazed bowl"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/pottery-done/espresso.png" alt="Small espresso cup"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/pottery-done/green-mug.png" alt="Green satin glaze mug"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/pottery-done/green-og-mug.png" alt="Green mug with curved handle"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/pottery-done/nice-bowl.png" alt="Wheel-thrown bowl"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/pottery-done/raw-cup.png" alt="Raw cup with earthy glaze"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/pottery-done/small-bowl.png" alt="Small bowl"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/pottery-done/small-cup.png" alt="Small cup"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/pottery-done/untitled.png" alt="Stoneware vessel detail"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/pottery-done/flower-cup.png" alt="Flower cup"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/pottery-done/yukl.png" alt="Ceramic vessel from the latest studio set"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/pottery-done/blue-chatter.png" alt="Blue chatter glaze bowl"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/pottery-done/sake-1.png" alt="Sake cup one"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/pottery-done/sake-2.png" alt="Sake cup two"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/pottery-done/greem-ess.png" alt="Green espresso cup"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/pottery-done/card.png" alt="Card presentation image"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/pottery-done/cloack.png" alt="Latest studio ceramic piece"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/pottery-done/flower-mug.png" alt="Flower mug"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/pottery-done/heart-keep-cup.png" alt="Heart keep cup"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/pottery-done/supreme-matcha.png" alt="Supreme matcha bowl"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/pottery-done/keep-cup.png" alt="Keep cup"></div>
+                <div class="gallery-archive-item" data-gallery-image><img src="images/pottery-done/plant-pot-small.png" alt="Small plant pot"></div>
+            </div>
+        </div>
+    </section>
+
+    <div id="lightbox">
+        <div id="lightbox-close">&times;</div>
+        <img id="lightbox-img" alt="">
+        <div id="lightbox-prev">‹</div>
+        <div id="lightbox-next">›</div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <span class="footer-item">Taringa, Brisbane</span>
+                <a href="mailto:swan1995@gmail.com" class="footer-item">swan1995@gmail.com</a>
+                <a href="tel:0478756284" class="footer-item">0478 756 284</a>
+                <a href="https://instagram.com/bodhiswan" target="_blank" rel="noopener" class="footer-item">@bodhiswan</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryItems = Array.from(document.querySelectorAll('[data-gallery-image]'));
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const lightboxPrev = document.getElementById('lightbox-prev');
+            const lightboxNext = document.getElementById('lightbox-next');
+
+            let currentImageIndex = 0;
+            const imageData = galleryItems.map((item) => {
+                const image = item.querySelector('img');
+                return {
+                    src: image.src,
+                    alt: image.alt
+                };
+            });
+
+            function openLightbox(index) {
+                currentImageIndex = index;
+                const current = imageData[currentImageIndex];
+                lightboxImg.src = current.src;
+                lightboxImg.alt = current.alt;
+                lightbox.style.display = 'block';
+                lightbox.offsetHeight;
+                lightbox.style.opacity = '1';
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.style.opacity = '0';
+                setTimeout(() => {
+                    lightbox.style.display = 'none';
+                    document.body.style.overflow = '';
+                }, 250);
+            }
+
+            function nextImage() {
+                currentImageIndex = (currentImageIndex + 1) % imageData.length;
+                lightboxImg.src = imageData[currentImageIndex].src;
+                lightboxImg.alt = imageData[currentImageIndex].alt;
+            }
+
+            function prevImage() {
+                currentImageIndex = (currentImageIndex - 1 + imageData.length) % imageData.length;
+                lightboxImg.src = imageData[currentImageIndex].src;
+                lightboxImg.alt = imageData[currentImageIndex].alt;
+            }
+
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', () => openLightbox(index));
+            });
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightboxNext.addEventListener('click', nextImage);
+            lightboxPrev.addEventListener('click', prevImage);
+
+            lightbox.addEventListener('click', (event) => {
+                if (event.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (lightbox.style.display !== 'block') {
+                    return;
+                }
+
+                if (event.key === 'Escape') {
+                    closeLightbox();
+                }
+
+                if (event.key === 'ArrowRight') {
+                    nextImage();
+                }
+
+                if (event.key === 'ArrowLeft') {
+                    prevImage();
+                }
+            });
+        });
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ImageGallery",
+        "name": "Bodhi Swan Ceramics Gallery",
+        "description": "Ceramic gallery featuring handcrafted pottery from Brisbane. Unique wheel-thrown bowls, vases, and functional stoneware.",
+        "creator": {
+            "@type": "Person",
+            "name": "Bodhi Swan",
+            "url": "https://bodhiswan.com"
+        }
+    }
+    </script>
+</body>
+</html>
